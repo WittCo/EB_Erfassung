@@ -10,37 +10,40 @@ namespace WindowsFormsApp1
 {
     class DD_Sql
     {
-        public void ConnSQL()
+
+        SqlConnection cnn;
+        SqlDataAdapter adapt;
+        SqlCommand cmd;
+
+        public void ConnSQL(bool sqlconnState)
         {
             string connetionString;
-            SqlConnection cnn;
+           
             connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
             cnn = new SqlConnection(connetionString);
             cnn.Open();
 
             if (cnn.State == System.Data.ConnectionState.Open)
-            {             
-                MessageBox.Show("Connection Open  !");
-                cnn.Close();
+            {
+                sqlconnState = true;
             }
         }
 
-        /*
-        public void InsertSQLDatei()
+    
+        public void InsertSQLDatei(string EB_Numm, string IBC_Artnumm, string IBC_RestInh, string IBC_Sernum)
         {
-            SqlCommand cmd;
-            string connetionString;
-            SqlConnection cnn;
-            SqlDataAdapter adapt;
-            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
-            cnn = new SqlConnection(connetionString);
-
-            if (eB_NummerTextBox.Text != "" && iBC_ArtikelNummerTextBox.Text != "")
+           
+           // string connetionString;
+           // SqlConnection cnn;
+           
+            if (EB_Numm != "" && IBC_Artnumm != "" && IBC_RestInh != "" && IBC_Sernum !="")
             {
-                cmd = new SqlCommand("insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer) values(@EB_Nummer,@IBC_ArtikelNummer)", cnn);
+                cmd = new SqlCommand("insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer,IBC_Restinhalt,IBC_Seriennummer) values(@EB_Nummer,@IBC_ArtikelNummer,@IBC_Restinhalt)", cnn);
                 cnn.Open();
                 cmd.Parameters.AddWithValue("@EB_Nummer", eB_NummerTextBox.Text);
                 cmd.Parameters.AddWithValue("@IBC_ArtikelNummer", iBC_ArtikelNummerTextBox.Text);
+
+
                 cmd.ExecuteNonQuery();
                 cnn.Close();
                 MessageBox.Show("Record Inserted Successfully");
@@ -52,7 +55,7 @@ namespace WindowsFormsApp1
             }
 
         }
-
+    /*
         public void DisplaySQLDatai()
         {
             string connetionString;

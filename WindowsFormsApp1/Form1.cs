@@ -1577,9 +1577,7 @@ namespace WindowsFormsApp1
         private void button10_Click(object sender, EventArgs e)
         {
 
-
             CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/&Launcher.exe -exe AlphaplanSchnittstellen.exe -job 8483bestellungenimport.als");
-
             Refresch_XML();
         }
 
@@ -1602,7 +1600,7 @@ namespace WindowsFormsApp1
 
         private void button11_Click(object sender, EventArgs e)
         {
-            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/& AlphaplanSchnittstellen.exe -run DatenBereitstellung -set //Aw-ap2019/interface/VISION/Alphaplan Export Datai/BelegePositionen.apsdb");
+            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/&Launcher.exe -exe AlphaplanSchnittstellen.exe -run DatenBereitstellung -set //Aw-ap2019/interface/VISION/Alphaplan Export Datai/BelegePositionen.apsdb");
 
         }
 
@@ -2641,6 +2639,17 @@ namespace WindowsFormsApp1
         private void button30_Click_1(object sender, EventArgs e)
         {
            
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            ddsql.ConnSQL();
+            toolStripStatusLabel7.BackColor = Color.LightGreen;
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)

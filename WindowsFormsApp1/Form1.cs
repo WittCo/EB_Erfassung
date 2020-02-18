@@ -36,6 +36,8 @@ namespace WindowsFormsApp1
         DataSet ds4 = new DataSet();
         DataSet ds5 = new DataSet();
 
+        DataTable dt = new DataTable();
+
         
 
         //private readonly ProgramMacrofilters macros;
@@ -68,7 +70,6 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-
             try
             {
                 string avsProjectPath = @"AVS\Program.avproj";
@@ -78,8 +79,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(e.Message);
             }
-
-
 
             m_pSystem = null;
             m_pSystem2 = null;
@@ -99,8 +98,6 @@ namespace WindowsFormsApp1
                 m_pCamera = new CCamera();
                 m_pCamera2 = new CCamera2();
                 Cursor = Cursors.Default;
-
-
                 
             }
             catch (LvException ex)
@@ -109,9 +106,11 @@ namespace WindowsFormsApp1
                 Close();
             }
 
-          
 
-           
+            ddsql.ConnSQL();
+
+            DataTable dt = ddsql.DisplaySQLDatai();
+            dataGridView10.DataSource = dt;
 
         }
 
@@ -127,32 +126,21 @@ namespace WindowsFormsApp1
             //Release resources held by the Macrofilter .NET Interface object
             if (macros != null)
                 macros.Dispose();
-
-          
-
             base.OnClosed(e);
         }
 
         //Load XML Artikel
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "wittEyEDataSet.IBC_EB". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.iBC_EBTableAdapter.Fill(this.wittEyEDataSet.IBC_EB);
             UpdateXLMDatei();
             Refresch_XML();
             Refresch_EB_Offen();
             DrawButtons();
             DrawDienstButtons();
             ResetSonigsten();
-            ResetArtikelAswahl();
-
-          //  macros.Camera_Config();
-           // toolStripStatusLabel2.BackColor = Color.LightGreen;
-
-         //   macros.SPS_Komm_Akcept(out Socet1, out Socet2);
-         //  toolStripStatusLabel1.BackColor = Color.LightGreen;
-          
+            ResetArtikelAswahl(); 
         }
+
         private void UpdateXLMDatei()
         {
             try
@@ -163,12 +151,10 @@ namespace WindowsFormsApp1
                 ds.ReadXml(xmlFile);
                 dataGridView2.DataSource = ds.Tables[0];
 
-
                 xmlFile2 = XmlReader.Create(@"V:\EB_UNBEARBEITET\Belege_Unbearbeitet.xml", new XmlReaderSettings());
                 ds2.ReadXml(xmlFile2);
                 dataGridView1.DataSource = ds2.Tables[0];
                 xmlFile2.Close();
-
 
                 xmlFile3 = XmlReader.Create(@"V:\EB_Artikel\Artikel_Lohnumbau.xml", new XmlReaderSettings());
                 ds3.ReadXml(xmlFile3);
@@ -190,30 +176,10 @@ namespace WindowsFormsApp1
             }
         }
 
-
-
-
-
         private void Refresch_XML()
         {
             DataTable table2 = new DataTable();
-
-
-
             ddXml.Refresch_XML(out table2);
-                /*
-            string[] filePaths2 = Directory.GetFiles(@"V:/EB_Fertig");
-
-            DataTable table2 = new DataTable();
-            table2.Columns.Add("File Name");
-
-            for (int i = 0; i < filePaths2.Length; i++)
-            {
-                FileInfo file = new FileInfo(filePaths2[i]);
-                table2.Rows.Add(file.Name);
-            }
-
-            */
             dataGridView4.DataSource = table2;
         }
 
@@ -237,8 +203,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.ToString());
             }
-
-
             Refresch_XML();
             Refresch_EB_Offen();
 
@@ -310,7 +274,7 @@ namespace WindowsFormsApp1
             FormattableString result = $"Selected Radio button tag ={selectedTag}";
             textBox1.Text = selectedTag;
             FilterArtikel();
-            //MessageBox.Show(result.ToString());
+           
         }
 
         private void ShowSelecteDPalette_UI()
@@ -1045,7 +1009,6 @@ namespace WindowsFormsApp1
 
             IEnumerable<XElement> rows = root.Descendants("BelegePosition");
 
-
             XElement firstRow = rows.Last();
             firstRow.AddAfterSelf(
             new XElement("BelegePosition",
@@ -1069,7 +1032,7 @@ namespace WindowsFormsApp1
                 panel1.BackColor = Color.Red;
                 tabControl1.SelectedTab = tabPage5;
                 label16.Text = eb;
-                eB_NummerTextBox.Text = eb;
+              
 
                 string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
 
@@ -1133,13 +1096,9 @@ namespace WindowsFormsApp1
                 textBox10.Focus();
 
             }
-        }
 
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-
-            ;
-
+            DataTable dt = ddsql.DisplaySQLDatai();
+            dataGridView10.DataSource = dt;
         }
 
         private void CheckEBEXIST(string ArtikelNummer)
@@ -1521,7 +1480,6 @@ namespace WindowsFormsApp1
 
         private void button8_Click(object sender, EventArgs e)
         {
-
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
@@ -1533,7 +1491,6 @@ namespace WindowsFormsApp1
             {
                 Mehrartikel(0, label11.Text, textBox12.Text);
             }
-
             ResetArtikelAswahl();
             ResetSonigsten();
         }
@@ -1988,6 +1945,8 @@ namespace WindowsFormsApp1
         private void button6_Click(object sender, EventArgs e)
         {
             // CheckEBEXIST(label11.Text);
+            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
@@ -1995,16 +1954,22 @@ namespace WindowsFormsApp1
             {
                 NeuEB(label11.Text);
                 Mehrartikel(1, label11.Text, textBox12.Text);
-                iBC_ArtikelNummerTextBox.Text = label11.Text;
             }
             else
             {
-                Mehrartikel(0, label11.Text, textBox12.Text);
-                iBC_ArtikelNummerTextBox.Text = label11.Text;
+                Mehrartikel(0, label11.Text, textBox12.Text);   
             }
+
+          
+
+            
 
             ResetArtikelAswahl();
             ResetSonigsten();
+
+
+            DataTable dt = ddsql.DisplaySQLDatai();
+            dataGridView10.DataSource = dt;
 
 
             textBox13.Text = "1";
@@ -2029,7 +1994,10 @@ namespace WindowsFormsApp1
 
         private void button7_Click(object sender, EventArgs e)
         {
+
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
+
+            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2040,6 +2008,9 @@ namespace WindowsFormsApp1
             {
                 Mehrartikel(0, label11.Text, textBox12.Text);
             }
+
+           
+
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2067,6 +2038,8 @@ namespace WindowsFormsApp1
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
+            ddsql.InsertSQLDatei(label16.Text, label41.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
                 NeuEB(label41.Text);
@@ -2076,6 +2049,9 @@ namespace WindowsFormsApp1
             {
                 Mehrartikel(0, label41.Text, textBox14.Text);
             }
+
+          
+            
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2102,6 +2078,8 @@ namespace WindowsFormsApp1
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
+            ddsql.InsertSQLDatei(label41.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
                 NeuEB(label41.Text);
@@ -2111,6 +2089,9 @@ namespace WindowsFormsApp1
             {
                 Mehrartikel(0, label41.Text, textBox14.Text);
             }
+
+         
+           
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2139,6 +2120,8 @@ namespace WindowsFormsApp1
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
+            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
                 NeuEB(label36.Text);
@@ -2148,6 +2131,8 @@ namespace WindowsFormsApp1
             {
                 Mehrartikel(0, label36.Text, textBox18.Text);
             }
+
+           
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2172,6 +2157,8 @@ namespace WindowsFormsApp1
 
         private void button12_Click_2(object sender, EventArgs e)
         {
+
+            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
             CheckEBEXIST(label36.Text);
             textBox13.Text = "2";
             textBox14.Text = "1";
@@ -2188,6 +2175,8 @@ namespace WindowsFormsApp1
                     tabControl1.SelectedTab = tabPage5;
 
             }
+
+        
         }
 
       
@@ -2317,6 +2306,9 @@ namespace WindowsFormsApp1
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
+            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+           
+
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
                 NeuEB(label66.Text);
@@ -2326,6 +2318,9 @@ namespace WindowsFormsApp1
             {
                 Mehrartikel(0, label66.Text, textBox17.Text);
             }
+
+
+            
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2358,6 +2353,8 @@ namespace WindowsFormsApp1
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
+            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
                 NeuEB(label66.Text);
@@ -2368,6 +2365,8 @@ namespace WindowsFormsApp1
                 Mehrartikel(0, label66.Text, textBox12.Text);
             }
 
+
+         
             ResetArtikelAswahl();
             ResetSonigsten();
 
@@ -2571,85 +2570,27 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button8_Click_1(object sender, EventArgs e)
-        {
-            
-        
-            }
-
-        private void button8_Click_3(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button23_Click_1(object sender, EventArgs e)
-        {
-
-           // iBC_EBDataGridView.Rows.Add("EB555", "AAA555", "CCCCC");
-
-            /*
-            DataTable dt = iBC_EBDataGridView.DataSource as DataTable;
-            dt.Rows.Add(new object[] { "1235"});
-
-         
-            DataGridViewRow row = (DataGridViewRow)iBC_EBDataGridView.Rows[0].Clone();
-            row.Cells[0].Value = "1231";
-            row.Cells[1].Value = "666666";
-
-            iBC_EBDataGridView.Rows.Add(row);
-            */
-            //this.iBC_EBDataGridView.Rows.Add("EB555", "AAA555", "CCCCC");
-
-            //wittEyEDataSet.IBC_EB.AddIBC_EBRow("EB555", "AAA555", "CCCCC");
-
-            //  this.iBC_EBTableAdapter.(this.wittEyEDataSet.IBC_EB);
-
-            
-             
-            
-        }
-
-        private void button25_Click_1(object sender, EventArgs e)
-        {
-          
-
-
-
-           
-        }
-
-        private void button23_Click_2(object sender, EventArgs e)
-        {
-     
-        }
-
-        private void button29_Click(object sender, EventArgs e)
-        {
-          
-           
-        }
-
-        private void iBC_EBDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            ID = Convert.ToInt32(iBC_EBDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
-            eB_NummerTextBox.Text = iBC_EBDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-            iBC_ArtikelNummerTextBox.Text = iBC_EBDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-        }
-
-        private void button30_Click_1(object sender, EventArgs e)
-        {
-           
-        }
 
         private void button32_Click(object sender, EventArgs e)
         {
+            bool SQL_Verb;
+
             ddsql.ConnSQL();
             toolStripStatusLabel7.BackColor = Color.LightGreen;
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+      
 
+        private void dataGridView10_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ID = Convert.ToInt32(dataGridView10.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+        private void button8_Click_4(object sender, EventArgs e)
+        {
+            ddsql.DeleteItem(ID);
+            DataTable dt = ddsql.DisplaySQLDatai();
+            dataGridView10.DataSource = dt;
         }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)

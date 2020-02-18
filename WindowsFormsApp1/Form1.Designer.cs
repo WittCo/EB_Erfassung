@@ -3249,10 +3249,9 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
         private System.Windows.Forms.DataGridView dataGridView10;
         private System.Windows.Forms.Button button8;
-        private WittEyE.WittEyEDataSet wittEyEDataSet;
+       
         private System.Windows.Forms.BindingSource iBC_EBBindingSource;
-        private WittEyE.WittEyEDataSetTableAdapters.IBC_EBTableAdapter iBC_EBTableAdapter;
-        private WittEyE.WittEyEDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+      
     }
 }
 

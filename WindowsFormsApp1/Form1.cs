@@ -132,6 +132,8 @@ namespace WindowsFormsApp1
         //Load XML Artikel
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "wittEyEDataSet.IBC_EB". Sie können sie bei Bedarf verschieben oder entfernen.
+      
             UpdateXLMDatei();
             Refresch_XML();
             Refresch_EB_Offen();

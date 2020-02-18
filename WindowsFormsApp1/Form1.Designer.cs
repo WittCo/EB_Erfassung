@@ -58,6 +58,8 @@
             this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.button22 = new System.Windows.Forms.Button();
             this.dataGridView9 = new System.Windows.Forms.DataGridView();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
@@ -265,20 +267,16 @@
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.iBCEBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.wittEyEDataSet = new WittEyE.WittEyEDataSet();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.dataSet1 = new WittEyE.DataSet1();
-            this.iBC_EBTableAdapter = new WittEyE.WittEyEDataSetTableAdapters.IBC_EBTableAdapter();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tableAdapterManager = new WittEyE.WittEyEDataSetTableAdapters.TableAdapterManager();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
-            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -316,10 +314,8 @@
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iBCEBBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wittEyEDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -406,7 +402,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(1843, 22);
             this.statusStrip1.TabIndex = 40;
             this.statusStrip1.Text = "statusStrip1";
-            
             // 
             // toolStripStatusLabel1
             // 
@@ -486,7 +481,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1816, 933);
             this.tabControl1.TabIndex = 99;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-          
             // 
             // tabPage1
             // 
@@ -528,6 +522,22 @@
             this.tabPage1.Text = "Start";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(974, 599);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView10
+            // 
+            this.dataGridView10.Location = new System.Drawing.Point(939, 443);
+            this.dataGridView10.Name = "dataGridView10";
+            this.dataGridView10.Size = new System.Drawing.Size(559, 150);
+            this.dataGridView10.TabIndex = 1;
             // 
             // button22
             // 
@@ -2786,7 +2796,6 @@
             this.textBox11.Size = new System.Drawing.Size(86, 38);
             this.textBox11.TabIndex = 155;
             this.textBox11.Text = "0";
-           
             // 
             // label60
             // 
@@ -2914,16 +2923,6 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // iBCEBBindingSource
-            // 
-            this.iBCEBBindingSource.DataMember = "IBC_EB";
-            this.iBCEBBindingSource.DataSource = this.wittEyEDataSet;
-            // 
-            // wittEyEDataSet
-            // 
-            this.wittEyEDataSet.DataSetName = "WittEyEDataSet";
-            this.wittEyEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -2934,45 +2933,6 @@
             // 
             this.timer2.Interval = 5000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // iBC_EBTableAdapter
-            // 
-            this.iBC_EBTableAdapter.ClearBeforeFill = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = this.wittEyEDataSet;
-            this.bindingSource1.Position = 0;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.IBC_EBTableAdapter = this.iBC_EBTableAdapter;
-            this.tableAdapterManager.UpdateOrder = WittEyE.WittEyEDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // dataGridView10
-            // 
-            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Location = new System.Drawing.Point(939, 443);
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.Size = new System.Drawing.Size(559, 267);
-            this.dataGridView10.TabIndex = 33;
-            this.dataGridView10.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView10_RowHeaderMouseClick);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(939, 716);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 34;
-            this.button8.Text = "Delete IBC";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click_4);
             // 
             // Form1
             // 
@@ -2996,6 +2956,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -3043,11 +3004,7 @@
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iBCEBBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wittEyEDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
+            this.tabPage7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3292,6 +3249,10 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
         private System.Windows.Forms.DataGridView dataGridView10;
         private System.Windows.Forms.Button button8;
+        private WittEyE.WittEyEDataSet wittEyEDataSet;
+        private System.Windows.Forms.BindingSource iBC_EBBindingSource;
+        private WittEyE.WittEyEDataSetTableAdapters.IBC_EBTableAdapter iBC_EBTableAdapter;
+        private WittEyE.WittEyEDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
 

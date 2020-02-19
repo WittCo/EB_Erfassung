@@ -63,7 +63,7 @@ namespace WindowsFormsApp1
 
         DD_Xml ddXml = new DD_Xml();
         DD_Sql ddsql = new DD_Sql();
-
+        DD_FrontEnd ddfront = new DD_FrontEnd();
 
 
        public Form1()
@@ -106,8 +106,6 @@ namespace WindowsFormsApp1
                 Close();
             }
 
-
- 
             DataTable dt = ddsql.DisplaySQLDatai();
             dataGridView10.DataSource = dt;
 
@@ -1948,7 +1946,10 @@ namespace WindowsFormsApp1
         {
             // CheckEBEXIST(label11.Text);
 
-            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + label1.Text);
+            int Serie = 0;
+            Serie = int.Parse(label1.Text);
+            
+            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + Serie.ToString("000"));
 
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");

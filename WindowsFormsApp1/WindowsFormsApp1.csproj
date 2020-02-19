@@ -122,6 +122,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DD_FrontEnd.cs" />
     <Compile Include="DD_Sql.cs" />
     <Compile Include="DD_Xml.cs" />
     <Compile Include="Kam_V_U.cs">

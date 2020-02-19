@@ -107,8 +107,7 @@ namespace WindowsFormsApp1
             }
 
 
-            
-
+ 
             DataTable dt = ddsql.DisplaySQLDatai();
             dataGridView10.DataSource = dt;
 
@@ -1482,6 +1481,7 @@ namespace WindowsFormsApp1
 
         private void button8_Click(object sender, EventArgs e)
         {
+            UpdateTree();
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
@@ -1947,7 +1947,8 @@ namespace WindowsFormsApp1
         private void button6_Click(object sender, EventArgs e)
         {
             // CheckEBEXIST(label11.Text);
-            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+
+            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + label1.Text);
 
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
@@ -1961,10 +1962,6 @@ namespace WindowsFormsApp1
             {
                 Mehrartikel(0, label11.Text, textBox12.Text);   
             }
-
-          
-
-            
 
             ResetArtikelAswahl();
             ResetSonigsten();

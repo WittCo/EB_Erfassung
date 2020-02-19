@@ -28,15 +28,18 @@ namespace WindowsFormsApp1
             {
                 sqlconnState = true;
             }
+           
         }
 
     
         public void InsertSQLDatei(string EB_Numm, string IBC_Artnumm, int IBC_RestInh, string IBC_Sernum)
         {
-           
-           // string connetionString;
-           // SqlConnection cnn;
-           
+
+            // string connetionString;
+            // SqlConnection cnn;
+
+            ConnSQL();
+
             if (EB_Numm != "" && IBC_Artnumm != "" && IBC_Sernum !="")
             {
                 cmd = new SqlCommand("insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer,IBC_Restinhalt,IBC_Seriennummer) values(@EB_Nummer,@IBC_ArtikelNummer,@IBC_Restinhalt,@IBC_Seriennummer)", cnn);
@@ -55,26 +58,28 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please Provide Details!");
             }
-
+            cnn.Close();
         }
     
         public DataTable DisplaySQLDatai()
         {
-          
+            ConnSQL();
             DataTable dt = new DataTable();
             adapt = new SqlDataAdapter("select * from IBC_EB", cnn);
             adapt.Fill(dt);
             // iBC_EBDataGridView.DataSource = dt;
+            cnn.Close();
 
             return dt;
            
-            //cnn.Close();
+            
 
         }
 
         public void DeleteItem(int ID)
         {
-           
+            ConnSQL();
+
             if (ID != 0)
             {
                 cmd = new SqlCommand("delete IBC_EB where ID=@id", cnn);
@@ -82,13 +87,12 @@ namespace WindowsFormsApp1
                 cmd.ExecuteNonQuery();
               //  cnn.Close();
                 MessageBox.Show("Record Deleted Successfully!");
-
-
             }
             else
             {
                 MessageBox.Show("Please Select Record to Delete");
             }
+            cnn.Close();
 
         }
         /*

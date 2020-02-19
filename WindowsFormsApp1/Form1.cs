@@ -107,7 +107,7 @@ namespace WindowsFormsApp1
             }
 
 
-            ddsql.ConnSQL();
+            
 
             DataTable dt = ddsql.DisplaySQLDatai();
             dataGridView10.DataSource = dt;

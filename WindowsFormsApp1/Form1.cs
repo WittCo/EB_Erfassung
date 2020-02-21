@@ -106,16 +106,25 @@ namespace WindowsFormsApp1
                 Close();
             }
 
-            DataTable dt = ddsql.DisplaySQLDatai();
-            dataGridView10.DataSource = dt;
+            DataTable dt1 = ddsql.DisplaySQLDatai();
+            DataTable dt2 = ddsql.DisplaySQLDatai();
+            
+
+            dataGridView10.DataSource = dt1;
+            dataGridView11.DataSource = dt2;
+
+            //DataView dv1 = new DataView();
+            //DataSet ds1 = new DataSet();
+            //ds1.Tables.Add(dt);
+            //dv1 = ds1.Tables[0].DefaultView;
+            //dv1.RowFilter = string.Format("EB_Nummer LIKE '%{0}%'", textBox20.Text);
+            //dataGridView11.DataSource = dv1;
 
         }
-
 
         public static class MyStaticValues
         {
             public static bool camtrig2 { get; set; }
-
         }
 
         protected override void OnClosed(System.EventArgs e)
@@ -938,6 +947,48 @@ namespace WindowsFormsApp1
 
                 XMLtoTable();
 
+
+               
+
+                (dataGridView11.DataSource as DataTable).DefaultView.RowFilter = string.Format("EB_Nummer = '{0}'", label16.Text);
+
+
+                DataSet ds5 = ddsql.DisplaySQLDataitoDS();
+
+                dataGridView12.DataSource = ds5;
+
+            //   DataTable dt2 = ds5.Tables[1];
+
+            //    DataTable distinctTable = dt2.DefaultView.ToTable( /*distinct*/ true);
+             //   distinctTable.Columns.Add("Stk");
+/*
+                dataGridView12.DataSource = null;
+
+                dataGridView12.DataSource = dt2; // Alle ratikelnnummer
+
+                dataGridView12.DataSource = null;
+
+                dataGridView12.DataSource = distinctTable; //Artiklenummer sortiert
+
+                // dataGridView9.Columns.Add("Colum3", "Stk");
+
+                for (int z = 0; z < distinctTable.Rows.Count; z++)
+                {
+                    int sum = 0;
+                    for (int w = 0; w < dt.Rows.Count; w++)
+
+                    {
+                        if (dataGridView12.Rows[w].Cells[1].Value.ToString() == dataGridView12.Rows[z].Cells[1].Value.ToString())
+                            sum += 1;
+                    }
+
+                    dataGridView12.Rows[z].Cells[5].Value = sum.ToString();
+                   MessageBox.Show(sum.ToString());
+ 
+                }
+              
+                */
+
             }
 
 
@@ -959,13 +1010,11 @@ namespace WindowsFormsApp1
 
             dataGridView8.DataSource = dt; // Alle ratikelnnummer
 
-
             dataGridView9.DataSource = null;
 
             dataGridView9.DataSource = distinctTable; //Artiklenummer sortiert
 
             // dataGridView9.Columns.Add("Colum3", "Stk");
-
 
             for (int z = 0; z < distinctTable.Rows.Count; z++)
             {
@@ -980,7 +1029,6 @@ namespace WindowsFormsApp1
                 dataGridView9.Rows[z].Cells[2].Value = sum.ToString();
                 //  MessageBox.Show(sum.ToString());
             }
-
 
         }
 
@@ -1096,8 +1144,7 @@ namespace WindowsFormsApp1
 
             }
 
-            DataTable dt = ddsql.DisplaySQLDatai();
-            dataGridView10.DataSource = dt;
+        
         }
 
         private void CheckEBEXIST(string ArtikelNummer)
@@ -1969,8 +2016,7 @@ namespace WindowsFormsApp1
 
 
             DataTable dt = ddsql.DisplaySQLDatai();
-            dataGridView10.DataSource = dt;
-
+         
 
             textBox13.Text = "1";
 
@@ -2430,16 +2476,7 @@ namespace WindowsFormsApp1
             radioButton44.Checked = false;
         }
 
-        private void dataGridView8_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-
-        }
-
-        private void button23_Click(object sender, EventArgs e)
-        {
-           
-        }
+        
 
         private void LoeschArtikel()
         {
@@ -2589,8 +2626,22 @@ namespace WindowsFormsApp1
         private void button8_Click_4(object sender, EventArgs e)
         {
             ddsql.DeleteItem(ID);
-            DataTable dt = ddsql.DisplaySQLDatai();
-            dataGridView10.DataSource = dt;
+        }
+
+        private void label35_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox20_TextChanged(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)

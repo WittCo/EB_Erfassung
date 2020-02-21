@@ -58,6 +58,11 @@
             this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView12 = new System.Windows.Forms.DataGridView();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.button22 = new System.Windows.Forms.Button();
@@ -276,6 +281,8 @@
             this.contextMenuStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
@@ -484,6 +491,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView12);
+            this.tabPage1.Controls.Add(this.textBox20);
+            this.tabPage1.Controls.Add(this.dataGridView11);
+            this.tabPage1.Controls.Add(this.label42);
+            this.tabPage1.Controls.Add(this.label35);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.dataGridView10);
             this.tabPage1.Controls.Add(this.button22);
@@ -523,9 +535,53 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
+            // dataGridView12
+            // 
+            this.dataGridView12.Location = new System.Drawing.Point(1014, 521);
+            this.dataGridView12.Name = "dataGridView12";
+            this.dataGridView12.Size = new System.Drawing.Size(464, 232);
+            this.dataGridView12.TabIndex = 37;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(273, 481);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(310, 20);
+            this.textBox20.TabIndex = 36;
+            this.textBox20.Text = "EB1111111";
+            this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
+            // 
+            // dataGridView11
+            // 
+            this.dataGridView11.Location = new System.Drawing.Point(602, 521);
+            this.dataGridView11.Name = "dataGridView11";
+            this.dataGridView11.Size = new System.Drawing.Size(406, 239);
+            this.dataGridView11.TabIndex = 35;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(947, 6);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(248, 31);
+            this.label42.TabIndex = 34;
+            this.label42.Text = "EB Artikel Summe";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(628, 6);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(260, 31);
+            this.label35.TabIndex = 33;
+            this.label35.Text = "EB ArtikelNummer ";
+            this.label35.Click += new System.EventHandler(this.label35_Click_1);
+            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(974, 599);
+            this.button8.Location = new System.Drawing.Point(93, 683);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 0;
@@ -534,9 +590,9 @@
             // 
             // dataGridView10
             // 
-            this.dataGridView10.Location = new System.Drawing.Point(939, 443);
+            this.dataGridView10.Location = new System.Drawing.Point(174, 521);
             this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.Size = new System.Drawing.Size(559, 150);
+            this.dataGridView10.Size = new System.Drawing.Size(422, 248);
             this.dataGridView10.TabIndex = 1;
             // 
             // button22
@@ -586,14 +642,13 @@
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.Size = new System.Drawing.Size(331, 393);
             this.dataGridView8.TabIndex = 27;
-            this.dataGridView8.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView8_CellContentClick);
             this.dataGridView8.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView8_RowPostPaint);
             // 
             // label43
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(627, 613);
+            this.label43.Location = new System.Drawing.Point(20, 575);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(30, 31);
             this.label43.TabIndex = 26;
@@ -603,7 +658,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(627, 577);
+            this.label34.Location = new System.Drawing.Point(20, 539);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(30, 31);
             this.label34.TabIndex = 25;
@@ -613,7 +668,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(625, 539);
+            this.label33.Location = new System.Drawing.Point(18, 501);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(97, 31);
             this.label33.TabIndex = 24;
@@ -633,7 +688,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(627, 509);
+            this.label17.Location = new System.Drawing.Point(20, 471);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(30, 31);
             this.label17.TabIndex = 22;
@@ -644,7 +699,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(628, 475);
+            this.label9.Location = new System.Drawing.Point(21, 437);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(199, 31);
             this.label9.TabIndex = 21;
@@ -712,9 +767,9 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(286, 711);
+            this.dataGridView1.Location = new System.Drawing.Point(55, 766);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(575, 132);
+            this.dataGridView1.Size = new System.Drawing.Size(575, 55);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.Visible = false;
             // 
@@ -776,7 +831,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(625, 441);
+            this.label18.Location = new System.Drawing.Point(18, 403);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 31);
             this.label18.TabIndex = 10;
@@ -833,6 +888,7 @@
             this.dataGridView3.Size = new System.Drawing.Size(310, 393);
             this.dataGridView3.TabIndex = 6;
             this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellDoubleClick);
             this.dataGridView3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView3_KeyDown);
             this.dataGridView3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView3_KeyUp);
@@ -871,9 +927,9 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(602, 573);
+            this.treeView1.Location = new System.Drawing.Point(-5, 535);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(366, 69);
+            this.treeView1.Size = new System.Drawing.Size(173, 69);
             this.treeView1.TabIndex = 2;
             this.treeView1.Visible = false;
             // 
@@ -2934,6 +2990,11 @@
             this.timer2.Interval = 5000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2956,6 +3017,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
@@ -3004,7 +3067,9 @@
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
-            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iBCEBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3251,7 +3316,11 @@
         private System.Windows.Forms.Button button8;
        
         private System.Windows.Forms.BindingSource iBC_EBBindingSource;
-      
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.DataGridView dataGridView11;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.DataGridView dataGridView12;
     }
 }
 

@@ -65,16 +65,33 @@ namespace WindowsFormsApp1
         {
             ConnSQL();
             DataTable dt = new DataTable();
+
+            DataSet ds = new DataSet();
             adapt = new SqlDataAdapter("select * from IBC_EB", cnn);
             adapt.Fill(dt);
+            adapt.Fill(ds);
             // iBC_EBDataGridView.DataSource = dt;
             cnn.Close();
 
             return dt;
-           
-            
 
+
+           // return ds;
         }
+
+        public DataSet DisplaySQLDataitoDS()
+        {
+            ConnSQL();
+            DataSet ds = new DataSet();
+            adapt = new SqlDataAdapter("select * from IBC_EB", cnn);
+            adapt.Fill(ds);
+            // iBC_EBDataGridView.DataSource = dt;
+            cnn.Close();
+            return ds;
+
+            // return ds;
+        }
+
 
         public void DeleteItem(int ID)
         {

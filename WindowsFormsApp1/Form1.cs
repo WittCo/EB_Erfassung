@@ -932,17 +932,15 @@ namespace WindowsFormsApp1
 
                 xmlnode = xmldoc.ChildNodes[1];
 
-                treeView1.Nodes.Clear();
-                treeView1.Nodes.Add(new TreeNode(xmldoc.DocumentElement.Name));
+             
                 TreeNode tNode;
 
-                tNode = treeView1.Nodes[0];
-
-                AddNode_XML(xmlnode, tNode);
+              
+            
 
                 dataGridView8.DataSource = xmlnode;
 
-                treeView1.ExpandAll();
+            
                 fs.Close();
 
                 XMLtoTable();
@@ -950,7 +948,7 @@ namespace WindowsFormsApp1
 
                
 
-                (dataGridView11.DataSource as DataTable).DefaultView.RowFilter = string.Format("EB_Nummer = '{0}'", label16.Text);
+             //   (dataGridView11.DataSource as DataTable).DefaultView.RowFilter = string.Format("EB_Nummer = '{0}'", label16.Text);
 
 
                 DataSet ds5 = ddsql.DisplaySQLDataitoDS();
@@ -1604,7 +1602,7 @@ namespace WindowsFormsApp1
 
         private void button11_Click(object sender, EventArgs e)
         {
-            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/&Launcher.exe -exe AlphaplanSchnittstellen.exe -run DatenBereitstellung -set //Aw-ap2019/interface/VISION/Alphaplan Export Datai/BelegePositionen.apsdb");
+            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/Launcher.exe - exe AlphaplanSchnittstellen.exe -run DatenBereitstellung -set ://Aw-ap2019/interface/VISION/Alphaplan Export Datai/BelegePositionen.apsdb");
 
         }
 
@@ -2636,11 +2634,6 @@ namespace WindowsFormsApp1
         private void textBox20_TextChanged(object sender, EventArgs e)
         {
           
-
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 

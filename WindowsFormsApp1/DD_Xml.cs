@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
 
         public void Refresch_XML(out DataTable tableout)
         {
-            string[] filePaths2 = Directory.GetFiles(@"V:/EB_Fertig");
+            string[] filePaths2 = Directory.GetFiles(@"\\Aw-ap2019\interface\VISION\EB_Fertig");
 
             DataTable table2 = new DataTable();
             table2.Columns.Add("File Name");

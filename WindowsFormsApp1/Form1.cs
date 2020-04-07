@@ -23,13 +23,14 @@ using System.Data.SqlClient;
 
 namespace WindowsFormsApp1
 {
-    
+
     public partial class Form1 : Form
     {
-        
+
         NullableRef<AvlNet.Image> image = AvlNet.Nullable.Create<AvlNet.Image>();
         NullableRef<AvlNet.Image> image2 = AvlNet.Nullable.Create<AvlNet.Image>();
         NullableRef<AvlNet.Image> image3 = AvlNet.Nullable.Create<AvlNet.Image>();
+
         DataSet ds = new DataSet();
         DataSet ds2 = new DataSet();
         DataSet ds3 = new DataSet();
@@ -38,7 +39,7 @@ namespace WindowsFormsApp1
 
         DataTable dt = new DataTable();
 
-        
+
 
         //private readonly ProgramMacrofilters macros;
         public static int NodeCount;
@@ -56,17 +57,23 @@ namespace WindowsFormsApp1
 
         IntPtr m_hDisplayWindow;
         IntPtr m_hDisplayWindow2;
+        IntPtr m_hDisplayWindow3;
+        IntPtr m_hDisplayWindow4;
+
         CCamera m_pCamera;
         CCamera2 m_pCamera2;
+        CCamera3 m_pCamera3;
+        CCamera4 m_pCamera4;
 
-        LvSystem m_pSystem, m_pSystem2;
+
+        LvSystem m_pSystem, m_pSystem2, m_pSystem3, m_pSystem4;
 
         DD_Xml ddXml = new DD_Xml();
         DD_Sql ddsql = new DD_Sql();
         DD_FrontEnd ddfront = new DD_FrontEnd();
 
 
-       public Form1()
+        public Form1()
         {
             InitializeComponent();
 
@@ -80,14 +87,21 @@ namespace WindowsFormsApp1
                 MessageBox.Show(e.Message);
             }
 
+
+
             m_pSystem = null;
             m_pSystem2 = null;
+            m_pSystem3 = null;
+            m_pSystem4 = null;
+
 
             LvLibrary.ThrowErrorEnable = true;
             // The PictureBoxLive refuses to be used from another thread,
             // but the window handle should be safe.
             m_hDisplayWindow = PictureBoxLive.Handle;
             m_hDisplayWindow2 = pictureBox2.Handle;
+            m_hDisplayWindow3 = pbH_0.Handle;
+            m_hDisplayWindow4 = pbH_U.Handle;
 
             try
             {
@@ -95,10 +109,15 @@ namespace WindowsFormsApp1
                 LvLibrary.OpenLibrary();
                 LvSystem.Open("", ref m_pSystem);
                 LvSystem.Open("", ref m_pSystem2);
+                LvSystem.Open("", ref m_pSystem3);
+                LvSystem.Open("", ref m_pSystem4);
+
                 m_pCamera = new CCamera();
                 m_pCamera2 = new CCamera2();
+                m_pCamera3 = new CCamera3();
+                m_pCamera4 = new CCamera4();
                 Cursor = Cursors.Default;
-                
+
             }
             catch (LvException ex)
             {
@@ -106,20 +125,17 @@ namespace WindowsFormsApp1
                 Close();
             }
 
+
+            ConnSQL();
             DataTable dt1 = ddsql.DisplaySQLDatai();
             DataTable dt2 = ddsql.DisplaySQLDatai();
-            
+
 
             dataGridView10.DataSource = dt1;
             dataGridView11.DataSource = dt2;
 
-            //DataView dv1 = new DataView();
-            //DataSet ds1 = new DataSet();
-            //ds1.Tables.Add(dt);
-            //dv1 = ds1.Tables[0].DefaultView;
-            //dv1.RowFilter = string.Format("EB_Nummer LIKE '%{0}%'", textBox20.Text);
-            //dataGridView11.DataSource = dv1;
-
+            ConnSQL();
+            
         }
 
         public static class MyStaticValues
@@ -139,14 +155,14 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: Diese Codezeile lädt Daten in die Tabelle "wittEyEDataSet.IBC_EB". Sie können sie bei Bedarf verschieben oder entfernen.
-      
+
             UpdateXLMDatei();
             Refresch_XML();
             Refresch_EB_Offen();
             DrawButtons();
             DrawDienstButtons();
             ResetSonigsten();
-            ResetArtikelAswahl(); 
+            ResetArtikelAswahl();
         }
 
         private void UpdateXLMDatei()
@@ -155,25 +171,25 @@ namespace WindowsFormsApp1
             {
                 XmlReader xmlFile, xmlFile2, xmlFile3, xmlFile4, xmlFile5;
 
-                xmlFile = XmlReader.Create(@"V:\EB_Artikel\Artikel.xml", new XmlReaderSettings());
+                xmlFile = XmlReader.Create(@"\\Aw-ap2019\interface\VISION\EB_Artikel\Artikel.xml", new XmlReaderSettings());
                 ds.ReadXml(xmlFile);
                 dataGridView2.DataSource = ds.Tables[0];
 
-                xmlFile2 = XmlReader.Create(@"V:\EB_UNBEARBEITET\Belege_Unbearbeitet.xml", new XmlReaderSettings());
+                xmlFile2 = XmlReader.Create(@"\\Aw-ap2019\interface\VISION\EB_UNBEARBEITET\Belege_Unbearbeitet.xml", new XmlReaderSettings());
                 ds2.ReadXml(xmlFile2);
                 dataGridView1.DataSource = ds2.Tables[0];
                 xmlFile2.Close();
 
-                xmlFile3 = XmlReader.Create(@"V:\EB_Artikel\Artikel_Lohnumbau.xml", new XmlReaderSettings());
+                xmlFile3 = XmlReader.Create(@"\\Aw-ap2019\interface\VISION\EB_Artikel\Artikel_Lohnumbau.xml", new XmlReaderSettings());
                 ds3.ReadXml(xmlFile3);
                 dataGridView5.DataSource = ds3.Tables[0];
 
 
-                xmlFile4 = XmlReader.Create(@"V:\EB_Artikel\Artikel_Lohnreinigung.xml", new XmlReaderSettings());
+                xmlFile4 = XmlReader.Create(@"\\Aw-ap2019\interface\VISION\EB_Artikel\Artikel_Lohnreinigung.xml", new XmlReaderSettings());
                 ds4.ReadXml(xmlFile4);
                 dataGridView6.DataSource = ds4.Tables[0];
 
-                xmlFile5 = XmlReader.Create(@"V:\EB_Artikel\Dienstleistungen.xml", new XmlReaderSettings());
+                xmlFile5 = XmlReader.Create(@"\\Aw-ap2019\interface\VISION\EB_Artikel\Dienstleistungen.xml", new XmlReaderSettings());
                 ds5.ReadXml(xmlFile5);
                 dataGridView7.DataSource = ds5.Tables[0];
 
@@ -282,7 +298,7 @@ namespace WindowsFormsApp1
             FormattableString result = $"Selected Radio button tag ={selectedTag}";
             textBox1.Text = selectedTag;
             FilterArtikel();
-           
+
         }
 
         private void ShowSelecteDPalette_UI()
@@ -356,7 +372,7 @@ namespace WindowsFormsApp1
         {
             int Restihalt;
 
-            Restihalt = int.Parse(label55.Text) -int.Parse( label57.Text) - int.Parse(textBox16.Text);
+            Restihalt = int.Parse(label55.Text) - int.Parse(label57.Text) - int.Parse(textBox16.Text);
 
 
             if (Restihalt > 0)
@@ -932,60 +948,60 @@ namespace WindowsFormsApp1
 
                 xmlnode = xmldoc.ChildNodes[1];
 
-             
+
                 TreeNode tNode;
 
-              
-            
+
+
 
                 dataGridView8.DataSource = xmlnode;
 
-            
+
                 fs.Close();
 
                 XMLtoTable();
 
 
-               
 
-             //   (dataGridView11.DataSource as DataTable).DefaultView.RowFilter = string.Format("EB_Nummer = '{0}'", label16.Text);
+
+                //   (dataGridView11.DataSource as DataTable).DefaultView.RowFilter = string.Format("EB_Nummer = '{0}'", label16.Text);
 
 
                 DataSet ds5 = ddsql.DisplaySQLDataitoDS();
 
                 dataGridView12.DataSource = ds5;
 
-            //   DataTable dt2 = ds5.Tables[1];
+                //   DataTable dt2 = ds5.Tables[1];
 
-            //    DataTable distinctTable = dt2.DefaultView.ToTable( /*distinct*/ true);
-             //   distinctTable.Columns.Add("Stk");
-/*
-                dataGridView12.DataSource = null;
+                //    DataTable distinctTable = dt2.DefaultView.ToTable( /*distinct*/ true);
+                //   distinctTable.Columns.Add("Stk");
+                /*
+                                dataGridView12.DataSource = null;
 
-                dataGridView12.DataSource = dt2; // Alle ratikelnnummer
+                                dataGridView12.DataSource = dt2; // Alle ratikelnnummer
 
-                dataGridView12.DataSource = null;
+                                dataGridView12.DataSource = null;
 
-                dataGridView12.DataSource = distinctTable; //Artiklenummer sortiert
+                                dataGridView12.DataSource = distinctTable; //Artiklenummer sortiert
 
-                // dataGridView9.Columns.Add("Colum3", "Stk");
+                                // dataGridView9.Columns.Add("Colum3", "Stk");
 
-                for (int z = 0; z < distinctTable.Rows.Count; z++)
-                {
-                    int sum = 0;
-                    for (int w = 0; w < dt.Rows.Count; w++)
+                                for (int z = 0; z < distinctTable.Rows.Count; z++)
+                                {
+                                    int sum = 0;
+                                    for (int w = 0; w < dt.Rows.Count; w++)
 
-                    {
-                        if (dataGridView12.Rows[w].Cells[1].Value.ToString() == dataGridView12.Rows[z].Cells[1].Value.ToString())
-                            sum += 1;
-                    }
+                                    {
+                                        if (dataGridView12.Rows[w].Cells[1].Value.ToString() == dataGridView12.Rows[z].Cells[1].Value.ToString())
+                                            sum += 1;
+                                    }
 
-                    dataGridView12.Rows[z].Cells[5].Value = sum.ToString();
-                   MessageBox.Show(sum.ToString());
- 
-                }
-              
-                */
+                                    dataGridView12.Rows[z].Cells[5].Value = sum.ToString();
+                                   MessageBox.Show(sum.ToString());
+
+                                }
+
+                                */
 
             }
 
@@ -1030,9 +1046,6 @@ namespace WindowsFormsApp1
 
         }
 
-
-
-
         private void button4_Click(object sender, EventArgs e)
         {
             Refresch_XML();
@@ -1067,7 +1080,7 @@ namespace WindowsFormsApp1
 
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
-          //  SollStkza(textBox10.Text);
+            //  SollStkza(textBox10.Text);
 
             if (textBox10.TextLength == 9)
             {
@@ -1077,7 +1090,7 @@ namespace WindowsFormsApp1
                 panel1.BackColor = Color.Red;
                 tabControl1.SelectedTab = tabPage5;
                 label16.Text = eb;
-              
+                NodeCount = 0;
 
                 string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
 
@@ -1092,10 +1105,10 @@ namespace WindowsFormsApp1
                 EB_Offen_Focus();
                 ResetSonigsten();
                 ResetArtikelAswahl();
-               
+
             }
         }
-  
+
 
         private void EB_Offen_Focus()
         {
@@ -1116,7 +1129,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception exc)
             {
-               // MessageBox.Show(exc.Message);
+                // MessageBox.Show(exc.Message);
             }
 
         }
@@ -1142,7 +1155,7 @@ namespace WindowsFormsApp1
 
             }
 
-        
+
         }
 
         private void CheckEBEXIST(string ArtikelNummer)
@@ -1405,7 +1418,7 @@ namespace WindowsFormsApp1
 
         private void radioButton41_CheckedChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -1600,15 +1613,11 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button11_Click(object sender, EventArgs e)
-        {
-            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/Launcher.exe - exe AlphaplanSchnittstellen.exe -run DatenBereitstellung -set ://Aw-ap2019/interface/VISION/Alphaplan Export Datai/BelegePositionen.apsdb");
-
-        }
+     
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -1667,8 +1676,8 @@ namespace WindowsFormsApp1
             {
                 macros.SPS_Komm_Read(Socet1, Socet2, out int Wal2, out int? Ap1, out int? Ap3, out int? KetteAP1_5, out int? Gewicht);
                 label21.Text = Wal2.ToString();
-                label29.Text = Ap1.ToString(); 
-                
+                label29.Text = Ap1.ToString();
+
                 label30.Text = Ap3.ToString();
                 label31.Text = KetteAP1_5.ToString();
                 label32.Text = Gewicht.ToString();
@@ -1680,27 +1689,27 @@ namespace WindowsFormsApp1
             if (label31.Text == "1")
             {
                 textBox13.Text = "9";
-                
-               camtrig = false;
-               checkBox8.Checked = false;
-               checkBox9.Checked = false;
-               checkBox3.Checked = false;
-               radioButton43.Checked = false;
-               checkBox10.Checked = false;
-           
+
+                camtrig = false;
+                checkBox8.Checked = false;
+                checkBox9.Checked = false;
+                checkBox3.Checked = false;
+                radioButton43.Checked = false;
+                checkBox10.Checked = false;
+
                 MyStaticValues.camtrig2 = false;
 
             }
 
 
 
-            if (label29.Text == "4" & MyStaticValues.camtrig2 ==false)
+            if (label29.Text == "4" & MyStaticValues.camtrig2 == false)
             {
                 MyStaticValues.camtrig2 = true;
-               
+
 
             }
-           
+
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -1807,7 +1816,7 @@ namespace WindowsFormsApp1
 
         }
 
-   
+
 
         private void DrawButtons()
         {
@@ -1883,15 +1892,15 @@ namespace WindowsFormsApp1
                 b.Text = dataGridView7.Rows[i].Cells[0].Value.ToString();
                 b.Font = new Font(b.Font.FontFamily, 15);
 
-            
-                
-                    if (i % 6 == 0 & i > 0)
-                    {
-                        // newLoc.X = 5;
-                        newLoc2.Y = 5;
-                        newLoc2.Offset(b.Width + 20, -(b.Height + 20));
-                    }
-                
+
+
+                if (i % 6 == 0 & i > 0)
+                {
+                    // newLoc.X = 5;
+                    newLoc2.Y = 5;
+                    newLoc2.Offset(b.Width + 20, -(b.Height + 20));
+                }
+
 
                 newLoc2.Offset(0, b.Height + 20);
                 tabPage6.Controls.Add(b);
@@ -1907,7 +1916,7 @@ namespace WindowsFormsApp1
         void button_Click1(object sender, EventArgs e)
         {
             // MessageBox.Show();
-             label63.Text = ((Button)sender).Text;
+            label63.Text = ((Button)sender).Text;
             FilterDL(((Button)sender).Text);
 
         }
@@ -1942,9 +1951,9 @@ namespace WindowsFormsApp1
             }
 
         }
-    
 
-    
+
+
 
 
         private void FilterLU()
@@ -1964,9 +1973,9 @@ namespace WindowsFormsApp1
             }
         }
 
-  
 
-     
+
+
 
         private void FilterLR()
         {
@@ -1985,7 +1994,7 @@ namespace WindowsFormsApp1
 
         }
 
-     
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -1993,7 +2002,7 @@ namespace WindowsFormsApp1
 
             int Serie = 0;
             Serie = int.Parse(label1.Text);
-            
+
             ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + Serie.ToString("000"));
 
 
@@ -2006,7 +2015,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Mehrartikel(0, label11.Text, textBox12.Text);   
+                Mehrartikel(0, label11.Text, textBox12.Text);
             }
 
             ResetArtikelAswahl();
@@ -2014,13 +2023,13 @@ namespace WindowsFormsApp1
 
 
             DataTable dt = ddsql.DisplaySQLDatai();
-         
+
 
             textBox13.Text = "1";
 
-            if(label17.Text != "Soll Stückzahl nicht gefünden")
-            SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
-           
+            if (label17.Text != "Soll Stückzahl nicht gefünden")
+                SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
+
 
             if (checkBox14.Checked == false)
             {
@@ -2053,14 +2062,14 @@ namespace WindowsFormsApp1
                 Mehrartikel(0, label11.Text, textBox12.Text);
             }
 
-           
+
 
 
             ResetArtikelAswahl();
             ResetSonigsten();
 
             textBox13.Text = "2";
-        
+
 
             if (checkBox14.Checked == false)
             {
@@ -2094,8 +2103,8 @@ namespace WindowsFormsApp1
                 Mehrartikel(0, label41.Text, textBox14.Text);
             }
 
-          
-            
+
+
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2134,8 +2143,8 @@ namespace WindowsFormsApp1
                 Mehrartikel(0, label41.Text, textBox14.Text);
             }
 
-         
-           
+
+
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2159,7 +2168,7 @@ namespace WindowsFormsApp1
 
         private void button16_Click_1(object sender, EventArgs e)
         {
-        
+
 
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
@@ -2176,7 +2185,7 @@ namespace WindowsFormsApp1
                 Mehrartikel(0, label36.Text, textBox18.Text);
             }
 
-           
+
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2220,10 +2229,10 @@ namespace WindowsFormsApp1
 
             }
 
-        
+
         }
 
-      
+
 
 
 
@@ -2232,17 +2241,17 @@ namespace WindowsFormsApp1
 
             if (soll == ist)
             {
-                
-                    DialogResult dialogResult = MessageBox.Show("Soll Stückzahl erraicht soll FERTIG?", "Soll Stückzahl erraicht", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        moveEBtoFertigXML();
 
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //do something else
-                    }
+                DialogResult dialogResult = MessageBox.Show("Soll Stückzahl erraicht soll FERTIG?", "Soll Stückzahl erraicht", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    moveEBtoFertigXML();
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
 
                 tabControl1.SelectedTab = tabPage1;
             }
@@ -2250,20 +2259,20 @@ namespace WindowsFormsApp1
         ///////////////////////////////////////////////////////////
         ///
 
-     
+
 
         public void ToConsole(string output)
         {
-          //  ConsoleOut.AppendText(output + "\n");
+            //  ConsoleOut.AppendText(output + "\n");
         }
 
-  
+
 
         private void button8_Click_2(object sender, EventArgs e)
         {
-          
 
-           
+
+
             macros.Camera_Config();
             toolStripStatusLabel2.BackColor = Color.LightGreen;
         }
@@ -2303,7 +2312,7 @@ namespace WindowsFormsApp1
             }
 
 
-          
+
             Refresch_XML();
             Refresch_EB_Offen();
         }
@@ -2334,7 +2343,7 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ShowSelektedSoniksten();
             label66.Text = "90010008";
-            
+
 
         }
 
@@ -2351,7 +2360,7 @@ namespace WindowsFormsApp1
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
             ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
-           
+
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2364,7 +2373,7 @@ namespace WindowsFormsApp1
             }
 
 
-            
+
 
             ResetArtikelAswahl();
             ResetSonigsten();
@@ -2377,7 +2386,7 @@ namespace WindowsFormsApp1
                 SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
 
 
-          
+
 
             if (checkBox14.Checked == false)
             {
@@ -2410,13 +2419,13 @@ namespace WindowsFormsApp1
             }
 
 
-         
+
             ResetArtikelAswahl();
             ResetSonigsten();
 
             textBox13.Text = "2";
 
-          
+
 
             if (checkBox14.Checked == false)
             {
@@ -2449,7 +2458,7 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ShowSelektedSoniksten();
             label66.Text = "90000600";
-            
+
 
         }
 
@@ -2474,7 +2483,7 @@ namespace WindowsFormsApp1
             radioButton44.Checked = false;
         }
 
-        
+
 
         private void LoeschArtikel()
         {
@@ -2514,25 +2523,25 @@ namespace WindowsFormsApp1
             {
                 //do something else
             }
-            
+
         }
 
         private void dataGridView8_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-           
-                var grid = sender as DataGridView;
-                var rowIdx = (e.RowIndex + 1).ToString();
 
-                var centerFormat = new StringFormat()
-                {
-                    // right alignment might actually make more sense for numbers
-                    Alignment = StringAlignment.Center,
-                    LineAlignment = StringAlignment.Center
-                };
+            var grid = sender as DataGridView;
+            var rowIdx = (e.RowIndex + 1).ToString();
 
-                var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-                e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
-            
+            var centerFormat = new StringFormat()
+            {
+                // right alignment might actually make more sense for numbers
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+
         }
 
         private void dataGridView9_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -2550,7 +2559,7 @@ namespace WindowsFormsApp1
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
-   
+
 
 
         private void textBox10_Leave(object sender, EventArgs e)
@@ -2558,19 +2567,15 @@ namespace WindowsFormsApp1
             panel1.BackColor = Color.Red;
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-
-            m_pCamera.Triggr();
-            m_pCamera2.Triggr();
-        }
-
       
+
         private void button26_Click_1(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             m_pCamera.OpenCamera(m_hDisplayWindow, m_pSystem);
             m_pCamera2.OpenCamera(m_hDisplayWindow2, m_pSystem2);
+            m_pCamera3.OpenCamera(m_hDisplayWindow3, m_pSystem3);
+            m_pCamera4.OpenCamera(m_hDisplayWindow4, m_pSystem4);
             Cursor = Cursors.Default;
         }
 
@@ -2578,6 +2583,8 @@ namespace WindowsFormsApp1
         {
             m_pCamera.StartAcquisition();
             m_pCamera2.StartAcquisition();
+            m_pCamera3.StartAcquisition();
+            m_pCamera4.StartAcquisition();
         }
 
         private void button28_Click_1(object sender, EventArgs e)
@@ -2596,6 +2603,8 @@ namespace WindowsFormsApp1
 
             m_pCamera.Triggr();
             m_pCamera2.Triggr();
+            m_pCamera3.Triggr();
+            m_pCamera4.Triggr();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -2608,10 +2617,25 @@ namespace WindowsFormsApp1
 
         private void button32_Click(object sender, EventArgs e)
         {
-            bool SQL_Verb;
 
+            ConnSQL();
+        }
+
+        private void pbH_0_Paint(object sender, PaintEventArgs e)
+        {
+            m_pCamera3.Repaint();
+        }
+
+        private void pictureBox2_Paint_1(object sender, PaintEventArgs e)
+        {
+            m_pCamera4.Repaint();
+        }
+
+        private void ConnSQL()
+        {
             ddsql.ConnSQL();
             toolStripStatusLabel7.BackColor = Color.LightGreen;
+
         }
 
       
@@ -2626,16 +2650,7 @@ namespace WindowsFormsApp1
             ddsql.DeleteItem(ID);
         }
 
-        private void label35_Click_1(object sender, EventArgs e)
-        {
 
-        }
-
-        private void textBox20_TextChanged(object sender, EventArgs e)
-        {
-          
-
-        }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -2649,10 +2664,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button30_Click(object sender, EventArgs e)
-        {
-            m_pCamera2.StartAcquisition();
-        }
+     
 
         private void button31_Click(object sender, EventArgs e)
         {

@@ -42,9 +42,9 @@ namespace WindowsFormsApp1
 
             if (EB_Numm != "" && IBC_Artnumm != "" && IBC_Sernum !="")
             {
-                cmd = new SqlCommand("insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer,IBC_Restinhalt,IBC_Seriennummer) values(@EB_Nummer,@IBC_ArtikelNummer,@IBC_Restinhalt,@IBC_Seriennummer)", cnn);
+                cmd = new SqlCommand("insert into IBC_EB(EB,IBC_ArtikelNummer,IBC_Restinhalt,IBC_Seriennummer) values(@EB,@IBC_ArtikelNummer,@IBC_Restinhalt,@IBC_Seriennummer)", cnn);
            //     cnn.Open();
-                cmd.Parameters.AddWithValue("@EB_Nummer",EB_Numm);
+                cmd.Parameters.AddWithValue("@EB",EB_Numm);
                 cmd.Parameters.AddWithValue("@IBC_ArtikelNummer", IBC_Artnumm);
                 cmd.Parameters.AddWithValue("@IBC_Restinhalt", IBC_RestInh);
                 cmd.Parameters.AddWithValue("@IBC_Seriennummer", IBC_Sernum);

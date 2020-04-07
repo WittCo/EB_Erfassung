@@ -145,6 +145,11 @@ namespace WindowsFormsApp1
                 pDevice.SetBool(LvDeviceFtr.GevCurrentIPConfigurationDHCP, true);
                 pDevice.SetBool(LvDeviceFtr.GevCurrentIPConfigurationPersistentIP, false);
                 pDevice.SetInt(LvDeviceFtr.GevInterfaceSelector, 0);
+                // --- Stream Channel ---
+                pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
+                pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 1500);
+                pDevice.SetInt(LvDeviceFtr.GevSCPD, 60000);
+               
                 // --- User Set Control ---
                 pDevice.SetEnum(LvDeviceFtr.UserSetSelector, (UInt32)LvUserSetSelector.Default);
                 // --- User Eeprom Data ---
@@ -166,7 +171,6 @@ namespace WindowsFormsApp1
                 pDevice.SetBool(Ftr_BccEnable, true);
                 // --- GenTL Device Module ---
                 pDevice.SetInt(LvDeviceFtr.StreamSelector, 0);
-
                 pDevice.SetInt(LvDeviceFtr.GevSCPD, 24000);
 
                 m_pInterface = pInterface;
@@ -179,6 +183,7 @@ namespace WindowsFormsApp1
                 m_pStream.SetInt32(LvStreamFtr.LvPostponeQueueBuffers, 3);
                 m_pStream.OpenRenderer(ref m_pRenderer);
                 m_pRenderer.SetWindow(m_hDisplayWnd);
+                
                 m_pRenderer.SetEnum(LvRendererFtr.LvRenderType, (UInt32)LvRenderType.ScaleToFit);
                 m_pEvent.OnEventNewBuffer += new LvEventNewBufferHandler(NewBufferEventHandler);
                 m_pEvent.SetCallbackNewBuffer(true, (IntPtr)0);

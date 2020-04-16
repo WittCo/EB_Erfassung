@@ -59,11 +59,11 @@ namespace WindowsFormsApp1
                 pSystem.OpenInterface("GigE Interface", ref pInterface);
 
                 pInterface.UpdateDeviceList();
-                pInterface.OpenDevice("SVGTL:80-6C-BC-30-21-AB", ref pDevice, LvDeviceAccess.Control);
+                pInterface.OpenDevice("SVGTL:80-6C-BC-30-22-0E", ref pDevice, LvDeviceAccess.Control);
 
                 // The #error line below is intentionally inserted to the code in case you
                 // generate the code from streamable or all writable features.
-              //  #error Review the feature settings code and remove the unnecessary items!
+
                 // Before removing this line from the code, go carefully through all the feature
                 // settings below and leave there only those, which really need to be set.
 
@@ -91,7 +91,6 @@ namespace WindowsFormsApp1
                 LvDeviceFtr Ftr_AeMaxTime = 0;
                 LvDeviceFtr Ftr_AeSpeed = 0;
                 LvDeviceFtr Ftr_AeWindow = 0;
-                LvDeviceFtr Ftr_UserEepromDataSelector = 0;
                 LvDeviceFtr Ftr_TransferRequestMode = 0;
                 LvDeviceFtr Ftr_ExpTogEnable = 0;
                 LvDeviceFtr Ftr_ExpTogExposureTime = 0;
@@ -110,7 +109,6 @@ namespace WindowsFormsApp1
                 pDevice.SetInt(LvDeviceFtr.Height, 2748);
                 pDevice.SetInt(LvDeviceFtr.OffsetX, 0);
                 pDevice.SetInt(LvDeviceFtr.OffsetY, 0);
-                pDevice.SetEnum(LvDeviceFtr.RegionSelector, (UInt32)LvRegionSelector.Region0);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "Binning", ref Ftr_Binning);
                 pDevice.SetEnumStr(Ftr_Binning, "x1");
                 pDevice.SetBool(LvDeviceFtr.ReverseX, false);
@@ -126,8 +124,6 @@ namespace WindowsFormsApp1
                 pDevice.SetEnumStr(Ftr_TestPatternGeneratorSelector, "FPGA");
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "TestPattern", ref Ftr_TestPattern);
                 pDevice.SetInt(Ftr_TestPattern, 0);
-                pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "TestPatternGeneratorSelector", ref Ftr_TestPatternGeneratorSelector);
-                pDevice.SetEnumStr(Ftr_TestPatternGeneratorSelector, "Sensor");
                 // --- Acquisition ---
                 pDevice.SetEnum(LvDeviceFtr.AcquisitionMode, (UInt32)LvAcquisitionMode.Continuous);
                 pDevice.SetInt(LvDeviceFtr.AcquisitionFrameCount, 8);
@@ -153,7 +149,6 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(LvDeviceFtr.TriggerDelay, 0.000000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "TriggerLength", ref Ftr_TriggerLength);
                 pDevice.SetFloat(Ftr_TriggerLength, 4.000000);
-                pDevice.SetEnum(LvDeviceFtr.TriggerSelector, (UInt32)LvTriggerSelector.FrameStart);
                 // --- Strobe 1 ---
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "Strobe1Source", ref Ftr_Strobe1Source);
                 pDevice.SetEnumStr(Ftr_Strobe1Source, "Trigger");
@@ -178,18 +173,18 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(Ftr_Strobe2Length, 1000.000000);
                 // --- Exposure ---
                 pDevice.SetEnum(LvDeviceFtr.ExposureMode, (UInt32)LvExposureMode.Timed);
-                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 26691.195313);
+                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 19130.726563);
                 pDevice.SetEnum(LvDeviceFtr.ExposureAuto, (UInt32)LvExposureAuto.Continuous);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeTarget", ref Ftr_AeTarget);
-                pDevice.SetFloat(Ftr_AeTarget, 0.500000);
+                pDevice.SetFloat(Ftr_AeTarget, 0.300000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeMinTime", ref Ftr_AeMinTime);
                 pDevice.SetFloat(Ftr_AeMinTime, 10.000000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeMaxTime", ref Ftr_AeMaxTime);
                 pDevice.SetFloat(Ftr_AeMaxTime, 1000000.000000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeSpeed", ref Ftr_AeSpeed);
-                pDevice.SetFloat(Ftr_AeSpeed, 1.000000);
+                pDevice.SetFloat(Ftr_AeSpeed, 3.000000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeWindow", ref Ftr_AeWindow);
-                pDevice.SetEnumStr(Ftr_AeWindow, "Small");
+                pDevice.SetEnumStr(Ftr_AeWindow, "Full");
                 // --- Digital I/O Control ---
                 pDevice.SetEnum(LvDeviceFtr.LineSelector, (UInt32)LvLineSelector.Line1);
                 pDevice.SetBool(LvDeviceFtr.LineInverter, false);
@@ -201,7 +196,6 @@ namespace WindowsFormsApp1
                 pDevice.SetEnum(LvDeviceFtr.LineSelector, (UInt32)LvLineSelector.Line4);
                 pDevice.SetBool(LvDeviceFtr.LineInverter, false);
                 pDevice.SetEnum(LvDeviceFtr.LineSource, (UInt32)LvLineSource.Off);
-                pDevice.SetEnum(LvDeviceFtr.LineSelector, (UInt32)LvLineSelector.Line1);
                 pDevice.SetEnum(LvDeviceFtr.UserOutputSelector, (UInt32)LvUserOutputSelector.UserOutput1);
                 pDevice.SetBool(LvDeviceFtr.UserOutputValue, false);
                 pDevice.SetEnum(LvDeviceFtr.UserOutputSelector, (UInt32)LvUserOutputSelector.UserOutput2);
@@ -210,7 +204,6 @@ namespace WindowsFormsApp1
                 pDevice.SetBool(LvDeviceFtr.UserOutputValue, false);
                 pDevice.SetEnum(LvDeviceFtr.UserOutputSelector, (UInt32)LvUserOutputSelector.UserOutput4);
                 pDevice.SetBool(LvDeviceFtr.UserOutputValue, false);
-                pDevice.SetEnum(LvDeviceFtr.UserOutputSelector, (UInt32)LvUserOutputSelector.UserOutput1);
                 pDevice.SetInt(LvDeviceFtr.UserOutputValueAll, 0x0);
                 // --- Analog Control ---
                 pDevice.SetEnum(LvDeviceFtr.GainSelector, (UInt32)LvGainSelector.AnalogAll);
@@ -225,34 +218,26 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(LvDeviceFtr.Gain, 1.000000);
                 pDevice.SetEnumStr(LvDeviceFtr.GainSelector, "DigitalGreen2Corr");
                 pDevice.SetFloat(LvDeviceFtr.Gain, 1.000000);
-                pDevice.SetEnum(LvDeviceFtr.GainSelector, (UInt32)LvGainSelector.DigitalAll);
                 pDevice.SetFloat(LvDeviceFtr.BlackLevel, 0.000000);
                 pDevice.SetEnum(LvDeviceFtr.BalanceRatioSelector, (UInt32)LvBalanceRatioSelector.Red);
-                pDevice.SetFloat(LvDeviceFtr.BalanceRatio, 1.000000);
+                pDevice.SetFloat(LvDeviceFtr.BalanceRatio, 1.237958);
                 pDevice.SetEnum(LvDeviceFtr.BalanceRatioSelector, (UInt32)LvBalanceRatioSelector.Green);
                 pDevice.SetFloat(LvDeviceFtr.BalanceRatio, 1.000000);
                 pDevice.SetEnum(LvDeviceFtr.BalanceRatioSelector, (UInt32)LvBalanceRatioSelector.Blue);
-                pDevice.SetFloat(LvDeviceFtr.BalanceRatio, 1.000000);
-                pDevice.SetEnum(LvDeviceFtr.BalanceRatioSelector, (UInt32)LvBalanceRatioSelector.Red);
+                pDevice.SetFloat(LvDeviceFtr.BalanceRatio, 1.286699);
                 pDevice.SetEnum(LvDeviceFtr.BalanceWhiteAuto, (UInt32)LvBalanceWhiteAuto.Off);
                 pDevice.SetFloat(LvDeviceFtr.Gamma, 0.500000);
                 // --- LUT Control ---
-                pDevice.SetEnum(LvDeviceFtr.LUTSelector, (UInt32)LvLUTSelector.Red);
                 pDevice.SetBool(LvDeviceFtr.LUTEnable, false);
                 // --- Network Interface ---
                 pDevice.SetInt(LvDeviceFtr.GevInterfaceSelector, 0);
                 pDevice.SetBool(LvDeviceFtr.GevCurrentIPConfigurationDHCP, true);
                 pDevice.SetBool(LvDeviceFtr.GevCurrentIPConfigurationPersistentIP, false);
-                pDevice.SetInt(LvDeviceFtr.GevInterfaceSelector, 0);
                 // GevSupportedOptionSelector has 27 entries, the source code above shown for first 20 only.
-                pDevice.SetEnum(LvDeviceFtr.GevSupportedOptionSelector, (UInt32)LvGevSupportedOptionSelector.UserDefinedName);
                 // --- Stream Channel ---
                 pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
                 pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 1500);
                 pDevice.SetInt(LvDeviceFtr.GevSCPD, 60000);
-                
-                // --- User Set Control ---
-                pDevice.SetEnum(LvDeviceFtr.UserSetSelector, (UInt32)LvUserSetSelector.Default);
                 // --- Color Transformation Control ---
                 pDevice.SetEnum(LvDeviceFtr.ColorTransformationSelector, (UInt32)LvColorTransformationSelector.RGBtoRGB);
                 pDevice.SetBool(LvDeviceFtr.ColorTransformationEnable, true);
@@ -280,7 +265,6 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(LvDeviceFtr.ColorTransformationValue, 0.000000);
                 pDevice.SetEnum(LvDeviceFtr.ColorTransformationValueSelector, (UInt32)LvColorTransformationValueSelector.Offset2);
                 pDevice.SetFloat(LvDeviceFtr.ColorTransformationValue, 0.000000);
-                pDevice.SetEnum(LvDeviceFtr.ColorTransformationValueSelector, (UInt32)LvColorTransformationValueSelector.Gain00);
                 pDevice.SetEnum(LvDeviceFtr.ColorTransformationSelector, (UInt32)LvColorTransformationSelector.RGBtoYUV);
                 pDevice.SetBool(LvDeviceFtr.ColorTransformationEnable, true);
                 pDevice.SetEnum(LvDeviceFtr.ColorTransformationValueSelector, (UInt32)LvColorTransformationValueSelector.Gain00);
@@ -307,8 +291,6 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(LvDeviceFtr.ColorTransformationValue, 0.000000);
                 pDevice.SetEnum(LvDeviceFtr.ColorTransformationValueSelector, (UInt32)LvColorTransformationValueSelector.Offset2);
                 pDevice.SetFloat(LvDeviceFtr.ColorTransformationValue, 0.000000);
-                pDevice.SetEnum(LvDeviceFtr.ColorTransformationValueSelector, (UInt32)LvColorTransformationValueSelector.Gain00);
-                pDevice.SetEnum(LvDeviceFtr.ColorTransformationSelector, (UInt32)LvColorTransformationSelector.RGBtoRGB);
                 // --- Event Control ---
                 pDevice.SetEnumStr(LvDeviceFtr.EventSelector, "AcquisitionStart");
                 pDevice.SetEnum(LvDeviceFtr.EventNotification, (UInt32)LvEventNotification.Off);
@@ -332,10 +314,6 @@ namespace WindowsFormsApp1
                 pDevice.SetEnum(LvDeviceFtr.EventNotification, (UInt32)LvEventNotification.Off);
                 pDevice.SetEnum(LvDeviceFtr.EventSelector, (UInt32)LvEventSelector.LvLog);
                 pDevice.SetEnum(LvDeviceFtr.EventNotification, (UInt32)LvEventNotification.Off);
-                pDevice.SetEnum(LvDeviceFtr.EventSelector, (UInt32)LvEventSelector.LvLog);
-                // --- User Eeprom Data ---
-                pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "UserEepromDataSelector", ref Ftr_UserEepromDataSelector);
-                pDevice.SetInt(Ftr_UserEepromDataSelector, 0);
                 // --- Transfer Request Control ---
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "TransferRequestMode", ref Ftr_TransferRequestMode);
                 pDevice.SetBool(Ftr_TransferRequestMode, false);
@@ -352,7 +330,6 @@ namespace WindowsFormsApp1
                 pDevice.SetBool(Ftr_BccEnable, true);
                 // --- GenTL Device Module ---
                 pDevice.SetEnum(LvDeviceFtr.LvGevDeviceStreamCaptureMode, (UInt32)LvGevDeviceStreamCaptureMode.SystemDefault);
-                pDevice.SetInt(LvDeviceFtr.StreamSelector, 0);
                 // --- Unified Processing ---
                 pDevice.SetEnum(LvDeviceFtr.LvUniProcessMode, (UInt32)LvUniProcessMode.Auto);
                 pDevice.SetBool(LvDeviceFtr.LvUniProcessEnableInPlace, false);
@@ -362,27 +339,20 @@ namespace WindowsFormsApp1
                 // --- LUT Control and White Balance ---
                 pDevice.SetEnum(LvDeviceFtr.LvUniLUTMode, (UInt32)LvUniLUTMode.Generated);
                 pDevice.SetEnum(LvDeviceFtr.LvUniLUTSelector, (UInt32)LvUniLUTSelector.Red);
-                pDevice.SetInt(LvDeviceFtr.LvUniLUTIndex, 0);
                 pDevice.SetEnum(LvDeviceFtr.LvUniLUTSelector, (UInt32)LvUniLUTSelector.Green);
-                pDevice.SetInt(LvDeviceFtr.LvUniLUTIndex, 0);
                 pDevice.SetEnum(LvDeviceFtr.LvUniLUTSelector, (UInt32)LvUniLUTSelector.Blue);
-                pDevice.SetInt(LvDeviceFtr.LvUniLUTIndex, 0);
-                pDevice.SetEnum(LvDeviceFtr.LvUniLUTSelector, (UInt32)LvUniLUTSelector.Red);
                 pDevice.SetFloat(LvDeviceFtr.LvUniBrightness, 1.000000);
                 pDevice.SetFloat(LvDeviceFtr.LvUniContrast, 1.000000);
                 pDevice.SetFloat(LvDeviceFtr.LvUniGamma, 1.000000);
                 pDevice.SetEnum(LvDeviceFtr.LvUniBalanceRatioSelector, (UInt32)LvUniBalanceRatioSelector.Red);
-                pDevice.SetFloat(LvDeviceFtr.LvUniBalanceRatio, 1.102000);
+                pDevice.SetFloat(LvDeviceFtr.LvUniBalanceRatio, 1.000000);
                 pDevice.SetEnum(LvDeviceFtr.LvUniBalanceRatioSelector, (UInt32)LvUniBalanceRatioSelector.Green);
                 pDevice.SetFloat(LvDeviceFtr.LvUniBalanceRatio, 1.000000);
                 pDevice.SetEnum(LvDeviceFtr.LvUniBalanceRatioSelector, (UInt32)LvUniBalanceRatioSelector.Blue);
-                pDevice.SetFloat(LvDeviceFtr.LvUniBalanceRatio, 1.236000);
-                pDevice.SetEnum(LvDeviceFtr.LvUniBalanceRatioSelector, (UInt32)LvUniBalanceRatioSelector.Red);
+                pDevice.SetFloat(LvDeviceFtr.LvUniBalanceRatio, 1.000000);
                 pDevice.SetEnum(LvDeviceFtr.LvUniBalanceWhiteAuto, (UInt32)LvUniBalanceWhiteAuto.Off);
                 // --- Color Transformation Control ---
                 pDevice.SetEnum(LvDeviceFtr.LvUniColorTransformationMode, (UInt32)LvUniColorTransformationMode.Generated);
-                pDevice.SetEnum(LvDeviceFtr.LvUniColorTransformationSelector, (UInt32)LvUniColorTransformationSelector.RGBtoRGB);
-                pDevice.SetEnum(LvDeviceFtr.LvUniColorTransformationValueSelector, (UInt32)LvUniColorTransformationValueSelector.Gain00);
                 pDevice.SetEnum(LvDeviceFtr.LvUniColorTransformationSelector, (UInt32)LvUniColorTransformationSelector.RGBtoRGB);
                 pDevice.SetFloat(LvDeviceFtr.LvUniSaturation, 1.000000);
 
@@ -397,9 +367,9 @@ namespace WindowsFormsApp1
                 for (int i = 0; i < NumberOfBuffers; i++)
                     m_pStream.OpenBuffer((IntPtr)0, 0, (IntPtr)0, 0, ref m_Buffers[i]); 
                 m_pStream.SetInt32(LvStreamFtr.LvPostponeQueueBuffers, 3);
+
                 m_pStream.OpenRenderer(ref m_pRenderer);
                 m_pRenderer.SetEnum(LvRendererFtr.LvRenderType, (UInt32)LvRenderType.ScaleToFit);
-                         
                 m_pRenderer.SetWindow(m_hDisplayWnd);                     
 
                 m_pEvent.OnEventNewBuffer += new LvEventNewBufferHandler(NewBufferEventHandler); 
@@ -560,64 +530,77 @@ namespace WindowsFormsApp1
             }
         }
 
-        //-----------------------------------------------------------------------------
+        public void SaveImg(LvNewBufferEventArgs e)
+        {
+            string name = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
+
+            e.Buffer.SaveImageToJpgFile(@"C:\Users\Damian.Jakubowski\AWICO\Technik - Witt IBC Bilder\HO" + name + ".jpg", 95);
+        }
+
 
         void NewBufferEventHandler(System.Object sender, LvNewBufferEventArgs e)
         {
-            try
             {
-                if (e.Buffer == null) return;
-
-                IntPtr pData = (IntPtr) 0;
-                Int64 iImageOffset = 0;
-                e.Buffer.GetPtr(LvBufferFtr.UniBase, ref pData);
-                e.Buffer.GetInt(LvBufferFtr.UniImageOffset, ref iImageOffset);
-                pData = (IntPtr)(pData.ToInt64() + iImageOffset);
-                if (m_bDoProcessing && pData != (IntPtr)0)
+                try
                 {
-                    // we will do some easy processing - invert the pixel values in an area
-                    Int32 iWidth = 0;
-                    Int32 iHeight = 0;
-                    Int32 iLinePitch = 0;
-                    UInt32 iPixelFormat = 0;    // LvPixelFormat enumeration value
-                    m_pDevice.GetInt32(LvDeviceFtr.Width, ref iWidth);
-                    m_pDevice.GetInt32(LvDeviceFtr.Height, ref iHeight);
-                    m_pDevice.GetEnum(LvDeviceFtr.LvUniPixelFormat, ref iPixelFormat);
-                    m_pDevice.GetInt32(LvDeviceFtr.LvUniLinePitch, ref iLinePitch);
-                    Int32 iBytesPerPixel = (Int32)((iPixelFormat & 0x00FF0000) >> 16) / 8;
-                    for (Int32 j = 0; j < (iHeight / 2); j++)
+                    if (e.Buffer == null) return;
+
+                    IntPtr pData = (IntPtr)0;
+                    Int64 iImageOffset = 0;
+                    e.Buffer.GetPtr(LvBufferFtr.UniBase, ref pData);
+                    e.Buffer.GetInt(LvBufferFtr.UniImageOffset, ref iImageOffset);
+                    pData = (IntPtr)(pData.ToInt64() + iImageOffset);
+                    if (m_bDoProcessing && pData != (IntPtr)0)
                     {
-                        Int32 BaseOffset = (iHeight / 4 + j) * iLinePitch + (iWidth / 4) * iBytesPerPixel;
-                        for (Int32 i = 0; i < (iBytesPerPixel*iWidth / 2); i += iBytesPerPixel)
+                        // we will do some easy processing - invert the pixel values in an area
+                        Int32 iWidth = 0;
+                        Int32 iHeight = 0;
+                        Int32 iLinePitch = 0;
+                        UInt32 iPixelFormat = 0;    // LvPixelFormat enumeration value
+                        m_pDevice.GetInt32(LvDeviceFtr.Width, ref iWidth);
+                        m_pDevice.GetInt32(LvDeviceFtr.Height, ref iHeight);
+                        m_pDevice.GetEnum(LvDeviceFtr.LvUniPixelFormat, ref iPixelFormat);
+                        m_pDevice.GetInt32(LvDeviceFtr.LvUniLinePitch, ref iLinePitch);
+                        Int32 iBytesPerPixel = (Int32)((iPixelFormat & 0x00FF0000) >> 16) / 8;
+                        for (Int32 j = 0; j < (iHeight / 2); j++)
                         {
-                            for (Int32 k = 0; k < iBytesPerPixel; k++)
+                            Int32 BaseOffset = (iHeight / 4 + j) * iLinePitch + (iWidth / 4) * iBytesPerPixel;
+                            for (Int32 i = 0; i < (iBytesPerPixel * iWidth / 2); i += iBytesPerPixel)
                             {
-                                // In C# we can use the Marshal class to access data pointed 
-                                // by unmanaged pointers. However, this way of accessing unmanaged 
-                                // data is ineffective (may slow down the acquisition).
-                                Byte Pixel = Marshal.ReadByte(pData, BaseOffset + i + k);
-                                Pixel = (Byte)~Pixel;
-                                Marshal.WriteByte(pData, BaseOffset + i + k, Pixel);
+                                for (Int32 k = 0; k < iBytesPerPixel; k++)
+                                {
+                                    // In C# we can use the Marshal class to access data pointed 
+                                    // by unmanaged pointers. However, this way of accessing unmanaged 
+                                    // data is ineffective (may slow down the acquisition).
+                                    Byte Pixel = Marshal.ReadByte(pData, BaseOffset + i + k);
+                                    Pixel = (Byte)~Pixel;
+                                    Marshal.WriteByte(pData, BaseOffset + i + k, Pixel);
+                                }
                             }
                         }
                     }
-                }
 
-                m_pRenderer.DisplayImage(e.Buffer);
-                e.Buffer.Queue();
-            }
-            catch (LvException)
-            {
-                // no message
+
+                    m_pRenderer.DisplayImage(e.Buffer);
+                    e.Buffer.Queue();
+
+                    SaveImg(e);
+
+
+                }
+                catch (LvException)
+                {
+                    // no message
+                }
             }
         }
 
         //-----------------------------------------------------------------------------
-
         public void Triggr()
         {
             m_pDevice.CmdExecute(LvDeviceFtr.TriggerSoftware);
 
         }
+
     }
 }

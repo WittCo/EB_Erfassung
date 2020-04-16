@@ -51,12 +51,12 @@ namespace WindowsFormsApp1
 
                 cmd.ExecuteNonQuery();
                // cnn.Close();
-                MessageBox.Show("Record Inserted Successfully");
+              //  MessageBox.Show("Record Inserted Successfully");
 
             }
             else
             {
-                MessageBox.Show("Please Provide Details!");
+              //  MessageBox.Show("Please Provide Details!");
             }
             cnn.Close();
         }

@@ -38,6 +38,8 @@ namespace WindowsFormsApp1
             // string connetionString;
             // SqlConnection cnn;
 
+
+
             ConnSQL();
 
             if (EB_Numm != "" && IBC_Artnumm != "" && IBC_Sernum !="")

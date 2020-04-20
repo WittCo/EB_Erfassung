@@ -138,17 +138,17 @@ namespace WindowsFormsApp1
             dataGridView11.DataSource = dt2;
 
             ConnSQL();
-            
+
         }
 
 
-   
+
         public static class MyStaticValues
         {
             public static bool camtrig2 { get; set; }
         }
 
-      
+
 
         protected override void OnClosed(System.EventArgs e)
         {
@@ -166,7 +166,7 @@ namespace WindowsFormsApp1
             // TODO: Diese Codezeile lädt Daten in die Tabelle "wittEyEDataSet.IBC_EB". Sie können sie bei Bedarf verschieben oder entfernen.
 
             UpdateXLMDatei();
-            Refresch_XML();
+
             Refresch_EB_Offen();
             DrawButtons();
             DrawDienstButtons();
@@ -211,9 +211,7 @@ namespace WindowsFormsApp1
 
         private void Refresch_XML()
         {
-            DataTable table2 = new DataTable();
-            ddXml.Refresch_XML(out table2);
-            dataGridView4.DataSource = table2;
+
         }
 
         private void moveEBtoFertigXML()
@@ -267,15 +265,15 @@ namespace WindowsFormsApp1
             for (int i = 0; i < filePaths2.Length; i++)
             {
                 XmlDataDocument xmldoc = new XmlDataDocument();
-                XmlNode xmlnode;    
-                
-                    String Slt, Slt3, Slt4, Slt5, Eb;
+                XmlNode xmlnode;
 
-                    FileInfo file = new FileInfo(filePaths2[i]);
-                    char[] MyChar = { 'x', 'm', 'l', '.' };
+                String Slt, Slt3, Slt4, Slt5, Eb;
 
-                    Eb = file.Name.TrimEnd(MyChar);
-                    EBsucheKunde(Eb, out Slt3, out Slt4, out Slt5);
+                FileInfo file = new FileInfo(filePaths2[i]);
+                char[] MyChar = { 'x', 'm', 'l', '.' };
+
+                Eb = file.Name.TrimEnd(MyChar);
+                EBsucheKunde(Eb, out Slt3, out Slt4, out Slt5);
 
                 FileStream fs = new FileStream(filePaths2[i], FileMode.Open, FileAccess.Read);
                 xmldoc.Load(fs);
@@ -287,20 +285,20 @@ namespace WindowsFormsApp1
 
 
                 row = table2.NewRow();
-                    row["EB"] = Eb;
-                    row["Ist Stk Zahl"] = Slt;
-                    row["SollStkZahl"] = Slt3;
-                    row["Kunde"] = Slt4;
-                    row["Lieferdatum"] = Slt5;
-                    table2.Rows.Add(row);
+                row["EB"] = Eb;
+                row["Ist Stk Zahl"] = Slt;
+                row["SollStkZahl"] = Slt3;
+                row["Kunde"] = Slt4;
+                row["Lieferdatum"] = Slt5;
+                table2.Rows.Add(row);
 
 
-               
+
             }
             dataGridView3.DataSource = table2;
         }
 
-          private void EBsucheKunde(String EBNum, out string VEA2, out string Kunde, out string Lieferdatum)
+        private void EBsucheKunde(String EBNum, out string VEA2, out string Kunde, out string Lieferdatum)
         {
 
             DataSet ds = new DataSet();
@@ -830,6 +828,7 @@ namespace WindowsFormsApp1
 
                 label52.Text = dataGridView1.Rows[0].Cells[8].Value.ToString();
                 label51.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
+                textBox20.Text = dataGridView1.Rows[0].Cells[12].Value.ToString();
 
                 label43.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
                 label43.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
@@ -907,7 +906,7 @@ namespace WindowsFormsApp1
 
 
 
-      
+
 
 
         private void createNode(string pArtNr, int pKRest, XmlTextWriter writer)
@@ -927,7 +926,7 @@ namespace WindowsFormsApp1
         }
 
 
-      
+
 
         private void AddNode_XML(XmlNode inXmlNode, TreeNode inTreeNode)
         {
@@ -1020,12 +1019,9 @@ namespace WindowsFormsApp1
 
                 dataGridView8.DataSource = xmlnode;
                 fs.Close();
-              //  XMLtoTable();
+                XMLtoTable();
                 DataSet ds5 = ddsql.DisplaySQLDataitoDS();
                 dataGridView12.DataSource = ds5;
-
-               
-
             }
 
 
@@ -1038,34 +1034,10 @@ namespace WindowsFormsApp1
             DataSet de = new DataSet();
 
             de.ReadXml((destPath + label16.Text + ".xml"));
-
             DataTable dt = de.Tables[3];
-            DataTable distinctTable = dt.DefaultView.ToTable( /*distinct*/ true);
-            distinctTable.Columns.Add("Stk");
-
             dataGridView8.DataSource = null;
-
             dataGridView8.DataSource = dt; // Alle ratikelnnummer
-
-            dataGridView9.DataSource = null;
-
-            dataGridView9.DataSource = distinctTable; //Artiklenummer sortiert
-
-            // dataGridView9.Columns.Add("Colum3", "Stk");
-
-            for (int z = 0; z < distinctTable.Rows.Count; z++)
-            {
-                int sum = 0;
-                for (int w = 0; w < dt.Rows.Count; w++)
-
-                {
-                    if (dataGridView8.Rows[w].Cells[0].Value.ToString() == dataGridView9.Rows[z].Cells[0].Value.ToString())
-                        sum += 1;
-                }
-
-                dataGridView9.Rows[z].Cells[2].Value = sum.ToString();
-                //  MessageBox.Show(sum.ToString());
-            }
+            GC.Collect();
 
         }
 
@@ -1073,7 +1045,6 @@ namespace WindowsFormsApp1
         {
             Refresch_XML();
             Refresch_EB_Offen();
-
         }
 
 
@@ -1084,7 +1055,7 @@ namespace WindowsFormsApp1
         }
 
         private void NeuePos_XML(string ArtNr, int KreszInh, string Seriennummer, string EB)
-        {
+        {  
             XDocument xDocument = XDocument.Load(EB);
             XElement root = xDocument.Element("Belege");
 
@@ -1097,10 +1068,9 @@ namespace WindowsFormsApp1
             new XElement("BelegePosition",
             new XElement("BelegePositionen.ArtikelNummer", ArtNr),
             new XElement("BelegePositionen.K_Restinhalt", KreszInh),
-            new XElement("BelegePositionen.K_Sereinnummer", Seriennummer)));
-
+            new XElement("BelegePositionen.K_Seriennummer", Seriennummer)));
             xDocument.Save(EB);
-
+           
         }
 
         private void textBox10_TextChanged(object sender, EventArgs e)
@@ -1137,34 +1107,34 @@ namespace WindowsFormsApp1
             }
 
 
-                if (textBox10.TextLength == 9)
-                {
+            if (textBox10.TextLength == 9)
+            {
                 string eb;
 
                 eb = textBox10.Text;
 
                 eb = textBox10.Text;
 
-                    panel1.BackColor = Color.Red;
-                    tabControl1.SelectedTab = tabPage5;
-                    label16.Text = eb;
-                    NodeCount = 0;
+                panel1.BackColor = Color.Red;
+                tabControl1.SelectedTab = tabPage5;
+                label16.Text = eb;
+                NodeCount = 0;
 
-                    string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
+                string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
 
-                    //   label14.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString() + "\\" + dataGridView3.CurrentRow.Cells[0].Value.ToString();
-                    label14.Text = destPath + label16.Text + ".xml";
-                    textBox11.Text = "0";
-                    textBox12.Text = "1";
-                    label1.Text = "0";
+                //   label14.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString() + "\\" + dataGridView3.CurrentRow.Cells[0].Value.ToString();
+                label14.Text = destPath + label16.Text + ".xml";
+                textBox11.Text = "0";
+                textBox12.Text = "1";
+                label1.Text = "0";
 
-                    SollStkza(eb);
-                    UpdateTree();
-                    EB_Offen_Focus();
-                    ResetSonigsten();
-                    ResetArtikelAswahl();
-                }
-            
+                SollStkza(eb);
+                UpdateTree();
+                EB_Offen_Focus();
+                ResetSonigsten();
+                ResetArtikelAswahl();
+            }
+
 
 
         }
@@ -1224,6 +1194,8 @@ namespace WindowsFormsApp1
 
             if (File.Exists(destPath + label16.Text + ".xml") == true)
             {
+
+               
                 NeuePos_XML(ArtikelNummer, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"), (destPath + label16.Text + ".xml"));
             }
             else
@@ -1236,6 +1208,8 @@ namespace WindowsFormsApp1
         private void NeuEB(string Artikelnummer)
 
         {
+
+            int nc = NodeCount + 1;
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
             XDocument xDokument = new XDocument(
@@ -1246,11 +1220,14 @@ namespace WindowsFormsApp1
             new XElement("Belege.K_LagerStatus", "True"),
             new XElement("Belege.Belegnummer", label16.Text),
             new XElement("AuftragsAdressen.AdressNummer"),
-            new XElement("BelegePositionen", new XElement("Belege", new XElement("BelegePosition"),
-            new XElement("BelegePositionen.ArtikelNummer", Artikelnummer),
-            new XElement("BelegePositionen.K_Restinhalt", int.Parse(textBox11.Text),
-            new XElement("BelegePositionen.K_Seriennummer", label16.Text + NodeCount.ToString("000"))))))));
-    
+            new XElement("BelegePositionen",
+            new XElement("Belege",
+            
+            new XElement("BelegePosition",
+                new XElement("BelegePositionen.ArtikelNummer", Artikelnummer),
+                new XElement("BelegePositionen.K_Restinhalt", int.Parse(textBox11.Text)),
+                new XElement("BelegePositionen.K_Seriennummer", label16.Text + nc.ToString("000"))))))));
+
             xDokument.Save(destPath + label16.Text + ".xml");
 
             // MessageBox.Show("XML File created ! ");
@@ -1620,8 +1597,8 @@ namespace WindowsFormsApp1
             for (int i = 0; i < int.Parse(ANZ) - n; i++)
             {
                 string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
-
-                NeuePos_XML(Artikel, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"), (destPath + label16.Text + ".xml"));
+                int nc = NodeCount + 1;
+                NeuePos_XML(Artikel, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"), (destPath + label16.Text + ".xml"));
 
                 UpdateTree();
             }
@@ -1674,7 +1651,7 @@ namespace WindowsFormsApp1
 
         }
 
-     
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -1766,7 +1743,7 @@ namespace WindowsFormsApp1
                 checkBox9.Checked = false;
                 checkBox3.Checked = false;
                 radioButton43.Checked = false;
-               
+
 
                 MyStaticValues.camtrig2 = false;
 
@@ -1796,7 +1773,7 @@ namespace WindowsFormsApp1
 
 
 
-         }
+        }
 
         private void button14_Click(object sender, EventArgs e)
         {
@@ -2087,7 +2064,8 @@ namespace WindowsFormsApp1
             // CheckEBEXIST(label11.Text);
 
             int Serie = 0;
-            Serie = int.Parse(label1.Text);
+
+            Serie =1+int.Parse(label1.Text);
 
             ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + Serie.ToString("000"));
 
@@ -2133,10 +2111,10 @@ namespace WindowsFormsApp1
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            int nc = NodeCount + 1;
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
-            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2174,10 +2152,10 @@ namespace WindowsFormsApp1
         private void button18_Click_1(object sender, EventArgs e)
         {
             // CheckEBEXIST(label41.Text);
-
+            int nc = NodeCount + 1;
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
-            ddsql.InsertSQLDatei(label16.Text, label41.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+            ddsql.InsertSQLDatei(label16.Text, label41.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2216,8 +2194,8 @@ namespace WindowsFormsApp1
         private void button17_Click_1(object sender, EventArgs e)
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
-
-            ddsql.InsertSQLDatei(label41.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+            int nc = NodeCount + 1;
+            ddsql.InsertSQLDatei(label41.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2258,8 +2236,8 @@ namespace WindowsFormsApp1
 
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
-
-            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+            int nc = NodeCount + 1;
+            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2296,8 +2274,8 @@ namespace WindowsFormsApp1
 
         private void button12_Click_2(object sender, EventArgs e)
         {
-
-            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+            int nc = NodeCount + 1;
+            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
             CheckEBEXIST(label36.Text);
             textBox13.Text = "2";
             textBox14.Text = "1";
@@ -2444,8 +2422,8 @@ namespace WindowsFormsApp1
         private void button21_Click(object sender, EventArgs e)
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
-
-            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+            int nc = NodeCount + 1;
+            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
@@ -2491,8 +2469,8 @@ namespace WindowsFormsApp1
         private void button20_Click(object sender, EventArgs e)
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
-
-            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"));
+            int nc = NodeCount + 1;
+            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2527,17 +2505,8 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //  label14.Text = dataGridView3.CurrentRow.Cells[0].Value.ToString() + "\\" + dataGridView3.CurrentRow.Cells[0].Value.ToString();
-            char[] MyChar = { 'x', 'm', 'l', '.' };
-            label16.Text = dataGridView4.CurrentRow.Cells[0].Value.ToString().TrimEnd(MyChar);
-
-            SollStkza(label16.Text);
-            UpdateTree();
-            if (label17.Text != "Soll Stückzahl nicht gefünden")
-                SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
-        }
+    
+       
 
         private void radioButton41_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -2589,7 +2558,7 @@ namespace WindowsFormsApp1
 
             doc.Save(destPath + label16.Text + ".xml");
 
-           // XMLtoTable();
+            XMLtoTable();
 
         }
 

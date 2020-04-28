@@ -231,7 +231,7 @@ namespace WindowsFormsApp1
                 // GevSupportedOptionSelector has 27 entries, the source code above shown for first 20 only.
                 // --- Stream Channel ---
                 pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
-                pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 1500);
+                pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 1000);
                 pDevice.SetInt(LvDeviceFtr.GevSCPD, 24000);
                 // --- Color Transformation Control ---
                 pDevice.SetEnum(LvDeviceFtr.ColorTransformationSelector, (UInt32)LvColorTransformationSelector.RGBtoRGB);

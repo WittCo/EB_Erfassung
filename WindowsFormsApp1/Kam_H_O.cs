@@ -534,7 +534,8 @@ namespace WindowsFormsApp1
         {
             string name = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
 
-            e.Buffer.SaveImageToJpgFile(@"C:\Users\Damian.Jakubowski\AWICO\Technik - Witt IBC Bilder\HO" + name + ".jpg", 95);
+            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HO" + name + ".jpg", 95);
+      
         }
 
 

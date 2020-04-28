@@ -292,10 +292,12 @@ namespace WindowsFormsApp1
                 row["Lieferdatum"] = Slt5;
                 table2.Rows.Add(row);
 
-
+                
 
             }
+            table2.DefaultView.Sort = "SollStkZahl asc";
             dataGridView3.DataSource = table2;
+
         }
 
         private void EBsucheKunde(String EBNum, out string VEA2, out string Kunde, out string Lieferdatum)
@@ -828,7 +830,7 @@ namespace WindowsFormsApp1
 
                 label52.Text = dataGridView1.Rows[0].Cells[8].Value.ToString();
                 label51.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
-                textBox20.Text = dataGridView1.Rows[0].Cells[12].Value.ToString();
+                richTextBox1.Text = dataGridView1.Rows[0].Cells[12].Value.ToString();
 
                 label43.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
                 label43.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
@@ -1630,8 +1632,7 @@ namespace WindowsFormsApp1
         private void button10_Click(object sender, EventArgs e)
         {
 
-            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/&Launcher.exe -exe AlphaplanSchnittstellen.exe -job 8483bestellungenimport.als");
-            Refresch_XML();
+            
         }
 
 
@@ -1725,7 +1726,7 @@ namespace WindowsFormsApp1
 
                 label74.Text = tWal2.ToString();
                 label71.Text = tAp1.ToString();
-                label75.Text = tAp1.ToString();
+                label75.Text = Ap1.ToString();
 
                 label70.Text = tAp3.ToString();
                 label69.Text = tKetteAP1_5.ToString();
@@ -1763,15 +1764,13 @@ namespace WindowsFormsApp1
 
         private void label75_TextChanged(object sender, EventArgs e)
         {
-            if (label75.Text == "4")
+            if ((label75.Text == "4") ^ (cbKamAktiv.Checked==true))
             {
                 m_pCamera.Triggr();
                 m_pCamera2.Triggr();
                 m_pCamera3.Triggr();
                 m_pCamera4.Triggr();
             }
-
-
 
         }
 
@@ -2622,12 +2621,7 @@ namespace WindowsFormsApp1
             panel1.BackColor = Color.Red;
         }
 
-      
-
-        private void button26_Click_1(object sender, EventArgs e)
-        {
-        
-        }
+ 
 
         private void button27_Click_1(object sender, EventArgs e)
         {
@@ -2647,8 +2641,7 @@ namespace WindowsFormsApp1
 
         private void button28_Click_1(object sender, EventArgs e)
         {
-            m_pCamera.StopAcquisition();
-            m_pCamera2.StopAcquisition();
+            
         }
 
    
@@ -2678,21 +2671,23 @@ namespace WindowsFormsApp1
 
         private void pbH_0_Paint(object sender, PaintEventArgs e)
         {
-            m_pCamera3.Repaint();
+            m_pCamera4.Repaint();
         }
 
         private void PictureBoxLive_Paint_1(object sender, PaintEventArgs e)
         {
             m_pCamera.Repaint();
+        }
 
+        private void pictureBox2_Paint(object sender, PaintEventArgs e)
+        {
+            m_pCamera2.Repaint();
         }
 
         private void pbH_U_Paint(object sender, PaintEventArgs e)
         {
-            m_pCamera4.Repaint();
+            m_pCamera3.Repaint();
         }
-
-
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -2718,7 +2713,6 @@ namespace WindowsFormsApp1
             toolStripStatusLabel3.BackColor = Color.LightGreen;
             toolStripStatusLabel4.BackColor = Color.LightGreen;
             toolStripStatusLabel5.BackColor = Color.LightGreen;
-
             Cursor = Cursors.Default;
         }
 
@@ -2733,11 +2727,34 @@ namespace WindowsFormsApp1
             Refresch_EB_Offen();
         }
 
+        private void eBFertigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            moveEBtoFertigXML();
+            Refresch_XML();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            m_pCamera.StopAcquisition();
+            m_pCamera2.StopAcquisition();
+            m_pCamera3.StopAcquisition();
+            m_pCamera4.StopAcquisition();
+
+            m_pCamera.CloseCamera();
+            toolStripStatusLabel2.BackColor = Color.LightYellow;
+            m_pCamera2.CloseCamera();
+            toolStripStatusLabel3.BackColor = Color.LightYellow;
+            m_pCamera3.CloseCamera();
+            toolStripStatusLabel4.BackColor = Color.LightYellow;
+            m_pCamera4.CloseCamera();
+            toolStripStatusLabel4.BackColor = Color.LightYellow;
+
+        }
+
         private void ConnSQL()
         {
             ddsql.ConnSQL();
             toolStripStatusLabel7.BackColor = Color.LightGreen;
-
         }
 
     
@@ -2752,27 +2769,6 @@ namespace WindowsFormsApp1
             ddsql.DeleteItem(ID);
         }
 
-
-
-        private void checkBox6_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (this.checkBox6.Checked == false)
-            {
-                timer2.Enabled = false;
-            }
-            else
-            {
-                timer2.Enabled = true;
-                timer2.Interval =1000 * int.Parse(IntervalT2.Text);
-            }
-        }
-
-     
-
-  
-
-  
-        
         private void button25_Click(object sender, EventArgs e)
         {
             Thread cam1 = new Thread(Cam1_00);

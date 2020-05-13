@@ -18,8 +18,8 @@ using AdaptiveVision;
 using AvlNet;
 using NewElectronicTechnology.SynView;
 using System.Data.SqlClient;
-
-
+using System.Collections;
+using WittEyE;
 
 namespace WindowsFormsApp1
 {
@@ -136,7 +136,6 @@ namespace WindowsFormsApp1
 
             dataGridView10.DataSource = dt1;
             dataGridView11.DataSource = dt2;
-
             ConnSQL();
 
         }
@@ -292,11 +291,25 @@ namespace WindowsFormsApp1
                 row["Lieferdatum"] = Slt5;
                 table2.Rows.Add(row);
 
-                
-
             }
             table2.DefaultView.Sort = "SollStkZahl asc";
             dataGridView3.DataSource = table2;
+
+
+            String searchValue = label16.Text;
+            int rowIndex = -1;
+            foreach (DataGridViewRow row2 in dataGridView3.Rows)
+            {
+                if (row2.Cells[0].Value.ToString().Equals(searchValue))
+                {
+                    rowIndex = row2.Index;
+                    break;
+                }
+            }
+
+           // dataGridView3.Rows[rowIndex].Selected = true;
+            dataGridView3.CurrentCell = dataGridView3[0,rowIndex];
+
 
         }
 
@@ -798,7 +811,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                label10.Text = "Artikel Nicht Gefünden!";
+                label10.Text = "Artikel Nicht Gefunden!";
             }
 
             if (dataGridView2.Rows[0].Cells[1].Value != null)
@@ -808,7 +821,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                label11.Text = "Artikel Nicht Gefünden!";
+                label11.Text = "Artikel Nicht Gefunden!";
             }
         }
 
@@ -843,24 +856,24 @@ namespace WindowsFormsApp1
             }
             else
             {
-                label10.Text = "Soll Stückzahl nicht gefünden";
-                label2.Text = "Soll Stückzahl nicht gefünden";
-                label17.Text = "Soll Stückzahl nicht gefünden";
-                label34.Text = "Soll Stückzahl nicht gefünden";
+                label10.Text = "Soll Stückzahl nicht gefunden";
+                label2.Text = "Soll Stückzahl nicht gefunden";
+                label17.Text = "Soll Stückzahl nicht gefunden";
+                label34.Text = "Soll Stückzahl nicht gefunden";
 
-                label43.Text = "Soll Stückzahl nicht gefünden";
+                label43.Text = "Soll Stückzahl nicht gefunden";
 
-                label52.Text = "Soll Stückzahl nicht gefünden";
-                label51.Text = "Soll Stückzahl nicht gefünden";
+                label52.Text = "Soll Stückzahl nicht gefunden";
+                label51.Text = "Soll Stückzahl nicht gefunden";
 
-                label43.Text = "Soll Stückzahl nicht gefünden";
-                label43.Text = "Soll Stückzahl nicht gefünden";
+                label43.Text = "Soll Stückzahl nicht gefunden";
+                label43.Text = "Soll Stückzahl nicht gefunden";
 
-                label45.Text = "Soll Stückzahl nicht gefünden";
-                label46.Text = "Soll Stückzahl nicht gefünden";
+                label45.Text = "Soll Stückzahl nicht gefunden";
+                label46.Text = "Soll Stückzahl nicht gefunden";
 
-                label48.Text = "Soll Stückzahl nicht gefünden";
-                label47.Text = "Soll Stückzahl nicht gefünden";
+                label48.Text = "Soll Stückzahl nicht gefunden";
+                label47.Text = "Soll Stückzahl nicht gefunden";
 
             }
 
@@ -972,7 +985,7 @@ namespace WindowsFormsApp1
 
             SollStkza(label16.Text);
             UpdateTree();
-            if (label17.Text != "Soll Stückzahl nicht gefünden")
+            if (label17.Text != "Soll Stückzahl nicht gefunden")
                 SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
 
 
@@ -1082,15 +1095,16 @@ namespace WindowsFormsApp1
             if (textBox10.TextLength == 12)
             {
 
-                string eb;
+                string eb,sn;
 
-                eb = textBox10.Text;
 
-                eb = textBox10.Text.Substring(textBox10.Text.Length - 3);
+                sn = textBox10.Text;
+                eb = textBox10.Text.Remove(9, 3);
 
                 panel1.BackColor = Color.Red;
                 tabControl1.SelectedTab = tabPage5;
                 label16.Text = eb;
+                lbSn.Text = sn;
                 NodeCount = 0;
 
                 string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
@@ -1108,7 +1122,7 @@ namespace WindowsFormsApp1
                 ResetArtikelAswahl();
             }
 
-
+/*
             if (textBox10.TextLength == 9)
             {
                 string eb;
@@ -1136,7 +1150,7 @@ namespace WindowsFormsApp1
                 ResetSonigsten();
                 ResetArtikelAswahl();
             }
-
+*/
 
 
         }
@@ -1184,7 +1198,12 @@ namespace WindowsFormsApp1
                 UpdateTree();
                 textBox10.Clear();
                 textBox10.Focus();
+               
+            }
 
+            if (tabControl1.SelectedTab == tabPage2)
+            {
+                showImage();
             }
 
 
@@ -1198,7 +1217,7 @@ namespace WindowsFormsApp1
             {
 
                
-                NeuePos_XML(ArtikelNummer, int.Parse(textBox11.Text), label16.Text + NodeCount.ToString("000"), (destPath + label16.Text + ".xml"));
+                NeuePos_XML(ArtikelNummer, int.Parse(textBox11.Text), lbSn.Text, (destPath + label16.Text + ".xml"));
             }
             else
             {
@@ -1600,7 +1619,7 @@ namespace WindowsFormsApp1
             {
                 string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
                 int nc = NodeCount + 1;
-                NeuePos_XML(Artikel, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"), (destPath + label16.Text + ".xml"));
+                NeuePos_XML(Artikel, int.Parse(textBox11.Text), lbSn.Text, (destPath + label16.Text + ".xml"));
 
                 UpdateTree();
             }
@@ -1726,7 +1745,7 @@ namespace WindowsFormsApp1
 
                 label74.Text = tWal2.ToString();
                 label71.Text = tAp1.ToString();
-                label75.Text = Ap1.ToString();
+                label75.Text = tAp1.ToString();
 
                 label70.Text = tAp3.ToString();
                 label69.Text = tKetteAP1_5.ToString();
@@ -1762,14 +1781,18 @@ namespace WindowsFormsApp1
         }
 
 
+
+
         private void label75_TextChanged(object sender, EventArgs e)
         {
-            if ((label75.Text == "4") ^ (cbKamAktiv.Checked==true))
+            if ((label75.Text == "4") & (cbKamAktiv.Checked==true))
             {
                 m_pCamera.Triggr();
                 m_pCamera2.Triggr();
                 m_pCamera3.Triggr();
                 m_pCamera4.Triggr();
+
+             
             }
 
         }
@@ -2009,7 +2032,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                label66.Text = "Artikel Nicht Gefünden!";
+                label66.Text = "Artikel Nicht Gefunden!";
             }
 
         }
@@ -2031,7 +2054,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                label36.Text = "Artikel Nicht Gefünden!";
+                label36.Text = "Artikel Nicht Gefunden!";
             }
         }
 
@@ -2051,7 +2074,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                label41.Text = "Artikel Nicht Gefünden!";
+                label41.Text = "Artikel Nicht Gefunden!";
             }
 
         }
@@ -2090,7 +2113,7 @@ namespace WindowsFormsApp1
 
             textBox13.Text = "1";
 
-            if (label17.Text != "Soll Stückzahl nicht gefünden")
+            if (label17.Text != "Soll Stückzahl nicht gefunden")
                 SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
 
 
@@ -2345,8 +2368,9 @@ namespace WindowsFormsApp1
 
             if (checkBox8.Checked == true)
             {
-                tabControl1.SelectedTab = tabPage2;
                 checkBox3.Checked = true;
+                tabControl1.SelectedTab = tabPage2;
+               
             }
         }
 
@@ -2354,8 +2378,8 @@ namespace WindowsFormsApp1
         {
             if (checkBox9.Checked == true)
             {
-                tabControl1.SelectedTab = tabPage2;
                 checkBox3.Checked = true;
+                tabControl1.SelectedTab = tabPage2;     
             }
         }
 
@@ -2396,8 +2420,6 @@ namespace WindowsFormsApp1
             ShowSelektedSoniksten();
             label66.Text = "90000440";
             label63.Text = "Restinhalt";
-
-
 
         }
 
@@ -2445,7 +2467,7 @@ namespace WindowsFormsApp1
             textBox17.Text = "1";
             textBox13.Text = "1";
 
-            if (label17.Text != "Soll Stückzahl nicht gefünden")
+            if (label17.Text != "Soll Stückzahl nicht gefunden")
                 SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
 
 
@@ -2648,11 +2670,19 @@ namespace WindowsFormsApp1
 
         private void button31_Click_1(object sender, EventArgs e)
         {
+           
 
-            m_pCamera.Triggr();
-            m_pCamera2.Triggr();
-            m_pCamera3.Triggr();
-            m_pCamera4.Triggr();
+            if (cbKamAktiv.Checked == true)
+            {
+                m_pCamera.Triggr();
+                m_pCamera2.Triggr();
+                m_pCamera3.Triggr();
+                m_pCamera4.Triggr();
+               
+            }
+            RefreschIBCList();
+            CheckBilder.Enabled = true;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -2667,11 +2697,14 @@ namespace WindowsFormsApp1
         {
 
             ConnSQL();
+            
         }
 
         private void pbH_0_Paint(object sender, PaintEventArgs e)
         {
             m_pCamera4.Repaint();
+         
+            
         }
 
         private void PictureBoxLive_Paint_1(object sender, PaintEventArgs e)
@@ -2731,6 +2764,211 @@ namespace WindowsFormsApp1
         {
             moveEBtoFertigXML();
             Refresch_XML();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+
+            RefreschIBCList();
+
+        }
+
+        private void imgVo_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dg4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+        }
+
+        private void dg4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder";
+            
+            label8.Text = destPath + dg4.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void RefreschIBCList()
+        {
+            string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
+
+            dg4.DataSource = new System.IO.DirectoryInfo(destPath).GetFiles("*.jpg");
+           // dg4.DataSource = Directory.GetFiles(destPath, "*.jpg");
+        }
+
+        private void dg4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string from, to;
+
+            try
+            {
+                from = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\"+ dg4.CurrentRow.Cells[0].Value.ToString(); 
+                to = @"C:\Users\Aufschrauberportal\AWICO\IBC BAK\" + dg4.CurrentRow.Cells[0].Value.ToString()+label9.Text; 
+
+                File.Move(from, to); // Try to move
+                Console.WriteLine("Moved"); // Success
+                RefreschIBCList();
+            }
+            catch (System.IO.IOException ex)
+            {
+                Console.WriteLine(ex); // Write error
+            }
+          
+        }
+
+        private void MoveBilder()
+        {
+            string from, to;
+            string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
+            int x = new System.IO.DirectoryInfo(destPath).GetFiles().Length;
+            int fileCount = Directory.GetFiles(destPath, "*.jpg").Length;
+
+            for (int i = 0; i < fileCount; i++)
+            {
+                from = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\" + dg4.Rows[i].Cells[0].Value.ToString();
+                to = @"C:\Users\Aufschrauberportal\AWICO\AP1\" + label9.Text+ " " + dg4.Rows[i].Cells[0].Value.ToString();
+
+                File.Move(from, to); // Try to move
+            }
+
+            RefreschIBCList();
+        }
+
+        private void MoveAP1_AP2()
+        {
+          
+
+            try
+            {
+                string dest = @"C:\Users\Aufschrauberportal\AWICO\AP2";
+                foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP1\"))
+                {
+                    string destFile = Path.Combine(dest, Path.GetFileName(file));
+                    if (!File.Exists(destFile))
+                        File.Move(file, destFile);
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+        }
+
+        private void MoveAP2_AP3()
+
+        {
+            {
+
+
+                try
+                {
+                    string dest = @"C:\Users\Aufschrauberportal\AWICO\AP3";
+                    foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP2\"))
+                    {
+                        string destFile = Path.Combine(dest, Path.GetFileName(file));
+                        if (!File.Exists(destFile))
+                            File.Move(file, destFile);
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+
+            }
+
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            RefreschIBCList();
+            String BC;
+            macros.BarcodeRead(out BC);
+            label9.Text = BC;
+
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            label9.Text = "Erkenung Barcode";
+            RefreschIBCList();
+            String BC;
+            macros.BarcodeRead(out BC);
+            label9.Text = BC;
+            label33.Text = BC;
+            MoveBilder();
+            label9.Text = "Bilder archieviert";
+            RefreschIBCList();
+        }
+
+       
+
+        private void CheckBilder_Tick(object sender, EventArgs e)
+        {
+            RefreschIBCList();
+
+            if (dg4.Rows.Count == 4)
+            {
+                CheckBilder.Enabled = false;
+                Test_warteBild.Checked = false;
+                RefreschIBCList();
+                string BC;
+                macros.BarcodeRead(out BC);
+                label9.Text = BC;
+
+                MoveBilder();
+               
+            }
+        }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Test_warteBild_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Test_warteBild.Checked == true)
+
+                CheckBilder.Enabled = true;
+        }
+
+        private void btGoto_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\");
+        }
+
+        private void button9_Click_2(object sender, EventArgs e)
+        {
+            MoveAP2_AP3();
+            MoveAP1_AP2();
+          
+        }
+
+        private void button9_Click_3(object sender, EventArgs e)
+        {
+            showImage();
+        }
+
+        private void showImage()
+        {
+            Bilder_AP3 frmSecondForm = new Bilder_AP3();
+            frmSecondForm.ShowDialog();
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Runtime.InteropServices; // for Marshal
 using NewElectronicTechnology.SynView;
 
 
+
 namespace WindowsFormsApp1
 {
     public class CCamera2
@@ -168,8 +169,8 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(Ftr_Strobe2Length, 1000.000000);
                 // --- Exposure ---
                 pDevice.SetEnum(LvDeviceFtr.ExposureMode, (UInt32)LvExposureMode.Timed);
-                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 20124.599609);
-                pDevice.SetEnum(LvDeviceFtr.ExposureAuto, (UInt32)LvExposureAuto.Continuous);
+                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 22000);
+                pDevice.SetEnum(LvDeviceFtr.ExposureAuto, (UInt32)LvExposureAuto.Off);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeTarget", ref Ftr_AeTarget);
                 pDevice.SetFloat(Ftr_AeTarget, 0.200000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeMinTime", ref Ftr_AeMinTime);
@@ -495,7 +496,9 @@ namespace WindowsFormsApp1
         {
             string name = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
 
-            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\VU" + name + ".jpg", 95);
+            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\VU" + name + ".jpg", 100);
+           
+          //  e.Buffer.SaveImageToBmpFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\VU" + name + ".bmp");
         }
 
 

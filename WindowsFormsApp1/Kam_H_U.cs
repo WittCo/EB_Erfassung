@@ -177,8 +177,8 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(Ftr_Strobe2Length, 1000.000000);
                 // --- Exposure ---
                 pDevice.SetEnum(LvDeviceFtr.ExposureMode, (UInt32)LvExposureMode.Timed);
-                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 24225.861328);
-                pDevice.SetEnum(LvDeviceFtr.ExposureAuto, (UInt32)LvExposureAuto.Continuous);
+                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 18000);
+                pDevice.SetEnum(LvDeviceFtr.ExposureAuto, (UInt32)LvExposureAuto.Off);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeTarget", ref Ftr_AeTarget);
                 pDevice.SetFloat(Ftr_AeTarget, 0.300000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeMinTime", ref Ftr_AeMinTime);
@@ -624,7 +624,8 @@ namespace WindowsFormsApp1
         {
             string name = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
 
-            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HU" + name + ".jpg", 95);
+            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HU" + name + ".jpg", 100);
+            //e.Buffer.SaveImageToBmpFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HU" + name + ".bmp");
         }
 
         //-----------------------------------------------------------------------------

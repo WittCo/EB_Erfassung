@@ -122,6 +122,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bilder_AP3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bilder_AP3.Designer.cs">
+      <DependentUpon>Bilder_AP3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kam_H_U.cs" />
     <Compile Include="Kam_H_O.cs" />
     <Compile Include="DD_FrontEnd.cs" />
@@ -157,6 +163,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WittEyEDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bilder_AP3.resx">
+      <DependentUpon>Bilder_AP3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Einstelungen.resx">
       <DependentUpon>Einstelungen.cs</DependentUpon>
     </EmbeddedResource>

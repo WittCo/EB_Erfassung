@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices; // for Marshal
 using NewElectronicTechnology.SynView;
+using WindowsFormsApp1;
 
 
 namespace WindowsFormsApp1
@@ -12,32 +13,32 @@ namespace WindowsFormsApp1
     public class CCamera4
     {
         private const int NumberOfBuffers = 10;
-        private LvSystem     m_pSystem;
-        private LvInterface  m_pInterface;
-        private LvDevice     m_pDevice;
-        private LvStream     m_pStream;
-        private LvRenderer   m_pRenderer;
-        private LvBuffer[]   m_Buffers;
-        private IntPtr       m_hDisplayWnd;
-        private LvEvent      m_pEvent;
-        private bool         m_bDoProcessing;
+        private LvSystem m_pSystem;
+        private LvInterface m_pInterface;
+        private LvDevice m_pDevice;
+        private LvStream m_pStream;
+        private LvRenderer m_pRenderer;
+        private LvBuffer[] m_Buffers;
+        private IntPtr m_hDisplayWnd;
+        private LvEvent m_pEvent;
+        private bool m_bDoProcessing;
 
         //-----------------------------------------------------------------------------
         // CCamera constructor
 
         public CCamera4()
-        { 
-            m_pSystem     = null;
-            m_pInterface  = null;
-            m_pDevice     = null;
-            m_pStream     = null;
-            m_pRenderer   = null;
-            m_pEvent      = null;
-            m_Buffers     = new LvBuffer[NumberOfBuffers]; 
-            for (int i=0; i<NumberOfBuffers; i++)
+        {
+            m_pSystem = null;
+            m_pInterface = null;
+            m_pDevice = null;
+            m_pStream = null;
+            m_pRenderer = null;
+            m_pEvent = null;
+            m_Buffers = new LvBuffer[NumberOfBuffers];
+            for (int i = 0; i < NumberOfBuffers; i++)
                 m_Buffers[i] = null;
 
-            m_hDisplayWnd = (IntPtr) 0;
+            m_hDisplayWnd = (IntPtr)0;
             m_bDoProcessing = false;
         }
 
@@ -173,8 +174,8 @@ namespace WindowsFormsApp1
                 pDevice.SetFloat(Ftr_Strobe2Length, 1000.000000);
                 // --- Exposure ---
                 pDevice.SetEnum(LvDeviceFtr.ExposureMode, (UInt32)LvExposureMode.Timed);
-                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 19130.726563);
-                pDevice.SetEnum(LvDeviceFtr.ExposureAuto, (UInt32)LvExposureAuto.Continuous);
+                pDevice.SetFloat(LvDeviceFtr.ExposureTime, 18000);
+                pDevice.SetEnum(LvDeviceFtr.ExposureAuto, (UInt32)LvExposureAuto.Off);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeTarget", ref Ftr_AeTarget);
                 pDevice.SetFloat(Ftr_AeTarget, 0.300000);
                 pDevice.GetFeatureByName(LvFtrGroup.DeviceRemote, "AeMinTime", ref Ftr_AeMinTime);
@@ -365,16 +366,16 @@ namespace WindowsFormsApp1
                 m_pDevice.OpenStream("", ref m_pStream);
                 m_pStream.OpenEvent(LvEventType.NewBuffer, ref m_pEvent);
                 for (int i = 0; i < NumberOfBuffers; i++)
-                    m_pStream.OpenBuffer((IntPtr)0, 0, (IntPtr)0, 0, ref m_Buffers[i]); 
+                    m_pStream.OpenBuffer((IntPtr)0, 0, (IntPtr)0, 0, ref m_Buffers[i]);
                 m_pStream.SetInt32(LvStreamFtr.LvPostponeQueueBuffers, 3);
 
                 m_pStream.OpenRenderer(ref m_pRenderer);
                 m_pRenderer.SetEnum(LvRendererFtr.LvRenderType, (UInt32)LvRenderType.ScaleToFit);
-                m_pRenderer.SetWindow(m_hDisplayWnd);                     
+                m_pRenderer.SetWindow(m_hDisplayWnd);
 
-                m_pEvent.OnEventNewBuffer += new LvEventNewBufferHandler(NewBufferEventHandler); 
-                m_pEvent.SetCallbackNewBuffer(true, (IntPtr)0);      
-                m_pEvent.StartThread();                                   
+                m_pEvent.OnEventNewBuffer += new LvEventNewBufferHandler(NewBufferEventHandler);
+                m_pEvent.SetCallbackNewBuffer(true, (IntPtr)0);
+                m_pEvent.StartThread();
             }
             catch (LvException ex)
             {
@@ -393,7 +394,7 @@ namespace WindowsFormsApp1
             {
                 m_pStream.FlushQueue(LvQueueOperation.AllToInput);
                 if (m_pDevice == null) return;
-                m_pDevice.AcquisitionStart();                             
+                m_pDevice.AcquisitionStart();
             }
             catch (LvException ex)
             {
@@ -409,7 +410,7 @@ namespace WindowsFormsApp1
             try
             {
                 if (m_pStream == null) return;
-                m_pDevice.AcquisitionStop();          
+                m_pDevice.AcquisitionStop();
             }
             catch (LvException ex)
             {
@@ -426,17 +427,17 @@ namespace WindowsFormsApp1
             {
                 if (m_pDevice == null) return;
                 if (IsAcquiring()) StopAcquisition();
-                m_pEvent.StopThread();                
-                m_pEvent.SetCallbackNewBuffer(false, (IntPtr)0);      
-                m_pStream.CloseEvent(ref m_pEvent);       
+                m_pEvent.StopThread();
+                m_pEvent.SetCallbackNewBuffer(false, (IntPtr)0);
+                m_pStream.CloseEvent(ref m_pEvent);
                 m_pStream.CloseRenderer(ref m_pRenderer);
                 m_pStream.FlushQueue(LvQueueOperation.AllDiscard);
                 for (int i = 0; i < NumberOfBuffers; i++)
                     if (m_Buffers[i] != null)
                         m_pStream.CloseBuffer(ref m_Buffers[i]);
-                m_pDevice.CloseStream(ref m_pStream);     
-                m_pInterface.CloseDevice(ref m_pDevice); 
-                m_pSystem.CloseInterface(ref m_pInterface); 
+                m_pDevice.CloseStream(ref m_pStream);
+                m_pInterface.CloseDevice(ref m_pDevice);
+                m_pSystem.CloseInterface(ref m_pInterface);
             }
             catch (LvException ex)
             {
@@ -534,8 +535,9 @@ namespace WindowsFormsApp1
         {
             string name = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
 
-            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HO" + name + ".jpg", 95);
-      
+            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HO" + name + ".jpg", 100);
+            // e.Buffer.SaveImageToBmpFile (@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HO" + name + ".bmp");
+
         }
 
 
@@ -581,12 +583,9 @@ namespace WindowsFormsApp1
                         }
                     }
 
-
                     m_pRenderer.DisplayImage(e.Buffer);
                     e.Buffer.Queue();
-
                     SaveImg(e);
-
 
                 }
                 catch (LvException)
@@ -603,5 +602,11 @@ namespace WindowsFormsApp1
 
         }
 
+     
+
+
+
+
+        
     }
 }

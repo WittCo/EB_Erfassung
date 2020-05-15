@@ -1247,7 +1247,7 @@ namespace WindowsFormsApp1
             new XElement("BelegePosition",
                 new XElement("BelegePositionen.ArtikelNummer", Artikelnummer),
                 new XElement("BelegePositionen.K_Restinhalt", int.Parse(textBox11.Text)),
-                new XElement("BelegePositionen.K_Seriennummer", label16.Text + nc.ToString("000"))))))));
+                new XElement("BelegePositionen.K_Seriennummer", lbSn.Text))))))); //1 Position
 
             xDokument.Save(destPath + label16.Text + ".xml");
 

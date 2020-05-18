@@ -92,6 +92,7 @@
             this.radioButton40 = new System.Windows.Forms.RadioButton();
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.MoveKette = new System.Windows.Forms.Button();
             this.btGoto = new System.Windows.Forms.Button();
             this.Test_warteBild = new System.Windows.Forms.CheckBox();
@@ -289,7 +290,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CheckBilder = new System.Windows.Forms.Timer(this.components);
-            this.button9 = new System.Windows.Forms.Button();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -763,6 +764,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.checkBox6);
             this.tabPage5.Controls.Add(this.button9);
             this.tabPage5.Controls.Add(this.MoveKette);
             this.tabPage5.Controls.Add(this.btGoto);
@@ -790,6 +792,16 @@
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "AP 1";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(1126, 518);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(122, 23);
+            this.button9.TabIndex = 81;
+            this.button9.Text = "AP3 Bilder";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_3);
             // 
             // MoveKette
             // 
@@ -3090,15 +3102,15 @@
             this.CheckBilder.Interval = 1000;
             this.CheckBilder.Tick += new System.EventHandler(this.CheckBilder_Tick);
             // 
-            // button9
+            // checkBox6
             // 
-            this.button9.Location = new System.Drawing.Point(1126, 518);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(122, 23);
-            this.button9.TabIndex = 81;
-            this.button9.Text = "AP3 Bilder";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click_3);
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(1499, 557);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(80, 17);
+            this.checkBox6.TabIndex = 82;
+            this.checkBox6.Text = "checkBox6";
+            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -3441,6 +3453,7 @@
         private System.Windows.Forms.Button btGoto;
         private System.Windows.Forms.Button MoveKette;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.CheckBox checkBox6;
     }
 }
 

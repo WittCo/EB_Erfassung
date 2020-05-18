@@ -2897,7 +2897,9 @@ namespace WindowsFormsApp1
         {
             RefreschIBCList();
             String BC;
-            macros.BarcodeRead(out BC);
+            bool DC;
+            macros.BarcodeRead(out BC, out DC);
+            checkBox6.Checked = DC;
             label9.Text = BC;
 
         }
@@ -2907,7 +2909,8 @@ namespace WindowsFormsApp1
             label9.Text = "Erkenung Barcode";
             RefreschIBCList();
             String BC;
-            macros.BarcodeRead(out BC);
+            bool DC;
+            macros.BarcodeRead(out BC, out DC);
             label9.Text = BC;
             label33.Text = BC;
             MoveBilder();
@@ -2920,14 +2923,14 @@ namespace WindowsFormsApp1
         private void CheckBilder_Tick(object sender, EventArgs e)
         {
             RefreschIBCList();
-
+            bool DC;
             if (dg4.Rows.Count == 4)
             {
                 CheckBilder.Enabled = false;
                 Test_warteBild.Checked = false;
                 RefreschIBCList();
                 string BC;
-                macros.BarcodeRead(out BC);
+                macros.BarcodeRead(out BC, out DC);
                 label9.Text = BC;
 
                 MoveBilder();

@@ -141,6 +141,7 @@ namespace WindowsFormsApp1
         }
 
 
+        
 
         public static class MyStaticValues
         {
@@ -2974,7 +2975,46 @@ namespace WindowsFormsApp1
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+		private void groupBox18_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+		{
+
+		}
+
+		private void PictureBoxLive_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button10_Click_1(object sender, EventArgs e)
+		{
+            bool hahnVU, hahnHU;
+            macros.HahnerkennungMain(out hahnVU, out hahnHU);
+
+            if (hahnVU ==true) 
+
+            {
+                checkBox8.BackColor = Color.Aqua;
+            
+            }
+
+
+            if (hahnHU == true)
+
+            {
+                checkBox9.BackColor = Color.Aqua;
+
+            }
+
+
+
+        }
+
+		private void button1_Click_1(object sender, EventArgs e)
         {
             m_pCamera.StopAcquisition();
             m_pCamera2.StopAcquisition();

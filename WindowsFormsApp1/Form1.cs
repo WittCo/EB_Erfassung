@@ -1796,6 +1796,14 @@ namespace WindowsFormsApp1
              
             }
 
+            if (label75.Text == "0")
+
+            {
+                checkBox7.BackColor = Color.Gray;
+                checkBox8.BackColor = Color.Gray;
+                checkBox9.BackColor = Color.Gray;
+            }
+
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -3018,12 +3026,7 @@ namespace WindowsFormsApp1
 			{
                 checkBox7.BackColor = Color.Gray;
 			}
-            if (Equals(label75, "0"))
-			{
-                checkBox7.BackColor = Color.Gray;
-                checkBox8.BackColor = Color.Gray;
-                checkBox9.BackColor = Color.Gray;
-            }
+           
         }
 
 		private void tabPage5_Click(object sender, EventArgs e)

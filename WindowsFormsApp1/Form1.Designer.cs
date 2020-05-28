@@ -982,6 +982,7 @@
 			this.label75.TabIndex = 64;
 			this.label75.Text = "label75";
 			this.label75.TextChanged += new System.EventHandler(this.label75_TextChanged);
+			this.label75.Click += new System.EventHandler(this.label75_Click);
 			// 
 			// pbH_U
 			// 

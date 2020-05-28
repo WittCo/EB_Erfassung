@@ -92,6 +92,7 @@
 			this.radioButton40 = new System.Windows.Forms.RadioButton();
 			this.radioButton38 = new System.Windows.Forms.RadioButton();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
+			this.button10 = new System.Windows.Forms.Button();
 			this.checkBox6 = new System.Windows.Forms.CheckBox();
 			this.button9 = new System.Windows.Forms.Button();
 			this.MoveKette = new System.Windows.Forms.Button();
@@ -292,7 +293,7 @@
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.CheckBilder = new System.Windows.Forms.Timer(this.components);
 			this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-			this.button10 = new System.Windows.Forms.Button();
+			this.checkBox7 = new System.Windows.Forms.CheckBox();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.contextMenuStrip2.SuspendLayout();
@@ -416,19 +417,19 @@
 			// mainToolStripMenuItem
 			// 
 			this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-			this.mainToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.mainToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.mainToolStripMenuItem.Text = "Main";
 			// 
 			// auswahlToolStripMenuItem
 			// 
 			this.auswahlToolStripMenuItem.Name = "auswahlToolStripMenuItem";
-			this.auswahlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.auswahlToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.auswahlToolStripMenuItem.Text = "Auswahl";
 			// 
 			// einstelungenToolStripMenuItem
 			// 
 			this.einstelungenToolStripMenuItem.Name = "einstelungenToolStripMenuItem";
-			this.einstelungenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.einstelungenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.einstelungenToolStripMenuItem.Text = "Einstelungen";
 			// 
 			// hilfeToolStripMenuItem
@@ -442,7 +443,7 @@
 			// infoToolStripMenuItem
 			// 
 			this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-			this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.infoToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
 			this.infoToolStripMenuItem.Text = "Info";
 			// 
 			// statusStrip1
@@ -767,6 +768,7 @@
 			// 
 			// tabPage5
 			// 
+			this.tabPage5.Controls.Add(this.checkBox7);
 			this.tabPage5.Controls.Add(this.button10);
 			this.tabPage5.Controls.Add(this.checkBox6);
 			this.tabPage5.Controls.Add(this.button9);
@@ -796,6 +798,17 @@
 			this.tabPage5.TabIndex = 5;
 			this.tabPage5.Text = "AP 1";
 			this.tabPage5.UseVisualStyleBackColor = true;
+			this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
+			// 
+			// button10
+			// 
+			this.button10.Location = new System.Drawing.Point(1125, 551);
+			this.button10.Name = "button10";
+			this.button10.Size = new System.Drawing.Size(122, 23);
+			this.button10.TabIndex = 83;
+			this.button10.Text = "Hahn Erkenung";
+			this.button10.UseVisualStyleBackColor = true;
+			this.button10.Click += new System.EventHandler(this.button10_Click_1);
 			// 
 			// checkBox6
 			// 
@@ -3118,15 +3131,17 @@
 			this.CheckBilder.Interval = 1000;
 			this.CheckBilder.Tick += new System.EventHandler(this.CheckBilder_Tick);
 			// 
-			// button10
+			// checkBox7
 			// 
-			this.button10.Location = new System.Drawing.Point(1125, 551);
-			this.button10.Name = "button10";
-			this.button10.Size = new System.Drawing.Size(122, 23);
-			this.button10.TabIndex = 83;
-			this.button10.Text = "Hahn Erkenung";
-			this.button10.UseVisualStyleBackColor = true;
-			this.button10.Click += new System.EventHandler(this.button10_Click_1);
+			this.checkBox7.Appearance = System.Windows.Forms.Appearance.Button;
+			this.checkBox7.AutoSize = true;
+			this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBox7.Location = new System.Drawing.Point(540, 412);
+			this.checkBox7.Name = "checkBox7";
+			this.checkBox7.Size = new System.Drawing.Size(155, 41);
+			this.checkBox7.TabIndex = 84;
+			this.checkBox7.Text = "kein Hahn";
+			this.checkBox7.UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
@@ -3472,6 +3487,7 @@
         private System.Windows.Forms.CheckBox checkBox6;
 		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.HelpProvider helpProvider1;
+		private System.Windows.Forms.CheckBox checkBox7;
 	}
 }
 

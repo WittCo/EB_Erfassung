@@ -3010,9 +3010,26 @@ namespace WindowsFormsApp1
 
             }
 
+            if ((hahnVU && hahnHU) == false)
+			{
+                checkBox7.BackColor = Color.Red;
+			}
+			else
+			{
+                checkBox7.BackColor = Color.Gray;
+			}
 
+            if ((hahnVU && hahnHU) &&( tabControl1.SelectedTab == tabPage1))
+			{
+                //noch Leer
+			}
 
         }
+
+		private void tabPage5_Click(object sender, EventArgs e)
+		{
+
+		}
 
 		private void button1_Click_1(object sender, EventArgs e)
         {

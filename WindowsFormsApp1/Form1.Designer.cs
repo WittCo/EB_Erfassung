@@ -92,6 +92,8 @@
             this.radioButton40 = new System.Windows.Forms.RadioButton();
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.button10 = new System.Windows.Forms.Button();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
@@ -294,7 +296,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CheckBilder = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.label42 = new System.Windows.Forms.Label();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -769,6 +771,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label53);
             this.tabPage5.Controls.Add(this.label42);
             this.tabPage5.Controls.Add(this.checkBox7);
             this.tabPage5.Controls.Add(this.button10);
@@ -801,6 +804,25 @@
             this.tabPage5.Text = "AP 1";
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(1499, 275);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(41, 13);
+            this.label53.TabIndex = 86;
+            this.label53.Text = "label53";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(15, 132);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(41, 13);
+            this.label42.TabIndex = 85;
+            this.label42.Text = "label42";
+            this.label42.TextChanged += new System.EventHandler(this.label42_TextChanged);
             // 
             // checkBox7
             // 
@@ -878,7 +900,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(1231, 408);
+            this.label33.Location = new System.Drawing.Point(1268, 408);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(41, 13);
             this.label33.TabIndex = 74;
@@ -1218,7 +1240,7 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(100, 20);
             this.textBox15.TabIndex = 16;
-            this.textBox15.Text = "500";
+            this.textBox15.Text = "200";
             // 
             // label32
             // 
@@ -3146,15 +3168,11 @@
             this.CheckBilder.Interval = 1000;
             this.CheckBilder.Tick += new System.EventHandler(this.CheckBilder_Tick);
             // 
-            // label42
+            // timer3
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(15, 132);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(41, 13);
-            this.label42.TabIndex = 85;
-            this.label42.Text = "label42";
-            this.label42.TextChanged += new System.EventHandler(this.label42_TextChanged);
+            this.timer3.Enabled = true;
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // Form1
             // 
@@ -3502,6 +3520,8 @@
 		private System.Windows.Forms.HelpProvider helpProvider1;
 		private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Label label53;
     }
 }
 

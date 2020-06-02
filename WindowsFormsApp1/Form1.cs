@@ -2839,6 +2839,11 @@ namespace WindowsFormsApp1
 
         private void MoveBilder()
         {
+
+            MoveAP3_IBCBAC();
+            MoveAP2_AP3();
+            MoveAP1_AP2();
+
             string from, to;
             string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
             int x = new System.IO.DirectoryInfo(destPath).GetFiles().Length;
@@ -2852,9 +2857,6 @@ namespace WindowsFormsApp1
                 File.Move(from, to); // Try to move
             }
 
-            MoveAP3_IBCBAC();
-            MoveAP2_AP3();
-            MoveAP1_AP2();
 
             RefreschIBCList();
         }

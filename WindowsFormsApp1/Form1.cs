@@ -1750,6 +1750,7 @@ namespace WindowsFormsApp1
 
                 label70.Text = tAp3.ToString();
                 label69.Text = tKetteAP1_5.ToString();
+                label42.Text = tKetteAP1_5.ToString();
                 label68.Text = tGewicht.ToString();
 
                 macros.SPS_Komm_Send(checkBox9.Checked, checkBox8.Checked, checkBox3.Checked, int.Parse(textBox13.Text), Socet2);
@@ -2850,13 +2851,15 @@ namespace WindowsFormsApp1
                 File.Move(from, to); // Try to move
             }
 
+            MoveAP2_AP3();
+            MoveAP1_AP2();
+
             RefreschIBCList();
         }
 
         private void MoveAP1_AP2()
         {
           
-
             try
             {
                 string dest = @"C:\Users\Aufschrauberportal\AWICO\AP2";
@@ -2915,6 +2918,11 @@ namespace WindowsFormsApp1
 
         private void button8_Click_1(object sender, EventArgs e)
         {
+            ArchivierenBild();
+        }
+
+        private void ArchivierenBild()
+        {
             label9.Text = "Erkenung Barcode";
             RefreschIBCList();
             String BC;
@@ -2966,8 +2974,7 @@ namespace WindowsFormsApp1
 
         private void button9_Click_2(object sender, EventArgs e)
         {
-            MoveAP2_AP3();
-            MoveAP1_AP2();
+           
           
         }
 
@@ -3039,7 +3046,15 @@ namespace WindowsFormsApp1
 
 		}
 
-		private void button1_Click_1(object sender, EventArgs e)
+        private void label42_TextChanged(object sender, EventArgs e)
+        {
+            if (label42.Text == "1")
+            {
+                ArchivierenBild();
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             m_pCamera.StopAcquisition();
             m_pCamera2.StopAcquisition();

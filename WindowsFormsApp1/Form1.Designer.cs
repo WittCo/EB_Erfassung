@@ -96,19 +96,14 @@
             this.label42 = new System.Windows.Forms.Label();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.button10 = new System.Windows.Forms.Button();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.button9 = new System.Windows.Forms.Button();
             this.MoveKette = new System.Windows.Forms.Button();
             this.btGoto = new System.Windows.Forms.Button();
-            this.Test_warteBild = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.button4 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.dg4 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
@@ -775,19 +770,14 @@
             this.tabPage5.Controls.Add(this.label42);
             this.tabPage5.Controls.Add(this.checkBox7);
             this.tabPage5.Controls.Add(this.button10);
-            this.tabPage5.Controls.Add(this.checkBox6);
             this.tabPage5.Controls.Add(this.button9);
             this.tabPage5.Controls.Add(this.MoveKette);
             this.tabPage5.Controls.Add(this.btGoto);
-            this.tabPage5.Controls.Add(this.Test_warteBild);
             this.tabPage5.Controls.Add(this.label33);
             this.tabPage5.Controls.Add(this.button8);
             this.tabPage5.Controls.Add(this.label9);
-            this.tabPage5.Controls.Add(this.listView1);
             this.tabPage5.Controls.Add(this.button4);
-            this.tabPage5.Controls.Add(this.label8);
             this.tabPage5.Controls.Add(this.dg4);
-            this.tabPage5.Controls.Add(this.label7);
             this.tabPage5.Controls.Add(this.button2);
             this.tabPage5.Controls.Add(this.checkBox8);
             this.tabPage5.Controls.Add(this.checkBox9);
@@ -829,7 +819,7 @@
             this.checkBox7.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox7.AutoSize = true;
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox7.Location = new System.Drawing.Point(540, 412);
+            this.checkBox7.Location = new System.Drawing.Point(548, 402);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(155, 41);
             this.checkBox7.TabIndex = 84;
@@ -845,16 +835,6 @@
             this.button10.Text = "Hahn Erkenung";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click_1);
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(1499, 557);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(80, 17);
-            this.checkBox6.TabIndex = 82;
-            this.checkBox6.Text = "checkBox6";
-            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
@@ -886,17 +866,6 @@
             this.btGoto.UseVisualStyleBackColor = true;
             this.btGoto.Click += new System.EventHandler(this.btGoto_Click);
             // 
-            // Test_warteBild
-            // 
-            this.Test_warteBild.AutoSize = true;
-            this.Test_warteBild.Location = new System.Drawing.Point(1517, 436);
-            this.Test_warteBild.Name = "Test_warteBild";
-            this.Test_warteBild.Size = new System.Drawing.Size(86, 17);
-            this.Test_warteBild.TabIndex = 78;
-            this.Test_warteBild.Text = "checkBox10";
-            this.Test_warteBild.UseVisualStyleBackColor = true;
-            this.Test_warteBild.CheckedChanged += new System.EventHandler(this.Test_warteBild_CheckedChanged);
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -925,15 +894,6 @@
             this.label9.TabIndex = 72;
             this.label9.Text = "label9";
             // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(1126, 294);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 71;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(1126, 460);
@@ -943,15 +903,6 @@
             this.button4.Text = "Barcode Suche";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1123, 266);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 69;
-            this.label8.Text = "label8";
             // 
             // dg4
             // 
@@ -963,15 +914,6 @@
             this.dg4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellClick);
             this.dg4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellContentClick);
             this.dg4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellDoubleClick);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(95, 378);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 66;
-            this.label7.Text = "label7";
             // 
             // button2
             // 
@@ -988,7 +930,7 @@
             this.checkBox8.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox8.AutoSize = true;
             this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox8.Location = new System.Drawing.Point(294, 414);
+            this.checkBox8.Location = new System.Drawing.Point(294, 396);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(174, 41);
             this.checkBox8.TabIndex = 40;
@@ -1001,7 +943,7 @@
             this.checkBox9.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox9.AutoSize = true;
             this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox9.Location = new System.Drawing.Point(762, 414);
+            this.checkBox9.Location = new System.Drawing.Point(774, 403);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(181, 41);
             this.checkBox9.TabIndex = 41;
@@ -1022,7 +964,7 @@
             // 
             // pbH_U
             // 
-            this.pbH_U.Location = new System.Drawing.Point(638, 440);
+            this.pbH_U.Location = new System.Drawing.Point(638, 422);
             this.pbH_U.Name = "pbH_U";
             this.pbH_U.Size = new System.Drawing.Size(442, 461);
             this.pbH_U.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1063,7 +1005,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(165, 440);
+            this.pictureBox2.Location = new System.Drawing.Point(165, 421);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(442, 461);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -3502,20 +3444,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbSn;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dg4;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Timer CheckBilder;
-        private System.Windows.Forms.CheckBox Test_warteBild;
         private System.Windows.Forms.Button btGoto;
         private System.Windows.Forms.Button MoveKette;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.CheckBox checkBox6;
 		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.HelpProvider helpProvider1;
 		private System.Windows.Forms.CheckBox checkBox7;

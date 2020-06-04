@@ -165,14 +165,10 @@ namespace WindowsFormsApp1
         {
             // TODO: Diese Codezeile lädt Daten in die Tabelle "wittEyEDataSet.IBC_EB". Sie können sie bei Bedarf verschieben oder entfernen.
 
-            UpdateXLMDatei();
-
-            Refresch_EB_Offen();
-            DrawButtons();
-            DrawDienstButtons();
-            ResetSonigsten();
-            ResetArtikelAswahl();
+       
         }
+
+
 
         private void UpdateXLMDatei()
         {
@@ -1733,7 +1729,7 @@ namespace WindowsFormsApp1
         {
             timer1.Interval = int.Parse(textBox15.Text);
 
-            if (checkBox2.Checked == true)
+            if (cbSPSAktiv.Checked == true)
             {
                 macros.SPS_Komm_Read(Socet1, Socet2, Socet3, out int Wal2, out int? Ap1, out int? Ap3, out int? KetteAP1_5, out int? Gewicht, out int? tWal2, out int? tAp1, out int? tAp3, out int? tKetteAP1_5, out int? tGewicht);
                 label21.Text = Wal2.ToString();
@@ -2801,13 +2797,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void dg4_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder";
-
-            label8.Text = destPath + dg4.CurrentRow.Cells[0].Value.ToString();
-        }
+    
 
         private void RefreschIBCList()
         {
@@ -2947,8 +2937,7 @@ namespace WindowsFormsApp1
             String BC;
             bool DC;
             macros.BarcodeRead(out BC, out DC);
-            checkBox6.Checked = DC;
-
+           
             label9.Text = "Erkenung Barcode";
             label33.Text = BC;
 
@@ -2976,7 +2965,7 @@ namespace WindowsFormsApp1
             if (dg4.Rows.Count == 4)
             {
                 CheckBilder.Enabled = false;
-                Test_warteBild.Checked = false;
+               
                 RefreschIBCList();
                 string BC;
                 macros.BarcodeRead(out BC, out DC);
@@ -2992,12 +2981,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void Test_warteBild_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Test_warteBild.Checked == true)
-
-                CheckBilder.Enabled = true;
-        }
+  
 
         private void btGoto_Click(object sender, EventArgs e)
         {
@@ -3137,6 +3121,19 @@ namespace WindowsFormsApp1
 
         }
 
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            UpdateXLMDatei();
+
+            Refresch_EB_Offen();
+            DrawButtons();
+            DrawDienstButtons();
+            ResetSonigsten();
+            ResetArtikelAswahl();
+
+            Einschalt();
+        }
+
         private void ConnSQL()
         {
             ddsql.ConnSQL();
@@ -3178,6 +3175,36 @@ namespace WindowsFormsApp1
         private void textBox10_Enter(object sender, EventArgs e)
         {
             panel1.BackColor = Color.Green;
+        }
+
+        private void Einschalt()
+        {
+            Cursor = Cursors.WaitCursor;
+            m_pCamera.OpenCamera(m_hDisplayWindow, m_pSystem);
+            toolStripStatusLabel2.BackColor = Color.LightYellow;
+            m_pCamera2.OpenCamera(m_hDisplayWindow2, m_pSystem2);
+            toolStripStatusLabel3.BackColor = Color.LightYellow;
+            m_pCamera3.OpenCamera(m_hDisplayWindow3, m_pSystem3);
+            toolStripStatusLabel4.BackColor = Color.LightYellow;
+            m_pCamera4.OpenCamera(m_hDisplayWindow4, m_pSystem4);
+            toolStripStatusLabel5.BackColor = Color.LightYellow;
+            StartAcqui();
+            toolStripStatusLabel2.BackColor = Color.LightGreen;
+            toolStripStatusLabel3.BackColor = Color.LightGreen;
+            toolStripStatusLabel4.BackColor = Color.LightGreen;
+            toolStripStatusLabel5.BackColor = Color.LightGreen;
+
+            cbKamAktiv.Checked = true;
+
+            macros.SPS_Komm_Akcept(out Socet1, out Socet2, out Socet3);
+            toolStripStatusLabel1.BackColor = Color.LightGreen;
+
+            cbSPSAktiv.Checked = true;
+
+
+
+            Cursor = Cursors.Default;
+
         }
 
  

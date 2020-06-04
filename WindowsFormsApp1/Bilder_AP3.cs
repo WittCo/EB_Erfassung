@@ -34,9 +34,9 @@ namespace WittEyE
         private void Bilder_AP3_Load(object sender, EventArgs e)
         {
            
-            formCloser.Interval = 3000;
-            formCloser.Enabled = true;
-            formCloser.Tick += new EventHandler(formClose_Tick);
+          //  formCloser.Interval = 3000;
+          // formCloser.Enabled = true;
+         //   formCloser.Tick += new EventHandler(formClose_Tick);
 
 
         }
@@ -62,10 +62,16 @@ namespace WittEyE
 
             string[] filePaths = Directory.GetFiles(destPath, "*.jpg",
                                            SearchOption.TopDirectoryOnly);
-            pictureBox1.Image = Image.FromFile(filePaths[0]);
-            pictureBox2.Image = Image.FromFile(filePaths[1]);
-            pictureBox3.Image = Image.FromFile(filePaths[2]);
-            pictureBox4.Image = Image.FromFile(filePaths[3]);
+
+
+        //    pictureBox1.Image =  Image.FromFile(filePaths[0]);
+            pictureBox1.Image = LoadBitmapUnlocked(filePaths[0]);
+          //  pictureBox2.Image = Image.FromFile(filePaths[1]);
+            pictureBox2.Image = LoadBitmapUnlocked(filePaths[1]);
+          //  pictureBox3.Image = Image.FromFile(filePaths[2]);
+            pictureBox3.Image = LoadBitmapUnlocked(filePaths[2]);
+           // pictureBox4.Image = Image.FromFile(filePaths[3]);
+            pictureBox4.Image = LoadBitmapUnlocked(filePaths[3]);
 
 
 
@@ -74,6 +80,14 @@ namespace WittEyE
         private void Bilder_AP3_Shown(object sender, EventArgs e)
         {
             LoadBild();
+        }
+
+        private Bitmap LoadBitmapUnlocked(string file_name)
+        {
+            using (Bitmap bm = new Bitmap(file_name))
+            {
+                return new Bitmap(bm);
+            }
         }
     }
 }

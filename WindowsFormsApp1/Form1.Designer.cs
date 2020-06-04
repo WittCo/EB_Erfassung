@@ -146,7 +146,7 @@
             this.radioButton42 = new System.Windows.Forms.RadioButton();
             this.button14 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.cbSPSAktiv = new System.Windows.Forms.CheckBox();
             this.button13 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
@@ -911,7 +911,6 @@
             this.dg4.Name = "dg4";
             this.dg4.Size = new System.Drawing.Size(552, 251);
             this.dg4.TabIndex = 67;
-            this.dg4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellClick);
             this.dg4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellContentClick);
             this.dg4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellDoubleClick);
             // 
@@ -1042,7 +1041,7 @@
             this.tabPage3.Controls.Add(this.groupBox11);
             this.tabPage3.Controls.Add(this.button14);
             this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.checkBox2);
+            this.tabPage3.Controls.Add(this.cbSPSAktiv);
             this.tabPage3.Controls.Add(this.button13);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
@@ -1358,16 +1357,16 @@
             this.label21.TabIndex = 2;
             this.label21.Text = "label21";
             // 
-            // checkBox2
+            // cbSPSAktiv
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(16, 76);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(74, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "SPS Aktiv";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.cbSPSAktiv.AutoSize = true;
+            this.cbSPSAktiv.Location = new System.Drawing.Point(16, 76);
+            this.cbSPSAktiv.Name = "cbSPSAktiv";
+            this.cbSPSAktiv.Size = new System.Drawing.Size(74, 17);
+            this.cbSPSAktiv.TabIndex = 1;
+            this.cbSPSAktiv.Text = "SPS Aktiv";
+            this.cbSPSAktiv.UseVisualStyleBackColor = true;
+            this.cbSPSAktiv.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // button13
             // 
@@ -3130,6 +3129,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -3299,7 +3299,7 @@
         private System.Windows.Forms.RadioButton radioButton42;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbSPSAktiv;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox15;

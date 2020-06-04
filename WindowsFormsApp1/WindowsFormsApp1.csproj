@@ -182,6 +182,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\AVS\Modulen\Barcode.avlib" />
+    <None Include="bin\Debug\AVS\Modulen\HahnerkennungNeu.411cc73c.Region.avdata" />
+    <None Include="bin\Debug\AVS\Modulen\HahnerkennungNeu.avlib" />
+    <None Include="bin\Debug\AVS\Program.380f1c00.RectificationMap.avdata" />
+    <None Include="bin\Debug\AVS\Program.473cfd79.Region.avdata" />
+    <None Include="bin\Debug\AVS\Program.6063c6c4.RectificationMap.avconfig" />
+    <None Include="bin\Debug\AVS\Program.6d065879.Region.avdata" />
+    <None Include="bin\Debug\AVS\Program.953fb121.RectificationMap.avconfig" />
+    <None Include="bin\Debug\AVS\Program.a82c3a7a.Image.avdata" />
+    <None Include="bin\Debug\AVS\Program.avcode" />
+    <None Include="bin\Debug\AVS\Program.avhmi" />
+    <None Include="bin\Debug\AVS\Program.avproj" />
+    <None Include="bin\Debug\AVS\Program.avview" />
+    <None Include="bin\Debug\AVS\Program.d9dad1f1.Image.avdata" />
+    <None Include="bin\Debug\AVS\Program.f000b930.Region.avdata" />
+    <None Include="bin\Debug\AVS\Program.fac74a4d.RectificationMap.avdata" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -233,5 +249,6 @@
     <Content Include="picture.ico" />
     <Content Include="WittEyeLogoProto.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

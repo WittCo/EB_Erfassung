@@ -1,0 +1,1902 @@
+extern public SocketId? Socket
+extern public SocketId? Socket_1
+extern public Bool IsHahn = False
+extern public Bool HahnErkenungFertig_IMP = False
+extern public Bool NotHahn = False
+extern public Bool IsHahh2 = False
+extern public BoolArray AuslaufArray = {}
+extern public Bool ext_con_9e5a8dd6_a406_4a1e_95fb_e2777ea5236b = False
+extern public Bool ext_con_3bc4d8ff_2b10_490a_8835_b67bfced8714 = False
+extern public Bool ext_con_6593bdf2_7d20_45c4_b756_53c26e3a8a7b = False
+
+public Main()
+{
+	disabled GrabImage
+	(
+		inTrigg: ext_con_6593bdf2_7d20_45c4_b756_53c26e3a8a7b
+		outHO: Nil
+		outHU: Nil
+		outVO: Nil
+		outVU: Nil
+	)
+
+	disabled VariantMacro_2
+	(
+		inCondition: False
+	)
+
+	disabled GetRectifiedImageOfBoxCameras
+	(
+		inAddressCamera1: "192.168.0.186"
+		inAddressCamera2: "192.168.0.187"
+		inActivation: False
+		outImage: con_14476ed5_9b84_4fdb_b137_9b3cb100326a
+		outFrameOfTemporaryContainer: con_e697025f_cfc3_4a3b_a1d7_005dd53bd3f3
+	)
+
+	IfFrameOfTemporaryContainerArrived__Hahnerkennung
+	(
+		inImage: con_14476ed5_9b84_4fdb_b137_9b3cb100326a
+		inCondition: con_e697025f_cfc3_4a3b_a1d7_005dd53bd3f3
+		outHahnGroesse: Nil
+		outHahn: Nil
+	)
+
+	SPS_Komm_Akcept
+	(
+		outSocket: con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85
+		outSocket1: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
+		outSocketTestDatei: con_e14deda4_2142_4fc1_9b43_b09e4363d95b
+	)
+
+	SPS_Komm_Read
+	(
+		inSocket: con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85
+		inSocket1: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
+		inSocketTestDatei: con_e14deda4_2142_4fc1_9b43_b09e4363d95b
+		outObject: Nil
+		outValue: Nil
+		outValue1: Nil
+		outValue2: Nil
+		outValue3: Nil
+		outValue4: Nil
+		outValue5: Nil
+		outValue6: Nil
+		outValue7: Nil
+		outValue8: Nil
+	)
+
+	disabled SPS_Komm_Send
+	(
+		inHahn_Vorne: False
+		inHahn_Hinten: False
+		inHahnErkenFRT: False
+		inbuttonClik: Nil
+		inSocket: 0
+	)
+
+	disabled INIT_Camera
+	(
+		inAddress: "192.168.0.186"
+	)
+
+	disabled ImageQualityTest
+	(
+		inFile: ""
+		outSharpness: Nil
+	)
+
+	BarcodeRead
+	(
+		outBarcode: Nil
+		outMojib: Nil
+	)
+
+	HahnerkennungMain
+	(
+		outHahnVU: Nil
+		outHahnHU: Nil
+	)
+}
+
+public Firtsiter(Bool inName, SocketId? outSocket, SocketId? outSocket1) step(inName)
+{
+False:
+
+	outSocket = Nil
+
+	outSocket1 = Nil
+
+True:
+	parameters write
+	{
+		inputs: Socket, Socket_1
+	}
+	(
+		inSocket: Nil
+		inSocket_1: Nil
+	)
+
+	outSocket = Nil
+
+	outSocket1 = Nil
+}
+
+public SPS_Komm_Read(SocketId? inSocket, SocketId? inSocket1, SocketId? inSocketTestDatei, Integer outObject, Integer? outValue, Integer? outValue1, Integer? outValue2, Integer? outValue3, Integer? outValue4, Integer? outValue5, Integer? outValue6, Integer? outValue7, Integer? outValue8) step
+{
+	//:HIDDENPORT[inTimeout] TRUE
+	//:HIDDENPORT[inAcceptEof] TRUE
+	TcpIp_ReadBuffer
+	(
+		inSocket: inSocket
+		inLength: 10
+		inTimeout: Nil
+		inAcceptEof: False
+		outBuffer: con_28f0d4fa_de4d_40c6_a5e5_f0b8a65e0455
+		outEof: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_28f0d4fa_de4d_40c6_a5e5_f0b8a65e0455
+		inOffset: 0
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_63a7e059_119b_4663_8532_d1479800152e
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_28f0d4fa_de4d_40c6_a5e5_f0b8a65e0455
+		inOffset: 2
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_df430ace_d19a_49b2_af08_8d6b0ef9bffd
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_28f0d4fa_de4d_40c6_a5e5_f0b8a65e0455
+		inOffset: 4
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_06471cc9_4760_4e17_869b_1b6fbec26605
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_28f0d4fa_de4d_40c6_a5e5_f0b8a65e0455
+		inOffset: 6
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_16635f6c_7c5a_4bda_9dce_f592d76f3fe7
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_28f0d4fa_de4d_40c6_a5e5_f0b8a65e0455
+		inOffset: 8
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_52d27f64_b62e_4eb1_a606_6690be8daac3
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inTimeout] TRUE
+	//:HIDDENPORT[inAcceptEof] TRUE
+	TcpIp_ReadBuffer
+	(
+		inSocket: inSocketTestDatei
+		inLength: 10
+		inTimeout: Nil
+		inAcceptEof: False
+		outBuffer: con_1df478a8_fd46_4fc8_bc24_b48f4757e02f
+		outEof: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_1df478a8_fd46_4fc8_bc24_b48f4757e02f
+		inOffset: 0
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_759139f8_f2e2_467a_b97b_7483eeaebe6c
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_1df478a8_fd46_4fc8_bc24_b48f4757e02f
+		inOffset: 2
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_f5c7db4d_0bc6_4312_99f9_bca8ceb33c78
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_1df478a8_fd46_4fc8_bc24_b48f4757e02f
+		inOffset: 4
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_e8c4e1ed_d0dc_417f_8c7f_8a7b8fe0fe8c
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_1df478a8_fd46_4fc8_bc24_b48f4757e02f
+		inOffset: 6
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_8cffb980_0de4_4475_ae38_9a5707eb1041
+		outOffset: Nil
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	//:HIDDENPORT[inCheckRange] TRUE
+	ReadIntegerFromBuffer
+	(
+		inBuffer: con_1df478a8_fd46_4fc8_bc24_b48f4757e02f
+		inOffset: 8
+		inFormat: Unsigned_16Bit_BigEndian
+		inCheckRange: True
+		outValue: con_cecac168_deb9_46c4_b6ac_f8d0eb4f3de9
+		outOffset: Nil
+	)
+
+	MergeDefault<Integer>
+	(
+		inConditionalObject: con_63a7e059_119b_4663_8532_d1479800152e
+		inDefaultObject: 0
+		outObject: con_7fc1bf11_e486_4421_b3a7_d6a3e23231cb
+	)
+
+	outObject = con_7fc1bf11_e486_4421_b3a7_d6a3e23231cb
+
+	outValue = con_df430ace_d19a_49b2_af08_8d6b0ef9bffd
+
+	outValue1 = con_06471cc9_4760_4e17_869b_1b6fbec26605
+
+	outValue2 = con_16635f6c_7c5a_4bda_9dce_f592d76f3fe7
+
+	outValue3 = con_52d27f64_b62e_4eb1_a606_6690be8daac3
+
+	outValue4 = con_759139f8_f2e2_467a_b97b_7483eeaebe6c
+
+	outValue5 = con_f5c7db4d_0bc6_4312_99f9_bca8ceb33c78
+
+	outValue6 = con_e8c4e1ed_d0dc_417f_8c7f_8a7b8fe0fe8c
+
+	outValue7 = con_8cffb980_0de4_4475_ae38_9a5707eb1041
+
+	outValue8 = con_cecac168_deb9_46c4_b6ac_f8d0eb4f3de9
+}
+
+public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outSocketTestDatei) step
+{
+	//:HIDDENPORT[inTimeout] TRUE
+	//:HIDDENPORT[inKeepAliveTime] TRUE
+	disabled TcpIp_Accept
+	(
+		inPort: 2009
+		inTimeout: Nil
+		inKeepAliveTime: Nil
+		outSocket: Nil
+	)
+
+	//:HIDDENPORT[inTimeout] TRUE
+	//:HIDDENPORT[inKeepAliveTime] TRUE
+	disabled TcpIp_Accept
+	(
+		inPort: 2011
+		inTimeout: Nil
+		inKeepAliveTime: Nil
+		outSocket: Nil
+	)
+
+	//:HIDDENPORT[inTimeout] TRUE
+	//:HIDDENPORT[inKeepAliveTime] TRUE
+	TcpIp_Accept
+	(
+		inPort: 2013
+		inTimeout: Nil
+		inKeepAliveTime: Nil
+		outSocket: con_e0c9c520_8390_44a2_a083_679392116445
+	)
+
+	outSocket = Nil
+
+	outSocket1 = Nil
+
+	outSocketTestDatei = con_e0c9c520_8390_44a2_a083_679392116445
+}
+
+public SPS_Komm_Send(Bool inHahn_Vorne, Bool inHahn_Hinten, Bool inHahnErkenFRT, Integer? inbuttonClik, SocketId? inSocket) step
+{
+	ChooseByPredicate<Integer>
+	(
+		inObjectIfTrue: 1
+		inObjectIfFalse: 0
+		inCondition: inHahn_Vorne
+		outObject: con_558d75d3_947b_4e2e_be76_55300d4ee63a
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	WriteIntegerToBuffer
+	(
+		inBuffer: ByteBuffer()
+		inOffset: 0
+		inValue: con_558d75d3_947b_4e2e_be76_55300d4ee63a
+		inFormat: Unsigned_16Bit_BigEndian
+		outBuffer: con_d1d2a5d6_41a6_4398_b6d0_fa70ce8cb254
+	)
+
+	ChooseByPredicate<Integer>
+	(
+		inObjectIfTrue: 1
+		inObjectIfFalse: 0
+		inCondition: inHahn_Hinten
+		outObject: con_dbc7b1f4_3bf7_40b4_9943_b94dc6a10f89
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	WriteIntegerToBuffer
+	(
+		inBuffer: con_d1d2a5d6_41a6_4398_b6d0_fa70ce8cb254
+		inOffset: 2
+		inValue: con_dbc7b1f4_3bf7_40b4_9943_b94dc6a10f89
+		inFormat: Unsigned_16Bit_BigEndian
+		outBuffer: con_1e003a67_a723_4421_8230_4e8365649fcb
+	)
+
+	ChooseByPredicate<Integer>
+	(
+		inObjectIfTrue: 1
+		inObjectIfFalse: 0
+		inCondition: inHahnErkenFRT
+		outObject: con_21a58280_832a_4e61_94d1_1f03d92a767e
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	WriteIntegerToBuffer
+	(
+		inBuffer: con_1e003a67_a723_4421_8230_4e8365649fcb
+		inOffset: 4
+		inValue: con_21a58280_832a_4e61_94d1_1f03d92a767e
+		inFormat: Unsigned_16Bit_BigEndian
+		outBuffer: con_7d5b4149_62b6_4cc4_b70f_cc064737c721
+	)
+
+	//:HIDDENPORT[inFormat] TRUE
+	WriteIntegerToBuffer
+	(
+		inBuffer: con_7d5b4149_62b6_4cc4_b70f_cc064737c721
+		inOffset: 6
+		inValue: inbuttonClik
+		inFormat: Unsigned_16Bit_BigEndian
+		outBuffer: con_9f1b3b5b_a542_4ac2_8780_a62c5555d92a
+	)
+
+	TcpIp_WriteBuffer
+	(
+		inSocket: inSocket
+		inBuffer: con_9f1b3b5b_a542_4ac2_8780_a62c5555d92a
+	)
+}
+
+public Kamera_Vorne_Unten(GevAddress inIPAddress, Bool inActivation, Image? outFrame, Long? outFrameID, Long? outTimestamp, Bool outFrameIsNil) step
+{
+	//:HIDDENPORT[inCommandName] TRUE
+	//:HIDDENPORT[inActivationMode] TRUE
+	//:HIDDENPORT[inVerifyAccess] TRUE
+	GigEVision_ExecuteCommand
+	(
+		inAddress: inIPAddress
+		inCommandName: "TriggerSoftware"
+		inActivationMode: OnRisingEdge
+		inActivation: inActivation
+		inVerifyAccess: True
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	//:HIDDENPORT[inTimeout] TRUE
+	GigEVision_GrabImage_WithTimeout
+	(
+		inAddress: inIPAddress
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+		inTimeout: 100
+		outFrame: con_ff2354a9_b041_4c4c_a705_7fb883080687
+		outFrameID: con_ad441c1d_6533_4ace_9e04_f247a1c8066e
+		outTimestamp: con_04c450f9_de5f_4c4c_8c77_e8aeac756d85
+		outFrame.Width: Nil
+		outFrame.Height: Nil
+		outFrame.Pitch: Nil
+		outFrame.Type: Nil
+		outFrame.Depth: Nil
+		outFrame.PixelSize: Nil
+		outFrame.IsNil: con_5dd87279_4510_4e26_bfb8_5cb2bd26af5b
+	)
+
+	outFrame = con_ff2354a9_b041_4c4c_a705_7fb883080687
+
+	outFrameID = con_ad441c1d_6533_4ace_9e04_f247a1c8066e
+
+	outTimestamp = con_04c450f9_de5f_4c4c_8c77_e8aeac756d85
+
+	outFrameIsNil = con_5dd87279_4510_4e26_bfb8_5cb2bd26af5b
+}
+
+public Connect_Camera() step
+{
+}
+
+public Kamera_Vorne_Oben(GevAddress inAddress, Bool inActivation, Image? outObject, Long? outFrameID, Long? outTimestamp, Bool outFrameIsNil) step
+{
+	//:HIDDENPORT[inCommandName] TRUE
+	//:HIDDENPORT[inVerifyAccess] TRUE
+	GigEVision_ExecuteCommand
+	(
+		inAddress: inAddress
+		inCommandName: "TriggerSoftware"
+		inActivationMode: OnRisingEdge
+		inActivation: inActivation
+		inVerifyAccess: True
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	//:HIDDENPORT[inTimeout] TRUE
+	GigEVision_GrabImage_WithTimeout
+	(
+		inAddress: inAddress
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+		inTimeout: 100
+		outFrame: con_8d08cc01_48b3_49a5_83f6_14efe912d8c3
+		outFrameID: con_df425dbb_2160_49cb_9c02_917bfc44736f
+		outTimestamp: con_eba7741c_a6e3_49bb_bfe0_7c0e4d60a791
+		outFrame.IsNil: con_64a819e1_a942_4700_96a1_91d03e453985
+	)
+
+	outObject = con_8d08cc01_48b3_49a5_83f6_14efe912d8c3
+
+	outFrameID = con_df425dbb_2160_49cb_9c02_917bfc44736f
+
+	outTimestamp = con_eba7741c_a6e3_49bb_bfe0_7c0e4d60a791
+
+	outFrameIsNil = con_64a819e1_a942_4700_96a1_91d03e453985
+}
+
+public RectifyBottomIfImageNotNil(Bool inCondition, Image? inFrame, Image? outImage) step(inCondition)
+{
+False:
+
+	outImage = Nil
+
+True:
+	RectifyBottom
+	(
+		inImage: inFrame
+		outImage: con_8de70b02_c52e_4951_82d2_8926c1668fb2
+	)
+
+	outImage = con_8de70b02_c52e_4951_82d2_8926c1668fb2
+}
+
+public RectifyTopIfImageNotNil(Bool inCondition, Image? inObject, Image? outImage) step(inCondition)
+{
+False:
+
+	outImage = Nil
+
+True:
+	RectifyTop
+	(
+		inImage: inObject
+		outImage: con_e07dc50e_a56f_4514_a2bc_642ce9973565
+	)
+
+	outImage = con_e07dc50e_a56f_4514_a2bc_642ce9973565
+}
+
+public RectifyFusion(Image? inObject, Image? inFrame, Bool inFrameOfContainerArrived, Image? outImage) step
+{
+	RectifyTopIfImageNotNil
+	(
+		inCondition: inFrameOfContainerArrived
+		inObject: inObject
+		outImage: con_aa54f003_9f85_49df_b7ec_eaadd9f3599f
+	)
+
+	RectifyBottomIfImageNotNil
+	(
+		inCondition: inFrameOfContainerArrived
+		inFrame: inFrame
+		outImage: con_9485564a_f544_4d46_9352_2872d86b61a5
+	)
+
+	VerheiratenDerBilder
+	(
+		inImage: con_aa54f003_9f85_49df_b7ec_eaadd9f3599f
+		inImage2: con_9485564a_f544_4d46_9352_2872d86b61a5
+		outImage: con_8ef99261_e8c6_4e30_a9b7_879935f6756a
+	)
+
+	outImage = con_8ef99261_e8c6_4e30_a9b7_879935f6756a
+}
+
+public Initialising_Cameras(GevAddress inAddressCamera1, GevAddress inAddressCamera2) step
+{
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetEnumParameter
+	(
+		inAddress: inAddressCamera1
+		inParameterName: "BalanceWhiteAuto"
+		inValue: "Once"
+		inVerify: False
+	)
+
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetEnumParameter
+	(
+		inAddress: inAddressCamera1
+		inParameterName: "TriggerMode"
+		inValue: "On"
+		inVerify: False
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	GigEVision_StartAcquisition
+	(
+		inAddress: inAddressCamera1
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+	)
+
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetEnumParameter
+	(
+		inAddress: inAddressCamera2
+		inParameterName: "BalanceWhiteAuto"
+		inValue: "Once"
+		inVerify: False
+	)
+
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetEnumParameter
+	(
+		inAddress: inAddressCamera2
+		inParameterName: "TriggerMode"
+		inValue: "On"
+		inVerify: False
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	GigEVision_StartAcquisition
+	(
+		inAddress: inAddressCamera2
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+	)
+}
+
+public CheckIfFrameIsValid(Image inImage, Image? inFrameTemporary, Bool outIsGreaterOrEqual, Bool? outFrameOfTemporaryContainer) step
+{
+	ImageSum
+	(
+		inImage: inFrameTemporary
+		inRoi: Nil
+		outSumColor: Nil
+		outSumValue: con_c9ae893b_807b_4cf2_a172_062fe832138b
+	)
+
+	DivideReals
+	(
+		inA: con_c9ae893b_807b_4cf2_a172_062fe832138b
+		inB: 8388608.000000
+		outQuotient: con_4222ef75_ebc8_4684_bf90_c839a0ad3a99
+	)
+
+	//:HIDDENPORT[inReferenceValue] TRUE
+	TestRealGreaterOrEqual
+	(
+		inValue: con_4222ef75_ebc8_4684_bf90_c839a0ad3a99
+		inReferenceValue: 40.000000
+		outIsGreaterOrEqual: con_66f3e734_25e0_4816_a4e2_9c30bf9c4ec5
+	)
+
+	ImageSum
+	(
+		inImage: inImage
+		inRoi: Nil
+		outSumColor: Nil
+		outSumValue: con_94fe3805_bc3f_4c26_8181_32cfc4b15554
+	)
+
+	DivideReals
+	(
+		inA: con_94fe3805_bc3f_4c26_8181_32cfc4b15554
+		inB: 8388608.000000
+		outQuotient: con_be649c91_7b54_4c8a_bf86_681d414d592f
+	)
+
+	//:HIDDENPORT[inReferenceValue] TRUE
+	TestRealGreaterOrEqual
+	(
+		inValue: con_be649c91_7b54_4c8a_bf86_681d414d592f
+		inReferenceValue: 40.000000
+		outIsGreaterOrEqual: con_72a66fa9_dbbc_4040_8d8f_00304b322414
+	)
+
+	outIsGreaterOrEqual = con_72a66fa9_dbbc_4040_8d8f_00304b322414
+
+	outFrameOfTemporaryContainer = con_66f3e734_25e0_4816_a4e2_9c30bf9c4ec5
+}
+
+public GetRectifiedImageOfBoxCameras(GevAddress inAddressCamera1, GevAddress inAddressCamera2, Bool inActivation, Image? outImage, Bool? outFrameOfTemporaryContainer) step
+{
+	Kamera_Vorne_Unten
+	(
+		inIPAddress: inAddressCamera1
+		inActivation: inActivation
+		outFrame: Nil
+		outFrameID: Nil
+		outTimestamp: Nil
+		outFrameIsNil: Nil
+	)
+
+	Kamera_Vorne_Oben
+	(
+		inAddress: inAddressCamera2
+		inActivation: inActivation
+		outObject: Nil
+		outFrameID: Nil
+		outTimestamp: Nil
+		outFrameIsNil: Nil
+	)
+
+	RectifyFusion
+	(
+		inObject: Nil
+		inFrame: Nil
+		inFrameOfContainerArrived: False
+		outImage: Nil
+	)
+
+	outImage = Nil
+
+	outFrameOfTemporaryContainer = Nil
+}
+
+public Configurating_Cameras() step
+{
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetEnumParameter
+	(
+		inAddress: "192.168.0.186"
+		inParameterName: "ExposureAuto"
+		inValue: "Once"
+		inVerify: True
+	)
+
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetEnumParameter
+	(
+		inAddress: "192.168.0.187"
+		inParameterName: "ExposureAuto"
+		inValue: "Once"
+		inVerify: True
+	)
+
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetRealParameter
+	(
+		inAddress: "192.168.0.187"
+		inParameterName: "AeSpeed"
+		inValue: 3.000000
+		inVerify: True
+	)
+
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetRealParameter
+	(
+		inAddress: "192.168.0.186"
+		inParameterName: "AeSpeed"
+		inValue: 3.000000
+		inVerify: True
+	)
+}
+
+public IfFrameOfTemporaryContainerArrived__Hahnerkennung(Image? inImage, Bool inCondition, String outHahnGroesse, Bool? outHahn) step(inCondition)
+{
+False:
+
+	outHahnGroesse = ""
+
+	outHahn = Nil
+
+True:
+	//Hahnerkennung
+	Radius
+	(
+		inImage: inImage
+		outHahn: con_4e8bab4a_df00_416e_998c_7c61eac82fb5
+		outNotHahn: Nil
+		outCircleCircle: Nil
+		outCircleIsNilNot: Nil
+		outRadius: con_1c835dab_9707_4777_b7e1_c8a8a1e61598
+	)
+
+	expression
+	{
+		Real inRadius
+		Bool? inHahn
+		Bool? outNW50 = "inHahn and (inRadius <=140)"
+	}
+	(
+		inRadius: con_1c835dab_9707_4777_b7e1_c8a8a1e61598
+		inHahn: con_4e8bab4a_df00_416e_998c_7c61eac82fb5
+		outNW50: con_56978746_76da_48ca_a6cd_6409addfab3a
+	)
+
+	MergeDefault<Bool>
+	(
+		inConditionalObject: con_56978746_76da_48ca_a6cd_6409addfab3a
+		inDefaultObject: False
+		outObject: con_bcbc2cb8_616e_477f_ab95_ac3fddc2e027
+	)
+
+	expression
+	{
+		Real inRadius
+		Bool? inHahn
+		Bool? outNW80 = "inHahn and (inRadius >140)"
+	}
+	(
+		inRadius: 0.000000
+		inHahn: Nil
+		outNW80: con_b0b7587e_3cf5_4646_9558_6ec219cb3df9
+	)
+
+	MergeDefault<Bool>
+	(
+		inConditionalObject: con_b0b7587e_3cf5_4646_9558_6ec219cb3df9
+		inDefaultObject: False
+		outObject: con_9a547ce4_719a_468b_bd8e_26e46d9b12b6
+	)
+
+	//:HIDDENPORT[inValue5] TRUE
+	//:HIDDENPORT[inValue6] TRUE
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: con_bcbc2cb8_616e_477f_ab95_ac3fddc2e027
+		inValue2: con_9a547ce4_719a_468b_bd8e_26e46d9b12b6
+		inValue3: Nil
+		inValue4: Nil
+		inValue5: Nil
+		inValue6: Nil
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_f0f819ad_5dcb_4c49_a9ce_2b54096a19c4
+	)
+
+	//:HIDDENPORT[inValue] TRUE
+	FindFirst<Bool>
+	(
+		inArray: con_f0f819ad_5dcb_4c49_a9ce_2b54096a19c4
+		inValue: True
+		outIndex: con_ed1470c4_f382_49e9_af9c_8ecc5142de08
+		outFound: Nil
+	)
+
+	MergeDefault<Integer>
+	(
+		inConditionalObject: con_ed1470c4_f382_49e9_af9c_8ecc5142de08
+		inDefaultObject: 2
+		outObject: con_b7304f6d_25cd_4e0d_acef_bb223a8f1e44
+	)
+
+	//:HIDDENPORT[inObjectIfCase4] TRUE
+	//:HIDDENPORT[inObjectIfCase5] TRUE
+	//:HIDDENPORT[inObjectIfCase6] TRUE
+	//:HIDDENPORT[inObjectIfCase7] TRUE
+	ChooseByCase<String>
+	(
+		inObjectIfCase0: "NW50"
+		inObjectIfCase1: "NW80"
+		inObjectIfCase2: "Error"
+		inObjectIfCase3: ""
+		inObjectIfCase4: ""
+		inObjectIfCase5: ""
+		inObjectIfCase6: ""
+		inObjectIfCase7: ""
+		inCaseIndex: con_b7304f6d_25cd_4e0d_acef_bb223a8f1e44
+		outObject: con_786ac0a7_a9ab_407e_8ac2_e3daeb515842
+	)
+
+	outHahnGroesse = con_786ac0a7_a9ab_407e_8ac2_e3daeb515842
+
+	outHahn = con_4e8bab4a_df00_416e_998c_7c61eac82fb5
+}
+
+public Camera_Config() step
+{
+	Initialising_Cameras
+	(
+		inAddressCamera1: "192.168.0.186"
+		inAddressCamera2: "192.168.0.187"
+	)
+
+	Configurating_Cameras
+	(
+	)
+}
+
+public CheckCasse(Integer inName) step(inName)
+{
+default:
+}
+
+public RectifyTop(Image inImage, Image outImage) step
+{
+	//:BGIMAGE[inRectificationMap] @input:inImage
+	//:COORDINATESYSTEM[inRectificationMap] Absolute
+	//:PLUGINCONFIG[inRectificationMap] Program.953fb121.RectificationMap.avconfig
+	RectifyImage
+	(
+		inImage: inImage
+		inRectificationMap: RectificationMap<Program.fac74a4d.RectificationMap.avdata>
+		outImage: con_78fda18f_343c_4895_996b_f4d75034dac1
+		outRectifiedTransform: Nil
+		outWorldOrigin: Nil
+		outWorldScale: Nil
+		outWorldScaleInv: Nil
+	)
+
+	outImage = con_78fda18f_343c_4895_996b_f4d75034dac1
+}
+
+public RectifyBottom(Image inImage, Image outImage) step
+{
+	//:BGIMAGE[inRectificationMap] @input:inImage
+	//:COORDINATESYSTEM[inRectificationMap] Absolute
+	//:PLUGINCONFIG[inRectificationMap] Program.6063c6c4.RectificationMap.avconfig
+	RectifyImage
+	(
+		inImage: inImage
+		inRectificationMap: RectificationMap<Program.380f1c00.RectificationMap.avdata>
+		outImage: con_7537d9ec_bc34_4772_b7f6_cf68b39b3bdf
+		outRectifiedTransform: Nil
+		outWorldOrigin: Nil
+		outWorldScale: Nil
+		outWorldScaleInv: Nil
+	)
+
+	outImage = con_7537d9ec_bc34_4772_b7f6_cf68b39b3bdf
+}
+
+public VerheiratenDerBilder(Image? inImage, Image? inImage2, Image? outImage) step
+{
+	ImageSharpness
+	(
+		inImage: inImage
+		inRoi: Nil
+		outSharpness: Nil
+	)
+
+	ImageSharpness
+	(
+		inImage: inImage2
+		inRoi: Nil
+		outSharpness: Nil
+	)
+
+	ImageCenter
+	(
+		inImage: inImage2
+		outCenter: con_67b9f176_c4f2_48ea_afe9_ce4847b20f72
+	)
+
+	ImageCenter
+	(
+		inImage: inImage
+		outCenter: con_ce332829_f02d_4a93_a20f_c91490e30237
+	)
+
+	LineThroughPoint
+	(
+		inPoint: con_67b9f176_c4f2_48ea_afe9_ce4847b20f72
+		inAngle: 90.000000
+		outLine: Nil
+	)
+
+	LineThroughPoint
+	(
+		inPoint: con_ce332829_f02d_4a93_a20f_c91490e30237
+		inAngle: 90.000000
+		outLine: Nil
+	)
+
+	//:HIDDENPORT[inScale] TRUE
+	SubtractImages
+	(
+		inImage1: inImage2
+		inImage2: inImage
+		inRoi: Nil
+		inScale: 1.000000
+		outImage: Nil
+	)
+
+	ComposeImages
+	(
+		inImage1: inImage2
+		inImage2: inImage
+		inRegion: Region<Program.6d065879.Region.avdata>
+		inRoi: Nil
+		outImage: Nil
+	)
+
+	//:HIDDENPORT[inSizeMode] TRUE
+	//:HIDDENPORT[inInterpolationMethod] TRUE
+	//:HIDDENPORT[inInverse] TRUE
+	RotateImage
+	(
+		inImage: inImage2
+		inAngle: 0.000000
+		inSizeMode: Fit
+		inInterpolationMethod: Bilinear
+		inInverse: False
+		outImage: Nil
+	)
+
+	//:HIDDENPORT[inColor] TRUE
+	//:HIDDENPORT[inChannels] TRUE
+	//:HIDDENPORT[inPixelType] TRUE
+	EmptyImage
+	(
+		inWidth: 3664
+		inHeight: 4700
+		inColor: Pixel()
+		inChannels: 3
+		inPixelType: UInt8
+		outImage: con_653d72c1_ead9_42bb_b9b7_cd2eb5da5551
+	)
+
+	MakeLocation
+	(
+		inX: 0
+		inY: 1948
+		outLocation: con_7c2d5f83_0b32_4dc8_bf78_f5bddfa9c56a
+	)
+
+	DrawImage
+	(
+		inImage: con_653d72c1_ead9_42bb_b9b7_cd2eb5da5551
+		inDrawnImage: inImage2
+		inLocation: con_7c2d5f83_0b32_4dc8_bf78_f5bddfa9c56a
+		outImage: con_fa555e5e_6cfe_4472_bf46_35282517408d
+	)
+
+	MakeLocation
+	(
+		inX: 70
+		inY: -102
+		outLocation: con_30ddccfd_b49b_49ec_995d_6655bc05e95d
+	)
+
+	DrawImage
+	(
+		inImage: con_fa555e5e_6cfe_4472_bf46_35282517408d
+		inDrawnImage: inImage
+		inLocation: con_30ddccfd_b49b_49ec_995d_6655bc05e95d
+		outImage: con_c7cec72e_42b1_43e1_93a0_bb959dff8d22
+	)
+
+	outImage = con_c7cec72e_42b1_43e1_93a0_bb959dff8d22
+}
+
+public HahnErkenungV001(Image inbildAP1, Bool inSatusAP1, Image? inBild_Heck, BoolArray inHerstellerArray, Bool? outIsHahn, Circle2D? outCircleCircle, BoolArray? outArray) step(inSatusAP1)
+{
+False:
+
+	outIsHahn = Nil
+
+	outCircleCircle = Nil
+
+	outArray = Nil
+
+True:
+	//:HIDDENPORT[inInverse] TRUE
+	//:HIDDENPORT[outConditionalValue] TRUE
+	GetArrayElement_OrNil<Bool>
+	(
+		inArray: inHerstellerArray
+		inIndex: 1
+		inInverse: False
+		outConditionalValue: Nil
+		outConditionalValue.Not: con_de7097fe_daf3_4949_88a3_75e4a08e682b
+	)
+
+	//:HIDDENPORT[inOperator] TRUE
+	//:HIDDENPORT[inMeasure] TRUE
+	//:HIDDENPORT[inScale] TRUE
+	GradientMagnitudeImage
+	(
+		inImage: inbildAP1
+		inRoi: Nil
+		inOperator: Prewitt
+		inMeasure: Average
+		inScale: 6
+		outValueImage: con_4971d5fb_8f93_4752_a007_ed20364989cc
+	)
+
+	//:HIDDENPORT[inFuzziness] TRUE
+	ThresholdImage
+	(
+		inImage: con_4971d5fb_8f93_4752_a007_ed20364989cc
+		inRoi: Nil
+		inMinValue: 40.000000
+		inMaxValue: Nil
+		inFuzziness: 27.000000
+		outMonoImage: con_edc3e2ea_ed17_4a7f_b956_d9756d7c47ba
+	)
+
+	Radius
+	(
+		inImage: con_edc3e2ea_ed17_4a7f_b956_d9756d7c47ba
+		outHahn: con_52ffe3f4_23d7_4ff2_9fb7_42b88912524d
+		outNotHahn: con_9380ed6f_70de_4123_85e0_2263e1067c7d
+		outCircleCircle: con_cf6e4fd3_e2a0_4dfa_af72_54df56121a96
+		outCircleIsNilNot: con_882c4cff_8328_4a4f_bb41_82b4ef241ba5
+		outRadius: con_39c99c37_8caa_4409_90f2_19e819be98a6
+	)
+
+	ChooseByRange<Bool>
+	(
+		inObjectIfLower: False
+		inObjectIfInRange: False
+		inObjectIfHigher: True
+		inValue: con_39c99c37_8caa_4409_90f2_19e819be98a6
+		inMinimum: 0.000000
+		inMaximum: 126.000000
+		outObject: con_9caf34e1_37f9_4605_9388_a683e717cdba
+	)
+
+	IfMauserFalse
+	(
+		inName: con_882c4cff_8328_4a4f_bb41_82b4ef241ba5
+		inObject: con_9caf34e1_37f9_4605_9388_a683e717cdba
+		inCondition: con_de7097fe_daf3_4949_88a3_75e4a08e682b
+		outArray: con_dceb54de_f5f7_495b_94f6_4fbdb76e2895
+	)
+
+	Not
+	(
+		inValue: con_52ffe3f4_23d7_4ff2_9fb7_42b88912524d
+		outValue: con_00e65ff8_910f_4c4f_8db7_bb2626453ce3
+	)
+
+	MergeDefault<Bool>
+	(
+		inConditionalObject: con_00e65ff8_910f_4c4f_8db7_bb2626453ce3
+		inDefaultObject: False
+		outObject: con_91d3e3ec_ff6a_4319_bde2_6fe9d0fcdd8a
+	)
+
+	Not
+	(
+		inValue: con_9380ed6f_70de_4123_85e0_2263e1067c7d
+		outValue: con_7f6d216d_4155_4ddb_aaa1_7d9938b8bd6d
+	)
+
+	MergeDefault<Bool>
+	(
+		inConditionalObject: con_7f6d216d_4155_4ddb_aaa1_7d9938b8bd6d
+		inDefaultObject: False
+		outObject: con_4e9ad1af_0f0f_4566_82af_47515e8082a5
+	)
+
+	Radius
+	(
+		inImage: inBild_Heck
+		outHahn: con_b63f4632_bfb0_4425_a71c_7336f4567180
+		outNotHahn: con_d5e7ca03_c539_40a5_b480_6713f9301b55
+		outCircleCircle: Nil
+		outCircleIsNilNot: con_7621f2d6_5116_46b2_be49_d1e32c68b2c4
+		outRadius: con_7a73caed_e6aa_4191_83b4_5a1a1b58bbdf
+	)
+
+	ChooseByRange<Bool>
+	(
+		inObjectIfLower: False
+		inObjectIfInRange: False
+		inObjectIfHigher: True
+		inValue: con_7a73caed_e6aa_4191_83b4_5a1a1b58bbdf
+		inMinimum: 0.000000
+		inMaximum: 126.000000
+		outObject: con_67343200_439e_4fe8_b139_93a0bf4accef
+	)
+
+	IfMauserFalse
+	(
+		inName: con_7621f2d6_5116_46b2_be49_d1e32c68b2c4
+		inObject: con_67343200_439e_4fe8_b139_93a0bf4accef
+		inCondition: con_de7097fe_daf3_4949_88a3_75e4a08e682b
+		outArray: con_215d5f46_f737_4040_833b_98bbcfc158da
+	)
+
+	Not
+	(
+		inValue: con_b63f4632_bfb0_4425_a71c_7336f4567180
+		outValue: con_2198cc72_2a35_44d9_819e_8b65d7231352
+	)
+
+	MergeDefault<Bool>
+	(
+		inConditionalObject: con_2198cc72_2a35_44d9_819e_8b65d7231352
+		inDefaultObject: False
+		outObject: Nil
+	)
+
+	Not
+	(
+		inValue: con_d5e7ca03_c539_40a5_b480_6713f9301b55
+		outValue: con_cb3afccc_ab7a_494d_8439_b6fcdee6510f
+	)
+
+	MergeDefault<Bool>
+	(
+		inConditionalObject: con_cb3afccc_ab7a_494d_8439_b6fcdee6510f
+		inDefaultObject: False
+		outObject: Nil
+	)
+
+	//:HIDDENPORT[inValue] TRUE
+	FindFirst<Bool>
+	(
+		inArray: con_dceb54de_f5f7_495b_94f6_4fbdb76e2895
+		inValue: True
+		outIndex: Nil
+		outFound: con_92ac1276_20d2_4979_b12b_fccef54bba5a
+	)
+
+	//:HIDDENPORT[inValue] TRUE
+	FindFirst<Bool>
+	(
+		inArray: con_215d5f46_f737_4040_833b_98bbcfc158da
+		inValue: True
+		outIndex: Nil
+		outFound: con_230cb2be_7cd0_4d28_97c1_c50786449d48
+	)
+
+	//:HIDDENPORT[inValue5] TRUE
+	//:HIDDENPORT[inValue6] TRUE
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: con_92ac1276_20d2_4979_b12b_fccef54bba5a
+		inValue2: con_230cb2be_7cd0_4d28_97c1_c50786449d48
+		inValue3: Nil
+		inValue4: Nil
+		inValue5: Nil
+		inValue6: Nil
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_f2e01d44_4c0b_4a73_9545_8c8049ce125e
+	)
+
+	//:HIDDENPORT[inValue] TRUE
+	FindFirst<Bool>
+	(
+		inArray: con_f2e01d44_4c0b_4a73_9545_8c8049ce125e
+		inValue: True
+		outIndex: con_00679533_df4d_4c8d_b173_28db35d0278e
+		outFound: Nil
+	)
+
+	AuslaufSeite
+	(
+		inName: con_00679533_df4d_4c8d_b173_28db35d0278e
+		inArray1: con_dceb54de_f5f7_495b_94f6_4fbdb76e2895
+		inArray2: con_215d5f46_f737_4040_833b_98bbcfc158da
+		outArray1: con_73be2ba9_4737_4913_865e_d7c04cabf622
+	)
+
+	parameters write
+	{
+		inputs: IsHahn, NotHahn, IsHahh2, AuslaufArray
+	}
+	(
+		inIsHahn: False
+		inNotHahn: con_4e9ad1af_0f0f_4566_82af_47515e8082a5
+		inIsHahh2: False
+		inAuslaufArray: con_73be2ba9_4737_4913_865e_d7c04cabf622
+	)
+
+	outIsHahn = con_91d3e3ec_ff6a_4319_bde2_6fe9d0fcdd8a
+
+	outCircleCircle = con_cf6e4fd3_e2a0_4dfa_af72_54df56121a96
+
+	outArray = con_dceb54de_f5f7_495b_94f6_4fbdb76e2895
+}
+
+public VariantMacro_1(File inFilePath, Image inImage, Bool inCondition) step(inCondition)
+{
+False:
+	RealToString
+	(
+		inReal: 0.000000
+		outString: con_ad6c5be1_7f19_49a6_81ed_5a45f3b0f840
+	)
+
+	expression
+	{
+		File inFilePath
+		String inString
+		String outName = "\"C:\\\\Users\\\\Mojib.Joya\\\\Documents\\\\Neuer Ordner\\\\HahnbilderFalsch\\\\\" + inString+\"___\"+inFilePath"
+	}
+	(
+		inFilePath: inFilePath
+		inString: con_ad6c5be1_7f19_49a6_81ed_5a45f3b0f840
+		outName: con_0189fd33_bce3_4c27_a687_cccc4e18cbbf
+	)
+
+	StringToFile
+	(
+		inString: con_0189fd33_bce3_4c27_a687_cccc4e18cbbf
+		outFile: con_ff886a62_3fc5_4784_bc24_0b48caaedeaf
+	)
+
+	//:HIDDENPORT[inImageFileFormat] TRUE
+	SaveImage
+	(
+		inImage: inImage
+		inImageFileFormat: Nil
+		inFile: con_ff886a62_3fc5_4784_bc24_0b48caaedeaf
+		inIgnoreErrors: True
+	)
+
+True:
+	RealToString
+	(
+		inReal: 0.000000
+		outString: con_fe696a31_1f08_44be_84fc_c085ce8dea2a
+	)
+
+	expression
+	{
+		File inFilePath
+		String inString
+		String outName = "\"C:\\\\Users\\\\Mojib.Joya\\\\Documents\\\\Neuer Ordner\\\\Hahnbilder\\\\\" + inString +\"___\"+ inFilePath"
+	}
+	(
+		inFilePath: inFilePath
+		inString: con_fe696a31_1f08_44be_84fc_c085ce8dea2a
+		outName: con_383d8e4f_1be5_436f_b864_29f7640a4ac8
+	)
+
+	StringToFile
+	(
+		inString: con_383d8e4f_1be5_436f_b864_29f7640a4ac8
+		outFile: con_c9121460_09b9_4717_ac36_6463adaf67ae
+	)
+
+	//:HIDDENPORT[inImageFileFormat] TRUE
+	SaveImage
+	(
+		inImage: inImage
+		inImageFileFormat: Nil
+		inFile: con_c9121460_09b9_4717_ac36_6463adaf67ae
+		inIgnoreErrors: True
+	)
+}
+
+public Radius(Image? inImage, Bool? outHahn, Bool outNotHahn, Circle2D? outCircleCircle, Bool? outCircleIsNilNot, Real outRadius)
+{
+	//:HIDDENPORT[inStart] TRUE
+	//:HIDDENPORT[inCount] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateIntegers
+	(
+		inStart: 0
+		inCount: Nil
+		inStep: 10
+		outValue: con_434ff713_801a_47a1_a0a2_5d7f748cc5cb
+		outIsFirst: Nil
+		outIsLast: Nil
+	)
+
+	expression
+	{
+		Real inName
+		Real outRadius = "150- inName"
+	}
+	(
+		inName: con_434ff713_801a_47a1_a0a2_5d7f748cc5cb
+		outRadius: con_d646e5bd_cd49_43c0_ae5c_7c2c29c6693e
+	)
+
+	//:BGIMAGE[inRoi] @input:inImage
+	//:HIDDENPORT[inMinScore] TRUE
+	//:HIDDENPORT[inEdgeThreshold] TRUE
+	//:HIDDENPORT[outCircle] TRUE
+	DetectSingleCircle
+	(
+		inImage: inImage
+		inRoi: Region<Program.f000b930.Region.avdata>
+		inRadius: con_d646e5bd_cd49_43c0_ae5c_7c2c29c6693e
+		inMinScore: 29.000000
+		inEdgeThreshold: 0.000000
+		outCircle: Nil
+		diagGradientMagnitudeImage: Nil
+		diagScoreImage: Nil
+		outCircle.Circle: con_55f379d8_45bf_43f8_8f4d_6a86c6aa7d05
+		outCircle.Score: con_3ad4c7bb_c148_4987_8865_da7383d3f095
+		outCircle.IsNil.Not: con_edef21ad_88de_4b7f_b629_9f1419981168
+	)
+
+	MergeDefault<Real>
+	(
+		inConditionalObject: con_3ad4c7bb_c148_4987_8865_da7383d3f095
+		inDefaultObject: 0.000000
+		outObject: con_e3b85699_6b8b_422c_b4d7_e14d395fe11f
+	)
+
+	//:HIDDENPORT[inReferenceValue] TRUE
+	TestRealLessThan
+	(
+		inValue: con_e3b85699_6b8b_422c_b4d7_e14d395fe11f
+		inReferenceValue: 70.000000
+		outIsLessThan: con_93e6f24a_919e_48df_8179_f85d7b7e472a
+		outIsLessThan.Not: con_fa3fd7c6_8078_4e9d_b10a_9dde50791fb8
+	)
+
+	//:HIDDENPORT[inReferenceValue] TRUE
+	TestRealGreaterThan
+	(
+		inValue: con_d646e5bd_cd49_43c0_ae5c_7c2c29c6693e
+		inReferenceValue: 60.000000
+		outIsGreaterThan: con_41dffc11_ef6d_4809_a9ae_16674ad9ffc1
+	)
+
+	expression
+	{
+		Bool inIsLessThan
+		Bool inIsLessThan2
+		Bool outLoopCondition = "inIsLessThan and inIsLessThan2"
+	}
+	(
+		inIsLessThan: con_93e6f24a_919e_48df_8179_f85d7b7e472a
+		inIsLessThan2: con_41dffc11_ef6d_4809_a9ae_16674ad9ffc1
+		outLoopCondition: con_dbed31de_78ce_41f5_a852_1f4006a6b5bd
+	)
+
+	Loop
+	(
+		inShouldLoop: con_dbed31de_78ce_41f5_a852_1f4006a6b5bd
+	)
+
+	outHahn = con_fa3fd7c6_8078_4e9d_b10a_9dde50791fb8
+
+	outNotHahn = con_41dffc11_ef6d_4809_a9ae_16674ad9ffc1
+
+	outCircleCircle = con_55f379d8_45bf_43f8_8f4d_6a86c6aa7d05
+
+	outCircleIsNilNot = con_edef21ad_88de_4b7f_b629_9f1419981168
+
+	outRadius = con_d646e5bd_cd49_43c0_ae5c_7c2c29c6693e
+}
+
+public Radius2(Image? inMonoImage, Bool outHahn2, Bool outNothahn2)
+{
+	parameters write
+	{
+	}
+	(
+	)
+
+	//:HIDDENPORT[inStart] TRUE
+	//:HIDDENPORT[inCount] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateIntegers
+	(
+		inStart: 0
+		inCount: Nil
+		inStep: 5
+		outValue: con_058a8c21_d2c2_4838_a633_9536bdcf76fe
+		outIsFirst: Nil
+		outIsLast: Nil
+	)
+
+	expression
+	{
+		Real inName
+		Real outRadius = "60+ inName"
+	}
+	(
+		inName: con_058a8c21_d2c2_4838_a633_9536bdcf76fe
+		outRadius: con_328b002a_9a11_46fd_9c32_9b4a27258522
+	)
+
+	//:BGIMAGE[inRoi] @input:inImage
+	//:HIDDENPORT[inMinScore] TRUE
+	//:HIDDENPORT[inEdgeThreshold] TRUE
+	//:HIDDENPORT[outCircle] TRUE
+	DetectSingleCircle
+	(
+		inImage: inMonoImage
+		inRoi: Region<Program.473cfd79.Region.avdata>
+		inRadius: con_328b002a_9a11_46fd_9c32_9b4a27258522
+		inMinScore: 20.000000
+		inEdgeThreshold: 0.000000
+		outCircle: Nil
+		diagGradientMagnitudeImage: Nil
+		diagScoreImage: Nil
+		outCircle.Circle: Nil
+		outCircle.Score: con_777bc678_cc10_4513_8111_a7feab6d36dd
+	)
+
+	MergeDefault<Real>
+	(
+		inConditionalObject: con_777bc678_cc10_4513_8111_a7feab6d36dd
+		inDefaultObject: 0.000000
+		outObject: con_c5c29fdd_9a32_4c5a_b472_b340c6f4a1a1
+	)
+
+	//:HIDDENPORT[inReferenceValue] TRUE
+	TestRealLessThan
+	(
+		inValue: con_c5c29fdd_9a32_4c5a_b472_b340c6f4a1a1
+		inReferenceValue: 29.000000
+		outIsLessThan: con_d3a63715_5f17_4817_889e_5a893bf47ed9
+	)
+
+	//:HIDDENPORT[inReferenceValue] TRUE
+	TestRealLessThan
+	(
+		inValue: con_328b002a_9a11_46fd_9c32_9b4a27258522
+		inReferenceValue: 130.000000
+		outIsLessThan: con_35f5d1fe_acf3_45e5_96fc_04f3ac702e53
+	)
+
+	expression
+	{
+		Bool inIsLessThan
+		Bool inIsLessThan2
+		Bool outLoopCondition = "inIsLessThan and inIsLessThan2"
+	}
+	(
+		inIsLessThan: con_d3a63715_5f17_4817_889e_5a893bf47ed9
+		inIsLessThan2: con_35f5d1fe_acf3_45e5_96fc_04f3ac702e53
+		outLoopCondition: con_99516720_984d_4d26_a7c0_c0853a5ebda9
+	)
+
+	Loop
+	(
+		inShouldLoop: con_99516720_984d_4d26_a7c0_c0853a5ebda9
+	)
+
+	outHahn2 = con_d3a63715_5f17_4817_889e_5a893bf47ed9
+
+	outNothahn2 = con_35f5d1fe_acf3_45e5_96fc_04f3ac702e53
+}
+
+public CircleNotNil(Bool inName, Bool inObject, BoolArray outArray) step(inName)
+{
+False:
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: False
+		inValue2: False
+		inValue3: False
+		inValue4: False
+		inValue5: False
+		inValue6: False
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_eaf166b6_2fa5_41c4_bb64_b7d56782ef29
+	)
+
+	outArray = con_eaf166b6_2fa5_41c4_bb64_b7d56782ef29
+
+True:
+	HahnKriterium
+	(
+		inName: inObject
+		outArray: con_6a1006da_30e9_49df_a1e9_bc5c5aa19515
+	)
+
+	outArray = con_6a1006da_30e9_49df_a1e9_bc5c5aa19515
+}
+
+public HahnKriterium(Bool inName, BoolArray outArray) step(inName)
+{
+False:
+	//:HIDDENPORT[inValue4] TRUE
+	//:HIDDENPORT[inValue5] TRUE
+	//:HIDDENPORT[inValue6] TRUE
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: True
+		inValue2: False
+		inValue3: False
+		inValue4: Nil
+		inValue5: Nil
+		inValue6: Nil
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_127f974d_f233_4967_a246_457879fb6235
+	)
+
+	outArray = con_127f974d_f233_4967_a246_457879fb6235
+
+True:
+	//:HIDDENPORT[inValue4] TRUE
+	//:HIDDENPORT[inValue5] TRUE
+	//:HIDDENPORT[inValue6] TRUE
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: False
+		inValue2: False
+		inValue3: True
+		inValue4: Nil
+		inValue5: Nil
+		inValue6: Nil
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_84ef8292_69dd_4ca2_9935_f42c0ea3e876
+	)
+
+	outArray = con_84ef8292_69dd_4ca2_9935_f42c0ea3e876
+}
+
+public IfMauserFalse(Bool inName, Bool inObject, Bool inCondition, BoolArray outArray) step(inCondition)
+{
+False:
+	MauserAuslauf
+	(
+		inName: inName
+		inObject: inObject
+		outArray: con_560292a3_fa14_4c2c_b77f_a171e7c82e56
+	)
+
+	outArray = con_560292a3_fa14_4c2c_b77f_a171e7c82e56
+
+True:
+	CircleNotNil
+	(
+		inName: inName
+		inObject: inObject
+		outArray: con_07b8d169_5af8_42a7_97e9_d8dec1f990fc
+	)
+
+	outArray = con_07b8d169_5af8_42a7_97e9_d8dec1f990fc
+}
+
+public MauserAuslauf(Bool inName, Bool inObject, BoolArray outArray) step(inName)
+{
+False:
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: False
+		inValue2: False
+		inValue3: False
+		inValue4: False
+		inValue5: False
+		inValue6: False
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_3b9ffe1e_988e_4f8d_b5ab_5ad671866f5f
+	)
+
+	outArray = con_3b9ffe1e_988e_4f8d_b5ab_5ad671866f5f
+
+True:
+	MauserHahnKriterium
+	(
+		inName: inObject
+		outArray: con_23fc06db_1742_44a2_baf8_65be758831e6
+	)
+
+	outArray = con_23fc06db_1742_44a2_baf8_65be758831e6
+}
+
+public MauserHahnKriterium(Bool inName, BoolArray outArray) step(inName)
+{
+False:
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: False
+		inValue2: False
+		inValue3: False
+		inValue4: False
+		inValue5: True
+		inValue6: False
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_0f9575d2_d886_4148_947a_3359d26f9ded
+	)
+
+	outArray = con_0f9575d2_d886_4148_947a_3359d26f9ded
+
+True:
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	CreateArray<Bool>
+	(
+		inValue1: False
+		inValue2: False
+		inValue3: False
+		inValue4: False
+		inValue5: False
+		inValue6: True
+		inValue7: Nil
+		inValue8: Nil
+		outArray: con_62266a26_73cd_4e64_9c4a_34df32fb079d
+	)
+
+	outArray = con_62266a26_73cd_4e64_9c4a_34df32fb079d
+}
+
+public AuslaufSeite(Integer inName, BoolArray inArray1, BoolArray inArray2, BoolArray outArray1) step(inName)
+{
+0:
+
+	outArray1 = inArray1
+
+1:
+
+	outArray1 = inArray2
+
+default:
+
+	outArray1 = {}
+}
+
+public VariantMacro_2(Bool inCondition) step(inCondition)
+{
+False:
+
+True:
+	Camera_Config
+	(
+	)
+}
+
+public INIT_Camera(GevAddress inAddress) step
+{
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetEnumParameter
+	(
+		inAddress: inAddress
+		inParameterName: "AcquisitionMode"
+		inValue: "Continuous"
+		inVerify: True
+	)
+
+	//:HIDDENPORT[inParameterName] TRUE
+	//:HIDDENPORT[inVerify] TRUE
+	GigEVision_SetIntegerParameter
+	(
+		inAddress: inAddress
+		inParameterName: "AcquisitionFrameCount"
+		inValue: 8
+		inVerify: True
+	)
+}
+
+public ImageQualityTest(File inFile, Real outSharpness) step
+{
+	//:HIDDENPORT[inLoadAlphaChannel] TRUE
+	LoadImage
+	(
+		inFile: inFile
+		inLoadAlphaChannel: False
+		outImage: con_f3f21c07_ffce_4b16_bd41_33700b485cc9
+	)
+
+	ImageSharpness
+	(
+		inImage: con_f3f21c07_ffce_4b16_bd41_33700b485cc9
+		inRoi: Nil
+		outSharpness: con_cfc55509_4877_4a73_8db3_a9e50cad02b9
+	)
+
+	outSharpness = con_cfc55509_4877_4a73_8db3_a9e50cad02b9
+}
+
+public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outVU) step
+{
+	//:HIDDENPORT[inCommandName] TRUE
+	//:HIDDENPORT[inActivationMode] TRUE
+	//:HIDDENPORT[inVerifyAccess] TRUE
+	GigEVision_ExecuteCommand
+	(
+		inAddress: "192.168.0.138"
+		inCommandName: "TriggerSoftware"
+		inActivationMode: WhenTrue
+		inActivation: inTrigg
+		inVerifyAccess: True
+	)
+
+	//:HIDDENPORT[inCommandName] TRUE
+	//:HIDDENPORT[inActivationMode] TRUE
+	//:HIDDENPORT[inVerifyAccess] TRUE
+	GigEVision_ExecuteCommand
+	(
+		inAddress: "192.168.0.139"
+		inCommandName: "TriggerSoftware"
+		inActivationMode: WhenTrue
+		inActivation: inTrigg
+		inVerifyAccess: True
+	)
+
+	//:HIDDENPORT[inCommandName] TRUE
+	//:HIDDENPORT[inActivationMode] TRUE
+	//:HIDDENPORT[inVerifyAccess] TRUE
+	GigEVision_ExecuteCommand
+	(
+		inAddress: "192.168.0.132"
+		inCommandName: "TriggerSoftware"
+		inActivationMode: WhenTrue
+		inActivation: inTrigg
+		inVerifyAccess: True
+	)
+
+	//:HIDDENPORT[inCommandName] TRUE
+	//:HIDDENPORT[inActivationMode] TRUE
+	//:HIDDENPORT[inVerifyAccess] TRUE
+	GigEVision_ExecuteCommand
+	(
+		inAddress: "192.168.0.137"
+		inCommandName: "TriggerSoftware"
+		inActivationMode: WhenTrue
+		inActivation: inTrigg
+		inVerifyAccess: True
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	//:HIDDENPORT[inTimeout] TRUE
+	GigEVision_GrabImage_WithTimeout
+	(
+		inAddress: "192.168.0.138"
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+		inTimeout: 100
+		outFrame: con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6
+		outFrameID: Nil
+		outTimestamp: Nil
+	)
+
+	MergeDefault<Image>
+	(
+		inConditionalObject: con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6
+		inDefaultObject: Image()
+		outObject: con_1fbfab18_b060_470d_adc2_0500c4ffa4c5
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	//:HIDDENPORT[inTimeout] TRUE
+	GigEVision_GrabImage_WithTimeout
+	(
+		inAddress: "192.168.0.139"
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+		inTimeout: 100
+		outFrame: con_cccc222e_3d3d_452d_b2de_9a9ac993dddc
+		outFrameID: Nil
+		outTimestamp: Nil
+	)
+
+	MergeDefault<Image>
+	(
+		inConditionalObject: con_cccc222e_3d3d_452d_b2de_9a9ac993dddc
+		inDefaultObject: Image()
+		outObject: con_64b9c45d_9c3d_4439_a98b_066bc41bb39f
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	//:HIDDENPORT[inTimeout] TRUE
+	GigEVision_GrabImage_WithTimeout
+	(
+		inAddress: "192.168.0.137"
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+		inTimeout: 100
+		outFrame: con_3f5b26d9_0b2b_4785_95c1_f9a3ada3d9a2
+		outFrameID: Nil
+		outTimestamp: Nil
+	)
+
+	MergeDefault<Image>
+	(
+		inConditionalObject: con_3f5b26d9_0b2b_4785_95c1_f9a3ada3d9a2
+		inDefaultObject: Image()
+		outObject: con_466c4a1b_0909_471a_a0af_f62af4f4c83c
+	)
+
+	//:HIDDENPORT[inPixelFormat] TRUE
+	//:HIDDENPORT[inInputQueueSize] TRUE
+	//:HIDDENPORT[inTimeout] TRUE
+	GigEVision_GrabImage_WithTimeout
+	(
+		inAddress: "192.168.0.132"
+		inPixelFormat: "BayerGR8"
+		inInputQueueSize: 1
+		inTimeout: 100
+		outFrame: con_eb33be65_a2dc_4d89_bd91_080923e284dc
+		outFrameID: Nil
+		outTimestamp: Nil
+	)
+
+	MergeDefault<Image>
+	(
+		inConditionalObject: con_eb33be65_a2dc_4d89_bd91_080923e284dc
+		inDefaultObject: Image()
+		outObject: con_fe890f2c_b08b_47e9_baaa_bd59964bdb9f
+	)
+
+	outHO = con_1fbfab18_b060_470d_adc2_0500c4ffa4c5
+
+	outHU = con_64b9c45d_9c3d_4439_a98b_066bc41bb39f
+
+	outVO = con_466c4a1b_0909_471a_a0af_f62af4f4c83c
+
+	outVU = con_fe890f2c_b08b_47e9_baaa_bd59964bdb9f
+}
+

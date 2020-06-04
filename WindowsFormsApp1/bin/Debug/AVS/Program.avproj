@@ -1,0 +1,37 @@
+﻿<AdaptiveVisionProject Name="Program" Version="4.12.9" Revision="74433" Product="Professional" StartUpProgramName="Main">
+  <MacroRunnerLibSettings>
+    <DllPath>C:\Users\Damian.Jakubowski\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\ProgramMacrofilters.dll</DllPath>
+    <Namespace>AdaptiveVision</Namespace>
+    <Class>ProgramMacrofilters</Class>
+    <Macrofilters>
+      <Macro>Camera_Config</Macro>
+      <Macro>GetRectifiedImageOfBoxCameras</Macro>
+      <Macro>GrabImage</Macro>
+      <Macro>IfFrameOfTemporaryContainerArrived__Hahnerkennung</Macro>
+      <Macro>ImageQualityTest</Macro>
+      <Macro>Kamera_Vorne_Oben</Macro>
+      <Macro>Kamera_Vorne_Unten</Macro>
+      <Macro>RectifyFusion</Macro>
+      <Macro>SPS_Komm_Akcept</Macro>
+      <Macro>SPS_Komm_Read</Macro>
+      <Macro>SPS_Komm_Send</Macro>
+      <Macro>BarcodeRead</Macro>
+      <Macro>HahnerkennungMain</Macro>
+      <Macro>LoopHahnerkennungNeu</Macro>
+    </Macrofilters>
+    <UserTypes />
+    <ApplicationName>ProgramApplication</ApplicationName>
+    <Compiler>
+      <VisualStudio Version="16.6.30114.105" />
+      <MSBuild Version="16.6.0.22303" />
+      <Sdk WindowsVersion="10.0.17763.0" />
+    </Compiler>
+  </MacroRunnerLibSettings>
+  <Files>
+    <Program Path="Program.avcode" />
+    <View Path="Program.avview" />
+    <HMI Path="Program.avhmi" />
+    <Lib Path="C:\Users\Damian.Jakubowski\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\Barcode.avlib" />
+    <Lib Path="C:\Users\Mojib.Joya\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\HahnerkennungNeu.avlib" />
+  </Files>
+</AdaptiveVisionProject>

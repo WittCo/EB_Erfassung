@@ -1,0 +1,56 @@
+﻿<HMI>
+  <ClientSize>947, 613</ClientSize>
+  <Controls>
+    <ZoomingVideoBox>
+      <InitialSizeMode>FitToWindow</InitialSizeMode>
+      <Location>432, 233</Location>
+      <Name>zoomingVideoBox4</Name>
+      <Size>282, 227</Size>
+      <TabIndex>4</TabIndex>
+      <Binding>
+        <Input Property="Image" Macro="GrabImage" Variable="con_3f5b26d9_0b2b_4785_95c1_f9a3ada3d9a2" VariantIndex="0" />
+      </Binding>
+    </ZoomingVideoBox>
+    <ZoomingVideoBox>
+      <InitialSizeMode>FitToWindow</InitialSizeMode>
+      <Location>432, 0</Location>
+      <Name>zoomingVideoBox3</Name>
+      <Size>282, 227</Size>
+      <TabIndex>1</TabIndex>
+      <Binding>
+        <Input Property="Image" Macro="GrabImage" Variable="con_eb33be65_a2dc_4d89_bd91_080923e284dc" VariantIndex="0" />
+      </Binding>
+    </ZoomingVideoBox>
+    <ZoomingVideoBox>
+      <InitialSizeMode>FitToWindow</InitialSizeMode>
+      <Location>126, 233</Location>
+      <Name>zoomingVideoBox2</Name>
+      <Size>282, 227</Size>
+      <TabIndex>3</TabIndex>
+      <Binding>
+        <Input Property="Image" Macro="GrabImage" Variable="con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6" VariantIndex="0" />
+      </Binding>
+    </ZoomingVideoBox>
+    <ZoomingVideoBox>
+      <InitialSizeMode>FitToWindow</InitialSizeMode>
+      <Location>126, 0</Location>
+      <Name>zoomingVideoBox1</Name>
+      <Size>282, 227</Size>
+      <TabIndex>0</TabIndex>
+      <Binding>
+        <Input Property="Image" Macro="GrabImage" Variable="con_cccc222e_3d3d_452d_b2de_9a9ac993dddc" VariantIndex="0" />
+      </Binding>
+    </ZoomingVideoBox>
+    <ImpulseButton>
+      <Location>0, 3</Location>
+      <Name>impulseButton3</Name>
+      <Size>120, 28</Size>
+      <TabIndex>2</TabIndex>
+      <Text>Trigger</Text>
+      <UseVisualStyleBackColor>True</UseVisualStyleBackColor>
+      <Binding>
+        <Output Property="Value" Variable="ext_con_6593bdf2_7d20_45c4_b756_53c26e3a8a7b" />
+      </Binding>
+    </ImpulseButton>
+  </Controls>
+</HMI>

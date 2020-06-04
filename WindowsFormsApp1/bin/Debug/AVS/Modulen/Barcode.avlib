@@ -1,0 +1,170 @@
+//:OUTPUTHELP[outMojib] Test
+public BarcodeRead(String outBarcode, Bool outMojib) step
+{
+	ReadAlleBilder
+	(
+		outArray: con_fa7194c0_22a2_4b57_a569_cc143f3932bf
+	)
+
+	//:HIDDENPORT[inInverse] TRUE
+	GetArrayElement_OrNil<String>
+	(
+		inArray: con_fa7194c0_22a2_4b57_a569_cc143f3932bf
+		inIndex: 0
+		inInverse: False
+		outConditionalValue: con_431035ac_7f5d_4242_b2fb_ec11fe76eb36
+	)
+
+	MergeDefault<String>
+	(
+		inConditionalObject: con_431035ac_7f5d_4242_b2fb_ec11fe76eb36
+		inDefaultObject: "Barcode nicht Erkant"
+		outObject: con_916ef26d_9ced_4b6c_80b8_eaabba908d7b
+	)
+
+	outBarcode = con_916ef26d_9ced_4b6c_80b8_eaabba908d7b
+
+	outMojib = False
+}
+
+public ReadAlleBilder(StringArray outArray)
+{
+	//:HIDDENPORT[inFileType] TRUE
+	//:HIDDENPORT[inSortingOrder] TRUE
+	//:HIDDENPORT[inRepeat] TRUE
+	//:HIDDENPORT[inProcessSubdirectories] TRUE
+	//:HIDDENPORT[inInvert] TRUE
+	//:HIDDENPORT[inLoadAlphaChannel] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateImages
+	(
+		inDirectory: "C:\\Users\\Aufschrauberportal\\AWICO\\Technik - Witt IBC Bilder"
+		inFileType: Nil
+		inSortingOrder: Date
+		inRepeat: False
+		inProcessSubdirectories: False
+		inInvert: True
+		inLoadAlphaChannel: False
+		outImage: con_dfee783f_cc86_41bc_b1f8_6b52628141ef
+		outFilePath: Nil
+		outFileName: Nil
+		outIsFirst: Nil
+		outIsLast: Nil
+	)
+
+	ImageSharpness
+	(
+		inImage: con_dfee783f_cc86_41bc_b1f8_6b52628141ef
+		inRoi: Nil
+		outSharpness: con_51547d06_283e_4006_980f_7d67adc85942
+	)
+
+	//:HIDDENPORT[inMaxSize] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	AccumulateElements<Real>
+	(
+		inElement: con_51547d06_283e_4006_980f_7d67adc85942
+		inCondition: True
+		inMaxSize: Nil
+		inReset: False
+		outArray: Nil
+	)
+
+	//:HIDDENPORT[inKernel] TRUE
+	//:HIDDENPORT[inRadiusX] TRUE
+	//:HIDDENPORT[inRadiusY] TRUE
+	SharpenImage
+	(
+		inImage: con_dfee783f_cc86_41bc_b1f8_6b52628141ef
+		inContrastFactor: 2.000000
+		inKernel: Box
+		inRadiusX: 1
+		inRadiusY: Nil
+		outImage: con_ca2b30fe_c92a_4843_9070_ae1b64b9aadf
+	)
+
+	//:HIDDENPORT[inBarcodeFormat] TRUE
+	//:HIDDENPORT[inMinGradientLength] TRUE
+	//:HIDDENPORT[inBaseBarWidth] TRUE
+	//:HIDDENPORT[inDetectionScanCount] TRUE
+	//:HIDDENPORT[inReadingScanCount] TRUE
+	//:HIDDENPORT[inScanWidth] TRUE
+	//:HIDDENPORT[inMinStrength] TRUE
+	//:HIDDENPORT[inSmoothingStdDev] TRUE
+	ReadMultipleBarcodes
+	(
+		inImage: con_ca2b30fe_c92a_4843_9070_ae1b64b9aadf
+		inRoi: Nil
+		inRoiAlignment: Nil
+		inBarcodeFormat: Nil
+		inMinGradientLength: 26.000000
+		inBaseBarWidth: 1
+		inDetectionScanCount: 10
+		inReadingScanCount: 10
+		inScanWidth: 3
+		inMinStrength: 11.000000
+		inSmoothingStdDev: 0.700000
+		outBarcodePositions: Nil
+		outDecodedTexts: con_8c27807c_6503_4b21_93dc_3d6ec7885c36
+		outBarcodeFormats: Nil
+		outAlignedRoi: Nil
+		outBarcodeCandidates: Nil
+		diagGradientImage: Nil
+		diagScheduledScanSegments: Nil
+	)
+
+	//:HIDDENPORT[inInverse] TRUE
+	GetArrayElement_OrNil<String>
+	(
+		inArray: con_8c27807c_6503_4b21_93dc_3d6ec7885c36
+		inIndex: 0
+		inInverse: False
+		outConditionalValue: con_179d48ff_cc4d_4e9b_b864_c8269c5dafb6
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_179d48ff_cc4d_4e9b_b864_c8269c5dafb6
+		inFind: "EB"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: Nil
+	)
+
+	//:HIDDENPORT[inStart] TRUE
+	//:HIDDENPORT[inCount] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateIntegers
+	(
+		inStart: 0
+		inCount: 5
+		inStep: 1
+		outValue: Nil
+		outIsFirst: Nil
+		outIsLast: con_28267468_d32f_4427_bb94_70838b1a3a2d
+	)
+
+	Exit
+	(
+		inCondition: con_28267468_d32f_4427_bb94_70838b1a3a2d
+	)
+
+	//:HIDDENPORT[inMaxSize] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	AccumulateArray<String>
+	(
+		inArray: con_8c27807c_6503_4b21_93dc_3d6ec7885c36
+		inMaxSize: Nil
+		inReset: False
+		outArray: con_dfe05d5f_12d8_45de_8fb0_cdb18b3bda3e
+	)
+
+	outArray = con_dfe05d5f_12d8_45de_8fb0_cdb18b3bda3e
+}
+

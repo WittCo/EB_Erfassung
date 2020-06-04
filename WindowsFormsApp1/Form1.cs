@@ -53,7 +53,7 @@ namespace WindowsFormsApp1
         long? BildID, BildID2, timebild, timebild2;
         bool a1, a2;
         int ID = 0;
-
+        int flag = 0;
 
         IntPtr m_hDisplayWindow;
         IntPtr m_hDisplayWindow2;
@@ -1802,6 +1802,18 @@ namespace WindowsFormsApp1
                 checkBox9.BackColor = Color.Gray;
             }
 
+
+            if ((label75.Text == "0")&&(dg4.RowCount >=4 ))
+
+            {
+                if (flag == 0)
+                {
+                    button10.PerformClick();
+                    button4.PerformClick();
+                    flag = 1;      //hilfsflag um click nur einmal zu performen pro neue Bilder
+                }
+            }
+            
         }
 
         private void button14_Click(object sender, EventArgs e)

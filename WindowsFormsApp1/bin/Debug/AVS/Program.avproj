@@ -33,5 +33,6 @@
     <HMI Path="Program.avhmi" />
     <Lib Path="C:\Users\Damian.Jakubowski\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\Barcode.avlib" />
     <Lib Path="C:\Users\Mojib.Joya\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\HahnerkennungNeu.avlib" />
+    <Lib Path="C:\Users\Damian.Jakubowski\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\SharpnessStats.avlib" />
   </Files>
 </AdaptiveVisionProject>

@@ -1,13 +1,12 @@
-//:OUTPUTHELP[outMojib] Test
-public BarcodeRead(String outBarcode, Bool outMojib) step
+public BarcodeAndSharpness(String outBarcode, Real outSharpnessHU, Real outSharpnessHO, Real outSharpnessVU, Real outSharpnessVO) step
 {
-	ReadAlleBilder
+	disabled ReadAlleBilder
 	(
 		outArray: con_fa7194c0_22a2_4b57_a569_cc143f3932bf
 	)
 
 	//:HIDDENPORT[inInverse] TRUE
-	GetArrayElement_OrNil<String>
+	disabled GetArrayElement_OrNil<String>
 	(
 		inArray: con_fa7194c0_22a2_4b57_a569_cc143f3932bf
 		inIndex: 0
@@ -15,16 +14,31 @@ public BarcodeRead(String outBarcode, Bool outMojib) step
 		outConditionalValue: con_431035ac_7f5d_4242_b2fb_ec11fe76eb36
 	)
 
-	MergeDefault<String>
+	disabled MergeDefault<String>
 	(
 		inConditionalObject: con_431035ac_7f5d_4242_b2fb_ec11fe76eb36
 		inDefaultObject: "Barcode nicht Erkant"
-		outObject: con_916ef26d_9ced_4b6c_80b8_eaabba908d7b
+		outObject: Nil
 	)
 
-	outBarcode = con_916ef26d_9ced_4b6c_80b8_eaabba908d7b
+	SharpnessStats
+	(
+		outSharpnessHU: con_c96db58e_12ba_4aaf_a428_49917fdf2a60
+		outSharpnessHO: con_ec1fe462_cf96_4420_9820_7e4911768d56
+		outSharpnessVU: con_9253e347_bc69_4d7f_baa0_d1b4fa88b999
+		outSharpnessVO: con_f561e4a4_51cc_48d4_9c89_7b1bddae9024
+		outBarcode: con_ac93055b_15b1_4466_89cd_85fe36a523db
+	)
 
-	outMojib = False
+	outBarcode = con_ac93055b_15b1_4466_89cd_85fe36a523db
+
+	outSharpnessHU = con_c96db58e_12ba_4aaf_a428_49917fdf2a60
+
+	outSharpnessHO = con_ec1fe462_cf96_4420_9820_7e4911768d56
+
+	outSharpnessVU = con_9253e347_bc69_4d7f_baa0_d1b4fa88b999
+
+	outSharpnessVO = con_f561e4a4_51cc_48d4_9c89_7b1bddae9024
 }
 
 public ReadAlleBilder(StringArray outArray)
@@ -166,5 +180,469 @@ public ReadAlleBilder(StringArray outArray)
 	)
 
 	outArray = con_dfe05d5f_12d8_45de_8fb0_cdb18b3bda3e
+}
+
+public LoadLast4(Image outHU, Image outVU, Image outVO, Image outHO)
+{
+	//:HIDDENPORT[inFileType] TRUE
+	//:HIDDENPORT[inSortingOrder] TRUE
+	//:HIDDENPORT[inRepeat] TRUE
+	//:HIDDENPORT[inProcessSubdirectories] TRUE
+	//:HIDDENPORT[inInvert] TRUE
+	//:HIDDENPORT[inLoadAlphaChannel] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateImages
+	(
+		inDirectory: "C:\\Users\\Aufschrauberportal\\AWICO\\AP1"
+		inFileType: Nil
+		inSortingOrder: Date
+		inRepeat: False
+		inProcessSubdirectories: False
+		inInvert: True
+		inLoadAlphaChannel: False
+		outImage: con_d314984a_0c7b_441d_b826_1c77b653536a
+		outFilePath: Nil
+		outFileName: con_cbceb900_e6c0_4bd8_96fe_10660ac24987
+		outIsFirst: Nil
+		outIsLast: Nil
+	)
+
+	//:HIDDENPORT[inStart] TRUE
+	//:HIDDENPORT[inCount] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateIntegers
+	(
+		inStart: 0
+		inCount: 5
+		inStep: 1
+		outValue: Nil
+		outIsFirst: Nil
+		outIsLast: con_b0bea48f_6c6a_4d21_8b1c_2b320e3402a6
+	)
+
+	Exit
+	(
+		inCondition: con_b0bea48f_6c6a_4d21_8b1c_2b320e3402a6
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_cbceb900_e6c0_4bd8_96fe_10660ac24987
+		inFind: "HU"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_97081aff_62c2_49e1_83c0_bc7385c3191a
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_d314984a_0c7b_441d_b826_1c77b653536a
+		inCondition: con_97081aff_62c2_49e1_83c0_bc7385c3191a
+		outConditionalObject: con_8b179a23_8fbf_48fd_ae72_0e1cb9e5703a
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_8b179a23_8fbf_48fd_ae72_0e1cb9e5703a
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_13f297bb_ec1a_45e4_8c4c_254e7e9abdbc
+		outIndex: Nil
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_cbceb900_e6c0_4bd8_96fe_10660ac24987
+		inFind: "VU"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_71c66419_c73c_4f0a_bae0_dd984b41ea15
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_d314984a_0c7b_441d_b826_1c77b653536a
+		inCondition: con_71c66419_c73c_4f0a_bae0_dd984b41ea15
+		outConditionalObject: con_f44e2c8c_1705_4e1c_aaa5_02016eac567c
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_f44e2c8c_1705_4e1c_aaa5_02016eac567c
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_ad26415d_c838_4e81_8707_e597177f862b
+		outIndex: Nil
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_cbceb900_e6c0_4bd8_96fe_10660ac24987
+		inFind: "VO"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_bf309e6f_28a0_4770_939b_d6896beaf51b
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_d314984a_0c7b_441d_b826_1c77b653536a
+		inCondition: con_bf309e6f_28a0_4770_939b_d6896beaf51b
+		outConditionalObject: con_35fbf3c0_d1cf_484a_9772_18262c1fa438
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_35fbf3c0_d1cf_484a_9772_18262c1fa438
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_dbb299b1_103b_4685_a150_faf4bddcbd8c
+		outIndex: Nil
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_cbceb900_e6c0_4bd8_96fe_10660ac24987
+		inFind: "HO"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_806656fd_dbee_4deb_ba07_263b50ce0b7d
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_d314984a_0c7b_441d_b826_1c77b653536a
+		inCondition: con_806656fd_dbee_4deb_ba07_263b50ce0b7d
+		outConditionalObject: con_78606690_9f01_4d16_8f11_1d65765e2471
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_78606690_9f01_4d16_8f11_1d65765e2471
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_bec92887_8669_4646_8db6_99d9f2398ed6
+		outIndex: Nil
+	)
+
+	Loop
+	(
+		inShouldLoop: True
+	)
+
+	outHU = con_13f297bb_ec1a_45e4_8c4c_254e7e9abdbc
+
+	outVU = con_ad26415d_c838_4e81_8707_e597177f862b
+
+	outVO = con_dbb299b1_103b_4685_a150_faf4bddcbd8c
+
+	outHO = con_bec92887_8669_4646_8db6_99d9f2398ed6
+}
+
+public SharpnessStats(Real outSharpnessHU, Real outSharpnessHO, Real outSharpnessVU, Real outSharpnessVO, String outBarcode) step
+{
+	LoadLast4
+	(
+		outHU: con_60255d09_9fcd_4d82_a2c5_a3df09683c8c
+		outVU: con_0f086ce8_4554_4de4_b38c_316fb15bc42d
+		outVO: con_09cb5779_3252_497a_ba33_1e91c2a6eecf
+		outHO: con_2bc30bca_00da_421e_bf0f_76e29bd07345
+	)
+
+	//:HIDDENPORT[inKernel] TRUE
+	//:HIDDENPORT[inRadiusX] TRUE
+	//:HIDDENPORT[inRadiusY] TRUE
+	SharpenImage
+	(
+		inImage: con_60255d09_9fcd_4d82_a2c5_a3df09683c8c
+		inContrastFactor: 2.000000
+		inKernel: Box
+		inRadiusX: 1
+		inRadiusY: Nil
+		outImage: con_622a9fec_43f8_4b9e_a6fa_29c2efa53c50
+	)
+
+	//:HIDDENPORT[inBarcodeFormat] TRUE
+	//:HIDDENPORT[inMinGradientLength] TRUE
+	//:HIDDENPORT[inBaseBarWidth] TRUE
+	//:HIDDENPORT[inDetectionScanCount] TRUE
+	//:HIDDENPORT[inReadingScanCount] TRUE
+	//:HIDDENPORT[inScanWidth] TRUE
+	//:HIDDENPORT[inMinStrength] TRUE
+	//:HIDDENPORT[inSmoothingStdDev] TRUE
+	ReadMultipleBarcodes
+	(
+		inImage: con_622a9fec_43f8_4b9e_a6fa_29c2efa53c50
+		inRoi: Nil
+		inRoiAlignment: Nil
+		inBarcodeFormat: Nil
+		inMinGradientLength: 26.000000
+		inBaseBarWidth: 1
+		inDetectionScanCount: 10
+		inReadingScanCount: 10
+		inScanWidth: 3
+		inMinStrength: 11.000000
+		inSmoothingStdDev: 0.700000
+		outBarcodePositions: Nil
+		outDecodedTexts: con_78019e2f_e1de_4be8_b500_28c260ea5afc
+		outBarcodeFormats: Nil
+		outAlignedRoi: Nil
+		outBarcodeCandidates: Nil
+		diagGradientImage: Nil
+		diagScheduledScanSegments: Nil
+	)
+
+	//:HIDDENPORT[inInverse] TRUE
+	GetArrayElement_OrNil<String>
+	(
+		inArray: con_78019e2f_e1de_4be8_b500_28c260ea5afc
+		inIndex: 0
+		inInverse: False
+		outConditionalValue: con_2b3fccf5_a66b_469c_829e_076dd626154f
+	)
+
+	//:HIDDENPORT[inKernel] TRUE
+	//:HIDDENPORT[inRadiusX] TRUE
+	//:HIDDENPORT[inRadiusY] TRUE
+	SharpenImage
+	(
+		inImage: con_0f086ce8_4554_4de4_b38c_316fb15bc42d
+		inContrastFactor: 2.000000
+		inKernel: Box
+		inRadiusX: 1
+		inRadiusY: Nil
+		outImage: con_f07447c1_99e4_407a_9202_c56c60e36681
+	)
+
+	//:HIDDENPORT[inBarcodeFormat] TRUE
+	//:HIDDENPORT[inMinGradientLength] TRUE
+	//:HIDDENPORT[inBaseBarWidth] TRUE
+	//:HIDDENPORT[inDetectionScanCount] TRUE
+	//:HIDDENPORT[inReadingScanCount] TRUE
+	//:HIDDENPORT[inScanWidth] TRUE
+	//:HIDDENPORT[inMinStrength] TRUE
+	//:HIDDENPORT[inSmoothingStdDev] TRUE
+	ReadMultipleBarcodes
+	(
+		inImage: con_f07447c1_99e4_407a_9202_c56c60e36681
+		inRoi: Nil
+		inRoiAlignment: Nil
+		inBarcodeFormat: Nil
+		inMinGradientLength: 26.000000
+		inBaseBarWidth: 1
+		inDetectionScanCount: 10
+		inReadingScanCount: 10
+		inScanWidth: 3
+		inMinStrength: 11.000000
+		inSmoothingStdDev: 0.700000
+		outBarcodePositions: Nil
+		outDecodedTexts: con_c472d14e_023c_457a_b9ec_82d13c588463
+		outBarcodeFormats: Nil
+		outAlignedRoi: Nil
+		outBarcodeCandidates: Nil
+		diagGradientImage: Nil
+		diagScheduledScanSegments: Nil
+	)
+
+	//:HIDDENPORT[inInverse] TRUE
+	GetArrayElement_OrNil<String>
+	(
+		inArray: con_c472d14e_023c_457a_b9ec_82d13c588463
+		inIndex: 0
+		inInverse: False
+		outConditionalValue: con_e396f067_6e53_452c_9466_c76441f93bd0
+	)
+
+	//:HIDDENPORT[inKernel] TRUE
+	//:HIDDENPORT[inRadiusX] TRUE
+	//:HIDDENPORT[inRadiusY] TRUE
+	SharpenImage
+	(
+		inImage: con_09cb5779_3252_497a_ba33_1e91c2a6eecf
+		inContrastFactor: 2.000000
+		inKernel: Box
+		inRadiusX: 1
+		inRadiusY: Nil
+		outImage: con_1732bcde_d270_4874_b5bc_13831e4a484f
+	)
+
+	//:HIDDENPORT[inBarcodeFormat] TRUE
+	//:HIDDENPORT[inMinGradientLength] TRUE
+	//:HIDDENPORT[inBaseBarWidth] TRUE
+	//:HIDDENPORT[inDetectionScanCount] TRUE
+	//:HIDDENPORT[inReadingScanCount] TRUE
+	//:HIDDENPORT[inScanWidth] TRUE
+	//:HIDDENPORT[inMinStrength] TRUE
+	//:HIDDENPORT[inSmoothingStdDev] TRUE
+	ReadMultipleBarcodes
+	(
+		inImage: con_1732bcde_d270_4874_b5bc_13831e4a484f
+		inRoi: Nil
+		inRoiAlignment: Nil
+		inBarcodeFormat: Nil
+		inMinGradientLength: 26.000000
+		inBaseBarWidth: 1
+		inDetectionScanCount: 10
+		inReadingScanCount: 10
+		inScanWidth: 3
+		inMinStrength: 11.000000
+		inSmoothingStdDev: 0.700000
+		outBarcodePositions: Nil
+		outDecodedTexts: con_ee9d62f2_8d4e_40f9_85ed_5c3e4a5941f9
+		outBarcodeFormats: Nil
+		outAlignedRoi: Nil
+		outBarcodeCandidates: Nil
+		diagGradientImage: Nil
+		diagScheduledScanSegments: Nil
+	)
+
+	//:HIDDENPORT[inInverse] TRUE
+	GetArrayElement_OrNil<String>
+	(
+		inArray: con_ee9d62f2_8d4e_40f9_85ed_5c3e4a5941f9
+		inIndex: 0
+		inInverse: False
+		outConditionalValue: con_f227879e_db8c_4bf4_b362_aebe976e3e7a
+	)
+
+	//:HIDDENPORT[inKernel] TRUE
+	//:HIDDENPORT[inRadiusX] TRUE
+	//:HIDDENPORT[inRadiusY] TRUE
+	SharpenImage
+	(
+		inImage: con_2bc30bca_00da_421e_bf0f_76e29bd07345
+		inContrastFactor: 2.000000
+		inKernel: Box
+		inRadiusX: 1
+		inRadiusY: Nil
+		outImage: con_de03c9ee_44cf_4b3b_ab88_f8e5edc37bba
+	)
+
+	//:HIDDENPORT[inBarcodeFormat] TRUE
+	//:HIDDENPORT[inMinGradientLength] TRUE
+	//:HIDDENPORT[inBaseBarWidth] TRUE
+	//:HIDDENPORT[inDetectionScanCount] TRUE
+	//:HIDDENPORT[inReadingScanCount] TRUE
+	//:HIDDENPORT[inScanWidth] TRUE
+	//:HIDDENPORT[inMinStrength] TRUE
+	//:HIDDENPORT[inSmoothingStdDev] TRUE
+	ReadMultipleBarcodes
+	(
+		inImage: con_de03c9ee_44cf_4b3b_ab88_f8e5edc37bba
+		inRoi: Nil
+		inRoiAlignment: Nil
+		inBarcodeFormat: Nil
+		inMinGradientLength: 26.000000
+		inBaseBarWidth: 1
+		inDetectionScanCount: 10
+		inReadingScanCount: 10
+		inScanWidth: 3
+		inMinStrength: 11.000000
+		inSmoothingStdDev: 0.700000
+		outBarcodePositions: Nil
+		outDecodedTexts: con_52611975_1865_48c8_bdf4_5ff078b0a8bd
+		outBarcodeFormats: Nil
+		outAlignedRoi: Nil
+		outBarcodeCandidates: Nil
+		diagGradientImage: Nil
+		diagScheduledScanSegments: Nil
+	)
+
+	//:HIDDENPORT[inInverse] TRUE
+	GetArrayElement_OrNil<String>
+	(
+		inArray: con_52611975_1865_48c8_bdf4_5ff078b0a8bd
+		inIndex: 0
+		inInverse: False
+		outConditionalValue: con_7fd0c9ea_3451_4037_bbaf_2a5f0e6e171a
+	)
+
+	ImageSharpness
+	(
+		inImage: con_60255d09_9fcd_4d82_a2c5_a3df09683c8c
+		inRoi: Nil
+		outSharpness: con_9aeefd2b_1f75_491c_80be_28437ab445f0
+	)
+
+	ImageSharpness
+	(
+		inImage: con_2bc30bca_00da_421e_bf0f_76e29bd07345
+		inRoi: Nil
+		outSharpness: con_e57579a7_e233_4d17_9cb1_00d2477b5dc7
+	)
+
+	ImageSharpness
+	(
+		inImage: con_0f086ce8_4554_4de4_b38c_316fb15bc42d
+		inRoi: Nil
+		outSharpness: con_c55d589f_15a7_42f1_aa96_6679710b8a96
+	)
+
+	ImageSharpness
+	(
+		inImage: con_09cb5779_3252_497a_ba33_1e91c2a6eecf
+		inRoi: Nil
+		outSharpness: con_dd62032b_404b_49f8_8363_2697c82f1aa5
+	)
+
+	//:HIDDENPORT[inConditionalObject5] TRUE
+	//:HIDDENPORT[inConditionalObject6] TRUE
+	//:HIDDENPORT[inConditionalObject7] TRUE
+	//:HIDDENPORT[inConditionalObject8] TRUE
+	MergeConditionals<String>
+	(
+		inConditionalObject1: con_2b3fccf5_a66b_469c_829e_076dd626154f
+		inConditionalObject2: con_e396f067_6e53_452c_9466_c76441f93bd0
+		inConditionalObject3: con_f227879e_db8c_4bf4_b362_aebe976e3e7a
+		inConditionalObject4: con_7fd0c9ea_3451_4037_bbaf_2a5f0e6e171a
+		inConditionalObject5: Nil
+		inConditionalObject6: Nil
+		inConditionalObject7: Nil
+		inConditionalObject8: Nil
+		outConditionalObject: con_d86da55e_5830_4176_8af2_efade0103cfd
+	)
+
+	MergeDefault<String>
+	(
+		inConditionalObject: con_d86da55e_5830_4176_8af2_efade0103cfd
+		inDefaultObject: ""
+		outObject: con_a3b3958b_2298_4b99_9689_2b4fd4db1681
+	)
+
+	outSharpnessHU = con_9aeefd2b_1f75_491c_80be_28437ab445f0
+
+	outSharpnessHO = con_e57579a7_e233_4d17_9cb1_00d2477b5dc7
+
+	outSharpnessVU = con_c55d589f_15a7_42f1_aa96_6679710b8a96
+
+	outSharpnessVO = con_dd62032b_404b_49f8_8363_2697c82f1aa5
+
+	outBarcode = con_a3b3958b_2298_4b99_9689_2b4fd4db1681
 }
 

@@ -42,7 +42,7 @@ public Main()
 		outHahn: Nil
 	)
 
-	SPS_Komm_Akcept
+	disabled SPS_Komm_Akcept
 	(
 		outSocket: con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85
 		outSocket1: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
@@ -92,10 +92,18 @@ public Main()
 		outMojib: Nil
 	)
 
-	HahnerkennungMain
+	disabled HahnerkennungMain
 	(
 		outHahnVU: Nil
 		outHahnHU: Nil
+	)
+
+	SharpnessStats
+	(
+		outSharpnessHU: Nil
+		outSharpnessHO: Nil
+		outSharpnessVU: Nil
+		outSharpnessVO: Nil
 	)
 }
 

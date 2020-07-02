@@ -91,16 +91,6 @@ public Main()
 		outHahnVU: Nil
 		outHahnHU: Nil
 	)
-
-	//:HIDDENPORT[outBarcode] TRUE
-	disabled SharpnessStats
-	(
-		outSharpnessHU: Nil
-		outSharpnessHO: Nil
-		outSharpnessVU: Nil
-		outSharpnessVO: Nil
-		outBarcode: Nil
-	)
 }
 
 public Firtsiter(Bool inName, SocketId? outSocket, SocketId? outSocket1) step(inName)

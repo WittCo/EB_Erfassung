@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
         public static
         int? Socet1, Socet2, Socet3;
         private ProgramMacrofilters macros;
-        
+
         private readonly string camIP = "192.168.0.187";
         string CamIP = "192.168.0.186", CamIP2 = "192.168.0.187";
         long? BildID, BildID2, timebild, timebild2;
@@ -2946,10 +2946,10 @@ namespace WindowsFormsApp1
             RefreschIBCList();
             String BC;
             bool DC;
-            //macros.BarcodeRead(out BC, out DC);
+            macros.BarcodeRead(out BC, out DC);
            
             label9.Text = "Erkenung Barcode";
-           // label33.Text = BC;
+            label33.Text = BC;
 
 
         }
@@ -3033,14 +3033,14 @@ namespace WindowsFormsApp1
 
         private void button10_Click_1(object sender, EventArgs e)
         {
-          //  Hahhnerkenung();
+            Hahhnerkenung();
         }
 
-      /*  private void Hahhnerkenung()
+        private void Hahhnerkenung()
         {
             bool hahnVU, hahnHU;
-           // macros.HahnerkennungMain(out hahnVU, out hahnHU);
             macros.HahnerkennungMain(out hahnVU, out hahnHU);
+
             if (hahnVU == true)
 
             {
@@ -3066,7 +3066,6 @@ namespace WindowsFormsApp1
             }
 
         }
-      */
 
         private void tabPage5_Click(object sender, EventArgs e)
         {
@@ -3094,7 +3093,7 @@ namespace WindowsFormsApp1
 
             {
                 BarcodeSuche();
-               // Hahhnerkenung();
+                Hahhnerkenung();
                 timer3.Enabled = false;
             }
 

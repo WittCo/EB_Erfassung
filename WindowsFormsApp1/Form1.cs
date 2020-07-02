@@ -2946,10 +2946,10 @@ namespace WindowsFormsApp1
             RefreschIBCList();
             String BC;
             bool DC;
-            macros.BarcodeRead(out BC, out DC);
+          //  macros.BarcodeRead(out BC, out DC);
            
             label9.Text = "Erkenung Barcode";
-            label33.Text = BC;
+          //  label33.Text = BC;
 
 
         }

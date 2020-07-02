@@ -42,7 +42,7 @@ public Main()
 		outHahn: Nil
 	)
 
-	disabled SPS_Komm_Akcept
+	SPS_Komm_Akcept
 	(
 		outSocket: con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85
 		outSocket1: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
@@ -66,13 +66,13 @@ public Main()
 		outValue8: Nil
 	)
 
-	disabled SPS_Komm_Send
+	SPS_Komm_Send
 	(
 		inHahn_Vorne: False
 		inHahn_Hinten: False
 		inHahnErkenFRT: False
 		inbuttonClik: Nil
-		inSocket: 0
+		inSocket: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
 	)
 
 	disabled INIT_Camera
@@ -86,24 +86,20 @@ public Main()
 		outSharpness: Nil
 	)
 
-	BarcodeRead
-	(
-		outBarcode: Nil
-		outMojib: Nil
-	)
-
 	disabled HahnerkennungMain
 	(
 		outHahnVU: Nil
 		outHahnHU: Nil
 	)
 
-	SharpnessStats
+	//:HIDDENPORT[outBarcode] TRUE
+	disabled SharpnessStats
 	(
 		outSharpnessHU: Nil
 		outSharpnessHO: Nil
 		outSharpnessVU: Nil
 		outSharpnessVO: Nil
+		outBarcode: Nil
 	)
 }
 
@@ -308,39 +304,39 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 {
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inKeepAliveTime] TRUE
-	disabled TcpIp_Accept
+	TcpIp_Accept
 	(
 		inPort: 2009
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: Nil
-	)
-
-	//:HIDDENPORT[inTimeout] TRUE
-	//:HIDDENPORT[inKeepAliveTime] TRUE
-	disabled TcpIp_Accept
-	(
-		inPort: 2011
-		inTimeout: Nil
-		inKeepAliveTime: Nil
-		outSocket: Nil
+		outSocket: con_41c04bc1_bf51_4709_8807_daa9989af354
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inKeepAliveTime] TRUE
 	TcpIp_Accept
 	(
+		inPort: 2011
+		inTimeout: Nil
+		inKeepAliveTime: Nil
+		outSocket: con_a76b9125_f788_4ae4_9806_4792dcbd7be4
+	)
+
+	//:HIDDENPORT[inTimeout] TRUE
+	//:HIDDENPORT[inKeepAliveTime] TRUE
+	disabled TcpIp_Accept
+	(
 		inPort: 2013
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: con_e0c9c520_8390_44a2_a083_679392116445
+		outSocket: Nil
 	)
 
-	outSocket = Nil
+	outSocket = con_41c04bc1_bf51_4709_8807_daa9989af354
 
-	outSocket1 = Nil
+	outSocket1 = con_a76b9125_f788_4ae4_9806_4792dcbd7be4
 
-	outSocketTestDatei = con_e0c9c520_8390_44a2_a083_679392116445
+	outSocketTestDatei = Nil
 }
 
 public SPS_Komm_Send(Bool inHahn_Vorne, Bool inHahn_Hinten, Bool inHahnErkenFRT, Integer? inbuttonClik, SocketId? inSocket) step

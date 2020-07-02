@@ -243,6 +243,8 @@ namespace WindowsFormsApp1
 
         private void Refresch_EB_Offen()
         {
+            Refresch_XML();
+
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
             string[] filePaths2 = Directory.GetFiles(destPath);
 
@@ -293,21 +295,28 @@ namespace WindowsFormsApp1
             dataGridView3.DataSource = table2;
 
 
-            String searchValue = label16.Text;
-            int rowIndex = -1;
-            foreach (DataGridViewRow row2 in dataGridView3.Rows)
-            {
-                if (row2.Cells[0].Value.ToString().Equals(searchValue))
-                {
-                    rowIndex = row2.Index;
-                    break;
-                }
+
+
+           /* if (label16.Text == "")
+            { 
             }
+            else
+            {
+                String searchValue = label16.Text;
+                int rowIndex = -1;
+                foreach (DataGridViewRow row2 in dataGridView3.Rows)
+                {
+                    if (row2.Cells[0].Value.ToString().Equals(searchValue))
+                    {
+                        rowIndex = row2.Index;
+                        break;
+                    }
+                }
 
-            // dataGridView3.Rows[rowIndex].Selected = true;
-            dataGridView3.CurrentCell = dataGridView3[0, rowIndex];
-
-
+              //  dataGridView3.Rows[rowIndex].Selected = true;
+              //  dataGridView3.CurrentCell = dataGridView3[0, rowIndex];
+            }
+           */
         }
 
         private void EBsucheKunde(String EBNum, out string VEA2, out string Kunde, out string Lieferdatum)
@@ -1200,7 +1209,7 @@ namespace WindowsFormsApp1
 
             if (tabControl1.SelectedTab == tabPage2)
             {
-                showImage();
+             //   showImage();
             }
 
 
@@ -2587,6 +2596,7 @@ namespace WindowsFormsApp1
             doc.Save(destPath + label16.Text + ".xml");
 
             XMLtoTable();
+            Refresch_EB_Offen();
 
         }
 
@@ -2968,8 +2978,8 @@ namespace WindowsFormsApp1
                
                 RefreschIBCList();
                 string BC;
-                macros.BarcodeRead(out BC, out DC);
-                label9.Text = BC;
+               // macros.BarcodeRead(out BC, out DC);
+             //   label9.Text = BC;
 
                 MoveBilder();
 
@@ -3126,13 +3136,18 @@ namespace WindowsFormsApp1
         {
             UpdateXLMDatei();
 
-            Refresch_EB_Offen();
+           // Refresch_EB_Offen();
             DrawButtons();
             DrawDienstButtons();
             ResetSonigsten();
             ResetArtikelAswahl();
 
             Einschalt();
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
         }
 
         private void ConnSQL()
@@ -3181,26 +3196,26 @@ namespace WindowsFormsApp1
         private void Einschalt()
         {
             Cursor = Cursors.WaitCursor;
-            m_pCamera.OpenCamera(m_hDisplayWindow, m_pSystem);
-            toolStripStatusLabel2.BackColor = Color.LightYellow;
-            m_pCamera2.OpenCamera(m_hDisplayWindow2, m_pSystem2);
-            toolStripStatusLabel3.BackColor = Color.LightYellow;
-            m_pCamera3.OpenCamera(m_hDisplayWindow3, m_pSystem3);
-            toolStripStatusLabel4.BackColor = Color.LightYellow;
-            m_pCamera4.OpenCamera(m_hDisplayWindow4, m_pSystem4);
-            toolStripStatusLabel5.BackColor = Color.LightYellow;
-            StartAcqui();
-            toolStripStatusLabel2.BackColor = Color.LightGreen;
-            toolStripStatusLabel3.BackColor = Color.LightGreen;
-            toolStripStatusLabel4.BackColor = Color.LightGreen;
-            toolStripStatusLabel5.BackColor = Color.LightGreen;
+         //   m_pCamera.OpenCamera(m_hDisplayWindow, m_pSystem);
+         //   toolStripStatusLabel2.BackColor = Color.LightYellow;
+          //  m_pCamera2.OpenCamera(m_hDisplayWindow2, m_pSystem2);
+          //  toolStripStatusLabel3.BackColor = Color.LightYellow;
+         //   m_pCamera3.OpenCamera(m_hDisplayWindow3, m_pSystem3);
+         //   toolStripStatusLabel4.BackColor = Color.LightYellow;
+         //   m_pCamera4.OpenCamera(m_hDisplayWindow4, m_pSystem4);
+         //   toolStripStatusLabel5.BackColor = Color.LightYellow;
+         //   StartAcqui();
+         //   toolStripStatusLabel2.BackColor = Color.LightGreen;
+         //   toolStripStatusLabel3.BackColor = Color.LightGreen;
+         //   toolStripStatusLabel4.BackColor = Color.LightGreen;
+         //   toolStripStatusLabel5.BackColor = Color.LightGreen;
 
-            cbKamAktiv.Checked = true;
+         //   cbKamAktiv.Checked = true;
 
-          //  macros.SPS_Komm_Akcept(out Socet1, out Socet2, out Socet3);
+         //   macros.SPS_Komm_Akcept(out Socet1, out Socet2, out Socet3);
             toolStripStatusLabel1.BackColor = Color.LightGreen;
 
-            cbSPSAktiv.Checked = true;
+         //   cbSPSAktiv.Checked = true;
 
 
 

@@ -46,7 +46,6 @@
           <View Type="ImageView">
             <Output Name="inImage" Macro="LoopHahnerkennungNeu" Start="Main" Instance="0" />
             <Input Name="inRoi" Index="3" Macro="LoopHahnerkennungNeu" Start="Main" Instance="0" />
-            <Output Name="con_837d6b26_562e_4a35_8be4_bdf727d6b49e" Macro="LoopHahnerkennungNeu" Start="Main" Instance="0" />
             <ViewState>
               <ViewMode Mode="Manual" Scale="0.125" X="54" Y="10" />
             </ViewState>

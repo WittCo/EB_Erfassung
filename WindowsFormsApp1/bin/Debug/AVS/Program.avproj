@@ -22,7 +22,7 @@
     <UserTypes />
     <ApplicationName>ProgramApplication</ApplicationName>
     <Compiler>
-      <VisualStudio Version="16.6.30114.105" />
+      <VisualStudio Version="16.6.30204.135" />
       <MSBuild Version="16.6.0.22303" />
       <Sdk WindowsVersion="10.0.17763.0" />
     </Compiler>

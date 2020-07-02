@@ -398,7 +398,7 @@
             // eBFertigToolStripMenuItem
             // 
             this.eBFertigToolStripMenuItem.Name = "eBFertigToolStripMenuItem";
-            this.eBFertigToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.eBFertigToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eBFertigToolStripMenuItem.Text = "EB Fertig";
             this.eBFertigToolStripMenuItem.Click += new System.EventHandler(this.eBFertigToolStripMenuItem_Click);
             // 
@@ -514,6 +514,7 @@
             this.löschenToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(119, 26);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // löschenToolStripMenuItem
             // 
@@ -2017,9 +2018,8 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(10, 30);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 31);
+            this.label16.Size = new System.Drawing.Size(0, 31);
             this.label16.TabIndex = 145;
-            this.label16.Text = "label16";
             // 
             // groupBox1
             // 

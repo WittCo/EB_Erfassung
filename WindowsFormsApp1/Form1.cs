@@ -75,6 +75,8 @@ namespace WindowsFormsApp1
         DD_Sql ddsql = new DD_Sql();
         DD_FrontEnd ddfront = new DD_FrontEnd();
 
+        DD_AP3 dd_ap3 = new DD_AP3();
+
 
         public Form1()
         {
@@ -2157,6 +2159,8 @@ namespace WindowsFormsApp1
                     tabControl1.SelectedTab = tabPage5;
 
             }
+
+           
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -2864,7 +2868,7 @@ namespace WindowsFormsApp1
             for (int i = 0; i < fileCount; i++)
             {
                 from = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\" + dg4.Rows[i].Cells[0].Value.ToString();
-                to = @"C:\Users\Aufschrauberportal\AWICO\AP1\" + label33.Text + " " + dg4.Rows[i].Cells[0].Value.ToString();
+                to = @"C:\Users\Aufschrauberportal\AWICO\AP1\" + dg4.Rows[i].Cells[0].Value.ToString();
 
                 File.Move(from, to); // Try to move
             }
@@ -2899,7 +2903,6 @@ namespace WindowsFormsApp1
         {
             {
 
-
                 try
                 {
                     string dest = @"C:\Users\Aufschrauberportal\AWICO\AP3";
@@ -2921,31 +2924,47 @@ namespace WindowsFormsApp1
 
         }
 
+
+        string AddPrefix(string filename, string Prefix)
+        {
+            string fDir = Path.GetDirectoryName(filename);
+            string fName = Path.GetFileNameWithoutExtension(filename);
+            string fExt = Path.GetExtension(filename);
+            return Path.Combine(fDir, String.Concat(Prefix, fName, fExt));
+        }
+
         private void MoveAP3_IBCBAC()
 
-        {
-            {
+        { 
 
-
-                try
+            try
                 {
-                    string dest = @"C:\Users\Aufschrauberportal\AWICO\IBC BAK";
+
+                   string dest = @"C:\Users\Aufschrauberportal\AWICO\IBC BAK";
+
+                   foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
+                    {
+                       string Newfilename = AddPrefix(file, lbSn.Text);
+                       File.Move(file, Newfilename);
+    
+                     }
+
+
+
                     foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
                     {
+                        
+
                         string destFile = Path.Combine(dest, Path.GetFileName(file));
                         if (!File.Exists(destFile))
                             File.Move(file, destFile);
-
                     }
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show(e.ToString());
                 }
-
-            }
-
-
+   
         }
 
         private void button4_Click_1(object sender, EventArgs e)

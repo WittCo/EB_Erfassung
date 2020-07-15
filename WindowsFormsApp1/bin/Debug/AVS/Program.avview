@@ -13,12 +13,10 @@
             <Output Name="con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85" Macro="Main" Start="Main" Instance="0" />
             <Output Name="con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48" Macro="Main" Start="Main" Instance="0" />
             <Output Name="con_e14deda4_2142_4fc1_9b43_b09e4363d95b" Macro="Main" Start="Main" Instance="0" />
-            <Input Name="outArray" Index="10" Macro="ReadAlleBilder" Start="Main" Instance="0" />
           </View>
         </Views>
         <Views Width="0.498" Height="0.496">
           <View Type="TextView">
-            <Output Name="con_e0c9c520_8390_44a2_a083_679392116445" Macro="SPS_Komm_Akcept" Start="Main" Instance="0" />
             <Input Name="outHahnVU" Index="3" Macro="HahnerkennungMain" Start="Main" Instance="0" />
             <Input Name="outHahnHU" Index="3" Macro="HahnerkennungMain" Start="Main" Instance="0" />
           </View>

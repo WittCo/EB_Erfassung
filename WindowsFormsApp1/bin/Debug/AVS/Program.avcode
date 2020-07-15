@@ -294,39 +294,39 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 {
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inKeepAliveTime] TRUE
-	TcpIp_Accept
+	disabled TcpIp_Accept
 	(
 		inPort: 2009
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: con_41c04bc1_bf51_4709_8807_daa9989af354
-	)
-
-	//:HIDDENPORT[inTimeout] TRUE
-	//:HIDDENPORT[inKeepAliveTime] TRUE
-	TcpIp_Accept
-	(
-		inPort: 2011
-		inTimeout: Nil
-		inKeepAliveTime: Nil
-		outSocket: con_a76b9125_f788_4ae4_9806_4792dcbd7be4
+		outSocket: Nil
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inKeepAliveTime] TRUE
 	disabled TcpIp_Accept
 	(
-		inPort: 2013
+		inPort: 2011
 		inTimeout: Nil
 		inKeepAliveTime: Nil
 		outSocket: Nil
 	)
 
-	outSocket = con_41c04bc1_bf51_4709_8807_daa9989af354
+	//:HIDDENPORT[inTimeout] TRUE
+	//:HIDDENPORT[inKeepAliveTime] TRUE
+	TcpIp_Accept
+	(
+		inPort: 2013
+		inTimeout: Nil
+		inKeepAliveTime: Nil
+		outSocket: con_b5901177_6947_4015_852d_9a39249e09dd
+	)
 
-	outSocket1 = con_a76b9125_f788_4ae4_9806_4792dcbd7be4
+	outSocket = Nil
 
-	outSocketTestDatei = Nil
+	outSocket1 = Nil
+
+	outSocketTestDatei = con_b5901177_6947_4015_852d_9a39249e09dd
 }
 
 public SPS_Komm_Send(Bool inHahn_Vorne, Bool inHahn_Hinten, Bool inHahnErkenFRT, Integer? inbuttonClik, SocketId? inSocket) step

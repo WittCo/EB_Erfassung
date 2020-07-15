@@ -30,366 +30,366 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.refreschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.updateXMLDateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.eBFertigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ansichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.auswahlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.einstelungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-			this.iBCEBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.timer2 = new System.Windows.Forms.Timer(this.components);
-			this.dataSet1 = new WittEyE.DataSet1();
-			this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.ibC_EBTableAdapter1 = new WittEyE.WittEyEDataSetTableAdapters.IBC_EBTableAdapter();
-			this.tabPage6 = new System.Windows.Forms.TabPage();
-			this.groupBox17 = new System.Windows.Forms.GroupBox();
-			this.label59 = new System.Windows.Forms.Label();
-			this.label19 = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
-			this.textBox17 = new System.Windows.Forms.TextBox();
-			this.textBox11 = new System.Windows.Forms.TextBox();
-			this.label60 = new System.Windows.Forms.Label();
-			this.label61 = new System.Windows.Forms.Label();
-			this.label62 = new System.Windows.Forms.Label();
-			this.button20 = new System.Windows.Forms.Button();
-			this.button21 = new System.Windows.Forms.Button();
-			this.label63 = new System.Windows.Forms.Label();
-			this.label64 = new System.Windows.Forms.Label();
-			this.label66 = new System.Windows.Forms.Label();
-			this.dataGridView7 = new System.Windows.Forms.DataGridView();
-			this.radioButton40 = new System.Windows.Forms.RadioButton();
-			this.radioButton38 = new System.Windows.Forms.RadioButton();
-			this.tabPage5 = new System.Windows.Forms.TabPage();
-			this.label53 = new System.Windows.Forms.Label();
-			this.label42 = new System.Windows.Forms.Label();
-			this.checkBox7 = new System.Windows.Forms.CheckBox();
-			this.button10 = new System.Windows.Forms.Button();
-			this.button9 = new System.Windows.Forms.Button();
-			this.MoveKette = new System.Windows.Forms.Button();
-			this.btGoto = new System.Windows.Forms.Button();
-			this.label33 = new System.Windows.Forms.Label();
-			this.button8 = new System.Windows.Forms.Button();
-			this.label9 = new System.Windows.Forms.Label();
-			this.button4 = new System.Windows.Forms.Button();
-			this.dg4 = new System.Windows.Forms.DataGridView();
-			this.button2 = new System.Windows.Forms.Button();
-			this.checkBox8 = new System.Windows.Forms.CheckBox();
-			this.checkBox9 = new System.Windows.Forms.CheckBox();
-			this.label75 = new System.Windows.Forms.Label();
-			this.pbH_U = new System.Windows.Forms.PictureBox();
-			this.pbH_0 = new System.Windows.Forms.PictureBox();
-			this.button31 = new System.Windows.Forms.Button();
-			this.PictureBoxLive = new System.Windows.Forms.PictureBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
-			this.checkBox5 = new System.Windows.Forms.CheckBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.cbKamAktiv = new System.Windows.Forms.CheckBox();
-			this.button5 = new System.Windows.Forms.Button();
-			this.label68 = new System.Windows.Forms.Label();
-			this.label69 = new System.Windows.Forms.Label();
-			this.label70 = new System.Windows.Forms.Label();
-			this.label71 = new System.Windows.Forms.Label();
-			this.label74 = new System.Windows.Forms.Label();
-			this.button32 = new System.Windows.Forms.Button();
-			this.checkBox14 = new System.Windows.Forms.CheckBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.checkBox4 = new System.Windows.Forms.CheckBox();
-			this.textBox15 = new System.Windows.Forms.TextBox();
-			this.label32 = new System.Windows.Forms.Label();
-			this.label31 = new System.Windows.Forms.Label();
-			this.label30 = new System.Windows.Forms.Label();
-			this.label29 = new System.Windows.Forms.Label();
-			this.label28 = new System.Windows.Forms.Label();
-			this.label27 = new System.Windows.Forms.Label();
-			this.label26 = new System.Windows.Forms.Label();
-			this.label25 = new System.Windows.Forms.Label();
-			this.label24 = new System.Windows.Forms.Label();
-			this.label23 = new System.Windows.Forms.Label();
-			this.groupBox11 = new System.Windows.Forms.GroupBox();
-			this.label22 = new System.Windows.Forms.Label();
-			this.textBox13 = new System.Windows.Forms.TextBox();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.radioButton43 = new System.Windows.Forms.RadioButton();
-			this.radioButton42 = new System.Windows.Forms.RadioButton();
-			this.button14 = new System.Windows.Forms.Button();
-			this.label21 = new System.Windows.Forms.Label();
-			this.cbSPSAktiv = new System.Windows.Forms.CheckBox();
-			this.button13 = new System.Windows.Forms.Button();
-			this.tabPage4 = new System.Windows.Forms.TabPage();
-			this.groupBox15 = new System.Windows.Forms.GroupBox();
-			this.label58 = new System.Windows.Forms.Label();
-			this.textBox18 = new System.Windows.Forms.TextBox();
-			this.label47 = new System.Windows.Forms.Label();
-			this.label48 = new System.Windows.Forms.Label();
-			this.label49 = new System.Windows.Forms.Label();
-			this.button12 = new System.Windows.Forms.Button();
-			this.button16 = new System.Windows.Forms.Button();
-			this.label38 = new System.Windows.Forms.Label();
-			this.label37 = new System.Windows.Forms.Label();
-			this.label36 = new System.Windows.Forms.Label();
-			this.dataGridView5 = new System.Windows.Forms.DataGridView();
-			this.Lohnarbeit = new System.Windows.Forms.TabPage();
-			this.groupBox14 = new System.Windows.Forms.GroupBox();
-			this.label50 = new System.Windows.Forms.Label();
-			this.textBox14 = new System.Windows.Forms.TextBox();
-			this.label44 = new System.Windows.Forms.Label();
-			this.label45 = new System.Windows.Forms.Label();
-			this.label46 = new System.Windows.Forms.Label();
-			this.button17 = new System.Windows.Forms.Button();
-			this.button18 = new System.Windows.Forms.Button();
-			this.label39 = new System.Windows.Forms.Label();
-			this.label40 = new System.Windows.Forms.Label();
-			this.label41 = new System.Windows.Forms.Label();
-			this.dataGridView6 = new System.Windows.Forms.DataGridView();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.groupBox16 = new System.Windows.Forms.GroupBox();
-			this.label73 = new System.Windows.Forms.Label();
-			this.label72 = new System.Windows.Forms.Label();
-			this.textBox19 = new System.Windows.Forms.TextBox();
-			this.label65 = new System.Windows.Forms.Label();
-			this.textBox16 = new System.Windows.Forms.TextBox();
-			this.label57 = new System.Windows.Forms.Label();
-			this.label56 = new System.Windows.Forms.Label();
-			this.label54 = new System.Windows.Forms.Label();
-			this.label55 = new System.Windows.Forms.Label();
-			this.groupBox13 = new System.Windows.Forms.GroupBox();
-			this.button7 = new System.Windows.Forms.Button();
-			this.button6 = new System.Windows.Forms.Button();
-			this.label13 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.groupBox12 = new System.Windows.Forms.GroupBox();
-			this.lbSn = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.label51 = new System.Windows.Forms.Label();
-			this.label52 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.radioButton6 = new System.Windows.Forms.RadioButton();
-			this.radioButton5 = new System.Windows.Forms.RadioButton();
-			this.radioButton1 = new System.Windows.Forms.RadioButton();
-			this.radioButton4 = new System.Windows.Forms.RadioButton();
-			this.radioButton3 = new System.Windows.Forms.RadioButton();
-			this.radioButton2 = new System.Windows.Forms.RadioButton();
-			this.Schütz = new System.Windows.Forms.RadioButton();
-			this.groupBox9 = new System.Windows.Forms.GroupBox();
-			this.radioButton35 = new System.Windows.Forms.RadioButton();
-			this.radioButton33 = new System.Windows.Forms.RadioButton();
-			this.radioButton34 = new System.Windows.Forms.RadioButton();
-			this.groupBox8 = new System.Windows.Forms.GroupBox();
-			this.radioButton31 = new System.Windows.Forms.RadioButton();
-			this.radioButton32 = new System.Windows.Forms.RadioButton();
-			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this.radioButton29 = new System.Windows.Forms.RadioButton();
-			this.radioButton30 = new System.Windows.Forms.RadioButton();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.radioButton28 = new System.Windows.Forms.RadioButton();
-			this.radioButton27 = new System.Windows.Forms.RadioButton();
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.radioButton20 = new System.Windows.Forms.RadioButton();
-			this.radioButton19 = new System.Windows.Forms.RadioButton();
-			this.radioButton18 = new System.Windows.Forms.RadioButton();
-			this.radioButton17 = new System.Windows.Forms.RadioButton();
-			this.radioButton16 = new System.Windows.Forms.RadioButton();
-			this.radioButton15 = new System.Windows.Forms.RadioButton();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.radioButton21 = new System.Windows.Forms.RadioButton();
-			this.radioButton22 = new System.Windows.Forms.RadioButton();
-			this.radioButton23 = new System.Windows.Forms.RadioButton();
-			this.radioButton24 = new System.Windows.Forms.RadioButton();
-			this.radioButton25 = new System.Windows.Forms.RadioButton();
-			this.radioButton26 = new System.Windows.Forms.RadioButton();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.radioButton14 = new System.Windows.Forms.RadioButton();
-			this.radioButton13 = new System.Windows.Forms.RadioButton();
-			this.radioButton12 = new System.Windows.Forms.RadioButton();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.radioButton7 = new System.Windows.Forms.RadioButton();
-			this.radioButton11 = new System.Windows.Forms.RadioButton();
-			this.radioButton10 = new System.Windows.Forms.RadioButton();
-			this.radioButton9 = new System.Windows.Forms.RadioButton();
-			this.radioButton8 = new System.Windows.Forms.RadioButton();
-			this.textBox9 = new System.Windows.Forms.TextBox();
-			this.textBox8 = new System.Windows.Forms.TextBox();
-			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.groupBox10 = new System.Windows.Forms.GroupBox();
-			this.button19 = new System.Windows.Forms.Button();
-			this.radioButton45 = new System.Windows.Forms.RadioButton();
-			this.radioButton44 = new System.Windows.Forms.RadioButton();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
-			this.label20 = new System.Windows.Forms.Label();
-			this.textBox12 = new System.Windows.Forms.TextBox();
-			this.radioButton37 = new System.Windows.Forms.RadioButton();
-			this.radioButton36 = new System.Windows.Forms.RadioButton();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.groupBox19 = new System.Windows.Forms.GroupBox();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.textBox10 = new System.Windows.Forms.TextBox();
-			this.groupBox18 = new System.Windows.Forms.GroupBox();
-			this.label67 = new System.Windows.Forms.Label();
-			this.label76 = new System.Windows.Forms.Label();
-			this.label18 = new System.Windows.Forms.Label();
-			this.label17 = new System.Windows.Forms.Label();
-			this.label34 = new System.Windows.Forms.Label();
-			this.label43 = new System.Windows.Forms.Label();
-			this.dataGridView12 = new System.Windows.Forms.DataGridView();
-			this.dataGridView11 = new System.Windows.Forms.DataGridView();
-			this.label35 = new System.Windows.Forms.Label();
-			this.dataGridView10 = new System.Windows.Forms.DataGridView();
-			this.dataGridView8 = new System.Windows.Forms.DataGridView();
-			this.button15 = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.label14 = new System.Windows.Forms.Label();
-			this.dataGridView3 = new System.Windows.Forms.DataGridView();
-			this.button3 = new System.Windows.Forms.Button();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.CheckBilder = new System.Windows.Forms.Timer(this.components);
-			this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-			this.timer3 = new System.Windows.Forms.Timer(this.components);
-			this.menuStrip1.SuspendLayout();
-			this.statusStrip1.SuspendLayout();
-			this.contextMenuStrip2.SuspendLayout();
-			this.contextMenuStrip3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.iBCEBBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-			this.tabPage6.SuspendLayout();
-			this.groupBox17.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
-			this.tabPage5.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dg4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbH_U)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbH_0)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.PictureBoxLive)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-			this.tabPage3.SuspendLayout();
-			this.groupBox11.SuspendLayout();
-			this.tabPage4.SuspendLayout();
-			this.groupBox15.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-			this.Lohnarbeit.SuspendLayout();
-			this.groupBox14.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
-			this.tabPage2.SuspendLayout();
-			this.groupBox16.SuspendLayout();
-			this.groupBox13.SuspendLayout();
-			this.groupBox12.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			this.groupBox9.SuspendLayout();
-			this.groupBox8.SuspendLayout();
-			this.groupBox7.SuspendLayout();
-			this.groupBox6.SuspendLayout();
-			this.groupBox5.SuspendLayout();
-			this.groupBox4.SuspendLayout();
-			this.groupBox3.SuspendLayout();
-			this.groupBox2.SuspendLayout();
-			this.groupBox10.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-			this.tabPage1.SuspendLayout();
-			this.groupBox19.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.groupBox18.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-			this.tabControl1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateXMLDateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eBFertigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ansichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auswahlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.einstelungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.iBCEBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.dataSet1 = new WittEyE.DataSet1();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ibC_EBTableAdapter1 = new WittEyE.WittEyEDataSetTableAdapters.IBC_EBTableAdapter();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.radioButton40 = new System.Windows.Forms.RadioButton();
+            this.radioButton38 = new System.Windows.Forms.RadioButton();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.MoveKette = new System.Windows.Forms.Button();
+            this.btGoto = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.dg4 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.pbH_U = new System.Windows.Forms.PictureBox();
+            this.pbH_0 = new System.Windows.Forms.PictureBox();
+            this.button31 = new System.Windows.Forms.Button();
+            this.PictureBoxLive = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbKamAktiv = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.button32 = new System.Windows.Forms.Button();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.radioButton43 = new System.Windows.Forms.RadioButton();
+            this.radioButton42 = new System.Windows.Forms.RadioButton();
+            this.button14 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbSPSAktiv = new System.Windows.Forms.CheckBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.Lohnarbeit = new System.Windows.Forms.TabPage();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.lbSn = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.Schütz = new System.Windows.Forms.RadioButton();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.radioButton35 = new System.Windows.Forms.RadioButton();
+            this.radioButton33 = new System.Windows.Forms.RadioButton();
+            this.radioButton34 = new System.Windows.Forms.RadioButton();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.radioButton31 = new System.Windows.Forms.RadioButton();
+            this.radioButton32 = new System.Windows.Forms.RadioButton();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.radioButton29 = new System.Windows.Forms.RadioButton();
+            this.radioButton30 = new System.Windows.Forms.RadioButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.radioButton28 = new System.Windows.Forms.RadioButton();
+            this.radioButton27 = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.radioButton20 = new System.Windows.Forms.RadioButton();
+            this.radioButton19 = new System.Windows.Forms.RadioButton();
+            this.radioButton18 = new System.Windows.Forms.RadioButton();
+            this.radioButton17 = new System.Windows.Forms.RadioButton();
+            this.radioButton16 = new System.Windows.Forms.RadioButton();
+            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioButton21 = new System.Windows.Forms.RadioButton();
+            this.radioButton22 = new System.Windows.Forms.RadioButton();
+            this.radioButton23 = new System.Windows.Forms.RadioButton();
+            this.radioButton24 = new System.Windows.Forms.RadioButton();
+            this.radioButton25 = new System.Windows.Forms.RadioButton();
+            this.radioButton26 = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button19 = new System.Windows.Forms.Button();
+            this.radioButton45 = new System.Windows.Forms.RadioButton();
+            this.radioButton44 = new System.Windows.Forms.RadioButton();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.radioButton37 = new System.Windows.Forms.RadioButton();
+            this.radioButton36 = new System.Windows.Forms.RadioButton();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.dataGridView12 = new System.Windows.Forms.DataGridView();
+            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.label35 = new System.Windows.Forms.Label();
+            this.dataGridView10 = new System.Windows.Forms.DataGridView();
+            this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.button15 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.CheckBilder = new System.Windows.Forms.Timer(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iBCEBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbH_U)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbH_0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.Lohnarbeit.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox19.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.bearbeitenToolStripMenuItem,
             this.ansichtToolStripMenuItem,
             this.hilfeToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1904, 24);
-			this.menuStrip1.TabIndex = 39;
-			this.menuStrip1.Text = "Datei";
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1904, 24);
+            this.menuStrip1.TabIndex = 39;
+            this.menuStrip1.Text = "Datei";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreschToolStripMenuItem,
             this.updateXMLDateiToolStripMenuItem,
             this.beendenToolStripMenuItem});
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
-			this.toolStripMenuItem1.Text = "Datai";
-			// 
-			// refreschToolStripMenuItem
-			// 
-			this.refreschToolStripMenuItem.Name = "refreschToolStripMenuItem";
-			this.refreschToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-			this.refreschToolStripMenuItem.Text = "Refresch";
-			this.refreschToolStripMenuItem.Click += new System.EventHandler(this.refreschToolStripMenuItem_Click);
-			// 
-			// updateXMLDateiToolStripMenuItem
-			// 
-			this.updateXMLDateiToolStripMenuItem.Name = "updateXMLDateiToolStripMenuItem";
-			this.updateXMLDateiToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-			this.updateXMLDateiToolStripMenuItem.Text = "Update XML Datei";
-			// 
-			// beendenToolStripMenuItem
-			// 
-			this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-			this.beendenToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-			this.beendenToolStripMenuItem.Text = "Beenden";
-			this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
-			// 
-			// bearbeitenToolStripMenuItem
-			// 
-			this.bearbeitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+            this.toolStripMenuItem1.Text = "Datai";
+            // 
+            // refreschToolStripMenuItem
+            // 
+            this.refreschToolStripMenuItem.Name = "refreschToolStripMenuItem";
+            this.refreschToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.refreschToolStripMenuItem.Text = "Refresch";
+            this.refreschToolStripMenuItem.Click += new System.EventHandler(this.refreschToolStripMenuItem_Click);
+            // 
+            // updateXMLDateiToolStripMenuItem
+            // 
+            this.updateXMLDateiToolStripMenuItem.Name = "updateXMLDateiToolStripMenuItem";
+            this.updateXMLDateiToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.updateXMLDateiToolStripMenuItem.Text = "Update XML Datei";
+            // 
+            // beendenToolStripMenuItem
+            // 
+            this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.beendenToolStripMenuItem.Text = "Beenden";
+            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
+            // 
+            // bearbeitenToolStripMenuItem
+            // 
+            this.bearbeitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.eBFertigToolStripMenuItem});
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
             this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
@@ -398,7 +398,7 @@
             // eBFertigToolStripMenuItem
             // 
             this.eBFertigToolStripMenuItem.Name = "eBFertigToolStripMenuItem";
-            this.eBFertigToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eBFertigToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.eBFertigToolStripMenuItem.Text = "EB Fertig";
             this.eBFertigToolStripMenuItem.Click += new System.EventHandler(this.eBFertigToolStripMenuItem_Click);
             // 
@@ -408,45 +408,45 @@
             this.mainToolStripMenuItem,
             this.auswahlToolStripMenuItem,
             this.einstelungenToolStripMenuItem});
-			this.ansichtToolStripMenuItem.Name = "ansichtToolStripMenuItem";
-			this.ansichtToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-			this.ansichtToolStripMenuItem.Text = "Ansicht";
-			// 
-			// mainToolStripMenuItem
-			// 
-			this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-			this.mainToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-			this.mainToolStripMenuItem.Text = "Main";
-			// 
-			// auswahlToolStripMenuItem
-			// 
-			this.auswahlToolStripMenuItem.Name = "auswahlToolStripMenuItem";
-			this.auswahlToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-			this.auswahlToolStripMenuItem.Text = "Auswahl";
-			// 
-			// einstelungenToolStripMenuItem
-			// 
-			this.einstelungenToolStripMenuItem.Name = "einstelungenToolStripMenuItem";
-			this.einstelungenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-			this.einstelungenToolStripMenuItem.Text = "Einstelungen";
-			// 
-			// hilfeToolStripMenuItem
-			// 
-			this.hilfeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ansichtToolStripMenuItem.Name = "ansichtToolStripMenuItem";
+            this.ansichtToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.ansichtToolStripMenuItem.Text = "Ansicht";
+            // 
+            // mainToolStripMenuItem
+            // 
+            this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.mainToolStripMenuItem.Text = "Main";
+            // 
+            // auswahlToolStripMenuItem
+            // 
+            this.auswahlToolStripMenuItem.Name = "auswahlToolStripMenuItem";
+            this.auswahlToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.auswahlToolStripMenuItem.Text = "Auswahl";
+            // 
+            // einstelungenToolStripMenuItem
+            // 
+            this.einstelungenToolStripMenuItem.Name = "einstelungenToolStripMenuItem";
+            this.einstelungenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.einstelungenToolStripMenuItem.Text = "Einstelungen";
+            // 
+            // hilfeToolStripMenuItem
+            // 
+            this.hilfeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.infoToolStripMenuItem});
-			this.hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
-			this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-			this.hilfeToolStripMenuItem.Text = "Hilfe";
-			// 
-			// infoToolStripMenuItem
-			// 
-			this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-			this.infoToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
-			this.infoToolStripMenuItem.Text = "Info";
-			// 
-			// statusStrip1
-			// 
-			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
+            this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.hilfeToolStripMenuItem.Text = "Hilfe";
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
+            this.infoToolStripMenuItem.Text = "Info";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3,
@@ -454,63 +454,63 @@
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel6,
             this.toolStripStatusLabel7});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 1021);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(1904, 22);
-			this.statusStrip1.TabIndex = 40;
-			this.statusStrip1.Text = "statusStrip1";
-			// 
-			// toolStripStatusLabel1
-			// 
-			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(91, 17);
-			this.toolStripStatusLabel1.Text = "SPS Verbindung";
-			// 
-			// toolStripStatusLabel2
-			// 
-			this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-			this.toolStripStatusLabel2.Size = new System.Drawing.Size(56, 17);
-			this.toolStripStatusLabel2.Text = "Kamera 1";
-			// 
-			// toolStripStatusLabel3
-			// 
-			this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-			this.toolStripStatusLabel3.Size = new System.Drawing.Size(56, 17);
-			this.toolStripStatusLabel3.Text = "Kamera 2";
-			// 
-			// toolStripStatusLabel4
-			// 
-			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-			this.toolStripStatusLabel4.Size = new System.Drawing.Size(56, 17);
-			this.toolStripStatusLabel4.Text = "Kamera 3";
-			// 
-			// toolStripStatusLabel5
-			// 
-			this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-			this.toolStripStatusLabel5.Size = new System.Drawing.Size(56, 17);
-			this.toolStripStatusLabel5.Text = "Kamera 4";
-			// 
-			// toolStripStatusLabel6
-			// 
-			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-			this.toolStripStatusLabel6.Size = new System.Drawing.Size(56, 17);
-			this.toolStripStatusLabel6.Text = "Kamera 5";
-			// 
-			// toolStripStatusLabel7
-			// 
-			this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
-			this.toolStripStatusLabel7.Size = new System.Drawing.Size(63, 17);
-			this.toolStripStatusLabel7.Text = "SQL Server";
-			// 
-			// contextMenuStrip1
-			// 
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-			this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-			// 
-			// contextMenuStrip2
-			// 
-			this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1021);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1904, 22);
+            this.statusStrip1.TabIndex = 40;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(91, 17);
+            this.toolStripStatusLabel1.Text = "SPS Verbindung";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel2.Text = "Kamera 1";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel3.Text = "Kamera 2";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel4.Text = "Kamera 3";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel5.Text = "Kamera 4";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel6.Text = "Kamera 5";
+            // 
+            // toolStripStatusLabel7
+            // 
+            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
+            this.toolStripStatusLabel7.Size = new System.Drawing.Size(63, 17);
+            this.toolStripStatusLabel7.Text = "SQL Server";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.löschenToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(119, 26);
@@ -1731,9 +1731,9 @@
             this.groupBox16.Controls.Add(this.label54);
             this.groupBox16.Controls.Add(this.label55);
             this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox16.Location = new System.Drawing.Point(488, 18);
+            this.groupBox16.Location = new System.Drawing.Point(488, 6);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(252, 318);
+            this.groupBox16.Size = new System.Drawing.Size(252, 330);
             this.groupBox16.TabIndex = 147;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Gewicht";
@@ -1916,9 +1916,9 @@
             this.groupBox12.Controls.Add(this.label1);
             this.groupBox12.Controls.Add(this.label16);
             this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox12.Location = new System.Drawing.Point(6, 18);
+            this.groupBox12.Location = new System.Drawing.Point(6, 0);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(476, 321);
+            this.groupBox12.Size = new System.Drawing.Size(476, 339);
             this.groupBox12.TabIndex = 145;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Kunde";
@@ -2037,7 +2037,6 @@
             this.groupBox1.TabIndex = 135;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hersteller";
-            this.groupBox1.Visible = false;
             // 
             // radioButton6
             // 
@@ -2138,7 +2137,6 @@
             this.groupBox9.TabIndex = 124;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Blasenfarbe";
-            this.groupBox9.Visible = false;
             // 
             // radioButton35
             // 
@@ -2187,7 +2185,6 @@
             this.groupBox8.TabIndex = 121;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "EX";
-            this.groupBox8.Visible = false;
             // 
             // radioButton31
             // 
@@ -2224,7 +2221,6 @@
             this.groupBox7.TabIndex = 123;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Nestbar";
-            this.groupBox7.Visible = false;
             // 
             // radioButton29
             // 
@@ -2263,7 +2259,6 @@
             this.groupBox6.TabIndex = 120;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Zulasung";
-            this.groupBox6.Visible = false;
             // 
             // radioButton28
             // 
@@ -2306,7 +2301,6 @@
             this.groupBox5.TabIndex = 122;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Auslauf";
-            this.groupBox5.Visible = false;
             // 
             // radioButton20
             // 
@@ -2400,7 +2394,6 @@
             this.groupBox4.TabIndex = 119;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Variante";
-            this.groupBox4.Visible = false;
             // 
             // radioButton21
             // 
@@ -2492,7 +2485,6 @@
             this.groupBox3.TabIndex = 118;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Einlauf";
-            this.groupBox3.Visible = false;
             // 
             // radioButton14
             // 

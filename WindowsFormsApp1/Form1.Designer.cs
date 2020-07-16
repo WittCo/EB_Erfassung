@@ -808,7 +808,7 @@
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "AP 1";
             this.tabPage5.UseVisualStyleBackColor = true;
-            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
+           
             // 
             // label53
             // 
@@ -974,7 +974,7 @@
             this.label75.TabIndex = 64;
             this.label75.Text = "label75";
             this.label75.TextChanged += new System.EventHandler(this.label75_TextChanged);
-            this.label75.Click += new System.EventHandler(this.label75_Click);
+        
             // 
             // pbH_U
             // 
@@ -3013,7 +3013,7 @@
             this.label6.Size = new System.Drawing.Size(132, 31);
             this.label6.TabIndex = 18;
             this.label6.Text = "EB Offen";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+ 
             // 
             // dataGridView1
             // 

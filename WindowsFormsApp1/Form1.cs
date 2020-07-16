@@ -1673,11 +1673,7 @@ namespace WindowsFormsApp1
             Refresch_XML();
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-
-        }
+    
 
 
         private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1686,32 +1682,7 @@ namespace WindowsFormsApp1
             textBox10.Text = dataGridView3.CurrentRow.Cells[0].Value.ToString().TrimEnd(MyChar);
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void radioButton8_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -1770,11 +1741,11 @@ namespace WindowsFormsApp1
 
                 label74.Text = tWal2.ToString();
                 label71.Text = tAp1.ToString();
-                label75.Text = tAp1.ToString();
+                label75.Text = Ap1.ToString();
 
                 label70.Text = tAp3.ToString();
                 label69.Text = tKetteAP1_5.ToString();
-                label42.Text = tKetteAP1_5.ToString();
+                label42.Text = KetteAP1_5.ToString();
                 label68.Text = tGewicht.ToString();
 
                 macros.SPS_Komm_Send(checkBox9.Checked, checkBox8.Checked, checkBox3.Checked, int.Parse(textBox13.Text), Socet2);
@@ -3115,15 +3086,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label75_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void label42_TextChanged(object sender, EventArgs e)
         {

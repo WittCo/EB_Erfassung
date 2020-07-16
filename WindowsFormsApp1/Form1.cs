@@ -1214,6 +1214,23 @@ namespace WindowsFormsApp1
              //   showImage();
             }
 
+            if (tabControl1.SelectedTab == tabPage3)
+            {
+
+
+               var xmlinf= ddfront.fileLastmod(@"V:\EB_Kunde_Info\Kn_Prod_Info.xml",
+                   @"V:\EB_Artikel\Artikel.xml", @"V:\EB_UNBEARBEITET\Belege_Unbearbeitet.xml", @"V:\EB_Artikel\Dienstleistungen.xml",
+                   @"V:\EB_Artikel\Artikel_Lohnumbau.xml", @"V:\EB_Artikel\Artikel_Lohnreinigung.xml");
+
+                label8.Text = xmlinf.KNinfo;
+                label77.Text = xmlinf.Artikel;
+                label79.Text = xmlinf.UNnBera;
+                label81.Text = xmlinf.Dienstl;
+                label83.Text = xmlinf.LU;
+                label86.Text = xmlinf.LR;
+
+            }
+
 
         }
 
@@ -3175,10 +3192,7 @@ namespace WindowsFormsApp1
             Einschalt();
         }
 
-        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
+    
 
         private void ConnSQL()
         {

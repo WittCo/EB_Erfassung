@@ -247,27 +247,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\EB_Offen\000000985.xml" />
-    <Content Include="bin\Debug\EB_Offen\000157144.xml" />
-    <Content Include="bin\Debug\EB_Offen\003425076.xml" />
-    <Content Include="bin\Debug\EB_Offen\101683161.xml" />
-    <Content Include="bin\Debug\EB_Offen\202002003.xml" />
-    <Content Include="bin\Debug\EB_Offen\307632210.xml" />
-    <Content Include="bin\Debug\EB_Offen\400332EB2.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB1000000.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB1111110.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB1945796.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB1946071.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB1946338.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2004653.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046430.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046449.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046507.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046679.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046695.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046696.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046758.xml" />
-    <Content Include="bin\Debug\EB_Offen\EB2046849.xml" />
+    <Content Include="bin\Debug\Avl.Net.Ts.dll" />
     <Content Include="bin\Debug\EB_Offen\EB2046943.xml" />
     <Content Include="bin\Debug\EB_Offen\EB2046989.xml" />
     <Content Include="bin\Debug\EB_Offen\EB2047044.xml" />
@@ -309,6 +289,8 @@
     <Content Include="bin\Debug\EB_Offen\EB5555555.xml" />
     <Content Include="bin\Debug\EB_Offen\EB9999999.xml" />
     <Content Include="bin\Debug\EB_Offen\label16.xml" />
+    <Content Include="bin\Debug\NewElectronicTechnology.SynView.40.x64.dll" />
+    <Content Include="bin\Debug\ProgramMacrofilters.dll" />
     <Content Include="picture.ico" />
     <Content Include="WittEyeLogoProto.ico" />
   </ItemGroup>

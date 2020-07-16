@@ -66,6 +66,12 @@ public Main()
 		outValue8: Nil
 	)
 
+	HahnerkennungMain
+	(
+		outHahnVU: Nil
+		outHahnHU: Nil
+	)
+
 	SPS_Komm_Send
 	(
 		inHahn_Vorne: False
@@ -84,12 +90,6 @@ public Main()
 	(
 		inFile: ""
 		outSharpness: Nil
-	)
-
-	disabled HahnerkennungMain
-	(
-		outHahnVU: Nil
-		outHahnHU: Nil
 	)
 }
 
@@ -294,22 +294,22 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 {
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inKeepAliveTime] TRUE
-	disabled TcpIp_Accept
+	TcpIp_Accept
 	(
 		inPort: 2009
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: Nil
+		outSocket: con_30a4414e_c913_473d_ac2d_a93415909961
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inKeepAliveTime] TRUE
-	disabled TcpIp_Accept
+	TcpIp_Accept
 	(
 		inPort: 2011
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: Nil
+		outSocket: con_11a4bab7_aaa8_41de_8e7e_3ec90c8ea1f3
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
@@ -319,14 +319,14 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 		inPort: 2013
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: con_b5901177_6947_4015_852d_9a39249e09dd
+		outSocket: Nil
 	)
 
-	outSocket = Nil
+	outSocket = con_30a4414e_c913_473d_ac2d_a93415909961
 
-	outSocket1 = Nil
+	outSocket1 = con_11a4bab7_aaa8_41de_8e7e_3ec90c8ea1f3
 
-	outSocketTestDatei = con_b5901177_6947_4015_852d_9a39249e09dd
+	outSocketTestDatei = Nil
 }
 
 public SPS_Komm_Send(Bool inHahn_Vorne, Bool inHahn_Hinten, Bool inHahnErkenFRT, Integer? inbuttonClik, SocketId? inSocket) step
@@ -1892,5 +1892,260 @@ public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outV
 	outVO = con_466c4a1b_0909_471a_a0af_f62af4f4c83c
 
 	outVU = con_fe890f2c_b08b_47e9_baaa_bd59964bdb9f
+}
+
+public LoopHahnerkennungNeu(Image inImage, Bool outHahn)
+{
+	//:HIDDENPORT[inStart] TRUE
+	//:HIDDENPORT[inCount] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateIntegers
+	(
+		inStart: 0
+		inCount: Nil
+		inStep: 5
+		outValue: con_33d8e7d5_7c57_4728_aef1_e75ba500cb95
+		outIsFirst: Nil
+		outIsLast: Nil
+	)
+
+	//:HIDDENPORT[inReferenceValue] TRUE
+	TestIntegerLessOrEqual
+	(
+		inValue: con_33d8e7d5_7c57_4728_aef1_e75ba500cb95
+		inReferenceValue: 100
+		outIsLessOrEqual: con_6a95d314_8c36_4183_a9a8_042e1795a4f8
+	)
+
+	SubtractIntegers
+	(
+		inA: 150
+		inB: con_33d8e7d5_7c57_4728_aef1_e75ba500cb95
+		outDifference: con_6ea8966b_0a8f_4fc7_a98f_c6ab2e77703c
+	)
+
+	//:BGIMAGE[inRoi] @macroInput:inImage
+	//:HIDDENPORT[inEdgeThreshold] TRUE
+	//:HIDDENPORT[outCircle] TRUE
+	DetectSingleCircle
+	(
+		inImage: inImage
+		inRoi: Region<Program.411cc73c.Region.avdata>
+		inRadius: con_6ea8966b_0a8f_4fc7_a98f_c6ab2e77703c
+		inMinScore: 40.000000
+		inEdgeThreshold: 10.000000
+		outCircle: Nil
+		diagGradientMagnitudeImage: Nil
+		diagScoreImage: Nil
+		outCircle.Circle: Nil
+		outCircle.Score: con_0d90125e_90ea_48cd_afa1_e941bc87242e
+		outCircle.IsNil: con_67bbff4f_fe95_4f01_bf4a_d77aa806243a
+		outCircle.IsNil.Not: con_30c9b626_b3fa_40b1_9493_4a18685465c5
+	)
+
+	//:HIDDENPORT[inValue4] TRUE
+	//:HIDDENPORT[inValue5] TRUE
+	//:HIDDENPORT[inValue6] TRUE
+	//:HIDDENPORT[inValue7] TRUE
+	//:HIDDENPORT[inValue8] TRUE
+	And
+	(
+		inValue1: con_6a95d314_8c36_4183_a9a8_042e1795a4f8
+		inValue2: con_67bbff4f_fe95_4f01_bf4a_d77aa806243a
+		inValue3: True
+		inValue4: True
+		inValue5: True
+		inValue6: True
+		inValue7: True
+		inValue8: True
+		outValue: con_cbb6aa93_0989_405c_a4d6_e045fdede7e7
+	)
+
+	//:HIDDENPORT[inD] TRUE
+	//:HIDDENPORT[inE] TRUE
+	//:HIDDENPORT[inF] TRUE
+	//:HIDDENPORT[inG] TRUE
+	//:HIDDENPORT[inH] TRUE
+	AddIntegers
+	(
+		inA: 0
+		inB: 1
+		inC: 0
+		inD: 0
+		inE: 0
+		inF: 0
+		inG: 0
+		inH: 0
+		outSum: con_a8277743_17c5_4076_88eb_f746c1069442
+	)
+
+	MakeConditional<Integer>
+	(
+		inObject: con_a8277743_17c5_4076_88eb_f746c1069442
+		inCondition: con_30c9b626_b3fa_40b1_9493_4a18685465c5
+		outConditionalObject: Nil
+	)
+
+	TestIntegerGreaterOrEqual
+	(
+		inValue: con_0d90125e_90ea_48cd_afa1_e941bc87242e
+		inReferenceValue: 40
+		outIsGreaterOrEqual: con_a82611fb_ded1_4317_9a02_e78adea6dfea
+	)
+
+	MergeDefault<Bool>
+	(
+		inConditionalObject: con_a82611fb_ded1_4317_9a02_e78adea6dfea
+		inDefaultObject: False
+		outObject: con_15a93913_28d2_4f9c_b87c_675df4630c13
+	)
+
+	Loop
+	(
+		inShouldLoop: con_cbb6aa93_0989_405c_a4d6_e045fdede7e7
+	)
+
+	outHahn = con_15a93913_28d2_4f9c_b87c_675df4630c13
+}
+
+public ImageIteration(Image outHU, String outFileName, Image outVU)
+{
+	//:HIDDENPORT[inFileType] TRUE
+	//:HIDDENPORT[inSortingOrder] TRUE
+	//:HIDDENPORT[inRepeat] TRUE
+	//:HIDDENPORT[inProcessSubdirectories] TRUE
+	//:HIDDENPORT[inInvert] TRUE
+	//:HIDDENPORT[inLoadAlphaChannel] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateImages
+	(
+		inDirectory: "C:\\Users\\Aufschrauberportal\\AWICO\\Technik - Witt IBC Bilder"
+		inFileType: Nil
+		inSortingOrder: Date
+		inRepeat: False
+		inProcessSubdirectories: False
+		inInvert: True
+		inLoadAlphaChannel: False
+		outImage: con_7ed52365_9579_42a6_afb0_b67e0a1af931
+		outFilePath: Nil
+		outFileName: con_a3cb36fd_5ca5_4a4f_b971_5a46214ed9b0
+		outIsFirst: Nil
+		outIsLast: Nil
+	)
+
+	//:HIDDENPORT[inStart] TRUE
+	//:HIDDENPORT[inCount] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateIntegers
+	(
+		inStart: 0
+		inCount: 5
+		inStep: 1
+		outValue: Nil
+		outIsFirst: Nil
+		outIsLast: con_52805b4b_5222_423a_823f_98310641cc5a
+	)
+
+	Exit
+	(
+		inCondition: con_52805b4b_5222_423a_823f_98310641cc5a
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_a3cb36fd_5ca5_4a4f_b971_5a46214ed9b0
+		inFind: "HU"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_5f43a7ba_dcda_44db_9234_c0b890f8a833
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_7ed52365_9579_42a6_afb0_b67e0a1af931
+		inCondition: con_5f43a7ba_dcda_44db_9234_c0b890f8a833
+		outConditionalObject: con_0bbe91c5_f5d9_45c1_aabd_aa5b766ffdd7
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_0bbe91c5_f5d9_45c1_aabd_aa5b766ffdd7
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_76d04e05_712f_4c99_8b8f_a1168ef88dfc
+		outIndex: Nil
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_a3cb36fd_5ca5_4a4f_b971_5a46214ed9b0
+		inFind: "VU"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_9e3b4bdc_a032_4c07_8869_3e7dc5a46740
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_7ed52365_9579_42a6_afb0_b67e0a1af931
+		inCondition: con_9e3b4bdc_a032_4c07_8869_3e7dc5a46740
+		outConditionalObject: con_b62c590b_f51b_4605_bfe9_903befd5e319
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_b62c590b_f51b_4605_bfe9_903befd5e319
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_1b418c11_5086_4de8_9203_c0007f7c6320
+		outIndex: Nil
+	)
+
+	outHU = con_76d04e05_712f_4c99_8b8f_a1168ef88dfc
+
+	outFileName = con_a3cb36fd_5ca5_4a4f_b971_5a46214ed9b0
+
+	outVU = con_1b418c11_5086_4de8_9203_c0007f7c6320
+}
+
+public HahnerkennungMain(Bool outHahnVU, Bool outHahnHU) step
+{
+	ImageIteration
+	(
+		outHU: con_61484c30_d2ec_4ba9_8508_951043707fe9
+		outFileName: Nil
+		outVU: con_d22d531f_aeda_47ea_bbd0_b79caf3c5d12
+	)
+
+	LoopHahnerkennungNeu
+	(
+		inImage: con_61484c30_d2ec_4ba9_8508_951043707fe9
+		outHahn: con_351e2a1f_3faa_4282_aa81_c560a9d83512
+	)
+
+	LoopHahnerkennungNeu
+	(
+		inImage: con_d22d531f_aeda_47ea_bbd0_b79caf3c5d12
+		outHahn: con_a868a49d_7b21_48e8_a658_d2945b8ea72d
+	)
+
+	outHahnVU = con_a868a49d_7b21_48e8_a658_d2945b8ea72d
+
+	outHahnHU = con_351e2a1f_3faa_4282_aa81_c560a9d83512
 }
 

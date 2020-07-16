@@ -22,7 +22,7 @@
     <UserTypes />
     <ApplicationName>ProgramApplication</ApplicationName>
     <Compiler>
-      <VisualStudio Version="16.6.30204.135" />
+      <VisualStudio Version="16.6.30225.117" />
       <MSBuild Version="16.6.0.22303" />
       <Sdk WindowsVersion="10.0.17763.0" />
     </Compiler>
@@ -32,6 +32,5 @@
     <View Path="Program.avview" />
     <HMI Path="Program.avhmi" />
     <Lib Path="C:\Users\Damian.Jakubowski\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\Barcode.avlib" />
-    <Lib Path="C:\Users\Mojib.Joya\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\HahnerkennungNeu.avlib" />
   </Files>
 </AdaptiveVisionProject>

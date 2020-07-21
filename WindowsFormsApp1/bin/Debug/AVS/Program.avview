@@ -9,7 +9,6 @@
           <View Type="TextView">
             <Output Name="inSocketTestDatei" Macro="SPS_Komm_Read" Start="Main" Instance="0" />
             <Output Name="inSocket" Macro="SPS_Komm_Read" Start="Main" Instance="0" />
-            <Output Name="inSocket1" Macro="SPS_Komm_Read" Start="Main" Instance="0" />
             <Output Name="con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85" Macro="Main" Start="Main" Instance="0" />
             <Output Name="con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48" Macro="Main" Start="Main" Instance="0" />
             <Output Name="con_e14deda4_2142_4fc1_9b43_b09e4363d95b" Macro="Main" Start="Main" Instance="0" />

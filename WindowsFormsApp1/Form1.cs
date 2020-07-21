@@ -1730,7 +1730,7 @@ namespace WindowsFormsApp1
 
             if (cbSPSAktiv.Checked == true)
             {
-                macros.SPS_Komm_Read(Socet1, Socet2, Socet3, out int Wal2, out int? Ap1, out int? Ap3, out int? KetteAP1_5, out int? Gewicht, out int? tWal2, out int? tAp1, out int? tAp3, out int? tKetteAP1_5, out int? tGewicht);
+                macros.SPS_Komm_Read(Socet1, Socet3, out int Wal2, out int? Ap1, out int? Ap3, out int? KetteAP1_5, out int? Gewicht, out int? tWal2, out int? tAp1, out int? tAp3, out int? tKetteAP1_5, out int? tGewicht);
                 label21.Text = Wal2.ToString();
                 label29.Text = Ap1.ToString();
 
@@ -1741,11 +1741,12 @@ namespace WindowsFormsApp1
 
                 label74.Text = tWal2.ToString();
                 label71.Text = tAp1.ToString();
-                label75.Text = Ap1.ToString();
+                label75.Text = tAp1.ToString();
+                
 
                 label70.Text = tAp3.ToString();
                 label69.Text = tKetteAP1_5.ToString();
-                label42.Text = KetteAP1_5.ToString();
+                label42.Text = tKetteAP1_5.ToString();
                 label68.Text = tGewicht.ToString();
 
                 macros.SPS_Komm_Send(checkBox9.Checked, checkBox8.Checked, checkBox3.Checked, int.Parse(textBox13.Text), Socet2);
@@ -2276,7 +2277,6 @@ namespace WindowsFormsApp1
         {
 
 
-
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
             int nc = NodeCount + 1;
             ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
@@ -2795,7 +2795,6 @@ namespace WindowsFormsApp1
         private void button2_Click_1(object sender, EventArgs e)
         {
 
-
             RefreschIBCList();
             checkDir();
         }
@@ -2818,7 +2817,7 @@ namespace WindowsFormsApp1
             string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
 
             dg4.DataSource = new System.IO.DirectoryInfo(destPath).GetFiles("*.jpg");
-            // dg4.DataSource = Directory.GetFiles(destPath, "*.jpg");
+            
         }
 
         private void dg4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -2853,6 +2852,8 @@ namespace WindowsFormsApp1
             int x = new System.IO.DirectoryInfo(destPath).GetFiles().Length;
             int fileCount = Directory.GetFiles(destPath, "*.jpg").Length;
 
+            RefreschIBCList();
+
             for (int i = 0; i < fileCount; i++)
             {
                 from = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\" + dg4.Rows[i].Cells[0].Value.ToString();
@@ -2860,7 +2861,6 @@ namespace WindowsFormsApp1
 
                 File.Move(from, to); // Try to move
             }
-
 
             RefreschIBCList();
         }
@@ -2998,17 +2998,14 @@ namespace WindowsFormsApp1
                 RefreschIBCList();
                 string BC;
                // macros.BarcodeRead(out BC, out DC);
-             //   label9.Text = BC;
+               // label9.Text = BC;
 
-                MoveBilder();
+             //   MoveBilder();
 
             }
         }
 
-        private void button9_Click_1(object sender, EventArgs e)
-        {
-
-        }
+     
 
   
 
@@ -3058,20 +3055,33 @@ namespace WindowsFormsApp1
         private void Hahhnerkenung()
         {
             bool hahnVU, hahnHU;
+
             macros.HahnerkennungMain(out hahnVU, out hahnHU);
 
             if (hahnVU == true)
-
             {
                 checkBox8.BackColor = Color.Aqua;
 
-            }
+                if (cbHahnAuto.Checked == true)
+                {
+                    checkBox8.Checked = true;
+                    checkBox3.Checked = true;
+                    tabControl1.SelectedTab = tabPage2;
 
+                }
+            }
 
             if (hahnHU == true)
 
             {
                 checkBox9.BackColor = Color.Aqua;
+
+                if (cbHahnAuto.Checked == true)
+                {
+                    checkBox9.Checked = true;
+                    checkBox3.Checked = true;
+                    tabControl1.SelectedTab = tabPage2;
+                }
 
             }
 
@@ -3088,13 +3098,6 @@ namespace WindowsFormsApp1
 
     
 
-        private void label42_TextChanged(object sender, EventArgs e)
-        {
-            if (label42.Text == "1")
-            {
-                ArchivierenBild();
-            }
-        }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
@@ -3103,8 +3106,15 @@ namespace WindowsFormsApp1
             if (label53.Text == "4")
 
             {
-                BarcodeSuche();
+               // BarcodeSuche();
                 Hahhnerkenung();
+
+
+                if (cbMoveBild.Checked == true)
+                {
+                    MoveBilder();
+                }
+
                 timer3.Enabled = false;
             }
 
@@ -3118,7 +3128,6 @@ namespace WindowsFormsApp1
 
             count = Directory.GetFiles(myDir, "*.jpg", SearchOption.AllDirectories).Length;
 
-            
             label53.Text = count.ToString();
             
         }
@@ -3155,7 +3164,10 @@ namespace WindowsFormsApp1
             Einschalt();
         }
 
-    
+        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
 
         private void ConnSQL()
         {
@@ -3219,9 +3231,8 @@ namespace WindowsFormsApp1
 
          //   cbKamAktiv.Checked = true;
 
-         //   macros.SPS_Komm_Akcept(out Socet1, out Socet2, out Socet3);
-            toolStripStatusLabel1.BackColor = Color.LightGreen;
-
+          //  macros.SPS_Komm_Akcept(out Socet1, out Socet2, out Socet3);
+         //   toolStripStatusLabel1.BackColor = Color.LightGreen;
          //   cbSPSAktiv.Checked = true;
 
 

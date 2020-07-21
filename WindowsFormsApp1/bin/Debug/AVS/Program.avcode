@@ -52,8 +52,7 @@ public Main()
 	SPS_Komm_Read
 	(
 		inSocket: con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85
-		inSocket1: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
-		inSocketTestDatei: con_e14deda4_2142_4fc1_9b43_b09e4363d95b
+		inSocketTestDatei: Nil
 		outObject: Nil
 		outValue: Nil
 		outValue1: Nil
@@ -116,7 +115,7 @@ True:
 	outSocket1 = Nil
 }
 
-public SPS_Komm_Read(SocketId? inSocket, SocketId? inSocket1, SocketId? inSocketTestDatei, Integer outObject, Integer? outValue, Integer? outValue1, Integer? outValue2, Integer? outValue3, Integer? outValue4, Integer? outValue5, Integer? outValue6, Integer? outValue7, Integer? outValue8) step
+public SPS_Komm_Read(SocketId? inSocket, SocketId? inSocketTestDatei, Integer outObject, Integer? outValue, Integer? outValue1, Integer? outValue2, Integer? outValue3, Integer? outValue4, Integer? outValue5, Integer? outValue6, Integer? outValue7, Integer? outValue8) step
 {
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inAcceptEof] TRUE
@@ -299,7 +298,7 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 		inPort: 2009
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: con_30a4414e_c913_473d_ac2d_a93415909961
+		outSocket: con_a2903027_8a52_4142_a29b_49f8c134d795
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
@@ -309,12 +308,12 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 		inPort: 2011
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: con_11a4bab7_aaa8_41de_8e7e_3ec90c8ea1f3
+		outSocket: con_420e3da8_fa74_442a_b411_df4e5dd63797
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
 	//:HIDDENPORT[inKeepAliveTime] TRUE
-	TcpIp_Accept
+	disabled TcpIp_Accept
 	(
 		inPort: 2013
 		inTimeout: Nil
@@ -322,9 +321,9 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 		outSocket: Nil
 	)
 
-	outSocket = con_30a4414e_c913_473d_ac2d_a93415909961
+	outSocket = con_a2903027_8a52_4142_a29b_49f8c134d795
 
-	outSocket1 = con_11a4bab7_aaa8_41de_8e7e_3ec90c8ea1f3
+	outSocket1 = con_420e3da8_fa74_442a_b411_df4e5dd63797
 
 	outSocketTestDatei = Nil
 }

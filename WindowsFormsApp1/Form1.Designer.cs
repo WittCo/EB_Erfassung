@@ -92,6 +92,11 @@
             this.radioButton40 = new System.Windows.Forms.RadioButton();
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.cbbildQuality = new System.Windows.Forms.CheckBox();
             this.label87 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -115,6 +120,9 @@
             this.PictureBoxLive = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.cbTestVerbindung = new System.Windows.Forms.CheckBox();
+            this.cbHahnAuto = new System.Windows.Forms.CheckBox();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.label86 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
@@ -306,7 +314,9 @@
             this.CheckBilder = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.cbHahnAuto = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button22 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -369,7 +379,7 @@
             this.hilfeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1904, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1817, 24);
             this.menuStrip1.TabIndex = 39;
             this.menuStrip1.Text = "Datei";
             // 
@@ -470,9 +480,9 @@
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel6,
             this.toolStripStatusLabel7});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1021);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 815);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1904, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1817, 22);
             this.statusStrip1.TabIndex = 40;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -522,7 +532,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // contextMenuStrip2
             // 
@@ -588,7 +597,7 @@
             this.tabPage6.Controls.Add(this.radioButton38);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1896, 904);
+            this.tabPage6.Size = new System.Drawing.Size(1861, 904);
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Dienstleistung";
             // 
@@ -782,6 +791,14 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.progressBar1);
+            this.tabPage5.Controls.Add(this.button22);
+            this.tabPage5.Controls.Add(this.panel2);
+            this.tabPage5.Controls.Add(this.label91);
+            this.tabPage5.Controls.Add(this.label90);
+            this.tabPage5.Controls.Add(this.label89);
+            this.tabPage5.Controls.Add(this.label88);
+            this.tabPage5.Controls.Add(this.cbbildQuality);
             this.tabPage5.Controls.Add(this.label87);
             this.tabPage5.Controls.Add(this.label53);
             this.tabPage5.Controls.Add(this.label42);
@@ -806,10 +823,55 @@
             this.tabPage5.Controls.Add(this.pictureBox2);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1896, 904);
+            this.tabPage5.Size = new System.Drawing.Size(1861, 904);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "AP 1";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(1086, 663);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(0, 13);
+            this.label91.TabIndex = 92;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(64, 663);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(0, 13);
+            this.label90.TabIndex = 91;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(1086, 257);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(0, 13);
+            this.label89.TabIndex = 90;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(64, 257);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(41, 13);
+            this.label88.TabIndex = 89;
+            this.label88.Text = "ddsdsd";
+            this.label88.Visible = false;
+            // 
+            // cbbildQuality
+            // 
+            this.cbbildQuality.AutoSize = true;
+            this.cbbildQuality.Location = new System.Drawing.Point(18, 169);
+            this.cbbildQuality.Name = "cbbildQuality";
+            this.cbbildQuality.Size = new System.Drawing.Size(112, 17);
+            this.cbbildQuality.TabIndex = 88;
+            this.cbbildQuality.Text = "Bild Quality Check";
+            this.cbbildQuality.UseVisualStyleBackColor = true;
+            this.cbbildQuality.CheckedChanged += new System.EventHandler(this.cbbildQuality_CheckedChanged);
             // 
             // label87
             // 
@@ -837,6 +899,7 @@
             this.label42.Size = new System.Drawing.Size(41, 13);
             this.label42.TabIndex = 85;
             this.label42.Text = "label42";
+            this.label42.TextChanged += new System.EventHandler(this.label42_TextChanged);
             // 
             // checkBox7
             // 
@@ -935,7 +998,6 @@
             this.dg4.Name = "dg4";
             this.dg4.Size = new System.Drawing.Size(552, 101);
             this.dg4.TabIndex = 67;
-            this.dg4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellContentClick);
             this.dg4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellDoubleClick);
             // 
             // button2
@@ -1022,7 +1084,6 @@
             this.PictureBoxLive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PictureBoxLive.TabIndex = 51;
             this.PictureBoxLive.TabStop = false;
-            this.PictureBoxLive.Click += new System.EventHandler(this.PictureBoxLive_Click);
             this.PictureBoxLive.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxLive_Paint_1);
             // 
             // pictureBox2
@@ -1037,6 +1098,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button11);
+            this.tabPage3.Controls.Add(this.cbTestVerbindung);
             this.tabPage3.Controls.Add(this.cbHahnAuto);
             this.tabPage3.Controls.Add(this.groupBox20);
             this.tabPage3.Controls.Add(this.cbMoveBild);
@@ -1070,10 +1133,39 @@
             this.tabPage3.Controls.Add(this.button13);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1896, 904);
+            this.tabPage3.Size = new System.Drawing.Size(1861, 904);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Einstelungen";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(495, 439);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 63;
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // cbTestVerbindung
+            // 
+            this.cbTestVerbindung.AutoSize = true;
+            this.cbTestVerbindung.Location = new System.Drawing.Point(16, 99);
+            this.cbTestVerbindung.Name = "cbTestVerbindung";
+            this.cbTestVerbindung.Size = new System.Drawing.Size(103, 17);
+            this.cbTestVerbindung.TabIndex = 62;
+            this.cbTestVerbindung.Text = "Test verbindung";
+            this.cbTestVerbindung.UseVisualStyleBackColor = true;
+            // 
+            // cbHahnAuto
+            // 
+            this.cbHahnAuto.AutoSize = true;
+            this.cbHahnAuto.Location = new System.Drawing.Point(176, 122);
+            this.cbHahnAuto.Name = "cbHahnAuto";
+            this.cbHahnAuto.Size = new System.Drawing.Size(162, 17);
+            this.cbHahnAuto.TabIndex = 61;
+            this.cbHahnAuto.Text = "Hahn Erkenung Automatisch";
+            this.cbHahnAuto.UseVisualStyleBackColor = true;
             // 
             // groupBox20
             // 
@@ -1540,7 +1632,7 @@
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1896, 904);
+            this.tabPage4.Size = new System.Drawing.Size(1861, 904);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Lohn Umbau";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1705,7 +1797,7 @@
             this.Lohnarbeit.Controls.Add(this.dataGridView6);
             this.Lohnarbeit.Location = new System.Drawing.Point(4, 25);
             this.Lohnarbeit.Name = "Lohnarbeit";
-            this.Lohnarbeit.Size = new System.Drawing.Size(1896, 904);
+            this.Lohnarbeit.Size = new System.Drawing.Size(1861, 904);
             this.Lohnarbeit.TabIndex = 2;
             this.Lohnarbeit.Text = "Lohn Reinigung";
             this.Lohnarbeit.UseVisualStyleBackColor = true;
@@ -1867,7 +1959,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1896, 904);
+            this.tabPage2.Size = new System.Drawing.Size(1861, 904);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Artikel Auswahl";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2008,7 +2100,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(19, 183);
+            this.button6.Location = new System.Drawing.Point(18, 183);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(170, 106);
             this.button6.TabIndex = 138;
@@ -2967,7 +3059,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1896, 904);
+            this.tabPage1.Size = new System.Drawing.Size(1861, 904);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3016,7 +3108,6 @@
             this.groupBox18.TabIndex = 152;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Kunde";
-            this.groupBox18.Enter += new System.EventHandler(this.groupBox18_Enter);
             // 
             // label67
             // 
@@ -3244,7 +3335,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1904, 933);
+            this.tabControl1.Size = new System.Drawing.Size(1869, 933);
             this.tabControl1.TabIndex = 99;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -3259,22 +3350,35 @@
             this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // cbHahnAuto
+            // panel2
             // 
-            this.cbHahnAuto.AutoSize = true;
-            this.cbHahnAuto.Location = new System.Drawing.Point(176, 122);
-            this.cbHahnAuto.Name = "cbHahnAuto";
-            this.cbHahnAuto.Size = new System.Drawing.Size(162, 17);
-            this.cbHahnAuto.TabIndex = 61;
-            this.cbHahnAuto.Text = "Hahn Erkenung Automatisch";
-            this.cbHahnAuto.UseVisualStyleBackColor = true;
-            this.cbHahnAuto.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged_1);
+            this.panel2.Location = new System.Drawing.Point(1140, 396);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(152, 61);
+            this.panel2.TabIndex = 93;
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(18, 348);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(75, 23);
+            this.button22.TabIndex = 94;
+            this.button22.Text = "button22";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click_1);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(8, 307);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(151, 23);
+            this.progressBar1.TabIndex = 95;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1043);
+            this.ClientSize = new System.Drawing.Size(1817, 837);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -3631,6 +3735,16 @@
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.CheckBox cbHahnAuto;
+        private System.Windows.Forms.CheckBox cbTestVerbindung;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.CheckBox cbbildQuality;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

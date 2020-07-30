@@ -1,4 +1,4 @@
-﻿<ViewSets Current="Custom2">
+﻿<ViewSets Current="Custom1">
   <ViewSet Name="Custom1">
     <HSplit>
       <Views Width="0.998" Height="0.496">
@@ -16,8 +16,10 @@
         </Views>
         <Views Width="0.498" Height="0.496">
           <View Type="TextView">
-            <Input Name="outHahnVU" Index="3" Macro="HahnerkennungMain" Start="Main" Instance="0" />
-            <Input Name="outHahnHU" Index="3" Macro="HahnerkennungMain" Start="Main" Instance="0" />
+            <Output Name="con_1a9adb54_b5c7_443d_844d_868477e7424b" Macro="Main" Start="Main" Instance="0" />
+            <Output Name="con_92a7aa0c_d629_47e0_aef6_76b7c7b95b1b" Macro="Main" Start="Main" Instance="0" />
+            <Output Name="con_e22cf977_e63f_4416_b8cf_c2fc26f98677" Macro="Main" Start="Main" Instance="0" />
+            <Output Name="con_53ca9915_5db7_4135_bd2c_dae1adef9398" Macro="Main" Start="Main" Instance="0" />
           </View>
         </Views>
       </VSplit>
@@ -35,30 +37,30 @@
       <VSplit>
         <Views Width="0.496" Height="0.496">
           <View Type="ImageView">
-            <Output Name="inImage" Macro="LoopHahnerkennungNeu" Start="Main" Instance="0" />
+            <Output Name="con_dcf67046_ebcc_479a_8f60_b972f9d9c5cb" Macro="ImageQualityTest" Start="Main" Instance="0" />
+            <ViewState>
+              <ViewMode Mode="Manual" Scale="0.1" X="83" Y="45" />
+            </ViewState>
           </View>
         </Views>
         <Views Width="0.498" Height="0.496">
           <View Type="ImageView">
-            <Output Name="inImage" Macro="LoopHahnerkennungNeu" Start="Main" Instance="0" />
-            <Input Name="inRoi" Index="3" Macro="LoopHahnerkennungNeu" Start="Main" Instance="0" />
-            <ViewState>
-              <ViewMode Mode="Manual" Scale="0.125" X="54" Y="10" />
-            </ViewState>
+            <Output Name="con_406b58ac_fdee_45e8_9126_4d53fdb507a2" Macro="ImageQualityTest" Start="Main" Instance="0" />
           </View>
         </Views>
       </VSplit>
       <VSplit>
         <Views Width="0.496" Height="0.496">
           <View Type="ImageView">
-            <Input Name="outVU" Index="9" Macro="ImageIteration" Start="Main" Instance="0" />
-            <Input Name="inRoi" Index="3" Macro="LoopHahnerkennungNeu" Start="Main" Instance="0" />
+            <Output Name="con_d8b8e619_e688_463d_b677_56d37ebee018" Macro="ImageQualityTest" Start="Main" Instance="0" />
+            <ViewState>
+              <ViewMode Mode="Manual" Scale="0.1" X="83" Y="45" />
+            </ViewState>
           </View>
         </Views>
         <Views Width="0.498" Height="0.496">
-          <View Type="TextView">
-            <Input Name="outHahnVU" Index="3" Macro="HahnerkennungMain" Start="Main" Instance="0" />
-            <Input Name="outHahnHU" Index="3" Macro="HahnerkennungMain" Start="Main" Instance="0" />
+          <View Type="ImageView">
+            <Output Name="con_11f5d4c1_5b70_4ca4_99be_aa47676ab150" Macro="ImageQualityTest" Start="Main" Instance="0" />
           </View>
         </Views>
       </VSplit>

@@ -1,12 +1,120 @@
 ﻿<HMI>
-  <ClientSize>947, 613</ClientSize>
+  <ClientSize>947, 611</ClientSize>
   <Controls>
+    <Label>
+      <Location>92, 108</Location>
+      <Name>label12</Name>
+      <Size>28, 23</Size>
+      <TabIndex>3</TabIndex>
+      <Text>VO</Text>
+    </Label>
+    <Label>
+      <Location>92, 347</Location>
+      <Name>label11</Name>
+      <Size>25, 23</Size>
+      <TabIndex>11</TabIndex>
+      <Text>VU</Text>
+    </Label>
+    <Label>
+      <Location>720, 369</Location>
+      <Name>label10</Name>
+      <Size>29, 23</Size>
+      <TabIndex>12</TabIndex>
+      <Text>HU</Text>
+    </Label>
+    <Label>
+      <Location>720, 108</Location>
+      <Name>label9</Name>
+      <Size>29, 23</Size>
+      <TabIndex>4</TabIndex>
+      <Text>HO</Text>
+    </Label>
+    <Label>
+      <Location>359, 478</Location>
+      <Name>label8</Name>
+      <Size>49, 23</Size>
+      <TabIndex>13</TabIndex>
+      <Text>label8</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_5968acd9_7930_4267_aa8a_c21b929ca62a" VariantIndex="0" />
+      </Binding>
+    </Label>
+    <Label>
+      <Location>674, 482</Location>
+      <Name>label7</Name>
+      <Size>40, 23</Size>
+      <TabIndex>16</TabIndex>
+      <Text>label7</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_1ced7618_ad45_462e_8168_5508d298562d" VariantIndex="0" />
+      </Binding>
+    </Label>
+    <Label>
+      <Location>674, 230</Location>
+      <Name>label6</Name>
+      <Size>40, 23</Size>
+      <TabIndex>8</TabIndex>
+      <Text>label6</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_5267f063_d4bc_4c18_aeb5_da185382b16e" VariantIndex="0" />
+      </Binding>
+    </Label>
+    <Label>
+      <Location>359, 230</Location>
+      <Name>label5</Name>
+      <Size>49, 23</Size>
+      <TabIndex>6</TabIndex>
+      <Text>label5</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_47dd2dce_17ce_45f2_9db5_6f51a36a1c3b" VariantIndex="0" />
+      </Binding>
+    </Label>
+    <Label>
+      <Location>432, 482</Location>
+      <Name>label4</Name>
+      <Size>100, 23</Size>
+      <TabIndex>15</TabIndex>
+      <Text>label4</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_e263d765_4c59_4544_ab4b_c3032bc9f55b" VariantIndex="0" />
+      </Binding>
+    </Label>
+    <Label>
+      <Location>126, 482</Location>
+      <Name>label3</Name>
+      <Size>100, 23</Size>
+      <TabIndex>14</TabIndex>
+      <Text>label3</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_d5093aba_7ad1_453c_b5b8_c0275cabab20" VariantIndex="0" />
+      </Binding>
+    </Label>
+    <Label>
+      <Location>432, 230</Location>
+      <Name>label2</Name>
+      <Size>100, 23</Size>
+      <TabIndex>7</TabIndex>
+      <Text>label2</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_957d66f8_4af1_4d52_b793_1a339b7edb24" VariantIndex="0" />
+      </Binding>
+    </Label>
+    <Label>
+      <Location>126, 230</Location>
+      <Name>label1</Name>
+      <Size>100, 23</Size>
+      <TabIndex>5</TabIndex>
+      <Text>label1</Text>
+      <Binding>
+        <Input Property="Text" Macro="GrabImage" Variable="con_bf47009e_0beb_4a1f_a5a0_9588b2a1aeb2" VariantIndex="0" />
+      </Binding>
+    </Label>
     <ZoomingVideoBox>
       <InitialSizeMode>FitToWindow</InitialSizeMode>
-      <Location>432, 233</Location>
+      <Location>432, 248</Location>
       <Name>zoomingVideoBox4</Name>
       <Size>282, 227</Size>
-      <TabIndex>4</TabIndex>
+      <TabIndex>10</TabIndex>
       <Binding>
         <Input Property="Image" Macro="GrabImage" Variable="con_3f5b26d9_0b2b_4785_95c1_f9a3ada3d9a2" VariantIndex="0" />
       </Binding>
@@ -23,10 +131,10 @@
     </ZoomingVideoBox>
     <ZoomingVideoBox>
       <InitialSizeMode>FitToWindow</InitialSizeMode>
-      <Location>126, 233</Location>
+      <Location>126, 248</Location>
       <Name>zoomingVideoBox2</Name>
       <Size>282, 227</Size>
-      <TabIndex>3</TabIndex>
+      <TabIndex>9</TabIndex>
       <Binding>
         <Input Property="Image" Macro="GrabImage" Variable="con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6" VariantIndex="0" />
       </Binding>

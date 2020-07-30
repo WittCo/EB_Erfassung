@@ -14,10 +14,10 @@ public Main()
 	disabled GrabImage
 	(
 		inTrigg: ext_con_6593bdf2_7d20_45c4_b756_53c26e3a8a7b
-		outHO: Nil
-		outHU: Nil
-		outVO: Nil
-		outVU: Nil
+		outSh_VU: Nil
+		outSh_VO: Nil
+		outSh_HU: Nil
+		outSh_HO: Nil
 	)
 
 	disabled VariantMacro_2
@@ -65,7 +65,7 @@ public Main()
 		outValue8: Nil
 	)
 
-	HahnerkennungMain
+	disabled HahnerkennungMain
 	(
 		outHahnVU: Nil
 		outHahnHU: Nil
@@ -80,15 +80,12 @@ public Main()
 		inSocket: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
 	)
 
-	disabled INIT_Camera
+	ImageQualityTest
 	(
-		inAddress: "192.168.0.186"
-	)
-
-	disabled ImageQualityTest
-	(
-		inFile: ""
-		outSharpness: Nil
+		outShHU: con_1a9adb54_b5c7_443d_844d_868477e7424b
+		outShVU: con_92a7aa0c_d629_47e0_aef6_76b7c7b95b1b
+		outShVO: con_e22cf977_e63f_4416_b8cf_c2fc26f98677
+		outShHO: con_53ca9915_5db7_4135_bd2c_dae1adef9398
 	)
 }
 
@@ -298,7 +295,7 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 		inPort: 2009
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: con_a2903027_8a52_4142_a29b_49f8c134d795
+		outSocket: con_8692a105_5ac1_4dc1_962a_b8630111f226
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
@@ -308,7 +305,7 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 		inPort: 2011
 		inTimeout: Nil
 		inKeepAliveTime: Nil
-		outSocket: con_420e3da8_fa74_442a_b411_df4e5dd63797
+		outSocket: con_0d5cb63d_aea2_4084_bc1b_132ec67fc8e4
 	)
 
 	//:HIDDENPORT[inTimeout] TRUE
@@ -321,9 +318,9 @@ public SPS_Komm_Akcept(SocketId? outSocket, SocketId? outSocket1, SocketId? outS
 		outSocket: Nil
 	)
 
-	outSocket = con_a2903027_8a52_4142_a29b_49f8c134d795
+	outSocket = con_8692a105_5ac1_4dc1_962a_b8630111f226
 
-	outSocket1 = con_420e3da8_fa74_442a_b411_df4e5dd63797
+	outSocket1 = con_0d5cb63d_aea2_4084_bc1b_132ec67fc8e4
 
 	outSocketTestDatei = Nil
 }
@@ -1730,27 +1727,54 @@ public INIT_Camera(GevAddress inAddress) step
 	)
 }
 
-public ImageQualityTest(File inFile, Real outSharpness) step
+public ImageQualityTest(Real outShHU, Real outShVU, Real outShVO, Real outShHO) step
 {
-	//:HIDDENPORT[inLoadAlphaChannel] TRUE
-	LoadImage
+	TaskMacro_1
 	(
-		inFile: inFile
-		inLoadAlphaChannel: False
-		outImage: con_f3f21c07_ffce_4b16_bd41_33700b485cc9
+		outHU: con_11f5d4c1_5b70_4ca4_99be_aa47676ab150
+		outVU: con_d8b8e619_e688_463d_b677_56d37ebee018
+		outVO: con_dcf67046_ebcc_479a_8f60_b972f9d9c5cb
+		outHO: con_406b58ac_fdee_45e8_9126_4d53fdb507a2
 	)
 
 	ImageSharpness
 	(
-		inImage: con_f3f21c07_ffce_4b16_bd41_33700b485cc9
+		inImage: con_11f5d4c1_5b70_4ca4_99be_aa47676ab150
 		inRoi: Nil
-		outSharpness: con_cfc55509_4877_4a73_8db3_a9e50cad02b9
+		outSharpness: con_d6d6595f_ae24_46ed_aa30_89a8efcfbeae
 	)
 
-	outSharpness = con_cfc55509_4877_4a73_8db3_a9e50cad02b9
+	ImageSharpness
+	(
+		inImage: con_d8b8e619_e688_463d_b677_56d37ebee018
+		inRoi: Nil
+		outSharpness: con_83d8dd44_0f13_4cb9_b9f0_692bc3f02a0f
+	)
+
+	ImageSharpness
+	(
+		inImage: con_dcf67046_ebcc_479a_8f60_b972f9d9c5cb
+		inRoi: Nil
+		outSharpness: con_fcff633d_b2cf_4149_94fa_295d27748bfd
+	)
+
+	ImageSharpness
+	(
+		inImage: con_406b58ac_fdee_45e8_9126_4d53fdb507a2
+		inRoi: Nil
+		outSharpness: con_c31ee8e2_830c_4baa_96ea_d1b1b9e76c11
+	)
+
+	outShHU = con_d6d6595f_ae24_46ed_aa30_89a8efcfbeae
+
+	outShVU = con_83d8dd44_0f13_4cb9_b9f0_692bc3f02a0f
+
+	outShVO = con_fcff633d_b2cf_4149_94fa_295d27748bfd
+
+	outShHO = con_c31ee8e2_830c_4baa_96ea_d1b1b9e76c11
 }
 
-public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outVU) step
+public GrabImage(Bool inTrigg, Real? outSh_VU, Real? outSh_VO, Real? outSh_HU, Real? outSh_HO) step
 {
 	//:HIDDENPORT[inCommandName] TRUE
 	//:HIDDENPORT[inActivationMode] TRUE
@@ -1800,6 +1824,7 @@ public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outV
 		inVerifyAccess: True
 	)
 
+	//VU
 	//:HIDDENPORT[inPixelFormat] TRUE
 	//:HIDDENPORT[inInputQueueSize] TRUE
 	//:HIDDENPORT[inTimeout] TRUE
@@ -1810,17 +1835,40 @@ public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outV
 		inInputQueueSize: 1
 		inTimeout: 100
 		outFrame: con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6
-		outFrameID: Nil
+		outFrameID: con_5968acd9_7930_4267_aa8a_c21b929ca62a
 		outTimestamp: Nil
+	)
+
+	ImageSharpness
+	(
+		inImage: con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6
+		inRoi: Nil
+		outSharpness: con_d5093aba_7ad1_453c_b5b8_c0275cabab20
+	)
+
+	//:HIDDENPORT[inChannelIndex] TRUE
+	//:HIDDENPORT[inBinSize] TRUE
+	//:HIDDENPORT[inDomainBegin] TRUE
+	//:HIDDENPORT[inDomainEnd] TRUE
+	ImageHistogram
+	(
+		inImage: con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6
+		inRoi: Nil
+		inChannelIndex: 0
+		inBinSize: 1.000000
+		inDomainBegin: 0.000000
+		inDomainEnd: 256.000000
+		outHistogram: Nil
 	)
 
 	MergeDefault<Image>
 	(
 		inConditionalObject: con_8cfab1e3_7b72_4a24_ba72_3b4ffb4f43b6
 		inDefaultObject: Image()
-		outObject: con_1fbfab18_b060_470d_adc2_0500c4ffa4c5
+		outObject: Nil
 	)
 
+	//V0
 	//:HIDDENPORT[inPixelFormat] TRUE
 	//:HIDDENPORT[inInputQueueSize] TRUE
 	//:HIDDENPORT[inTimeout] TRUE
@@ -1831,17 +1879,25 @@ public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outV
 		inInputQueueSize: 1
 		inTimeout: 100
 		outFrame: con_cccc222e_3d3d_452d_b2de_9a9ac993dddc
-		outFrameID: Nil
+		outFrameID: con_47dd2dce_17ce_45f2_9db5_6f51a36a1c3b
 		outTimestamp: Nil
+	)
+
+	ImageSharpness
+	(
+		inImage: con_cccc222e_3d3d_452d_b2de_9a9ac993dddc
+		inRoi: Nil
+		outSharpness: con_bf47009e_0beb_4a1f_a5a0_9588b2a1aeb2
 	)
 
 	MergeDefault<Image>
 	(
 		inConditionalObject: con_cccc222e_3d3d_452d_b2de_9a9ac993dddc
 		inDefaultObject: Image()
-		outObject: con_64b9c45d_9c3d_4439_a98b_066bc41bb39f
+		outObject: Nil
 	)
 
+	//HU
 	//:HIDDENPORT[inPixelFormat] TRUE
 	//:HIDDENPORT[inInputQueueSize] TRUE
 	//:HIDDENPORT[inTimeout] TRUE
@@ -1852,17 +1908,25 @@ public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outV
 		inInputQueueSize: 1
 		inTimeout: 100
 		outFrame: con_3f5b26d9_0b2b_4785_95c1_f9a3ada3d9a2
-		outFrameID: Nil
+		outFrameID: con_1ced7618_ad45_462e_8168_5508d298562d
 		outTimestamp: Nil
+	)
+
+	ImageSharpness
+	(
+		inImage: con_3f5b26d9_0b2b_4785_95c1_f9a3ada3d9a2
+		inRoi: Nil
+		outSharpness: con_e263d765_4c59_4544_ab4b_c3032bc9f55b
 	)
 
 	MergeDefault<Image>
 	(
 		inConditionalObject: con_3f5b26d9_0b2b_4785_95c1_f9a3ada3d9a2
 		inDefaultObject: Image()
-		outObject: con_466c4a1b_0909_471a_a0af_f62af4f4c83c
+		outObject: Nil
 	)
 
+	//H0
 	//:HIDDENPORT[inPixelFormat] TRUE
 	//:HIDDENPORT[inInputQueueSize] TRUE
 	//:HIDDENPORT[inTimeout] TRUE
@@ -1873,24 +1937,31 @@ public GrabImage(Bool inTrigg, Image outHO, Image outHU, Image outVO, Image outV
 		inInputQueueSize: 1
 		inTimeout: 100
 		outFrame: con_eb33be65_a2dc_4d89_bd91_080923e284dc
-		outFrameID: Nil
+		outFrameID: con_5267f063_d4bc_4c18_aeb5_da185382b16e
 		outTimestamp: Nil
+	)
+
+	ImageSharpness
+	(
+		inImage: con_eb33be65_a2dc_4d89_bd91_080923e284dc
+		inRoi: Nil
+		outSharpness: con_957d66f8_4af1_4d52_b793_1a339b7edb24
 	)
 
 	MergeDefault<Image>
 	(
 		inConditionalObject: con_eb33be65_a2dc_4d89_bd91_080923e284dc
 		inDefaultObject: Image()
-		outObject: con_fe890f2c_b08b_47e9_baaa_bd59964bdb9f
+		outObject: Nil
 	)
 
-	outHO = con_1fbfab18_b060_470d_adc2_0500c4ffa4c5
+	outSh_VU = con_d5093aba_7ad1_453c_b5b8_c0275cabab20
 
-	outHU = con_64b9c45d_9c3d_4439_a98b_066bc41bb39f
+	outSh_VO = con_bf47009e_0beb_4a1f_a5a0_9588b2a1aeb2
 
-	outVO = con_466c4a1b_0909_471a_a0af_f62af4f4c83c
+	outSh_HU = con_e263d765_4c59_4544_ab4b_c3032bc9f55b
 
-	outVU = con_fe890f2c_b08b_47e9_baaa_bd59964bdb9f
+	outSh_HO = con_957d66f8_4af1_4d52_b793_1a339b7edb24
 }
 
 public LoopHahnerkennungNeu(Image inImage, Bool outHahn)
@@ -2146,5 +2217,207 @@ public HahnerkennungMain(Bool outHahnVU, Bool outHahnHU) step
 	outHahnVU = con_a868a49d_7b21_48e8_a658_d2945b8ea72d
 
 	outHahnHU = con_351e2a1f_3faa_4282_aa81_c560a9d83512
+}
+
+public TaskMacro_1(Image outHU, Image outVU, Image outVO, Image outHO)
+{
+	//:HIDDENPORT[inFileType] TRUE
+	//:HIDDENPORT[inSortingOrder] TRUE
+	//:HIDDENPORT[inRepeat] TRUE
+	//:HIDDENPORT[inProcessSubdirectories] TRUE
+	//:HIDDENPORT[inInvert] TRUE
+	//:HIDDENPORT[inLoadAlphaChannel] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateImages
+	(
+		inDirectory: "C:\\Users\\Aufschrauberportal\\AWICO\\Technik - Witt IBC Bilder"
+		inFileType: Nil
+		inSortingOrder: Date
+		inRepeat: False
+		inProcessSubdirectories: False
+		inInvert: True
+		inLoadAlphaChannel: False
+		outImage: con_ae617f4e_1ef8_49d6_8cc7_83542a7a937e
+		outFilePath: Nil
+		outFileName: con_f6e3756d_7a10_482a_b3d5_d7734bbaa10b
+		outIsFirst: Nil
+		outIsLast: Nil
+	)
+
+	//:HIDDENPORT[inStart] TRUE
+	//:HIDDENPORT[inCount] TRUE
+	//:HIDDENPORT[outIsFirst] TRUE
+	//:HIDDENPORT[outIsLast] TRUE
+	EnumerateIntegers
+	(
+		inStart: 0
+		inCount: 5
+		inStep: 1
+		outValue: Nil
+		outIsFirst: Nil
+		outIsLast: con_4f091ded_d436_472b_a59a_6cd24af83ac6
+	)
+
+	Exit
+	(
+		inCondition: con_4f091ded_d436_472b_a59a_6cd24af83ac6
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_f6e3756d_7a10_482a_b3d5_d7734bbaa10b
+		inFind: "HU"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_0318205e_43ae_4ad0_99bd_ccc3af587c41
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_ae617f4e_1ef8_49d6_8cc7_83542a7a937e
+		inCondition: con_0318205e_43ae_4ad0_99bd_ccc3af587c41
+		outConditionalObject: con_a60f6051_10ab_4897_a9ff_0f5656dbcab8
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_a60f6051_10ab_4897_a9ff_0f5656dbcab8
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_4e372d06_0cfa_4f3e_b712_c5f1c946e8f1
+		outIndex: Nil
+	)
+
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: con_f6e3756d_7a10_482a_b3d5_d7734bbaa10b
+		inFind: "VU"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_70a2323b_6096_44fb_bdda_e183c70785d1
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: con_ae617f4e_1ef8_49d6_8cc7_83542a7a937e
+		inCondition: con_70a2323b_6096_44fb_bdda_e183c70785d1
+		outConditionalObject: con_6260a8e8_469e_4d9a_8398_0b3b53a8bd5f
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_6260a8e8_469e_4d9a_8398_0b3b53a8bd5f
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_2f55218c_841e_4956_8e17_d897b762358a
+		outIndex: Nil
+	)
+
+	Get_VO
+	(
+		inFileName: con_f6e3756d_7a10_482a_b3d5_d7734bbaa10b
+		inImage: con_ae617f4e_1ef8_49d6_8cc7_83542a7a937e
+		outVO: con_61000a6c_5f82_4bbb_80b6_2c5f89fc6ee4
+	)
+
+	Get_HO
+	(
+		inFileName: con_f6e3756d_7a10_482a_b3d5_d7734bbaa10b
+		inImage: con_ae617f4e_1ef8_49d6_8cc7_83542a7a937e
+		outHO: con_f3364666_57ce_4263_bc38_85a9590efb1f
+	)
+
+	outHU = con_4e372d06_0cfa_4f3e_b712_c5f1c946e8f1
+
+	outVU = con_2f55218c_841e_4956_8e17_d897b762358a
+
+	outVO = con_61000a6c_5f82_4bbb_80b6_2c5f89fc6ee4
+
+	outHO = con_f3364666_57ce_4263_bc38_85a9590efb1f
+}
+
+public Get_VO(String inFileName, Image inImage, Image outVO) step
+{
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: inFileName
+		inFind: "VO"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_4834c001_061c_4b72_b6ed_a8a5b1456615
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: inImage
+		inCondition: con_4834c001_061c_4b72_b6ed_a8a5b1456615
+		outConditionalObject: con_c139bfc8_9ed1_4594_ae0d_6734f0bf1bb6
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_c139bfc8_9ed1_4594_ae0d_6734f0bf1bb6
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_3630fbde_36af_451f_844c_9b061ae473ee
+		outIndex: Nil
+	)
+
+	outVO = con_3630fbde_36af_451f_844c_9b061ae473ee
+}
+
+public Get_HO(String inFileName, Image inImage, Image outHO) step
+{
+	//:HIDDENPORT[inFind] TRUE
+	//:HIDDENPORT[inStartPosition] TRUE
+	//:HIDDENPORT[inIgnoreCase] TRUE
+	FindInString
+	(
+		inString: inFileName
+		inFind: "HO"
+		inStartPosition: Nil
+		inIgnoreCase: False
+		outPosition: Nil
+		outStringFound: con_dee0a9ad_b107_4ece_a07d_efa09f211fce
+	)
+
+	MakeConditional<Image>
+	(
+		inObject: inImage
+		inCondition: con_dee0a9ad_b107_4ece_a07d_efa09f211fce
+		outConditionalObject: con_60709ef8_fb22_4356_bac5_03a2387cff6e
+	)
+
+	//:HIDDENPORT[inInitialObject] TRUE
+	//:HIDDENPORT[inReset] TRUE
+	LastNotNil<Image>
+	(
+		inObject: con_60709ef8_fb22_4356_bac5_03a2387cff6e
+		inInitialObject: Image()
+		inReset: False
+		outObject: con_7b7a0730_29ff_4265_885e_067a6e8d8ef9
+		outIndex: Nil
+	)
+
+	outHO = con_7b7a0730_29ff_4265_885e_067a6e8d8ef9
 }
 

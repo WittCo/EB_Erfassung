@@ -77,6 +77,7 @@ namespace WindowsFormsApp1
 
         DD_AP3 dd_ap3 = new DD_AP3();
 
+        BackgroundWorker backgroundWorker1 = new BackgroundWorker();
 
         public Form1()
         {
@@ -91,7 +92,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(e.Message);
             }
-
 
 
             m_pSystem = null;
@@ -140,6 +140,11 @@ namespace WindowsFormsApp1
             dataGridView11.DataSource = dt2;
             ConnSQL();
 
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
+            backgroundWorker1.WorkerReportsProgress = true;
+            backgroundWorker1.RunWorkerCompleted += bgWorker_WorkComplete;
+
         }
 
 
@@ -149,6 +154,38 @@ namespace WindowsFormsApp1
         {
             public static bool camtrig2 { get; set; }
         }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                Thread.Sleep(100);
+                backgroundWorker1.ReportProgress(i);
+                
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void bgWorker_WorkComplete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //e.Error will contain any exceptions caught by the backgroundWorker
+            if (e.Error != null)
+            {
+                MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                MessageBox.Show("Task Complete!");
+                progressBar1.Value = 0;
+            }
+        }
+
+
+
 
 
 
@@ -1741,12 +1778,18 @@ namespace WindowsFormsApp1
 
                 label74.Text = tWal2.ToString();
                 label71.Text = tAp1.ToString();
-                label75.Text = tAp1.ToString();
-                
+
+                label75.Text = Ap1.ToString();
+                label42.Text = KetteAP1_5.ToString();
+               
+          
+                label75.Text = Ap1.ToString();        // AP1 Status
+                label42.Text = KetteAP1_5.ToString(); // Kette Status 
+ 
 
                 label70.Text = tAp3.ToString();
                 label69.Text = tKetteAP1_5.ToString();
-                label42.Text = tKetteAP1_5.ToString();
+              
                 label68.Text = tGewicht.ToString();
 
                 macros.SPS_Komm_Send(checkBox9.Checked, checkBox8.Checked, checkBox3.Checked, int.Parse(textBox13.Text), Socet2);
@@ -2124,8 +2167,10 @@ namespace WindowsFormsApp1
             }
 
             ResetArtikelAswahl();
+           
             ResetSonigsten();
 
+            AP3_SN();
 
             DataTable dt = ddsql.DisplaySQLDatai();
 
@@ -2148,6 +2193,8 @@ namespace WindowsFormsApp1
                     tabControl1.SelectedTab = tabPage5;
 
             }
+
+
 
            
         }
@@ -2174,6 +2221,8 @@ namespace WindowsFormsApp1
 
             ResetArtikelAswahl();
             ResetSonigsten();
+
+            AP3_SN();
 
             textBox13.Text = "2";
 
@@ -2216,6 +2265,7 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
+            AP3_SN();
 
             textBox13.Text = "1";
             textBox14.Text = "1";
@@ -2255,6 +2305,8 @@ namespace WindowsFormsApp1
 
             ResetArtikelAswahl();
             ResetSonigsten();
+
+            AP3_SN();
 
             textBox13.Text = "2";
             textBox14.Text = "1";
@@ -2296,6 +2348,8 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
+            AP3_SN();
+
 
             textBox18.Text = "1";
             textBox13.Text = "1";
@@ -2321,6 +2375,8 @@ namespace WindowsFormsApp1
             CheckEBEXIST(label36.Text);
             textBox13.Text = "2";
             textBox14.Text = "1";
+
+            AP3_SN();
 
             if (checkBox14.Checked == false)
             {
@@ -2483,6 +2539,8 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
+            AP3_SN();
+
 
             textBox17.Text = "1";
             textBox13.Text = "1";
@@ -2527,6 +2585,8 @@ namespace WindowsFormsApp1
 
             ResetArtikelAswahl();
             ResetSonigsten();
+
+            AP3_SN();
 
             textBox13.Text = "2";
 
@@ -2799,19 +2859,7 @@ namespace WindowsFormsApp1
             checkDir();
         }
 
-        private void imgVo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dg4_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-        }
-
-    
-
+ 
         private void RefreschIBCList()
         {
             string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
@@ -2845,19 +2893,21 @@ namespace WindowsFormsApp1
 
             MoveAP3_IBCBAC();
             MoveAP2_AP3();
-            MoveAP1_AP2();
+           // MoveAP1_AP2();
 
             string from, to;
             string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
             int x = new System.IO.DirectoryInfo(destPath).GetFiles().Length;
             int fileCount = Directory.GetFiles(destPath, "*.jpg").Length;
 
+
+
             RefreschIBCList();
 
             for (int i = 0; i < fileCount; i++)
             {
                 from = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\" + dg4.Rows[i].Cells[0].Value.ToString();
-                to = @"C:\Users\Aufschrauberportal\AWICO\AP1\" + dg4.Rows[i].Cells[0].Value.ToString();
+                to = @"C:\Users\Aufschrauberportal\AWICO\AP2\" + dg4.Rows[i].Cells[0].Value.ToString();
 
                 File.Move(from, to); // Try to move
             }
@@ -2887,13 +2937,12 @@ namespace WindowsFormsApp1
         }
 
         private void MoveAP2_AP3()
-
         {
             {
 
                 try
                 {
-                    string dest = @"C:\Users\Aufschrauberportal\AWICO\AP3";
+                    string dest = @"C:\Users\Aufschrauberportal\AWICO\AP3\";
                     foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP2\"))
                     {
                         string destFile = Path.Combine(dest, Path.GetFileName(file));
@@ -2906,7 +2955,6 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show(e.ToString());
                 }
-
             }
 
 
@@ -2921,27 +2969,32 @@ namespace WindowsFormsApp1
             return Path.Combine(fDir, String.Concat(Prefix, fName, fExt));
         }
 
+        private void AP3_SN()
+        {
+            
+               foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
+               {
+                   string Newfilename = AddPrefix(file, lbSn.Text);
+                   File.Move(file, Newfilename);
+
+               }
+             
+        }
+
         private void MoveAP3_IBCBAC()
 
         { 
 
             try
                 {
+                //Adding SN to EB
+                   string dest = @"C:\Users\Aufschrauberportal\AWICO\Technik - IBC BAK\";
 
-                   string dest = @"C:\Users\Aufschrauberportal\AWICO\IBC BAK";
+           
 
-                   foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
+                //Move AP3 to IBC BACK
+                foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
                     {
-                       string Newfilename = AddPrefix(file, lbSn.Text);
-                       File.Move(file, Newfilename);
-    
-                     }
-
-
-
-                    foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
-                    {
-                        
 
                         string destFile = Path.Combine(dest, Path.GetFileName(file));
                         if (!File.Exists(destFile))
@@ -3005,10 +3058,6 @@ namespace WindowsFormsApp1
             }
         }
 
-     
-
-  
-
         private void btGoto_Click(object sender, EventArgs e)
         {
             Process.Start(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\");
@@ -3032,28 +3081,32 @@ namespace WindowsFormsApp1
 
         }
 
-        private void groupBox18_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void PictureBoxLive_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void button10_Click_1(object sender, EventArgs e)
         {
+            
             Hahhnerkenung();
+            
         }
+
+        private void BildQuality()
+        {
+            float ShVO, ShVU, ShHO, ShHU;
+            macros.ImageQualityTest(out ShHU, out ShVU, out ShVO, out ShHO);
+
+            label88.Text = ShVO.ToString();
+            label90.Text = ShVU.ToString();
+            label89.Text = ShHO.ToString();
+            label91.Text = ShHU.ToString();
+        }
+
 
         private void Hahhnerkenung()
         {
+           
+
+
             bool hahnVU, hahnHU;
 
             macros.HahnerkennungMain(out hahnVU, out hahnHU);
@@ -3085,7 +3138,7 @@ namespace WindowsFormsApp1
 
             }
 
-            if ((hahnVU && false) && (hahnHU == false))
+            if ((hahnVU == false) && (hahnHU == false))
             {
                 checkBox7.BackColor = Color.Red;
             }
@@ -3094,10 +3147,17 @@ namespace WindowsFormsApp1
                 checkBox7.BackColor = Color.Gray;
             }
 
+
+          
+            
+           
+            panel2.BackColor = Color.Yellow;
+            button10.BackColor = Color.Green;
+
+          
         }
 
     
-
 
         private void timer3_Tick(object sender, EventArgs e)
         {
@@ -3106,19 +3166,18 @@ namespace WindowsFormsApp1
             if (label53.Text == "4")
 
             {
-               // BarcodeSuche();
+                // BarcodeSuche();
+              
                 Hahhnerkenung();
 
-
-                if (cbMoveBild.Checked == true)
+                if (cbbildQuality.Checked == true)
                 {
-                    MoveBilder();
+                    BildQuality();
                 }
 
-                timer3.Enabled = false;
-            }
 
-         
+                timer3.Enabled = false;
+            }  
         }
 
         private void checkDir()
@@ -3164,9 +3223,40 @@ namespace WindowsFormsApp1
             Einschalt();
         }
 
-        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        private void cbbildQuality_CheckedChanged(object sender, EventArgs e)
         {
+            if(cbbildQuality.Checked == true)
+            {
+                label88.Visible = true;
+                label89.Visible = true;
+                label90.Visible = true;
+                label91.Visible = true;
 
+            }
+
+            if (cbbildQuality.Checked == false)
+            {
+                label88.Visible = false;
+                label89.Visible = false;
+                label90.Visible = false;
+                label91.Visible = false;
+
+            }
+
+        }
+
+        private void label42_TextChanged(object sender, EventArgs e)
+        {
+            if  (label42.Text == "1")
+               
+                {
+                    MoveBilder();
+                }
+        }
+
+        private void button22_Click_1(object sender, EventArgs e)
+        {
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void ConnSQL()
@@ -3175,8 +3265,7 @@ namespace WindowsFormsApp1
             toolStripStatusLabel7.BackColor = Color.LightGreen;
         }
 
-    
-
+   
         private void dataGridView10_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             ID = Convert.ToInt32(dataGridView10.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -3240,9 +3329,6 @@ namespace WindowsFormsApp1
             Cursor = Cursors.Default;
 
         }
-
- 
-        
 
     }
 

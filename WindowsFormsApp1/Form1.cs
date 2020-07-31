@@ -27,9 +27,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
 
-        NullableRef<AvlNet.Image> image = AvlNet.Nullable.Create<AvlNet.Image>();
-        NullableRef<AvlNet.Image> image2 = AvlNet.Nullable.Create<AvlNet.Image>();
-        NullableRef<AvlNet.Image> image3 = AvlNet.Nullable.Create<AvlNet.Image>();
+    
 
         DataSet ds = new DataSet();
         DataSet ds2 = new DataSet();
@@ -48,10 +46,7 @@ namespace WindowsFormsApp1
         int? Socet1, Socet2, Socet3;
         private ProgramMacrofilters macros;
 
-        private readonly string camIP = "192.168.0.187";
-        string CamIP = "192.168.0.186", CamIP2 = "192.168.0.187";
-        long? BildID, BildID2, timebild, timebild2;
-        bool a1, a2;
+      
         int ID = 0;
         int flag = 0;
 
@@ -59,25 +54,30 @@ namespace WindowsFormsApp1
         IntPtr m_hDisplayWindow2;
         IntPtr m_hDisplayWindow3;
         IntPtr m_hDisplayWindow4;
+        IntPtr m_hDisplayWindow5;
 
         CCamera m_pCamera;
         CCamera2 m_pCamera2;
         CCamera3 m_pCamera3;
         CCamera4 m_pCamera4;
+        CCamera5 m_pCamera5;
 
 
         LvSystem m_pSystem;
         LvSystem m_pSystem2;
         LvSystem m_pSystem3;
         LvSystem m_pSystem4;
+        LvSystem m_pSystem5;
 
-        DD_Xml ddXml = new DD_Xml();
+       
         DD_Sql ddsql = new DD_Sql();
         DD_FrontEnd ddfront = new DD_FrontEnd();
 
-        DD_AP3 dd_ap3 = new DD_AP3();
+       
 
         BackgroundWorker backgroundWorker1 = new BackgroundWorker();
+
+
 
         public Form1()
         {
@@ -98,6 +98,7 @@ namespace WindowsFormsApp1
             m_pSystem2 = null;
             m_pSystem3 = null;
             m_pSystem4 = null;
+            m_pSystem5 = null;
 
 
             LvLibrary.ThrowErrorEnable = true;
@@ -107,6 +108,7 @@ namespace WindowsFormsApp1
             m_hDisplayWindow2 = pictureBox2.Handle;
             m_hDisplayWindow4 = pbH_0.Handle;
             m_hDisplayWindow3 = pbH_U.Handle;
+            m_hDisplayWindow5 = pb_DE.Handle;
 
             try
             {
@@ -116,11 +118,13 @@ namespace WindowsFormsApp1
                 LvSystem.Open("", ref m_pSystem2);
                 LvSystem.Open("", ref m_pSystem3);
                 LvSystem.Open("", ref m_pSystem4);
+                LvSystem.Open("", ref m_pSystem5);
 
                 m_pCamera = new CCamera();
                 m_pCamera2 = new CCamera2();
                 m_pCamera3 = new CCamera3();
                 m_pCamera4 = new CCamera4();
+                m_pCamera5 = new CCamera5();
                 Cursor = Cursors.Default;
 
             }
@@ -140,10 +144,12 @@ namespace WindowsFormsApp1
             dataGridView11.DataSource = dt2;
             ConnSQL();
 
+
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
-            backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.RunWorkerCompleted += bgWorker_WorkComplete;
+            backgroundWorker1.WorkerReportsProgress = true;
+            backgroundWorker1.WorkerSupportsCancellation = true;
 
         }
 
@@ -161,14 +167,25 @@ namespace WindowsFormsApp1
             {
                 Thread.Sleep(100);
                 backgroundWorker1.ReportProgress(i);
-                
+
+                if (backgroundWorker1.CancellationPending)
+                {
+                    e.Cancel = true;
+                    backgroundWorker1.ReportProgress(0);
+                    return;
+                }
+
             }
         }
+
 
         private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
+
+         
         }
+
 
         private void bgWorker_WorkComplete(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -179,13 +196,10 @@ namespace WindowsFormsApp1
             }
             else
             {
-                MessageBox.Show("Task Complete!");
+                
                 progressBar1.Value = 0;
             }
         }
-
-
-
 
 
 
@@ -1832,7 +1846,7 @@ namespace WindowsFormsApp1
                 m_pCamera2.Triggr();
                 m_pCamera3.Triggr();
                 m_pCamera4.Triggr();
-
+                
                 timer3.Enabled = true;
 
             }
@@ -2732,6 +2746,7 @@ namespace WindowsFormsApp1
             m_pCamera2.StartAcquisition();
             m_pCamera3.StartAcquisition();
             m_pCamera4.StartAcquisition();
+            m_pCamera5.StartAcquisition();
         }
 
         private void StartAcqui()
@@ -2740,6 +2755,7 @@ namespace WindowsFormsApp1
             m_pCamera2.StartAcquisition();
             m_pCamera3.StartAcquisition();
             m_pCamera4.StartAcquisition();
+            m_pCamera5.StartAcquisition();
         }
 
         private void button28_Click_1(object sender, EventArgs e)
@@ -2759,6 +2775,7 @@ namespace WindowsFormsApp1
                 m_pCamera2.Triggr();
                 m_pCamera3.Triggr();
                 m_pCamera4.Triggr();
+                m_pCamera5.Triggr();
 
             }
             RefreschIBCList();
@@ -3085,16 +3102,25 @@ namespace WindowsFormsApp1
 
         private void button10_Click_1(object sender, EventArgs e)
         {
-            
+            checkBox7.BackColor = Color.Gray;
+            checkBox8.BackColor = Color.Gray;
+            checkBox9.BackColor = Color.Gray;
             Hahhnerkenung();
-            
+            Thread HahnerkenungThread = new Thread(Hahhnerkenung);
+            HahnerkenungThread.Start();
+
+            backgroundWorker1.RunWorkerAsync();
+
+
+         
+
+
         }
 
         private void BildQuality()
         {
             float ShVO, ShVU, ShHO, ShHU;
             macros.ImageQualityTest(out ShHU, out ShVU, out ShVO, out ShHO);
-
             label88.Text = ShVO.ToString();
             label90.Text = ShVU.ToString();
             label89.Text = ShHO.ToString();
@@ -3105,22 +3131,24 @@ namespace WindowsFormsApp1
         private void Hahhnerkenung()
         {
            
-
-
             bool hahnVU, hahnHU;
 
+           
             macros.HahnerkennungMain(out hahnVU, out hahnHU);
+
+
 
             if (hahnVU == true)
             {
                 checkBox8.BackColor = Color.Aqua;
+               
 
                 if (cbHahnAuto.Checked == true)
                 {
                     checkBox8.Checked = true;
                     checkBox3.Checked = true;
                     tabControl1.SelectedTab = tabPage2;
-
+                 
                 }
             }
 
@@ -3129,6 +3157,7 @@ namespace WindowsFormsApp1
             {
                 checkBox9.BackColor = Color.Aqua;
 
+                
                 if (cbHahnAuto.Checked == true)
                 {
                     checkBox9.Checked = true;
@@ -3140,21 +3169,24 @@ namespace WindowsFormsApp1
 
             if ((hahnVU == false) && (hahnHU == false))
             {
+              
                 checkBox7.BackColor = Color.Red;
+                
             }
             else
             {
                 checkBox7.BackColor = Color.Gray;
+               
             }
 
 
-          
-            
-           
-            panel2.BackColor = Color.Yellow;
-            button10.BackColor = Color.Green;
+            if (backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.CancelAsync();
+            }
 
-          
+
+
         }
 
     
@@ -3167,7 +3199,7 @@ namespace WindowsFormsApp1
 
             {
                 // BarcodeSuche();
-              
+
                 Hahhnerkenung();
 
                 if (cbbildQuality.Checked == true)
@@ -3223,28 +3255,7 @@ namespace WindowsFormsApp1
             Einschalt();
         }
 
-        private void cbbildQuality_CheckedChanged(object sender, EventArgs e)
-        {
-            if(cbbildQuality.Checked == true)
-            {
-                label88.Visible = true;
-                label89.Visible = true;
-                label90.Visible = true;
-                label91.Visible = true;
-
-            }
-
-            if (cbbildQuality.Checked == false)
-            {
-                label88.Visible = false;
-                label89.Visible = false;
-                label90.Visible = false;
-                label91.Visible = false;
-
-            }
-
-        }
-
+      
         private void label42_TextChanged(object sender, EventArgs e)
         {
             if  (label42.Text == "1")
@@ -3256,7 +3267,21 @@ namespace WindowsFormsApp1
 
         private void button22_Click_1(object sender, EventArgs e)
         {
+            // backgroundWorker1.RunWorkerAsync();
+            if (backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.CancelAsync();
+            }
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
             backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void button22_Click_2(object sender, EventArgs e)
+        {
+            BildQuality();
         }
 
         private void ConnSQL()
@@ -3295,6 +3320,10 @@ namespace WindowsFormsApp1
           //  GC.Collect(); //Garbage Collector Call
         }
 
+        private void pb_DE_Paint(object sender, PaintEventArgs e)
+        {
+            m_pCamera5.Repaint();
+        }
 
         private void textBox10_Enter(object sender, EventArgs e)
         {

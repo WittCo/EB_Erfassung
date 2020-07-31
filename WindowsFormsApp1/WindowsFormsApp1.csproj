@@ -128,6 +128,7 @@
     <Compile Include="Bilder_AP3.Designer.cs">
       <DependentUpon>Bilder_AP3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kam_D_E.cs" />
     <Compile Include="DD_AP3.cs" />
     <Compile Include="Kam_H_U.cs" />
     <Compile Include="Kam_H_O.cs" />

@@ -1,20 +1,19 @@
 ﻿<ViewSets Current="Custom1">
   <ViewSet Name="Custom1">
     <HSplit>
-      <Views Width="0.998" Height="0.496">
+      <Views Width="1.000" Height="1.000">
         <HmiView />
       </Views>
       <VSplit>
-        <Views Width="0.496" Height="0.496">
+        <Views Width="1.000" Height="1.000">
           <View Type="TextView">
-            <Output Name="inSocketTestDatei" Macro="SPS_Komm_Read" Start="Main" Instance="0" />
-            <Output Name="inSocket" Macro="SPS_Komm_Read" Start="Main" Instance="0" />
-            <Output Name="con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85" Macro="Main" Start="Main" Instance="0" />
-            <Output Name="con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48" Macro="Main" Start="Main" Instance="0" />
-            <Output Name="con_e14deda4_2142_4fc1_9b43_b09e4363d95b" Macro="Main" Start="Main" Instance="0" />
+            <Input Name="outShHU" Index="5" Macro="ImageQualityTest" Start="Main" Instance="0" />
+            <Input Name="outShVU" Index="5" Macro="ImageQualityTest" Start="Main" Instance="0" />
+            <Input Name="outShVO" Index="5" Macro="ImageQualityTest" Start="Main" Instance="0" />
+            <Input Name="outShHO" Index="5" Macro="ImageQualityTest" Start="Main" Instance="0" />
           </View>
         </Views>
-        <Views Width="0.498" Height="0.496">
+        <Views Width="1.000" Height="1.000">
           <View Type="TextView">
             <Output Name="con_1a9adb54_b5c7_443d_844d_868477e7424b" Macro="Main" Start="Main" Instance="0" />
             <Output Name="con_92a7aa0c_d629_47e0_aef6_76b7c7b95b1b" Macro="Main" Start="Main" Instance="0" />

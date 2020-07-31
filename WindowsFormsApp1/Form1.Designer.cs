@@ -92,6 +92,8 @@
             this.radioButton40 = new System.Windows.Forms.RadioButton();
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button22 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label91 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
@@ -314,9 +316,7 @@
             this.CheckBilder = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button22 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pb_DE = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -368,6 +368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_DE)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -379,7 +380,7 @@
             this.hilfeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1817, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1884, 24);
             this.menuStrip1.TabIndex = 39;
             this.menuStrip1.Text = "Datei";
             // 
@@ -480,9 +481,9 @@
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel6,
             this.toolStripStatusLabel7});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 815);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1023);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1817, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1884, 22);
             this.statusStrip1.TabIndex = 40;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -791,9 +792,9 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.progressBar1);
+            this.tabPage5.Controls.Add(this.pb_DE);
             this.tabPage5.Controls.Add(this.button22);
-            this.tabPage5.Controls.Add(this.panel2);
+            this.tabPage5.Controls.Add(this.progressBar1);
             this.tabPage5.Controls.Add(this.label91);
             this.tabPage5.Controls.Add(this.label90);
             this.tabPage5.Controls.Add(this.label89);
@@ -828,39 +829,58 @@
             this.tabPage5.Text = "AP 1";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(1713, 768);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(122, 23);
+            this.button22.TabIndex = 96;
+            this.button22.Text = "Bild Quality";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click_2);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(1713, 833);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(121, 23);
+            this.progressBar1.TabIndex = 95;
+            // 
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(1086, 663);
+            this.label91.Location = new System.Drawing.Point(1095, 663);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(0, 13);
+            this.label91.Size = new System.Drawing.Size(13, 13);
             this.label91.TabIndex = 92;
+            this.label91.Text = "3";
             // 
             // label90
             // 
             this.label90.AutoSize = true;
             this.label90.Location = new System.Drawing.Point(64, 663);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(0, 13);
+            this.label90.Size = new System.Drawing.Size(13, 13);
             this.label90.TabIndex = 91;
+            this.label90.Text = "2";
             // 
             // label89
             // 
             this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(1086, 257);
+            this.label89.Location = new System.Drawing.Point(1096, 257);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(0, 13);
+            this.label89.Size = new System.Drawing.Size(13, 13);
             this.label89.TabIndex = 90;
+            this.label89.Text = "4";
             // 
             // label88
             // 
             this.label88.AutoSize = true;
             this.label88.Location = new System.Drawing.Point(64, 257);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(41, 13);
+            this.label88.Size = new System.Drawing.Size(13, 13);
             this.label88.TabIndex = 89;
-            this.label88.Text = "ddsdsd";
-            this.label88.Visible = false;
+            this.label88.Text = "1";
             // 
             // cbbildQuality
             // 
@@ -871,7 +891,6 @@
             this.cbbildQuality.TabIndex = 88;
             this.cbbildQuality.Text = "Bild Quality Check";
             this.cbbildQuality.UseVisualStyleBackColor = true;
-            this.cbbildQuality.CheckedChanged += new System.EventHandler(this.cbbildQuality_CheckedChanged);
             // 
             // label87
             // 
@@ -915,7 +934,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1712, 772);
+            this.button10.Location = new System.Drawing.Point(1712, 803);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(122, 23);
             this.button10.TabIndex = 83;
@@ -949,14 +968,14 @@
             this.btGoto.Name = "btGoto";
             this.btGoto.Size = new System.Drawing.Size(75, 23);
             this.btGoto.TabIndex = 79;
-            this.btGoto.Text = "button9";
+            this.btGoto.Text = "AP1 Bilder";
             this.btGoto.UseVisualStyleBackColor = true;
             this.btGoto.Click += new System.EventHandler(this.btGoto_Click);
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(1788, 629);
+            this.label33.Location = new System.Drawing.Point(1789, 629);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(41, 13);
             this.label33.TabIndex = 74;
@@ -975,7 +994,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1720, 629);
+            this.label9.Location = new System.Drawing.Point(1717, 629);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 72;
@@ -998,6 +1017,7 @@
             this.dg4.Name = "dg4";
             this.dg4.Size = new System.Drawing.Size(552, 101);
             this.dg4.TabIndex = 67;
+            this.dg4.Visible = false;
             this.dg4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg4_CellDoubleClick);
             // 
             // button2
@@ -3350,35 +3370,21 @@
             this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // panel2
+            // pb_DE
             // 
-            this.panel2.Location = new System.Drawing.Point(1140, 396);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(152, 61);
-            this.panel2.TabIndex = 93;
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(18, 348);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(75, 23);
-            this.button22.TabIndex = 94;
-            this.button22.Text = "button22";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click_1);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(8, 307);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(151, 23);
-            this.progressBar1.TabIndex = 95;
+            this.pb_DE.Location = new System.Drawing.Point(1140, 215);
+            this.pb_DE.Name = "pb_DE";
+            this.pb_DE.Size = new System.Drawing.Size(442, 461);
+            this.pb_DE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_DE.TabIndex = 97;
+            this.pb_DE.TabStop = false;
+            this.pb_DE.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DE_Paint);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1817, 837);
+            this.ClientSize = new System.Drawing.Size(1884, 1045);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -3457,6 +3463,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_DE)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3742,9 +3749,9 @@
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button22;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.PictureBox pb_DE;
     }
 }
 

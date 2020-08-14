@@ -238,9 +238,9 @@ namespace WindowsFormsApp1
                 pDevice.SetEnum(LvDeviceFtr.GevSupportedOptionSelector, (UInt32)LvGevSupportedOptionSelector.UserDefinedName);
                 // --- Stream Channel ---
                 pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
-                pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 1500);
-                pDevice.SetInt(LvDeviceFtr.GevSCPD, 8000);
-                pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
+                pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 500);
+                pDevice.SetInt(LvDeviceFtr.GevSCPD, 15000);
+               
                 // --- User Set Control ---
                 pDevice.SetEnum(LvDeviceFtr.UserSetSelector, (UInt32)LvUserSetSelector.Default);
                 // --- Color Transformation Control ---
@@ -329,7 +329,7 @@ namespace WindowsFormsApp1
                 pDevice.SetEnum(LvDeviceFtr.LvUniBalanceRatioSelector, (UInt32)LvUniBalanceRatioSelector.Blue);
                 pDevice.SetFloat(LvDeviceFtr.LvUniBalanceRatio, 1.000000);
                 pDevice.SetEnum(LvDeviceFtr.LvUniBalanceRatioSelector, (UInt32)LvUniBalanceRatioSelector.Red);
-                pDevice.SetEnum(LvDeviceFtr.LvUniBalanceWhiteAuto, (UInt32)LvUniBalanceWhiteAuto.Off);
+                pDevice.SetEnum(LvDeviceFtr.LvUniBalanceWhiteAuto, (UInt32)LvUniBalanceWhiteAuto.Once);
                 // --- Color Transformation Control ---
                 pDevice.SetEnum(LvDeviceFtr.LvUniColorTransformationMode, (UInt32)LvUniColorTransformationMode.Generated);
                 pDevice.SetEnum(LvDeviceFtr.LvUniColorTransformationSelector, (UInt32)LvUniColorTransformationSelector.RGBtoRGB);
@@ -348,7 +348,9 @@ namespace WindowsFormsApp1
                 for (int i = 0; i < NumberOfBuffers; i++)
                     m_pStream.OpenBuffer((IntPtr)0, 0, (IntPtr)0, 0, ref m_Buffers[i]); 
                 m_pStream.SetInt32(LvStreamFtr.LvPostponeQueueBuffers, 3);
-                m_pStream.OpenRenderer(ref m_pRenderer);                      
+
+                m_pStream.OpenRenderer(ref m_pRenderer);
+                m_pRenderer.SetEnum(LvRendererFtr.LvRenderType, (UInt32)LvRenderType.ScaleToFit);
                 m_pRenderer.SetWindow(m_hDisplayWnd);                     
 
                 m_pEvent.OnEventNewBuffer += new LvEventNewBufferHandler(NewBufferEventHandler); 
@@ -494,6 +496,15 @@ namespace WindowsFormsApp1
             m_pDevice.SetEnum(LvDeviceFtr.LvUniPixelFormat, UniPixelFormat);
         }
 
+        public void SaveImg(LvNewBufferEventArgs e)
+        {
+            string name = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
+
+            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\DE" + name + ".jpg", 100);
+            // e.Buffer.SaveImageToBmpFile (@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HO" + name + ".bmp");
+
+        }
+
         //-----------------------------------------------------------------------------
 
         public void Repaint()
@@ -554,6 +565,7 @@ namespace WindowsFormsApp1
 
                 m_pRenderer.DisplayImage(e.Buffer);
                 e.Buffer.Queue();
+                SaveImg(e);
             }
             catch (LvException)
             {
@@ -566,6 +578,8 @@ namespace WindowsFormsApp1
             m_pDevice.CmdExecute(LvDeviceFtr.TriggerSoftware);
 
         }
+
+
 
         //-----------------------------------------------------------------------------
 

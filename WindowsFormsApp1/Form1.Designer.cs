@@ -380,7 +380,7 @@
             this.hilfeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1884, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1908, 24);
             this.menuStrip1.TabIndex = 39;
             this.menuStrip1.Text = "Datei";
             // 
@@ -483,7 +483,7 @@
             this.toolStripStatusLabel7});
             this.statusStrip1.Location = new System.Drawing.Point(0, 1023);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1884, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1908, 22);
             this.statusStrip1.TabIndex = 40;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -598,9 +598,10 @@
             this.tabPage6.Controls.Add(this.radioButton38);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1861, 904);
+            this.tabPage6.Size = new System.Drawing.Size(1900, 904);
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Dienstleistung";
+            this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
             // groupBox17
             // 
@@ -620,7 +621,7 @@
             this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox17.Location = new System.Drawing.Point(1488, 3);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(405, 812);
+            this.groupBox17.Size = new System.Drawing.Size(404, 812);
             this.groupBox17.TabIndex = 158;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Fertig Dienstleistung";
@@ -824,7 +825,7 @@
             this.tabPage5.Controls.Add(this.pictureBox2);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1861, 904);
+            this.tabPage5.Size = new System.Drawing.Size(1900, 904);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "AP 1";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1078,9 +1079,9 @@
             // 
             // pbH_0
             // 
-            this.pbH_0.Location = new System.Drawing.Point(638, 3);
+            this.pbH_0.Location = new System.Drawing.Point(639, 2);
             this.pbH_0.Name = "pbH_0";
-            this.pbH_0.Size = new System.Drawing.Size(442, 418);
+            this.pbH_0.Size = new System.Drawing.Size(441, 419);
             this.pbH_0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbH_0.TabIndex = 59;
             this.pbH_0.TabStop = false;
@@ -1153,7 +1154,7 @@
             this.tabPage3.Controls.Add(this.button13);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1861, 904);
+            this.tabPage3.Size = new System.Drawing.Size(1900, 904);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Einstelungen";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1652,7 +1653,7 @@
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1861, 904);
+            this.tabPage4.Size = new System.Drawing.Size(1900, 904);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Lohn Umbau";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1817,7 +1818,7 @@
             this.Lohnarbeit.Controls.Add(this.dataGridView6);
             this.Lohnarbeit.Location = new System.Drawing.Point(4, 25);
             this.Lohnarbeit.Name = "Lohnarbeit";
-            this.Lohnarbeit.Size = new System.Drawing.Size(1861, 904);
+            this.Lohnarbeit.Size = new System.Drawing.Size(1900, 904);
             this.Lohnarbeit.TabIndex = 2;
             this.Lohnarbeit.Text = "Lohn Reinigung";
             this.Lohnarbeit.UseVisualStyleBackColor = true;
@@ -1979,7 +1980,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1861, 904);
+            this.tabPage2.Size = new System.Drawing.Size(1900, 904);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Artikel Auswahl";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3079,7 +3080,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1861, 904);
+            this.tabPage1.Size = new System.Drawing.Size(1900, 904);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3355,7 +3356,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1869, 933);
+            this.tabControl1.Size = new System.Drawing.Size(1908, 933);
             this.tabControl1.TabIndex = 99;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -3372,10 +3373,9 @@
             // 
             // pb_DE
             // 
-            this.pb_DE.Location = new System.Drawing.Point(1140, 215);
+            this.pb_DE.Location = new System.Drawing.Point(1139, 3);
             this.pb_DE.Name = "pb_DE";
-            this.pb_DE.Size = new System.Drawing.Size(442, 461);
-            this.pb_DE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_DE.Size = new System.Drawing.Size(441, 419);
             this.pb_DE.TabIndex = 97;
             this.pb_DE.TabStop = false;
             this.pb_DE.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DE_Paint);
@@ -3384,7 +3384,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1884, 1045);
+            this.ClientSize = new System.Drawing.Size(1908, 1045);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);

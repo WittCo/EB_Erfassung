@@ -247,9 +247,9 @@ namespace WindowsFormsApp1
                 pDevice.SetEnum(LvDeviceFtr.GevSupportedOptionSelector, (UInt32)LvGevSupportedOptionSelector.UserDefinedName);
                 // --- Stream Channel ---
                 pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
-                pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 1000);
-                pDevice.SetInt(LvDeviceFtr.GevSCPD, 60000);
-                pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
+                pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 500);
+                pDevice.SetInt(LvDeviceFtr.GevSCPD, 15000);
+           
                 // --- User Set Control ---
                 pDevice.SetEnum(LvDeviceFtr.UserSetSelector, (UInt32)LvUserSetSelector.Default);
                 // --- Color Transformation Control ---

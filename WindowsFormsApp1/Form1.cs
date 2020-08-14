@@ -110,6 +110,7 @@ namespace WindowsFormsApp1
             m_hDisplayWindow3 = pbH_U.Handle;
             m_hDisplayWindow5 = pb_DE.Handle;
 
+
             try
             {
                 Cursor = Cursors.WaitCursor;
@@ -350,26 +351,7 @@ namespace WindowsFormsApp1
 
 
 
-           /* if (label16.Text == "")
-            { 
-            }
-            else
-            {
-                String searchValue = label16.Text;
-                int rowIndex = -1;
-                foreach (DataGridViewRow row2 in dataGridView3.Rows)
-                {
-                    if (row2.Cells[0].Value.ToString().Equals(searchValue))
-                    {
-                        rowIndex = row2.Index;
-                        break;
-                    }
-                }
-
-              //  dataGridView3.Rows[rowIndex].Selected = true;
-              //  dataGridView3.CurrentCell = dataGridView3[0, rowIndex];
-            }
-           */
+         
         }
 
         private void EBsucheKunde(String EBNum, out string VEA2, out string Kunde, out string Lieferdatum)
@@ -2180,11 +2162,13 @@ namespace WindowsFormsApp1
                 Mehrartikel(0, label11.Text, textBox12.Text);
             }
 
+            AP3_SN(label11.Text, lbSn.Text);
+
             ResetArtikelAswahl();
            
             ResetSonigsten();
 
-            AP3_SN();
+           
 
             DataTable dt = ddsql.DisplaySQLDatai();
 
@@ -2231,12 +2215,12 @@ namespace WindowsFormsApp1
             }
 
 
-
+            AP3_SN(label11.Text, lbSn.Text);
 
             ResetArtikelAswahl();
             ResetSonigsten();
 
-            AP3_SN();
+         
 
             textBox13.Text = "2";
 
@@ -2275,11 +2259,12 @@ namespace WindowsFormsApp1
 
 
 
+            AP3_SN(label41.Text, lbSn.Text);
 
             ResetArtikelAswahl();
             ResetSonigsten();
 
-            AP3_SN();
+           
 
             textBox13.Text = "1";
             textBox14.Text = "1";
@@ -2315,12 +2300,13 @@ namespace WindowsFormsApp1
             }
 
 
+            AP3_SN(label41.Text, lbSn.Text);
 
 
             ResetArtikelAswahl();
             ResetSonigsten();
 
-            AP3_SN();
+           
 
             textBox13.Text = "2";
             textBox14.Text = "1";
@@ -2357,12 +2343,12 @@ namespace WindowsFormsApp1
                 Mehrartikel(0, label36.Text, textBox18.Text);
             }
 
-
+            AP3_SN(label36.Text, lbSn.Text);
 
             ResetArtikelAswahl();
             ResetSonigsten();
 
-            AP3_SN();
+          
 
 
             textBox18.Text = "1";
@@ -2390,7 +2376,7 @@ namespace WindowsFormsApp1
             textBox13.Text = "2";
             textBox14.Text = "1";
 
-            AP3_SN();
+            AP3_SN(label36.Text, lbSn.Text);
 
             if (checkBox14.Checked == false)
             {
@@ -2548,12 +2534,12 @@ namespace WindowsFormsApp1
             }
 
 
-
+            AP3_SN(label66.Text, lbSn.Text);
 
             ResetArtikelAswahl();
             ResetSonigsten();
 
-            AP3_SN();
+          
 
 
             textBox17.Text = "1";
@@ -2596,11 +2582,12 @@ namespace WindowsFormsApp1
             }
 
 
+            AP3_SN(label66.Text, lbSn.Text);
 
             ResetArtikelAswahl();
             ResetSonigsten();
 
-            AP3_SN();
+            
 
             textBox13.Text = "2";
 
@@ -2787,6 +2774,9 @@ namespace WindowsFormsApp1
         {
             m_pCamera.CloseCamera();
             m_pCamera2.CloseCamera();
+            m_pCamera3.CloseCamera();
+            m_pCamera4.CloseCamera();
+            m_pCamera5.CloseCamera();
 
         }
 
@@ -2826,6 +2816,7 @@ namespace WindowsFormsApp1
             m_pCamera2.Triggr();
             m_pCamera3.Triggr();
             m_pCamera4.Triggr();
+            m_pCamera5.Triggr();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -2839,6 +2830,9 @@ namespace WindowsFormsApp1
             toolStripStatusLabel4.BackColor = Color.LightYellow;
             m_pCamera4.OpenCamera(m_hDisplayWindow4, m_pSystem4);
             toolStripStatusLabel5.BackColor = Color.LightYellow;
+            m_pCamera5.OpenCamera(m_hDisplayWindow5, m_pSystem5);
+            toolStripStatusLabel5.BackColor = Color.LightYellow;
+
             StartAcqui();
             toolStripStatusLabel2.BackColor = Color.LightGreen;
             toolStripStatusLabel3.BackColor = Color.LightGreen;
@@ -2986,12 +2980,12 @@ namespace WindowsFormsApp1
             return Path.Combine(fDir, String.Concat(Prefix, fName, fExt));
         }
 
-        private void AP3_SN()
+        private void AP3_SN(string ArtikelNr, String SN)
         {
             
                foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
                {
-                   string Newfilename = AddPrefix(file, lbSn.Text);
+                   string Newfilename = AddPrefix(file, lbSn.Text + "_" + ArtikelNr +"_");
                    File.Move(file, Newfilename);
 
                }
@@ -3012,7 +3006,6 @@ namespace WindowsFormsApp1
                 //Move AP3 to IBC BACK
                 foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
                     {
-
                         string destFile = Path.Combine(dest, Path.GetFileName(file));
                         if (!File.Exists(destFile))
                             File.Move(file, destFile);
@@ -3106,8 +3099,8 @@ namespace WindowsFormsApp1
             checkBox8.BackColor = Color.Gray;
             checkBox9.BackColor = Color.Gray;
             Hahhnerkenung();
-            Thread HahnerkenungThread = new Thread(Hahhnerkenung);
-            HahnerkenungThread.Start();
+           // Thread HahnerkenungThread = new Thread(Hahhnerkenung);
+           // HahnerkenungThread.Start();
 
             backgroundWorker1.RunWorkerAsync();
 
@@ -3148,7 +3141,7 @@ namespace WindowsFormsApp1
                     checkBox8.Checked = true;
                     checkBox3.Checked = true;
                     tabControl1.SelectedTab = tabPage2;
-                 
+
                 }
             }
 
@@ -3186,7 +3179,6 @@ namespace WindowsFormsApp1
             }
 
 
-
         }
 
     
@@ -3195,7 +3187,7 @@ namespace WindowsFormsApp1
         {
             checkDir();
 
-            if (label53.Text == "4")
+            if (label53.Text == "5")
 
             {
                 // BarcodeSuche();
@@ -3230,6 +3222,7 @@ namespace WindowsFormsApp1
             m_pCamera2.StopAcquisition();
             m_pCamera3.StopAcquisition();
             m_pCamera4.StopAcquisition();
+            m_pCamera5.StopAcquisition();
 
             m_pCamera.CloseCamera();
             toolStripStatusLabel2.BackColor = Color.LightYellow;
@@ -3318,6 +3311,13 @@ namespace WindowsFormsApp1
           //      ToConsole("Bild null");
           //  macros.ResetRectifyFusion();
           //  GC.Collect(); //Garbage Collector Call
+        }
+
+      
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void pb_DE_Paint(object sender, PaintEventArgs e)

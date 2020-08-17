@@ -3054,7 +3054,7 @@ namespace WindowsFormsApp1
         {
             RefreschIBCList();
             bool DC;
-            if (dg4.Rows.Count == 4)
+            if (dg4.Rows.Count == 5)
             {
                 CheckBilder.Enabled = false;
                
@@ -3244,7 +3244,6 @@ namespace WindowsFormsApp1
             DrawDienstButtons();
             ResetSonigsten();
             ResetArtikelAswahl();
-
             Einschalt();
         }
 

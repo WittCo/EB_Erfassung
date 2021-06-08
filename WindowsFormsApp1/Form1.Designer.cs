@@ -92,6 +92,9 @@
             this.radioButton40 = new System.Windows.Forms.RadioButton();
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label92 = new System.Windows.Forms.Label();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.pb_DE = new System.Windows.Forms.PictureBox();
             this.button22 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label91 = new System.Windows.Forms.Label();
@@ -316,7 +319,6 @@
             this.CheckBilder = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.pb_DE = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -328,6 +330,7 @@
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_DE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbH_U)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbH_0)).BeginInit();
@@ -368,7 +371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_DE)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -793,6 +795,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label92);
+            this.tabPage5.Controls.Add(this.textBox20);
             this.tabPage5.Controls.Add(this.pb_DE);
             this.tabPage5.Controls.Add(this.button22);
             this.tabPage5.Controls.Add(this.progressBar1);
@@ -829,6 +833,32 @@
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "AP 1";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(9, 315);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(56, 13);
+            this.label92.TabIndex = 99;
+            this.label92.Text = "GevSCPD";
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(56, 311);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(100, 20);
+            this.textBox20.TabIndex = 98;
+            this.textBox20.Text = "20000";
+            // 
+            // pb_DE
+            // 
+            this.pb_DE.Location = new System.Drawing.Point(1139, 3);
+            this.pb_DE.Name = "pb_DE";
+            this.pb_DE.Size = new System.Drawing.Size(441, 419);
+            this.pb_DE.TabIndex = 97;
+            this.pb_DE.TabStop = false;
+            this.pb_DE.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DE_Paint);
             // 
             // button22
             // 
@@ -1558,7 +1588,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(112, 140);
+            this.label22.Location = new System.Drawing.Point(113, 109);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(58, 13);
             this.label22.TabIndex = 7;
@@ -1567,7 +1597,7 @@
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(6, 137);
+            this.textBox13.Location = new System.Drawing.Point(7, 102);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 6;
@@ -3371,15 +3401,6 @@
             this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // pb_DE
-            // 
-            this.pb_DE.Location = new System.Drawing.Point(1139, 3);
-            this.pb_DE.Name = "pb_DE";
-            this.pb_DE.Size = new System.Drawing.Size(441, 419);
-            this.pb_DE.TabIndex = 97;
-            this.pb_DE.TabStop = false;
-            this.pb_DE.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_DE_Paint);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3410,6 +3431,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_DE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbH_U)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbH_0)).EndInit();
@@ -3463,7 +3485,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_DE)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3752,6 +3773,8 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.PictureBox pb_DE;
+        private System.Windows.Forms.Label label92;
+        public System.Windows.Forms.TextBox textBox20;
     }
 }
 

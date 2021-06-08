@@ -233,7 +233,7 @@ namespace WindowsFormsApp1
                 // --- Stream Channel ---
                 pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
                 pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 500);
-                pDevice.SetInt(LvDeviceFtr.GevSCPD, 15000);
+                pDevice.SetInt(LvDeviceFtr.GevSCPD, 20000);
                 // --- Color Transformation Control ---
                 pDevice.SetEnum(LvDeviceFtr.ColorTransformationSelector, (UInt32)LvColorTransformationSelector.RGBtoRGB);
                 pDevice.SetBool(LvDeviceFtr.ColorTransformationEnable, true);

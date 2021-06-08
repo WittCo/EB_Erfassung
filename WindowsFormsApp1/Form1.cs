@@ -83,6 +83,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
+            _Form1 = this;
+
             try
             {
                 string avsProjectPath = @"AVS\Program.avproj";
@@ -136,14 +138,14 @@ namespace WindowsFormsApp1
             }
 
 
-            ConnSQL();
-            DataTable dt1 = ddsql.DisplaySQLDatai();
-            DataTable dt2 = ddsql.DisplaySQLDatai();
+          //  ConnSQL();
+          //  DataTable dt1 = ddsql.DisplaySQLDatai();
+          //  DataTable dt2 = ddsql.DisplaySQLDatai();
 
 
-            dataGridView10.DataSource = dt1;
-            dataGridView11.DataSource = dt2;
-            ConnSQL();
+         //   dataGridView10.DataSource = dt1;
+          //  dataGridView11.DataSource = dt2;
+          //  ConnSQL();
 
 
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
@@ -154,6 +156,12 @@ namespace WindowsFormsApp1
 
         }
 
+        public static Form1 _Form1;
+
+        public void update(string message)
+        {
+            textBox20.Text = message;
+        }
 
 
 
@@ -218,8 +226,8 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: Diese Codezeile lädt Daten in die Tabelle "wittEyEDataSet.IBC_EB". Sie können sie bei Bedarf verschieben oder entfernen.
+            Class1 sample = new Class1();
 
-       
         }
 
 
@@ -795,6 +803,9 @@ namespace WindowsFormsApp1
             textBox9.Text = selectedTag;
             FilterArtikel();
             //  MessageBox.Show(result.ToString());
+
+            button6.Enabled = true;
+            button7.Enabled = true;
         }
 
         private void ShowSelektedSoniksten()
@@ -1076,8 +1087,8 @@ namespace WindowsFormsApp1
                 dataGridView8.DataSource = xmlnode;
                 fs.Close();
                 XMLtoTable();
-                DataSet ds5 = ddsql.DisplaySQLDataitoDS();
-                dataGridView12.DataSource = ds5;
+              //  DataSet ds5 = ddsql.DisplaySQLDataitoDS();
+               // dataGridView12.DataSource = ds5;
             }
 
 
@@ -1828,7 +1839,8 @@ namespace WindowsFormsApp1
                 m_pCamera2.Triggr();
                 m_pCamera3.Triggr();
                 m_pCamera4.Triggr();
-                
+                m_pCamera5.Triggr();
+
                 timer3.Enabled = true;
 
             }
@@ -2147,7 +2159,7 @@ namespace WindowsFormsApp1
 
             Serie = 1 + int.Parse(label1.Text);
 
-            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + Serie.ToString("000"));
+          //  ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + Serie.ToString("000"));
 
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
@@ -2170,7 +2182,7 @@ namespace WindowsFormsApp1
 
            
 
-            DataTable dt = ddsql.DisplaySQLDatai();
+          //  DataTable dt = ddsql.DisplaySQLDatai();
 
 
             textBox13.Text = "1";
@@ -2202,7 +2214,7 @@ namespace WindowsFormsApp1
             int nc = NodeCount + 1;
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
-            ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
+           // ddsql.InsertSQLDatei(label16.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2245,7 +2257,7 @@ namespace WindowsFormsApp1
             int nc = NodeCount + 1;
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
 
-            ddsql.InsertSQLDatei(label16.Text, label41.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
+         //   ddsql.InsertSQLDatei(label16.Text, label41.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2287,7 +2299,7 @@ namespace WindowsFormsApp1
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
             int nc = NodeCount + 1;
-            ddsql.InsertSQLDatei(label41.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
+         //   ddsql.InsertSQLDatei(label41.Text, label11.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2331,7 +2343,7 @@ namespace WindowsFormsApp1
 
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
             int nc = NodeCount + 1;
-            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
+           // ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2371,7 +2383,7 @@ namespace WindowsFormsApp1
         private void button12_Click_2(object sender, EventArgs e)
         {
             int nc = NodeCount + 1;
-            ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
+         //   ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
             CheckEBEXIST(label36.Text);
             textBox13.Text = "2";
             textBox14.Text = "1";
@@ -2520,7 +2532,7 @@ namespace WindowsFormsApp1
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
             int nc = NodeCount + 1;
-            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
+         //   ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
@@ -2569,7 +2581,7 @@ namespace WindowsFormsApp1
         {
             string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen//");
             int nc = NodeCount + 1;
-            ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
+          //  ddsql.InsertSQLDatei(label16.Text, label66.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
 
             if (File.Exists(destPath + label16.Text + ".xml") == false)
             {
@@ -2784,7 +2796,7 @@ namespace WindowsFormsApp1
         private void button32_Click(object sender, EventArgs e)
         {
 
-            ConnSQL();
+        //    ConnSQL();
 
         }
 
@@ -3278,7 +3290,7 @@ namespace WindowsFormsApp1
 
         private void ConnSQL()
         {
-            ddsql.ConnSQL();
+          //  ddsql.ConnSQL();
             toolStripStatusLabel7.BackColor = Color.LightGreen;
         }
 

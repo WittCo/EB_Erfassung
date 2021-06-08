@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
 
 
 
-            ConnSQL();
+           // ConnSQL();
 
             if (EB_Numm != "" && IBC_Artnumm != "" && IBC_Sernum !="")
             {
@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
     
         public DataTable DisplaySQLDatai()
         {
-            ConnSQL();
+          //  ConnSQL();
             DataTable dt = new DataTable();
 
             DataSet ds = new DataSet();
@@ -83,7 +83,7 @@ namespace WindowsFormsApp1
 
         public DataSet DisplaySQLDataitoDS()
         {
-            ConnSQL();
+          //  ConnSQL();
             DataSet ds = new DataSet();
             adapt = new SqlDataAdapter("select * from IBC_EB", cnn);
             adapt.Fill(ds);
@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
 
         public void DeleteItem(int ID)
         {
-            ConnSQL();
+       //     ConnSQL();
 
             if (ID != 0)
             {

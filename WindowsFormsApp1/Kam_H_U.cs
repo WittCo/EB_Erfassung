@@ -248,7 +248,7 @@ namespace WindowsFormsApp1
                 // --- Stream Channel ---
                 pDevice.SetInt(LvDeviceFtr.GevStreamChannelSelector, 0);
                 pDevice.SetInt(LvDeviceFtr.GevSCPSPacketSize, 500);
-                pDevice.SetInt(LvDeviceFtr.GevSCPD, 15000);
+                pDevice.SetInt(LvDeviceFtr.GevSCPD, 20000);
            
                 // --- User Set Control ---
                 pDevice.SetEnum(LvDeviceFtr.UserSetSelector, (UInt32)LvUserSetSelector.Default);

@@ -7,7 +7,7 @@
     <ProjectGuid>{CBAA226B-519F-442F-A2B5-94703E551AF1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WittEyE</RootNamespace>
-    <AssemblyName>WittEyE</AssemblyName>
+    <AssemblyName>WittEyE EB Erfasung</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -161,6 +161,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="WittEyEDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

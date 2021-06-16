@@ -46,7 +46,7 @@ public Main()
 	(
 		outSocket: con_e92c2aa3_9e41_49ab_991d_cf5fab8f2a85
 		outSocket1: con_09ea5a2b_6ffd_4347_9c4d_c60b7bae3a48
-		outSocketTestDatei: con_e14deda4_2142_4fc1_9b43_b09e4363d95b
+		outSocketTestDatei: Nil
 	)
 
 	SPS_Komm_Read

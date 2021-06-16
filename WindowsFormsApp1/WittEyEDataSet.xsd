@@ -47,7 +47,7 @@
   <xs:element name="WittEyEDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="WittEyEDataSet" msprop:Generator_UserDSName="WittEyEDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="IBC_EB" msprop:Generator_TableClassName="IBC_EBDataTable" msprop:Generator_TableVarName="tableIBC_EB" msprop:Generator_RowChangedName="IBC_EBRowChanged" msprop:Generator_TablePropName="IBC_EB" msprop:Generator_RowDeletingName="IBC_EBRowDeleting" msprop:Generator_RowChangingName="IBC_EBRowChanging" msprop:Generator_RowEvHandlerName="IBC_EBRowChangeEventHandler" msprop:Generator_RowDeletedName="IBC_EBRowDeleted" msprop:Generator_RowClassName="IBC_EBRow" msprop:Generator_UserTableName="IBC_EB" msprop:Generator_RowEvArgName="IBC_EBRowChangeEvent">
+        <xs:element name="IBC_EB" msprop:Generator_TableClassName="IBC_EBDataTable" msprop:Generator_TableVarName="tableIBC_EB" msprop:Generator_TablePropName="IBC_EB" msprop:Generator_RowDeletingName="IBC_EBRowDeleting" msprop:Generator_RowChangingName="IBC_EBRowChanging" msprop:Generator_RowEvHandlerName="IBC_EBRowChangeEventHandler" msprop:Generator_RowDeletedName="IBC_EBRowDeleted" msprop:Generator_UserTableName="IBC_EB" msprop:Generator_RowChangedName="IBC_EBRowChanged" msprop:Generator_RowEvArgName="IBC_EBRowChangeEvent" msprop:Generator_RowClassName="IBC_EBRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EB_Nummer" msprop:Generator_ColumnVarNameInTable="columnEB_Nummer" msprop:Generator_ColumnPropNameInRow="EB_Nummer" msprop:Generator_ColumnPropNameInTable="EB_NummerColumn" msprop:Generator_UserColumnName="EB_Nummer" minOccurs="0">

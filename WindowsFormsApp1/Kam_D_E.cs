@@ -5,8 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices; // for Marshal
 using NewElectronicTechnology.SynView;
-
-
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -501,7 +500,10 @@ namespace WindowsFormsApp1
         {
             string name = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
 
-            e.Buffer.SaveImageToJpgFile(@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\DE" + name + ".jpg", 100);
+            string fileName = "DE" + name + ".jpg";
+            string path = Path.Combine(Environment.CurrentDirectory + "//IBC/Technik - Witt IBC Bilder", fileName);
+
+            e.Buffer.SaveImageToJpgFile(path, 100);
             // e.Buffer.SaveImageToBmpFile (@"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\HO" + name + ".bmp");
 
         }

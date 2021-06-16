@@ -31,6 +31,6 @@
     <Program Path="Program.avcode" />
     <View Path="Program.avview" />
     <HMI Path="Program.avhmi" />
-    <Lib Path="C:\Users\Damian.Jakubowski\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\AVS\Modulen\Barcode.avlib" />
+    <Lib Path="Modulen\Barcode.avlib" />
   </Files>
 </AdaptiveVisionProject>

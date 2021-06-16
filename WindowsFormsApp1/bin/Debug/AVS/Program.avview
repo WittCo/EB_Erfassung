@@ -1,11 +1,11 @@
 ﻿<ViewSets Current="Custom1">
   <ViewSet Name="Custom1">
     <HSplit>
-      <Views Width="1.000" Height="1.000">
+      <Views Width="0.998" Height="0.496">
         <HmiView />
       </Views>
       <VSplit>
-        <Views Width="1.000" Height="1.000">
+        <Views Width="0.496" Height="0.496">
           <View Type="TextView">
             <Input Name="outShHU" Index="5" Macro="ImageQualityTest" Start="Main" Instance="0" />
             <Input Name="outShVU" Index="5" Macro="ImageQualityTest" Start="Main" Instance="0" />
@@ -13,7 +13,7 @@
             <Input Name="outShHO" Index="5" Macro="ImageQualityTest" Start="Main" Instance="0" />
           </View>
         </Views>
-        <Views Width="1.000" Height="1.000">
+        <Views Width="0.498" Height="0.496">
           <View Type="TextView">
             <Output Name="con_1a9adb54_b5c7_443d_844d_868477e7424b" Macro="Main" Start="Main" Instance="0" />
             <Output Name="con_92a7aa0c_d629_47e0_aef6_76b7c7b95b1b" Macro="Main" Start="Main" Instance="0" />

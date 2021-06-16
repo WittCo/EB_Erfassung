@@ -125,6 +125,8 @@
             this.PictureBoxLive = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label93 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.cbTestVerbindung = new System.Windows.Forms.CheckBox();
             this.cbHahnAuto = new System.Windows.Forms.CheckBox();
@@ -312,13 +314,15 @@
             this.button15 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CheckBilder = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.label94 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -1149,6 +1153,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label94);
+            this.tabPage3.Controls.Add(this.textBox22);
+            this.tabPage3.Controls.Add(this.label93);
+            this.tabPage3.Controls.Add(this.textBox21);
             this.tabPage3.Controls.Add(this.button11);
             this.tabPage3.Controls.Add(this.cbTestVerbindung);
             this.tabPage3.Controls.Add(this.cbHahnAuto);
@@ -1188,6 +1196,23 @@
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Einstelungen";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(789, 122);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(27, 13);
+            this.label93.TabIndex = 65;
+            this.label93.Text = "AP3";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(822, 119);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(137, 20);
+            this.textBox21.TabIndex = 64;
+            this.textBox21.Text = "V:\\EB_Bilder\\AP3";
             // 
             // button11
             // 
@@ -3104,9 +3129,9 @@
             this.tabPage1.Controls.Add(this.button15);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.dataGridView3);
             this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -3321,15 +3346,6 @@
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.Visible = false;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(369, 886);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "label14";
-            // 
             // dataGridView3
             // 
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -3400,6 +3416,32 @@
             this.timer3.Enabled = true;
             this.timer3.Interval = 1000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(369, 886);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "label14";
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(822, 145);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(137, 20);
+            this.textBox22.TabIndex = 66;
+            this.textBox22.Text = "V:\\EB_Bilder\\Witt IBC BAK";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(759, 149);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(57, 13);
+            this.label94.TabIndex = 67;
+            this.label94.Text = "Bilder BAK";
             // 
             // Form1
             // 
@@ -3725,7 +3767,6 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabControl tabControl1;
@@ -3775,6 +3816,11 @@
         private System.Windows.Forms.PictureBox pb_DE;
         private System.Windows.Forms.Label label92;
         public System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.Label label94;
     }
 }
 

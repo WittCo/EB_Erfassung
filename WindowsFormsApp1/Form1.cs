@@ -34,7 +34,6 @@ namespace WindowsFormsApp1
         DataSet ds3 = new DataSet();
         DataSet ds4 = new DataSet();
         DataSet ds5 = new DataSet();
-
         DataTable dt = new DataTable();
 
 
@@ -50,26 +49,7 @@ namespace WindowsFormsApp1
         int ID = 0;
         int flag = 0;
 
-        IntPtr m_hDisplayWindow;
-        IntPtr m_hDisplayWindow2;
-        IntPtr m_hDisplayWindow3;
-        IntPtr m_hDisplayWindow4;
-        IntPtr m_hDisplayWindow5;
-
-        CCamera m_pCamera;
-        CCamera2 m_pCamera2;
-        CCamera3 m_pCamera3;
-        CCamera4 m_pCamera4;
-        CCamera5 m_pCamera5;
-
-
-        LvSystem m_pSystem;
-        LvSystem m_pSystem2;
-        LvSystem m_pSystem3;
-        LvSystem m_pSystem4;
-        LvSystem m_pSystem5;
-
-       
+   
         DD_Sql ddsql = new DD_Sql();
         DD_FrontEnd ddfront = new DD_FrontEnd();
 
@@ -84,59 +64,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             _Form1 = this;
-
-            try
-            {
-                string avsProjectPath = @"AVS\Program.avproj";
-                macros = ProgramMacrofilters.Create(avsProjectPath);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-
-            m_pSystem = null;
-            m_pSystem2 = null;
-            m_pSystem3 = null;
-            m_pSystem4 = null;
-            m_pSystem5 = null;
-
-
-            LvLibrary.ThrowErrorEnable = true;
-            // The PictureBoxLive refuses to be used from another thread,
-            // but the window handle should be safe.
-            m_hDisplayWindow = PictureBoxLive.Handle;
-            m_hDisplayWindow2 = pictureBox2.Handle;
-            m_hDisplayWindow4 = pbH_0.Handle;
-            m_hDisplayWindow3 = pbH_U.Handle;
-            m_hDisplayWindow5 = pb_DE.Handle;
-
-
-            try
-            {
-                Cursor = Cursors.WaitCursor;
-                LvLibrary.OpenLibrary();
-                LvSystem.Open("", ref m_pSystem);
-                LvSystem.Open("", ref m_pSystem2);
-                LvSystem.Open("", ref m_pSystem3);
-                LvSystem.Open("", ref m_pSystem4);
-                LvSystem.Open("", ref m_pSystem5);
-
-                m_pCamera = new CCamera();
-                m_pCamera2 = new CCamera2();
-                m_pCamera3 = new CCamera3();
-                m_pCamera4 = new CCamera4();
-                m_pCamera5 = new CCamera5();
-                Cursor = Cursors.Default;
-
-            }
-            catch (LvException ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Close();
-            }
-
 
           //  ConnSQL();
           //  DataTable dt1 = ddsql.DisplaySQLDatai();
@@ -295,7 +222,7 @@ namespace WindowsFormsApp1
             Refresch_XML();
             Refresch_EB_Offen();
 
-        }
+        } 
 
 
         private void CMD(string strCmdText)
@@ -355,11 +282,13 @@ namespace WindowsFormsApp1
             }
             table2.DefaultView.Sort = "SollStkZahl asc";
             dataGridView3.DataSource = table2;
+            
 
 
 
 
-         
+
+
         }
 
         private void EBsucheKunde(String EBNum, out string VEA2, out string Kunde, out string Lieferdatum)
@@ -1154,7 +1083,7 @@ namespace WindowsFormsApp1
                 eb = textBox10.Text.Remove(9, 3);
 
                 panel1.BackColor = Color.Red;
-                tabControl1.SelectedTab = tabPage5;
+                tabControl1.SelectedTab = tabPage1;
                 label16.Text = eb;
                 lbSn.Text = sn;
                 NodeCount = 0;
@@ -1833,37 +1762,12 @@ namespace WindowsFormsApp1
 
         private void label75_TextChanged(object sender, EventArgs e)
         {
-            if ((label75.Text == "4") & (cbKamAktiv.Checked == true))
-            {
-                m_pCamera.Triggr();
-                m_pCamera2.Triggr();
-                m_pCamera3.Triggr();
-                m_pCamera4.Triggr();
-                m_pCamera5.Triggr();
+          
 
-                timer3.Enabled = true;
-
-            }
-
-            if (label75.Text == "0")
-
-            {
-                checkBox7.BackColor = Color.Gray;
-                checkBox8.BackColor = Color.Gray;
-                checkBox9.BackColor = Color.Gray;
-            }
+           
 
 
-            if ((label75.Text == "0")&&(dg4.RowCount >=4 ))
-
-            {
-                if (flag == 0)
-                {
-                    button10.PerformClick();
-                    button4.PerformClick();
-                    flag = 1;      //hilfsflag um click nur einmal zu performen pro neue Bilder
-                }
-            }
+       
             
         }
 
@@ -2741,20 +2645,11 @@ namespace WindowsFormsApp1
 
         private void button27_Click_1(object sender, EventArgs e)
         {
-            m_pCamera.StartAcquisition();
-            m_pCamera2.StartAcquisition();
-            m_pCamera3.StartAcquisition();
-            m_pCamera4.StartAcquisition();
-            m_pCamera5.StartAcquisition();
+           
         }
 
         private void StartAcqui()
         {
-            m_pCamera.StartAcquisition();
-            m_pCamera2.StartAcquisition();
-            m_pCamera3.StartAcquisition();
-            m_pCamera4.StartAcquisition();
-            m_pCamera5.StartAcquisition();
         }
 
         private void button28_Click_1(object sender, EventArgs e)
@@ -2770,11 +2665,7 @@ namespace WindowsFormsApp1
 
             if (cbKamAktiv.Checked == true)
             {
-                m_pCamera.Triggr();
-                m_pCamera2.Triggr();
-                m_pCamera3.Triggr();
-                m_pCamera4.Triggr();
-                m_pCamera5.Triggr();
+              
 
             }
             RefreschIBCList();
@@ -2784,11 +2675,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            m_pCamera.CloseCamera();
-            m_pCamera2.CloseCamera();
-            m_pCamera3.CloseCamera();
-            m_pCamera4.CloseCamera();
-            m_pCamera5.CloseCamera();
+           
 
         }
 
@@ -2802,55 +2689,34 @@ namespace WindowsFormsApp1
 
         private void pbH_0_Paint(object sender, PaintEventArgs e)
         {
-            m_pCamera4.Repaint();
+       
 
 
         }
 
         private void PictureBoxLive_Paint_1(object sender, PaintEventArgs e)
         {
-            m_pCamera.Repaint();
+          
         }
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
-            m_pCamera2.Repaint();
+           
         }
 
         private void pbH_U_Paint(object sender, PaintEventArgs e)
         {
-            m_pCamera3.Repaint();
+          
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            m_pCamera.Triggr();
-            m_pCamera2.Triggr();
-            m_pCamera3.Triggr();
-            m_pCamera4.Triggr();
-            m_pCamera5.Triggr();
+           
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-            m_pCamera.OpenCamera(m_hDisplayWindow, m_pSystem);
-            toolStripStatusLabel2.BackColor = Color.LightYellow;
-            m_pCamera2.OpenCamera(m_hDisplayWindow2, m_pSystem2);
-            toolStripStatusLabel3.BackColor = Color.LightYellow;
-            m_pCamera3.OpenCamera(m_hDisplayWindow3, m_pSystem3);
-            toolStripStatusLabel4.BackColor = Color.LightYellow;
-            m_pCamera4.OpenCamera(m_hDisplayWindow4, m_pSystem4);
-            toolStripStatusLabel5.BackColor = Color.LightYellow;
-            m_pCamera5.OpenCamera(m_hDisplayWindow5, m_pSystem5);
-            toolStripStatusLabel5.BackColor = Color.LightYellow;
-
-            StartAcqui();
-            toolStripStatusLabel2.BackColor = Color.LightGreen;
-            toolStripStatusLabel3.BackColor = Color.LightGreen;
-            toolStripStatusLabel4.BackColor = Color.LightGreen;
-            toolStripStatusLabel5.BackColor = Color.LightGreen;
-            Cursor = Cursors.Default;
+          
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -2885,7 +2751,7 @@ namespace WindowsFormsApp1
  
         private void RefreschIBCList()
         {
-            string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
+            string destPath = Path.Combine(Environment.CurrentDirectory + "//IBC/Technik - Witt IBC Bilder/");
 
             dg4.DataSource = new System.IO.DirectoryInfo(destPath).GetFiles("*.jpg");
             
@@ -2916,12 +2782,14 @@ namespace WindowsFormsApp1
 
             MoveAP3_IBCBAC();
             MoveAP2_AP3();
-           // MoveAP1_AP2();
+            // MoveAP1_AP2();
 
             string from, to;
-            string destPath = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\";
-            int x = new System.IO.DirectoryInfo(destPath).GetFiles().Length;
-            int fileCount = Directory.GetFiles(destPath, "*.jpg").Length;
+            string fromPath = Path.Combine(Environment.CurrentDirectory + "//IBC/Technik - Witt IBC Bilder/");
+
+
+            int x = new System.IO.DirectoryInfo(fromPath).GetFiles().Length;
+            int fileCount = Directory.GetFiles(fromPath, "*.jpg").Length;
 
 
 
@@ -2929,8 +2797,8 @@ namespace WindowsFormsApp1
 
             for (int i = 0; i < fileCount; i++)
             {
-                from = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\" + dg4.Rows[i].Cells[0].Value.ToString();
-                to = @"C:\Users\Aufschrauberportal\AWICO\AP2\" + dg4.Rows[i].Cells[0].Value.ToString();
+                from = Path.Combine(Environment.CurrentDirectory + "//IBC/Technik - Witt IBC Bilder/") + dg4.Rows[i].Cells[0].Value.ToString();
+                to = Path.Combine(Environment.CurrentDirectory + "//IBC/AP2/") + dg4.Rows[i].Cells[0].Value.ToString();
 
                 File.Move(from, to); // Try to move
             }
@@ -2938,26 +2806,7 @@ namespace WindowsFormsApp1
             RefreschIBCList();
         }
 
-        private void MoveAP1_AP2()
-        {
-
-            try
-            {
-                string dest = @"C:\Users\Aufschrauberportal\AWICO\AP2";
-                foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP1\"))
-                {
-                    string destFile = Path.Combine(dest, Path.GetFileName(file));
-                    if (!File.Exists(destFile))
-                        File.Move(file, destFile);
-
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-
-        }
+       
 
         private void MoveAP2_AP3()
         {
@@ -2965,8 +2814,10 @@ namespace WindowsFormsApp1
 
                 try
                 {
-                    string dest = @"C:\Users\Aufschrauberportal\AWICO\AP3\";
-                    foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP2\"))
+                   // string dest = Path.Combine(Environment.CurrentDirectory + "//IBC/AP3");
+                    string dest = textBox21.Text;
+
+                    foreach (var file in Directory.EnumerateFiles(Path.Combine(Environment.CurrentDirectory + "//IBC/AP2")))
                     {
                         string destFile = Path.Combine(dest, Path.GetFileName(file));
                         if (!File.Exists(destFile))
@@ -2995,7 +2846,7 @@ namespace WindowsFormsApp1
         private void AP3_SN(string ArtikelNr, String SN)
         {
             
-               foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
+               foreach (var file in Directory.EnumerateFiles(textBox21.Text))
                {
                    string Newfilename = AddPrefix(file, lbSn.Text + "_" + ArtikelNr +"_");
                    File.Move(file, Newfilename);
@@ -3011,12 +2862,12 @@ namespace WindowsFormsApp1
             try
                 {
                 //Adding SN to EB
-                   string dest = @"C:\Users\Aufschrauberportal\AWICO\Technik - IBC BAK\";
+                   string dest = Path.Combine(textBox22.Text);
 
-           
+
 
                 //Move AP3 to IBC BACK
-                foreach (var file in Directory.EnumerateFiles(@"C:\Users\Aufschrauberportal\AWICO\AP3\"))
+                foreach (var file in Directory.EnumerateFiles(Path.Combine(textBox21.Text)))  
                     {
                         string destFile = Path.Combine(dest, Path.GetFileName(file));
                         if (!File.Exists(destFile))
@@ -3230,20 +3081,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            m_pCamera.StopAcquisition();
-            m_pCamera2.StopAcquisition();
-            m_pCamera3.StopAcquisition();
-            m_pCamera4.StopAcquisition();
-            m_pCamera5.StopAcquisition();
-
-            m_pCamera.CloseCamera();
-            toolStripStatusLabel2.BackColor = Color.LightYellow;
-            m_pCamera2.CloseCamera();
-            toolStripStatusLabel3.BackColor = Color.LightYellow;
-            m_pCamera3.CloseCamera();
-            toolStripStatusLabel4.BackColor = Color.LightYellow;
-            m_pCamera4.CloseCamera();
-            toolStripStatusLabel4.BackColor = Color.LightYellow;
+            
 
         }
 
@@ -3333,8 +3171,10 @@ namespace WindowsFormsApp1
 
         private void pb_DE_Paint(object sender, PaintEventArgs e)
         {
-            m_pCamera5.Repaint();
+           
         }
+
+     
 
         private void textBox10_Enter(object sender, EventArgs e)
         {

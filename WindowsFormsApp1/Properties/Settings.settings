@@ -18,5 +18,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=AW-PRODTS\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-</Value>
     </Setting>
+    <Setting Name="AP3_Ordner_Pfad" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">"V:\EB_Bilder\AP3"</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -97,9 +97,18 @@
     <ApplicationIcon>picture.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Avl.Net">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Adaptive Vision\Adaptive Vision Library 5.1\bin\x64\Avl.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Avl.Net.TS, Version=4.12.4.7162, Culture=neutral, PublicKeyToken=19e70c3b485211e1, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Adaptive Vision\Adaptive Vision Studio 4.12 Professional\Avl.Net.TS.dll</HintPath>
+    </Reference>
+    <Reference Include="HMI">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Adaptive Vision\Adaptive Vision Library 5.1\bin\x64\HMI.dll</HintPath>
+    </Reference>
+    <Reference Include="HMI.Controls">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Adaptive Vision\Adaptive Vision Library 5.1\bin\x64\HMI.Controls.dll</HintPath>
     </Reference>
     <Reference Include="NewElectronicTechnology.SynView.40.x64">
       <HintPath>..\..\..\..\..\..\Program Files\SynView\bin\NewElectronicTechnology.SynView.40.x64.dll</HintPath>
@@ -120,6 +129,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VideoBoxBase">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Adaptive Vision\Adaptive Vision Library 5.1\bin\x64\VideoBoxBase.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bilder_AP3.cs">
@@ -241,6 +253,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AVL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\Avl.Net.Ts.dll" />
     <Content Include="bin\Debug\EB_Offen\EB2046943.xml" />
     <Content Include="bin\Debug\EB_Offen\EB2046989.xml" />

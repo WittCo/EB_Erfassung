@@ -129,19 +129,10 @@
       <DependentUpon>Bilder_AP3.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="Kam_D_E.cs" />
     <Compile Include="DD_AP3.cs" />
-    <Compile Include="Kam_H_U.cs" />
-    <Compile Include="Kam_H_O.cs" />
     <Compile Include="DD_FrontEnd.cs" />
     <Compile Include="DD_Sql.cs" />
     <Compile Include="DD_Xml.cs" />
-    <Compile Include="Kam_V_U.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Kam_V_O.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

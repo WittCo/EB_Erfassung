@@ -12,7 +12,7 @@ namespace WittEyE
     {
         public Class1()
         {
-            Form1._Form1.update("change text");
+           
         }
     }
 

@@ -14,9 +14,9 @@ using System.Diagnostics;
 using System.Xml.Linq;
 using Path = System.IO.Path;
 using Size = System.Drawing.Size;
-using AdaptiveVision;
-using AvlNet;
-using NewElectronicTechnology.SynView;
+using System.Net.Mail;
+
+
 using System.Data.SqlClient;
 using System.Collections;
 using WittEyE;
@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
         DataSet ds3 = new DataSet();
         DataSet ds4 = new DataSet();
         DataSet ds5 = new DataSet();
+        DataSet ds6 = new DataSet();
         DataTable dt = new DataTable();
 
 
@@ -43,7 +44,7 @@ namespace WindowsFormsApp1
         public bool camtrig;
         public static
         int? Socet1, Socet2, Socet3;
-        private ProgramMacrofilters macros;
+       
 
       
         int ID = 0;
@@ -85,10 +86,7 @@ namespace WindowsFormsApp1
 
         public static Form1 _Form1;
 
-        public void update(string message)
-        {
-            textBox20.Text = message;
-        }
+    
 
 
 
@@ -117,7 +115,7 @@ namespace WindowsFormsApp1
 
         private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
+           
 
          
         }
@@ -133,7 +131,7 @@ namespace WindowsFormsApp1
             else
             {
                 
-                progressBar1.Value = 0;
+                
             }
         }
 
@@ -141,10 +139,7 @@ namespace WindowsFormsApp1
 
         protected override void OnClosed(System.EventArgs e)
         {
-            //Release resources held by the Macrofilter .NET Interface object
-            if (macros != null)
-                macros.Dispose();
-            base.OnClosed(e);
+        
         }
 
 
@@ -186,6 +181,10 @@ namespace WindowsFormsApp1
                 xmlFile5 = XmlReader.Create(@"\\Aw-ap2019\interface\VISION\EB_Artikel\Dienstleistungen.xml", new XmlReaderSettings());
                 ds5.ReadXml(xmlFile5);
                 dataGridView7.DataSource = ds5.Tables[0];
+
+                xmlFile5 = XmlReader.Create(@"\\Aw-ap2019\interface\VISION\EB_Kunde_Info\Kn_Prod_Info.xml", new XmlReaderSettings());
+                ds6.ReadXml(xmlFile5);
+                dataGridView4.DataSource = ds6.Tables[0];
 
             }
             catch (Exception ex)
@@ -823,7 +822,7 @@ namespace WindowsFormsApp1
                 label43.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
 
                 label52.Text = dataGridView1.Rows[0].Cells[8].Value.ToString();
-                label51.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
+                label51.Text = dataGridView1.Rows[0].Cells[7].Value.ToString();
                 richTextBox1.Text = dataGridView1.Rows[0].Cells[12].Value.ToString();
 
                 label43.Text = dataGridView1.Rows[0].Cells[9].Value.ToString();
@@ -856,7 +855,18 @@ namespace WindowsFormsApp1
                 label48.Text = "Soll Stückzahl nicht gefunden";
                 label47.Text = "Soll Stückzahl nicht gefunden";
 
+                richTextBox1.Text = "Soll Stückzahl nicht gefunden";
+
             }
+
+            DataView dv2 = ds6.Tables[0].DefaultView;
+            dv2.RowFilter = string.Format("AdressNummer LIKE '%{0}%'", label51.Text);
+            dataGridView9.DataSource = dv2;
+
+          //  richTextBox1.Text = dataGridView9.Rows[0].Cells[1].Value.ToString();
+
+
+
 
         }
 
@@ -1069,21 +1079,40 @@ namespace WindowsFormsApp1
 
         }
 
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            timer4.Stop();
+            EBNummer();
+
+        }
+
+
+
+
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
             //  SollStkza(textBox10.Text);
 
-            if (textBox10.TextLength == 12)
+
+            timer4.Stop();
+            timer4.Start();
+
+        }
+
+        private void EBNummer()
+        {
+            if (textBox10.TextLength == 13)
             {
 
                 string eb, sn;
 
 
                 sn = textBox10.Text;
-                eb = textBox10.Text.Remove(9, 3);
+                eb = textBox10.Text.Remove(10, 3);
 
                 panel1.BackColor = Color.Red;
-                tabControl1.SelectedTab = tabPage1;
+                tabControl1.SelectedTab = tabPage2;
                 label16.Text = eb;
                 lbSn.Text = sn;
                 NodeCount = 0;
@@ -1103,35 +1132,36 @@ namespace WindowsFormsApp1
                 ResetArtikelAswahl();
             }
 
-            /*
-                        if (textBox10.TextLength == 9)
-                        {
-                            string eb;
+            if (textBox10.TextLength == 12)
+            {
 
-                            eb = textBox10.Text;
+                string eb, sn;
 
-                            eb = textBox10.Text;
 
-                            panel1.BackColor = Color.Red;
-                            tabControl1.SelectedTab = tabPage5;
-                            label16.Text = eb;
-                            NodeCount = 0;
+                sn = textBox10.Text;
+                eb = textBox10.Text.Remove(9, 3);
 
-                            string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
+                panel1.BackColor = Color.Red;
+                tabControl1.SelectedTab = tabPage2;
+                label16.Text = eb;
+                lbSn.Text = sn;
+                NodeCount = 0;
 
-                            //   label14.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString() + "\\" + dataGridView3.CurrentRow.Cells[0].Value.ToString();
-                            label14.Text = destPath + label16.Text + ".xml";
-                            textBox11.Text = "0";
-                            textBox12.Text = "1";
-                            label1.Text = "0";
+                string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
 
-                            SollStkza(eb);
-                            UpdateTree();
-                            EB_Offen_Focus();
-                            ResetSonigsten();
-                            ResetArtikelAswahl();
-                        }
-            */
+                //   label14.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString() + "\\" + dataGridView3.CurrentRow.Cells[0].Value.ToString();
+                label14.Text = destPath + label16.Text + ".xml";
+                textBox11.Text = "0";
+                textBox12.Text = "1";
+                label1.Text = "0";
+
+                SollStkza(eb);
+                UpdateTree();
+                EB_Offen_Focus();
+                ResetSonigsten();
+                ResetArtikelAswahl();
+            }
+
 
 
         }
@@ -1187,7 +1217,7 @@ namespace WindowsFormsApp1
              //   showImage();
             }
 
-            if (tabControl1.SelectedTab == tabPage3)
+            if (tabControl1.SelectedTab == Einstellungen)
             {
 
 
@@ -1691,69 +1721,12 @@ namespace WindowsFormsApp1
 
         private void button13_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-            macros.SPS_Komm_Akcept(out Socet1, out Socet2, out Socet3);
-            toolStripStatusLabel1.BackColor = Color.LightGreen;
-            Cursor = Cursors.Default;
+          
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval = int.Parse(textBox15.Text);
-
-            if (cbSPSAktiv.Checked == true)
-            {
-                macros.SPS_Komm_Read(Socet1, Socet3, out int Wal2, out int? Ap1, out int? Ap3, out int? KetteAP1_5, out int? Gewicht, out int? tWal2, out int? tAp1, out int? tAp3, out int? tKetteAP1_5, out int? tGewicht);
-                label21.Text = Wal2.ToString();
-                label29.Text = Ap1.ToString();
-
-                label30.Text = Ap3.ToString();
-                label31.Text = KetteAP1_5.ToString();
-                label32.Text = Gewicht.ToString();
-                label55.Text = Gewicht.ToString();
-
-                label74.Text = tWal2.ToString();
-                label71.Text = tAp1.ToString();
-
-                label75.Text = Ap1.ToString();
-                label42.Text = KetteAP1_5.ToString();
-               
-          
-                label75.Text = Ap1.ToString();        // AP1 Status
-                label42.Text = KetteAP1_5.ToString(); // Kette Status 
- 
-
-                label70.Text = tAp3.ToString();
-                label69.Text = tKetteAP1_5.ToString();
-              
-                label68.Text = tGewicht.ToString();
-
-                macros.SPS_Komm_Send(checkBox9.Checked, checkBox8.Checked, checkBox3.Checked, int.Parse(textBox13.Text), Socet2);
-            }
-
-            if (label31.Text == "1")
-            {
-                textBox13.Text = "9";
-
-                camtrig = false;
-                checkBox8.Checked = false;
-                checkBox9.Checked = false;
-                checkBox3.Checked = false;
-                radioButton43.Checked = false;
-
-
-                MyStaticValues.camtrig2 = false;
-
-            }
-
-
-
-
-            if (label29.Text == "4" & MyStaticValues.camtrig2 == false)
-            {
-                MyStaticValues.camtrig2 = true;
-
-            }
+           
 
         }
 
@@ -2084,33 +2057,15 @@ namespace WindowsFormsApp1
            
             ResetSonigsten();
 
-           
 
           //  DataTable dt = ddsql.DisplaySQLDatai();
 
 
-            textBox13.Text = "1";
-
             if (label17.Text != "Soll Stückzahl nicht gefunden")
                 SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
 
+            tabControl1.SelectedTab = tabPage1;
 
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
-
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
-
-
-
-           
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -2136,23 +2091,10 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
-         
 
-            textBox13.Text = "2";
+            tabControl1.SelectedTab = tabPage1;
 
 
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
-
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
         }
 
         private void button18_Click_1(object sender, EventArgs e)
@@ -2180,23 +2122,9 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
-           
+            tabControl1.SelectedTab = tabPage1;
 
-            textBox13.Text = "1";
-            textBox14.Text = "1";
 
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
-
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
         }
 
         private void button17_Click_1(object sender, EventArgs e)
@@ -2222,23 +2150,9 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
-           
+            tabControl1.SelectedTab = tabPage1;
 
-            textBox13.Text = "2";
-            textBox14.Text = "1";
 
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
-
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
         }
 
         private void button16_Click_1(object sender, EventArgs e)
@@ -2264,24 +2178,11 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
-          
+            tabControl1.SelectedTab = tabPage1;
 
 
             textBox18.Text = "1";
-            textBox13.Text = "1";
-
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
-
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
+        
         }
 
         private void button12_Click_2(object sender, EventArgs e)
@@ -2289,24 +2190,13 @@ namespace WindowsFormsApp1
             int nc = NodeCount + 1;
          //   ddsql.InsertSQLDatei(label16.Text, label36.Text, int.Parse(textBox11.Text), label16.Text + nc.ToString("000"));
             CheckEBEXIST(label36.Text);
-            textBox13.Text = "2";
+       
             textBox14.Text = "1";
 
             AP3_SN(label36.Text, lbSn.Text);
 
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
 
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
-
+            tabControl1.SelectedTab = tabPage1;
 
         }
 
@@ -2351,28 +2241,19 @@ namespace WindowsFormsApp1
 
 
 
-            macros.Camera_Config();
-            toolStripStatusLabel2.BackColor = Color.LightGreen;
+           
+            
         }
 
         private void checkBox8_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (checkBox8.Checked == true)
-            {
-                checkBox3.Checked = true;
-                tabControl1.SelectedTab = tabPage2;
-
-            }
+         
         }
 
         private void checkBox9_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox9.Checked == true)
-            {
-                checkBox3.Checked = true;
-                tabControl1.SelectedTab = tabPage2;
-            }
+           
         }
 
 
@@ -2455,11 +2336,11 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
-          
+            tabControl1.SelectedTab = tabPage1;
 
 
             textBox17.Text = "1";
-            textBox13.Text = "1";
+            
 
             if (label17.Text != "Soll Stückzahl nicht gefunden")
                 SollgleichIST(int.Parse(label18.Text), int.Parse(label17.Text));
@@ -2467,18 +2348,7 @@ namespace WindowsFormsApp1
 
 
 
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
-
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
+           
         }
 
         private void button20_Click(object sender, EventArgs e)
@@ -2503,24 +2373,8 @@ namespace WindowsFormsApp1
             ResetArtikelAswahl();
             ResetSonigsten();
 
-            
+            tabControl1.SelectedTab = tabPage1;
 
-            textBox13.Text = "2";
-
-
-
-            if (checkBox14.Checked == false)
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage1;
-            }
-
-            else
-            {
-                if (checkBox1.Checked == false)
-                    tabControl1.SelectedTab = tabPage5;
-
-            }
         }
 
 
@@ -2663,13 +2517,7 @@ namespace WindowsFormsApp1
         {
 
 
-            if (cbKamAktiv.Checked == true)
-            {
-              
-
-            }
-            RefreschIBCList();
-            CheckBilder.Enabled = true;
+       
 
         }
 
@@ -2753,27 +2601,13 @@ namespace WindowsFormsApp1
         {
             string destPath = Path.Combine(Environment.CurrentDirectory + "//IBC/Technik - Witt IBC Bilder/");
 
-            dg4.DataSource = new System.IO.DirectoryInfo(destPath).GetFiles("*.jpg");
+          
             
         }
 
         private void dg4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string from, to;
-
-            try
-            {
-                from = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder\" + dg4.CurrentRow.Cells[0].Value.ToString();
-                to = @"C:\Users\Aufschrauberportal\AWICO\IBC BAK\" + dg4.CurrentRow.Cells[0].Value.ToString() + label9.Text;
-
-                File.Move(from, to); // Try to move
-                Console.WriteLine("Moved"); // Success
-                RefreschIBCList();
-            }
-            catch (System.IO.IOException ex)
-            {
-                Console.WriteLine(ex); // Write error
-            }
+           
 
         }
 
@@ -2797,10 +2631,9 @@ namespace WindowsFormsApp1
 
             for (int i = 0; i < fileCount; i++)
             {
-                from = Path.Combine(Environment.CurrentDirectory + "//IBC/Technik - Witt IBC Bilder/") + dg4.Rows[i].Cells[0].Value.ToString();
-                to = Path.Combine(Environment.CurrentDirectory + "//IBC/AP2/") + dg4.Rows[i].Cells[0].Value.ToString();
+                
 
-                File.Move(from, to); // Try to move
+                
             }
 
             RefreschIBCList();
@@ -2845,14 +2678,21 @@ namespace WindowsFormsApp1
 
         private void AP3_SN(string ArtikelNr, String SN)
         {
-            
-               foreach (var file in Directory.EnumerateFiles(textBox21.Text))
-               {
-                   string Newfilename = AddPrefix(file, lbSn.Text + "_" + ArtikelNr +"_");
-                   File.Move(file, Newfilename);
+            try
+            {
+                foreach (var file in Directory.EnumerateFiles(textBox21.Text))
+                {
+                    string Newfilename = AddPrefix(file, lbSn.Text + "_" + ArtikelNr + "_");
+                    File.Move(file, Newfilename);
 
-               }
-             
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("AP3_SN Bild Ordner Leer");
+            }
+
         }
 
         private void MoveAP3_IBCBAC()
@@ -2888,13 +2728,7 @@ namespace WindowsFormsApp1
 
         private void BarcodeSuche()
         {
-            RefreschIBCList();
-            String BC;
-            bool DC;
-          //  macros.BarcodeRead(out BC, out DC);
-           
-            label9.Text = "Erkenung Barcode";
-          //  label33.Text = BC;
+         
 
 
         }
@@ -2907,7 +2741,7 @@ namespace WindowsFormsApp1
         private void ArchivierenBild()
         {
             MoveBilder();
-            label9.Text = "Bilder archieviert";
+            
             RefreschIBCList();
         }
 
@@ -2915,20 +2749,7 @@ namespace WindowsFormsApp1
 
         private void CheckBilder_Tick(object sender, EventArgs e)
         {
-            RefreschIBCList();
-            bool DC;
-            if (dg4.Rows.Count == 5)
-            {
-                CheckBilder.Enabled = false;
-               
-                RefreschIBCList();
-                string BC;
-               // macros.BarcodeRead(out BC, out DC);
-               // label9.Text = BC;
-
-             //   MoveBilder();
-
-            }
+            
         }
 
         private void btGoto_Click(object sender, EventArgs e)
@@ -2958,10 +2779,8 @@ namespace WindowsFormsApp1
 
         private void button10_Click_1(object sender, EventArgs e)
         {
-            checkBox7.BackColor = Color.Gray;
-            checkBox8.BackColor = Color.Gray;
-            checkBox9.BackColor = Color.Gray;
-            Hahhnerkenung();
+            
+           
            // Thread HahnerkenungThread = new Thread(Hahhnerkenung);
            // HahnerkenungThread.Start();
 
@@ -2975,107 +2794,22 @@ namespace WindowsFormsApp1
 
         private void BildQuality()
         {
-            float ShVO, ShVU, ShHO, ShHU;
-            macros.ImageQualityTest(out ShHU, out ShVU, out ShVO, out ShHO);
-            label88.Text = ShVO.ToString();
-            label90.Text = ShVU.ToString();
-            label89.Text = ShHO.ToString();
-            label91.Text = ShHU.ToString();
+          
         }
 
 
-        private void Hahhnerkenung()
-        {
-           
-            bool hahnVU, hahnHU;
-
-           
-            macros.HahnerkennungMain(out hahnVU, out hahnHU);
-
-
-
-            if (hahnVU == true)
-            {
-                checkBox8.BackColor = Color.Aqua;
-               
-
-                if (cbHahnAuto.Checked == true)
-                {
-                    checkBox8.Checked = true;
-                    checkBox3.Checked = true;
-                    tabControl1.SelectedTab = tabPage2;
-
-                }
-            }
-
-            if (hahnHU == true)
-
-            {
-                checkBox9.BackColor = Color.Aqua;
-
-                
-                if (cbHahnAuto.Checked == true)
-                {
-                    checkBox9.Checked = true;
-                    checkBox3.Checked = true;
-                    tabControl1.SelectedTab = tabPage2;
-                }
-
-            }
-
-            if ((hahnVU == false) && (hahnHU == false))
-            {
-              
-                checkBox7.BackColor = Color.Red;
-                
-            }
-            else
-            {
-                checkBox7.BackColor = Color.Gray;
-               
-            }
-
-
-            if (backgroundWorker1.IsBusy)
-            {
-                backgroundWorker1.CancelAsync();
-            }
-
-
-        }
+        
 
     
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            checkDir();
-
-            if (label53.Text == "5")
-
-            {
-                // BarcodeSuche();
-
-                Hahhnerkenung();
-
-                if (cbbildQuality.Checked == true)
-                {
-                    BildQuality();
-                }
-
-
-                timer3.Enabled = false;
-            }  
+           
         }
 
         private void checkDir()
         {
-            int count;
-            string myDir = @"C:\Users\Aufschrauberportal\AWICO\Technik - Witt IBC Bilder";
-
-            count = Directory.GetFiles(myDir, "*.jpg", SearchOption.AllDirectories).Length;
-
-            label53.Text = count.ToString();
-            
+         
         }
 
 
@@ -3100,11 +2834,7 @@ namespace WindowsFormsApp1
       
         private void label42_TextChanged(object sender, EventArgs e)
         {
-            if  (label42.Text == "1")
-               
-                {
-                    MoveBilder();
-                }
+           
         }
 
         private void button22_Click_1(object sender, EventArgs e)
@@ -3172,6 +2902,11 @@ namespace WindowsFormsApp1
         private void pb_DE_Paint(object sender, PaintEventArgs e)
         {
            
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+          
         }
 
      

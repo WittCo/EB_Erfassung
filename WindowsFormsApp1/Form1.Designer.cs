@@ -248,7 +248,6 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -307,6 +306,7 @@
             this.hilfeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1924, 28);
             this.menuStrip1.TabIndex = 39;
             this.menuStrip1.Text = "Datei";
@@ -2244,7 +2244,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.groupBox19);
             this.tabPage1.Controls.Add(this.groupBox18);
             this.tabPage1.Controls.Add(this.dataGridView12);
@@ -2809,15 +2808,6 @@
             this.timer4.Interval = 500;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1845, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 154;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -3117,7 +3107,6 @@
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridView dataGridView9;
         private System.Windows.Forms.Timer timer4;
-        private System.Windows.Forms.Button button2;
     }
 }
 

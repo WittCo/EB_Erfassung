@@ -20,6 +20,7 @@ using System.Net.Mail;
 using System.Data.SqlClient;
 using System.Collections;
 using WittEyE;
+using WittEyE.Filesmanagment;
 
 namespace WindowsFormsApp1
 {
@@ -36,8 +37,6 @@ namespace WindowsFormsApp1
         DataSet ds5 = new DataSet();
         DataSet ds6 = new DataSet();
         DataTable dt = new DataTable();
-
-
 
         //private readonly ProgramMacrofilters macros;
         public static int NodeCount;
@@ -63,6 +62,8 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            WittEyE.Filesmanagment.Einstellungen.ReadFromFile();
+            UpdateUI();
 
             _Form1 = this;
 
@@ -2653,7 +2654,7 @@ namespace WindowsFormsApp1
                 try
                 {
                    // string dest = Path.Combine(Environment.CurrentDirectory + "//IBC/AP3");
-                    string dest = textBox21.Text;
+                    string dest = AP3path.Text;
 
                     foreach (var file in Directory.EnumerateFiles(Path.Combine(Environment.CurrentDirectory + "//IBC/AP2")))
                     {
@@ -2685,7 +2686,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                foreach (var file in Directory.EnumerateFiles(textBox21.Text))
+                foreach (var file in Directory.EnumerateFiles(AP3path.Text))
                 {
                     string Newfilename = AddPrefix(file, lbSn.Text + "_" + ArtikelNr + "_");
                     File.Move(file, Newfilename);
@@ -2707,12 +2708,12 @@ namespace WindowsFormsApp1
             try
                 {
                 //Adding SN to EB
-                   string dest = Path.Combine(textBox22.Text);
+                   string dest = Path.Combine(BilderPath.Text);
 
 
 
                 //Move AP3 to IBC BACK
-                foreach (var file in Directory.EnumerateFiles(Path.Combine(textBox21.Text)))  
+                foreach (var file in Directory.EnumerateFiles(Path.Combine(AP3path.Text)))  
                     {
                         string destFile = Path.Combine(dest, Path.GetFileName(file));
                         if (!File.Exists(destFile))
@@ -2909,16 +2910,12 @@ namespace WindowsFormsApp1
            
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-          
-        }
 
         private void ListeExportieren_Click(object sender, EventArgs e)
         {
             if (dataGridView3.DataSource != null)
             {
-                WittEyE.DataTableExtensions.WriteToCsvFile(dataGridView3, @"C:\Users\AhmedNoman\source\repos\MyDataTable.csv"); 
+                WittEyE.DataTableExtensions.WriteToCsvFile2(dataGridView3, @"C:\Users\AhmedNoman\source\repos\MyDataTable"); 
             }
             else
             {
@@ -2927,6 +2924,84 @@ namespace WindowsFormsApp1
 
         }
 
+        private static string GetAbsolutePath(string relativePath)
+        {
+            FileInfo _dataRoot = new FileInfo(typeof(Program).Assembly.Location);
+            string assemblyFolderPath = _dataRoot.Directory.FullName;
+
+            string fullPath = Path.Combine(assemblyFolderPath, relativePath);
+
+            return fullPath;
+        }
+
+        private void AP3path_TextChanged(object sender, EventArgs e)
+        {
+            AP3path.Text.updateConfigFile(0);
+        }
+
+        private void BilderPath_TextChanged(object sender, EventArgs e)
+        {
+            BilderPath.Text.updateConfigFile(1);
+        }
+
+        private void EscelPath_TextChanged(object sender, EventArgs e)
+        {
+            EscelPath.Text.updateConfigFile(2);
+        }
+
+        private void AP3Auswahl_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                AP3path.Text = folderBrowserDialog1.SelectedPath;
+                AP3path.Text.updateConfigFile(0);
+            }
+            else
+            {
+                MessageBox.Show("Fehler aufgetreten");
+            }
+        }
+
+        private void BilderAuswahl_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
+            {
+                BilderPath.Text = folderBrowserDialog2.SelectedPath;
+                BilderPath.Text.updateConfigFile(1);
+            }
+            else
+            {
+                MessageBox.Show("Fehler aufgetreten");
+            }
+
+        }
+
+        private void ExcelAuswahl_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog3.ShowDialog() == DialogResult.OK)
+            {
+                EscelPath.Text = folderBrowserDialog3.SelectedPath;
+                EscelPath.Text.updateConfigFile(2);
+            }
+            else
+            {
+                MessageBox.Show("Fehler aufgetreten");
+            }
+        }
+
+        private void UpdateUI()
+        {
+            string test1;
+            string test2;
+            string test3;
+            WittEyE.Filesmanagment.Einstellungen.updateUI(out test1, out test2, out test3);
+            folderBrowserDialog1.SelectedPath = test1;
+            AP3path.Text = test1;
+            folderBrowserDialog2.SelectedPath = test2;
+            BilderPath.Text = test2;
+            folderBrowserDialog3.SelectedPath = test3;
+            EscelPath.Text = test3;
+        }
         private void textBox10_Enter(object sender, EventArgs e)
         {
             panel1.BackColor = Color.Green;

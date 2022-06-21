@@ -206,6 +206,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.ListeExportieren = new System.Windows.Forms.Button();
             this.label67 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -225,12 +226,17 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Einstellungen = new System.Windows.Forms.TabPage();
+            this.ExcelAuswahl = new System.Windows.Forms.Button();
+            this.BilderAuswahl = new System.Windows.Forms.Button();
+            this.EscelPath = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.AP3Auswahl = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label94 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.label93 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.Excelliste = new System.Windows.Forms.Label();
+            this.Bilder_BAK = new System.Windows.Forms.Label();
+            this.BilderPath = new System.Windows.Forms.TextBox();
+            this.AP3 = new System.Windows.Forms.Label();
+            this.AP3path = new System.Windows.Forms.TextBox();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.label86 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
@@ -248,7 +254,10 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.ListeExportieren = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDialog3 = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -2318,6 +2327,16 @@
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Kunde";
             // 
+            // ListeExportieren
+            // 
+            this.ListeExportieren.Location = new System.Drawing.Point(558, 94);
+            this.ListeExportieren.Name = "ListeExportieren";
+            this.ListeExportieren.Size = new System.Drawing.Size(177, 46);
+            this.ListeExportieren.TabIndex = 158;
+            this.ListeExportieren.Text = "Liste Exportieren";
+            this.ListeExportieren.UseVisualStyleBackColor = true;
+            this.ListeExportieren.Click += new System.EventHandler(this.ListeExportieren_Click);
+            // 
             // label67
             // 
             this.label67.AutoSize = true;
@@ -2575,12 +2594,17 @@
             // 
             // Einstellungen
             // 
+            this.Einstellungen.Controls.Add(this.ExcelAuswahl);
+            this.Einstellungen.Controls.Add(this.BilderAuswahl);
+            this.Einstellungen.Controls.Add(this.EscelPath);
             this.Einstellungen.Controls.Add(this.dataGridView4);
+            this.Einstellungen.Controls.Add(this.AP3Auswahl);
             this.Einstellungen.Controls.Add(this.button1);
-            this.Einstellungen.Controls.Add(this.label94);
-            this.Einstellungen.Controls.Add(this.textBox22);
-            this.Einstellungen.Controls.Add(this.label93);
-            this.Einstellungen.Controls.Add(this.textBox21);
+            this.Einstellungen.Controls.Add(this.Excelliste);
+            this.Einstellungen.Controls.Add(this.Bilder_BAK);
+            this.Einstellungen.Controls.Add(this.BilderPath);
+            this.Einstellungen.Controls.Add(this.AP3);
+            this.Einstellungen.Controls.Add(this.AP3path);
             this.Einstellungen.Controls.Add(this.groupBox20);
             this.Einstellungen.Location = new System.Drawing.Point(4, 28);
             this.Einstellungen.Margin = new System.Windows.Forms.Padding(4);
@@ -2589,6 +2613,39 @@
             this.Einstellungen.TabIndex = 3;
             this.Einstellungen.Text = "Einstellungen";
             this.Einstellungen.UseVisualStyleBackColor = true;
+            // 
+            // ExcelAuswahl
+            // 
+            this.ExcelAuswahl.Location = new System.Drawing.Point(1097, 113);
+            this.ExcelAuswahl.Margin = new System.Windows.Forms.Padding(4);
+            this.ExcelAuswahl.Name = "ExcelAuswahl";
+            this.ExcelAuswahl.Size = new System.Drawing.Size(102, 28);
+            this.ExcelAuswahl.TabIndex = 72;
+            this.ExcelAuswahl.Text = "...";
+            this.ExcelAuswahl.UseVisualStyleBackColor = true;
+            this.ExcelAuswahl.Click += new System.EventHandler(this.ExcelAuswahl_Click);
+            // 
+            // BilderAuswahl
+            // 
+            this.BilderAuswahl.Location = new System.Drawing.Point(1097, 78);
+            this.BilderAuswahl.Margin = new System.Windows.Forms.Padding(4);
+            this.BilderAuswahl.Name = "BilderAuswahl";
+            this.BilderAuswahl.Size = new System.Drawing.Size(102, 28);
+            this.BilderAuswahl.TabIndex = 71;
+            this.BilderAuswahl.Text = "...";
+            this.BilderAuswahl.UseVisualStyleBackColor = true;
+            this.BilderAuswahl.Click += new System.EventHandler(this.BilderAuswahl_Click);
+            // 
+            // EscelPath
+            // 
+            this.EscelPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EscelPath.Location = new System.Drawing.Point(575, 113);
+            this.EscelPath.Margin = new System.Windows.Forms.Padding(4);
+            this.EscelPath.Name = "EscelPath";
+            this.EscelPath.Size = new System.Drawing.Size(501, 28);
+            this.EscelPath.TabIndex = 70;
+            this.EscelPath.Text = "C:\\Users\\AhmedNoman\\source\\repos\\";
+            this.EscelPath.TextChanged += new System.EventHandler(this.EscelPath_TextChanged);
             // 
             // dataGridView4
             // 
@@ -2601,54 +2658,78 @@
             this.dataGridView4.TabIndex = 69;
             this.dataGridView4.Visible = false;
             // 
+            // AP3Auswahl
+            // 
+            this.AP3Auswahl.Location = new System.Drawing.Point(1097, 41);
+            this.AP3Auswahl.Margin = new System.Windows.Forms.Padding(4);
+            this.AP3Auswahl.Name = "AP3Auswahl";
+            this.AP3Auswahl.Size = new System.Drawing.Size(102, 28);
+            this.AP3Auswahl.TabIndex = 68;
+            this.AP3Auswahl.Text = "...";
+            this.AP3Auswahl.UseVisualStyleBackColor = true;
+            this.AP3Auswahl.Click += new System.EventHandler(this.AP3Auswahl_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(616, 130);
+            this.button1.Location = new System.Drawing.Point(766, 154);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 68;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // label94
+            // Excelliste
             // 
-            this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(493, 78);
-            this.label94.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(75, 17);
-            this.label94.TabIndex = 67;
-            this.label94.Text = "Bilder BAK";
+            this.Excelliste.AutoSize = true;
+            this.Excelliste.Location = new System.Drawing.Point(493, 121);
+            this.Excelliste.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Excelliste.Name = "Excelliste";
+            this.Excelliste.Size = new System.Drawing.Size(66, 17);
+            this.Excelliste.TabIndex = 67;
+            this.Excelliste.Text = "Excelliste";
             // 
-            // textBox22
+            // Bilder_BAK
             // 
-            this.textBox22.Location = new System.Drawing.Point(577, 73);
-            this.textBox22.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(181, 22);
-            this.textBox22.TabIndex = 66;
-            this.textBox22.Text = "V:\\EB_Bilder\\Witt IBC BAK";
+            this.Bilder_BAK.AutoSize = true;
+            this.Bilder_BAK.Location = new System.Drawing.Point(484, 86);
+            this.Bilder_BAK.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Bilder_BAK.Name = "Bilder_BAK";
+            this.Bilder_BAK.Size = new System.Drawing.Size(75, 17);
+            this.Bilder_BAK.TabIndex = 67;
+            this.Bilder_BAK.Text = "Bilder BAK";
             // 
-            // label93
+            // BilderPath
             // 
-            this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(533, 44);
-            this.label93.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(34, 17);
-            this.label93.TabIndex = 65;
-            this.label93.Text = "AP3";
+            this.BilderPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BilderPath.Location = new System.Drawing.Point(577, 78);
+            this.BilderPath.Margin = new System.Windows.Forms.Padding(4);
+            this.BilderPath.Name = "BilderPath";
+            this.BilderPath.Size = new System.Drawing.Size(499, 28);
+            this.BilderPath.TabIndex = 66;
+            this.BilderPath.Text = "V:\\EB_Bilder\\Witt IBC BAK";
+            this.BilderPath.TextChanged += new System.EventHandler(this.BilderPath_TextChanged);
             // 
-            // textBox21
+            // AP3
             // 
-            this.textBox21.Location = new System.Drawing.Point(577, 41);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(181, 22);
-            this.textBox21.TabIndex = 64;
-            this.textBox21.Text = "V:\\EB_Bilder\\AP3";
+            this.AP3.AutoSize = true;
+            this.AP3.Location = new System.Drawing.Point(525, 49);
+            this.AP3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AP3.Name = "AP3";
+            this.AP3.Size = new System.Drawing.Size(34, 17);
+            this.AP3.TabIndex = 65;
+            this.AP3.Text = "AP3";
+            // 
+            // AP3path
+            // 
+            this.AP3path.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AP3path.Location = new System.Drawing.Point(577, 41);
+            this.AP3path.Margin = new System.Windows.Forms.Padding(4);
+            this.AP3path.Name = "AP3path";
+            this.AP3path.Size = new System.Drawing.Size(499, 28);
+            this.AP3path.TabIndex = 64;
+            this.AP3path.Text = "V:\\EB_Bilder\\AP3";
+            this.AP3path.TextChanged += new System.EventHandler(this.AP3path_TextChanged);
             // 
             // groupBox20
             // 
@@ -2809,15 +2890,9 @@
             this.timer4.Interval = 500;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // ListeExportieren
+            // openFileDialog1
             // 
-            this.ListeExportieren.Location = new System.Drawing.Point(558, 94);
-            this.ListeExportieren.Name = "ListeExportieren";
-            this.ListeExportieren.Size = new System.Drawing.Size(177, 46);
-            this.ListeExportieren.TabIndex = 158;
-            this.ListeExportieren.Text = "Liste Exportieren";
-            this.ListeExportieren.UseVisualStyleBackColor = true;
-            this.ListeExportieren.Click += new System.EventHandler(this.ListeExportieren_Click);
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -3097,10 +3172,10 @@
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage Einstellungen;
-        private System.Windows.Forms.Label label94;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.Label label93;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Label Bilder_BAK;
+        private System.Windows.Forms.TextBox BilderPath;
+        private System.Windows.Forms.Label AP3;
+        private System.Windows.Forms.TextBox AP3path;
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label85;
@@ -3119,6 +3194,15 @@
         private System.Windows.Forms.DataGridView dataGridView9;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Button ListeExportieren;
+        private System.Windows.Forms.TextBox EscelPath;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button ExcelAuswahl;
+        private System.Windows.Forms.Button BilderAuswahl;
+        private System.Windows.Forms.Button AP3Auswahl;
+        private System.Windows.Forms.Label Excelliste;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog3;
     }
 }
 

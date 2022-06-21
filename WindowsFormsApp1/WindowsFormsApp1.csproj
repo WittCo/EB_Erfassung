@@ -110,6 +110,10 @@
     <Reference Include="HMI.Controls">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Adaptive Vision\Adaptive Vision Library 5.1\bin\x64\HMI.Controls.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="NewElectronicTechnology.SynView.40.x64">
       <HintPath>..\..\..\..\..\..\Program Files\SynView\bin\NewElectronicTechnology.SynView.40.x64.dll</HintPath>
     </Reference>
@@ -157,6 +161,9 @@
     <Compile Include="Einstelungen.Designer.cs">
       <DependentUpon>Einstelungen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Excelutlity.cs" />
+    <Compile Include="Filesmanagment\Einstellungen.cs" />
+    <Compile Include="Filesmanagment\FilesUtlity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +224,7 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -301,6 +309,7 @@
     <Content Include="bin\Debug\EB_Offen\label16.xml" />
     <Content Include="bin\Debug\NewElectronicTechnology.SynView.40.x64.dll" />
     <Content Include="bin\Debug\ProgramMacrofilters.dll" />
+    <Content Include="config\config.txt" />
     <Content Include="picture.ico" />
     <Content Include="WittEyeLogoProto.ico" />
   </ItemGroup>

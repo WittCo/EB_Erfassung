@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WittEyE
 {
@@ -36,6 +37,12 @@ namespace WittEyE
             System.IO.File.WriteAllText(filePath, fileContent.ToString());
         }
 
+        public static void WriteToCsvFile2(DataGridView dataGridView1, string filePath)
+        {
+            DataTable dataTable = convert(dataGridView1);
+            dataTable.ExportToExcel(filePath);
+        }
+
         public static DataTable convert(DataGridView dataGridView1)
         {
             //Creating DataTable.
@@ -48,7 +55,7 @@ namespace WittEyE
             }
 
             //Adding the Rows.
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dataGridView1.Rows )
             {
                 dt.Rows.Add();
                 foreach (DataGridViewCell cell in row.Cells)

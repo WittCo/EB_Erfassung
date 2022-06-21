@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
           //  DataTable dt2 = ddsql.DisplaySQLDatai();
 
 
-         //   dataGridView10.DataSource = dt1;
+          //   dataGridView10.DataSource = dt1;
           //  dataGridView11.DataSource = dt2;
           //  ConnSQL();
 
@@ -933,7 +933,11 @@ namespace WindowsFormsApp1
 
 
 
-
+        /// <summary>
+        /// funktion 
+        /// </summary>
+        /// <param name="inXmlNode">Eingang 1 </param>
+        /// <param name="inTreeNode">Eingang 2</param>
         private void AddNode_XML(XmlNode inXmlNode, TreeNode inTreeNode)
         {
             XmlNode xNode;
@@ -969,6 +973,7 @@ namespace WindowsFormsApp1
             string destPath = @"V:\EB_Offen\";
             //    label14.Text = dataGridView3.CurrentCell.Value.ToString();
             label14.Text = destPath + dataGridView3.CurrentRow.Cells[0].Value.ToString();
+            System.Console.WriteLine(label14.Text);
 
             //  label14.Text = dataGridView3.CurrentRow.Cells[0].Value.ToString() + "\\" + dataGridView3.CurrentRow.Cells[0].Value.ToString();
             char[] MyChar = { 'x', 'm', 'l', '.' };
@@ -2909,7 +2914,18 @@ namespace WindowsFormsApp1
           
         }
 
-     
+        private void ListeExportieren_Click(object sender, EventArgs e)
+        {
+            if (dataGridView3.DataSource != null)
+            {
+                WittEyE.DataTableExtensions.WriteToCsvFile(dataGridView3, @"C:\Users\AhmedNoman\source\repos\MyDataTable.csv"); 
+            }
+            else
+            {
+                    
+            }
+
+        }
 
         private void textBox10_Enter(object sender, EventArgs e)
         {

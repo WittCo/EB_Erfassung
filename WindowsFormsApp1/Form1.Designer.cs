@@ -248,6 +248,7 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.ListeExportieren = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -306,7 +307,6 @@
             this.hilfeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1924, 28);
             this.menuStrip1.TabIndex = 39;
             this.menuStrip1.Text = "Datei";
@@ -487,7 +487,7 @@
             this.tabPage6.Controls.Add(this.radioButton40);
             this.tabPage6.Controls.Add(this.radioButton38);
             this.tabPage6.Location = new System.Drawing.Point(4, 28);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(2536, 1116);
             this.tabPage6.TabIndex = 0;
@@ -511,9 +511,9 @@
             this.groupBox17.Controls.Add(this.label66);
             this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox17.Location = new System.Drawing.Point(1984, 4);
-            this.groupBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox17.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox17.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox17.Size = new System.Drawing.Size(539, 999);
             this.groupBox17.TabIndex = 158;
             this.groupBox17.TabStop = false;
@@ -556,7 +556,7 @@
             // 
             this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox17.Location = new System.Drawing.Point(16, 366);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox17.Margin = new System.Windows.Forms.Padding(4);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(132, 46);
             this.textBox17.TabIndex = 156;
@@ -566,7 +566,7 @@
             // 
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.Location = new System.Drawing.Point(284, 449);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(113, 46);
             this.textBox11.TabIndex = 155;
@@ -609,7 +609,7 @@
             // 
             this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.Location = new System.Drawing.Point(305, 570);
-            this.button20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button20.Margin = new System.Windows.Forms.Padding(4);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(227, 130);
             this.button20.TabIndex = 152;
@@ -621,7 +621,7 @@
             // 
             this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button21.Location = new System.Drawing.Point(24, 570);
-            this.button21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button21.Margin = new System.Windows.Forms.Padding(4);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(227, 130);
             this.button21.TabIndex = 151;
@@ -666,7 +666,7 @@
             // 
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView7.Location = new System.Drawing.Point(941, 799);
-            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.RowHeadersWidth = 51;
             this.dataGridView7.Size = new System.Drawing.Size(1371, 185);
@@ -678,7 +678,7 @@
             this.radioButton40.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton40.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton40.Location = new System.Drawing.Point(1691, 294);
-            this.radioButton40.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton40.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton40.Name = "radioButton40";
             this.radioButton40.Size = new System.Drawing.Size(285, 86);
             this.radioButton40.TabIndex = 152;
@@ -692,7 +692,7 @@
             this.radioButton38.Checked = true;
             this.radioButton38.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton38.Location = new System.Drawing.Point(1691, 402);
-            this.radioButton38.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton38.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton38.Name = "radioButton38";
             this.radioButton38.Size = new System.Drawing.Size(285, 82);
             this.radioButton38.TabIndex = 150;
@@ -708,7 +708,7 @@
             this.tabPage4.Controls.Add(this.dataGridView5);
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(2536, 1116);
             this.tabPage4.TabIndex = 4;
@@ -729,9 +729,9 @@
             this.groupBox15.Controls.Add(this.label36);
             this.groupBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox15.Location = new System.Drawing.Point(1977, 4);
-            this.groupBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox15.Size = new System.Drawing.Size(540, 991);
             this.groupBox15.TabIndex = 148;
             this.groupBox15.TabStop = false;
@@ -751,7 +751,7 @@
             // textBox18
             // 
             this.textBox18.Location = new System.Drawing.Point(16, 417);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(4);
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(132, 37);
             this.textBox18.TabIndex = 157;
@@ -794,7 +794,7 @@
             // 
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.Location = new System.Drawing.Point(276, 489);
-            this.button12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button12.Margin = new System.Windows.Forms.Padding(4);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(227, 130);
             this.button12.TabIndex = 153;
@@ -806,7 +806,7 @@
             // 
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.Location = new System.Drawing.Point(20, 489);
-            this.button16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button16.Margin = new System.Windows.Forms.Padding(4);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(227, 130);
             this.button16.TabIndex = 152;
@@ -851,7 +851,7 @@
             // 
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Location = new System.Drawing.Point(4, 945);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowHeadersWidth = 51;
             this.dataGridView5.Size = new System.Drawing.Size(2372, 126);
@@ -864,7 +864,7 @@
             this.Lohnarbeit.Controls.Add(this.groupBox14);
             this.Lohnarbeit.Controls.Add(this.dataGridView6);
             this.Lohnarbeit.Location = new System.Drawing.Point(4, 28);
-            this.Lohnarbeit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Lohnarbeit.Margin = new System.Windows.Forms.Padding(4);
             this.Lohnarbeit.Name = "Lohnarbeit";
             this.Lohnarbeit.Size = new System.Drawing.Size(2536, 1116);
             this.Lohnarbeit.TabIndex = 2;
@@ -885,9 +885,9 @@
             this.groupBox14.Controls.Add(this.label41);
             this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox14.Location = new System.Drawing.Point(1988, 4);
-            this.groupBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox14.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox14.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox14.Size = new System.Drawing.Size(540, 999);
             this.groupBox14.TabIndex = 147;
             this.groupBox14.TabStop = false;
@@ -908,7 +908,7 @@
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.Location = new System.Drawing.Point(28, 341);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(132, 46);
             this.textBox14.TabIndex = 156;
@@ -951,7 +951,7 @@
             // 
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button17.Location = new System.Drawing.Point(305, 418);
-            this.button17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button17.Margin = new System.Windows.Forms.Padding(4);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(227, 130);
             this.button17.TabIndex = 152;
@@ -963,7 +963,7 @@
             // 
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.Location = new System.Drawing.Point(36, 418);
-            this.button18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button18.Margin = new System.Windows.Forms.Padding(4);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(227, 130);
             this.button18.TabIndex = 151;
@@ -1008,7 +1008,7 @@
             // 
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView6.Location = new System.Drawing.Point(11, 1010);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.RowHeadersWidth = 51;
             this.dataGridView6.Size = new System.Drawing.Size(2389, 98);
@@ -1040,9 +1040,9 @@
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.groupBox10);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(2536, 1116);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Artikel Auswahl";
@@ -1061,9 +1061,9 @@
             this.groupBox16.Controls.Add(this.label55);
             this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox16.Location = new System.Drawing.Point(651, 7);
-            this.groupBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox16.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox16.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox16.Size = new System.Drawing.Size(336, 406);
             this.groupBox16.TabIndex = 147;
             this.groupBox16.TabStop = false;
@@ -1095,7 +1095,7 @@
             // 
             this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox19.Location = new System.Drawing.Point(88, 318);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox19.Margin = new System.Windows.Forms.Padding(4);
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(132, 46);
             this.textBox19.TabIndex = 152;
@@ -1115,7 +1115,7 @@
             // 
             this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox16.Location = new System.Drawing.Point(193, 142);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox16.Margin = new System.Windows.Forms.Padding(4);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(51, 46);
             this.textBox16.TabIndex = 150;
@@ -1175,9 +1175,9 @@
             this.groupBox13.Controls.Add(this.label10);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.Location = new System.Drawing.Point(1831, 7);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox13.Size = new System.Drawing.Size(540, 406);
             this.groupBox13.TabIndex = 146;
             this.groupBox13.TabStop = false;
@@ -1187,7 +1187,7 @@
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(293, 225);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(227, 130);
             this.button7.TabIndex = 139;
@@ -1199,7 +1199,7 @@
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(24, 225);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(227, 130);
             this.button6.TabIndex = 138;
@@ -1266,9 +1266,9 @@
             this.groupBox12.Controls.Add(this.label16);
             this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox12.Location = new System.Drawing.Point(8, 0);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox12.Size = new System.Drawing.Size(635, 417);
             this.groupBox12.TabIndex = 145;
             this.groupBox12.TabStop = false;
@@ -1278,7 +1278,7 @@
             // 
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView9.Location = new System.Drawing.Point(360, 222);
-            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.RowHeadersWidth = 51;
             this.dataGridView9.Size = new System.Drawing.Size(191, 185);
@@ -1311,7 +1311,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(340, 41);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(285, 208);
             this.richTextBox1.TabIndex = 154;
@@ -1404,9 +1404,9 @@
             this.groupBox1.Controls.Add(this.Schütz);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(19, 421);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(312, 622);
             this.groupBox1.TabIndex = 135;
             this.groupBox1.TabStop = false;
@@ -1417,7 +1417,7 @@
             this.radioButton6.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton6.Location = new System.Drawing.Point(8, 544);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(267, 62);
             this.radioButton6.TabIndex = 6;
@@ -1430,7 +1430,7 @@
             this.radioButton5.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton5.Location = new System.Drawing.Point(8, 460);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(267, 62);
             this.radioButton5.TabIndex = 5;
@@ -1443,7 +1443,7 @@
             this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.Location = new System.Drawing.Point(8, 377);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(267, 62);
             this.radioButton1.TabIndex = 4;
@@ -1457,7 +1457,7 @@
             this.radioButton4.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton4.Location = new System.Drawing.Point(8, 293);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(267, 62);
             this.radioButton4.TabIndex = 3;
@@ -1472,7 +1472,7 @@
             this.radioButton3.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton3.Location = new System.Drawing.Point(8, 209);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(267, 62);
             this.radioButton3.TabIndex = 2;
@@ -1485,7 +1485,7 @@
             this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.Location = new System.Drawing.Point(8, 126);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(267, 62);
             this.radioButton2.TabIndex = 1;
@@ -1498,7 +1498,7 @@
             this.Schütz.Appearance = System.Windows.Forms.Appearance.Button;
             this.Schütz.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Schütz.Location = new System.Drawing.Point(8, 42);
-            this.Schütz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Schütz.Margin = new System.Windows.Forms.Padding(4);
             this.Schütz.Name = "Schütz";
             this.Schütz.Size = new System.Drawing.Size(267, 62);
             this.Schütz.TabIndex = 0;
@@ -1513,9 +1513,9 @@
             this.groupBox9.Controls.Add(this.radioButton34);
             this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(1956, 421);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox9.Size = new System.Drawing.Size(315, 622);
             this.groupBox9.TabIndex = 124;
             this.groupBox9.TabStop = false;
@@ -1526,7 +1526,7 @@
             this.radioButton35.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton35.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton35.Location = new System.Drawing.Point(8, 209);
-            this.radioButton35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton35.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton35.Name = "radioButton35";
             this.radioButton35.Size = new System.Drawing.Size(267, 62);
             this.radioButton35.TabIndex = 51;
@@ -1539,7 +1539,7 @@
             this.radioButton33.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton33.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton33.Location = new System.Drawing.Point(8, 126);
-            this.radioButton33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton33.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton33.Name = "radioButton33";
             this.radioButton33.Size = new System.Drawing.Size(267, 62);
             this.radioButton33.TabIndex = 50;
@@ -1552,7 +1552,7 @@
             this.radioButton34.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton34.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton34.Location = new System.Drawing.Point(8, 42);
-            this.radioButton34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton34.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton34.Name = "radioButton34";
             this.radioButton34.Size = new System.Drawing.Size(267, 62);
             this.radioButton34.TabIndex = 49;
@@ -1566,9 +1566,9 @@
             this.groupBox8.Controls.Add(this.radioButton32);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(1747, 421);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox8.Size = new System.Drawing.Size(208, 622);
             this.groupBox8.TabIndex = 121;
             this.groupBox8.TabStop = false;
@@ -1579,7 +1579,7 @@
             this.radioButton31.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton31.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton31.Location = new System.Drawing.Point(25, 126);
-            this.radioButton31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton31.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton31.Name = "radioButton31";
             this.radioButton31.Size = new System.Drawing.Size(157, 62);
             this.radioButton31.TabIndex = 48;
@@ -1592,7 +1592,7 @@
             this.radioButton32.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton32.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton32.Location = new System.Drawing.Point(25, 42);
-            this.radioButton32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton32.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton32.Name = "radioButton32";
             this.radioButton32.Size = new System.Drawing.Size(157, 62);
             this.radioButton32.TabIndex = 47;
@@ -1606,9 +1606,9 @@
             this.groupBox7.Controls.Add(this.radioButton30);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(1536, 421);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox7.Size = new System.Drawing.Size(208, 622);
             this.groupBox7.TabIndex = 123;
             this.groupBox7.TabStop = false;
@@ -1619,7 +1619,7 @@
             this.radioButton29.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton29.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton29.Location = new System.Drawing.Point(8, 127);
-            this.radioButton29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton29.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton29.Name = "radioButton29";
             this.radioButton29.Size = new System.Drawing.Size(157, 62);
             this.radioButton29.TabIndex = 46;
@@ -1633,7 +1633,7 @@
             this.radioButton30.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton30.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton30.Location = new System.Drawing.Point(8, 42);
-            this.radioButton30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton30.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton30.Name = "radioButton30";
             this.radioButton30.Size = new System.Drawing.Size(157, 62);
             this.radioButton30.TabIndex = 45;
@@ -1648,9 +1648,9 @@
             this.groupBox6.Controls.Add(this.radioButton27);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(1325, 421);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox6.Size = new System.Drawing.Size(208, 622);
             this.groupBox6.TabIndex = 120;
             this.groupBox6.TabStop = false;
@@ -1661,7 +1661,7 @@
             this.radioButton28.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton28.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton28.Location = new System.Drawing.Point(8, 127);
-            this.radioButton28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton28.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton28.Name = "radioButton28";
             this.radioButton28.Size = new System.Drawing.Size(157, 62);
             this.radioButton28.TabIndex = 44;
@@ -1675,7 +1675,7 @@
             this.radioButton27.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton27.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton27.Location = new System.Drawing.Point(8, 42);
-            this.radioButton27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton27.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton27.Name = "radioButton27";
             this.radioButton27.Size = new System.Drawing.Size(157, 62);
             this.radioButton27.TabIndex = 43;
@@ -1694,9 +1694,9 @@
             this.groupBox5.Controls.Add(this.radioButton15);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(1011, 421);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(312, 622);
             this.groupBox5.TabIndex = 122;
             this.groupBox5.TabStop = false;
@@ -1707,7 +1707,7 @@
             this.radioButton20.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton20.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton20.Location = new System.Drawing.Point(8, 460);
-            this.radioButton20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton20.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton20.Name = "radioButton20";
             this.radioButton20.Size = new System.Drawing.Size(267, 62);
             this.radioButton20.TabIndex = 47;
@@ -1720,7 +1720,7 @@
             this.radioButton19.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton19.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton19.Location = new System.Drawing.Point(8, 379);
-            this.radioButton19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton19.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton19.Name = "radioButton19";
             this.radioButton19.Size = new System.Drawing.Size(267, 62);
             this.radioButton19.TabIndex = 46;
@@ -1734,7 +1734,7 @@
             this.radioButton18.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton18.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton18.Location = new System.Drawing.Point(8, 293);
-            this.radioButton18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton18.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton18.Name = "radioButton18";
             this.radioButton18.Size = new System.Drawing.Size(267, 62);
             this.radioButton18.TabIndex = 45;
@@ -1748,7 +1748,7 @@
             this.radioButton17.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton17.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton17.Location = new System.Drawing.Point(8, 209);
-            this.radioButton17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton17.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton17.Name = "radioButton17";
             this.radioButton17.Size = new System.Drawing.Size(267, 62);
             this.radioButton17.TabIndex = 44;
@@ -1762,7 +1762,7 @@
             this.radioButton16.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton16.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton16.Location = new System.Drawing.Point(8, 128);
-            this.radioButton16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton16.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton16.Name = "radioButton16";
             this.radioButton16.Size = new System.Drawing.Size(267, 62);
             this.radioButton16.TabIndex = 43;
@@ -1776,7 +1776,7 @@
             this.radioButton15.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton15.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton15.Location = new System.Drawing.Point(8, 42);
-            this.radioButton15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton15.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton15.Name = "radioButton15";
             this.radioButton15.Size = new System.Drawing.Size(267, 62);
             this.radioButton15.TabIndex = 42;
@@ -1795,9 +1795,9 @@
             this.groupBox4.Controls.Add(this.radioButton26);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(801, 421);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(208, 622);
             this.groupBox4.TabIndex = 119;
             this.groupBox4.TabStop = false;
@@ -1808,7 +1808,7 @@
             this.radioButton21.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton21.Location = new System.Drawing.Point(8, 460);
-            this.radioButton21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton21.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton21.Name = "radioButton21";
             this.radioButton21.Size = new System.Drawing.Size(157, 62);
             this.radioButton21.TabIndex = 53;
@@ -1822,7 +1822,7 @@
             this.radioButton22.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton22.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton22.Location = new System.Drawing.Point(8, 377);
-            this.radioButton22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton22.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton22.Name = "radioButton22";
             this.radioButton22.Size = new System.Drawing.Size(157, 62);
             this.radioButton22.TabIndex = 52;
@@ -1836,7 +1836,7 @@
             this.radioButton23.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton23.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton23.Location = new System.Drawing.Point(8, 293);
-            this.radioButton23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton23.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton23.Name = "radioButton23";
             this.radioButton23.Size = new System.Drawing.Size(157, 62);
             this.radioButton23.TabIndex = 51;
@@ -1850,7 +1850,7 @@
             this.radioButton24.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton24.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton24.Location = new System.Drawing.Point(8, 212);
-            this.radioButton24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton24.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton24.Name = "radioButton24";
             this.radioButton24.Size = new System.Drawing.Size(157, 62);
             this.radioButton24.TabIndex = 50;
@@ -1864,7 +1864,7 @@
             this.radioButton25.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton25.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton25.Location = new System.Drawing.Point(8, 128);
-            this.radioButton25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton25.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton25.Name = "radioButton25";
             this.radioButton25.Size = new System.Drawing.Size(157, 62);
             this.radioButton25.TabIndex = 49;
@@ -1878,7 +1878,7 @@
             this.radioButton26.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton26.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton26.Location = new System.Drawing.Point(8, 42);
-            this.radioButton26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton26.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton26.Name = "radioButton26";
             this.radioButton26.Size = new System.Drawing.Size(157, 62);
             this.radioButton26.TabIndex = 48;
@@ -1894,9 +1894,9 @@
             this.groupBox3.Controls.Add(this.radioButton12);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(625, 421);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(175, 622);
             this.groupBox3.TabIndex = 118;
             this.groupBox3.TabStop = false;
@@ -1907,7 +1907,7 @@
             this.radioButton14.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton14.Location = new System.Drawing.Point(8, 209);
-            this.radioButton14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton14.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton14.Name = "radioButton14";
             this.radioButton14.Size = new System.Drawing.Size(157, 62);
             this.radioButton14.TabIndex = 37;
@@ -1921,7 +1921,7 @@
             this.radioButton13.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton13.Location = new System.Drawing.Point(8, 128);
-            this.radioButton13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton13.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton13.Name = "radioButton13";
             this.radioButton13.Size = new System.Drawing.Size(157, 62);
             this.radioButton13.TabIndex = 36;
@@ -1936,7 +1936,7 @@
             this.radioButton12.BackColor = System.Drawing.SystemColors.ControlLight;
             this.radioButton12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton12.Location = new System.Drawing.Point(4, 39);
-            this.radioButton12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton12.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(167, 70);
             this.radioButton12.TabIndex = 35;
@@ -1954,9 +1954,9 @@
             this.groupBox2.Controls.Add(this.radioButton8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(331, 421);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(296, 622);
             this.groupBox2.TabIndex = 117;
             this.groupBox2.TabStop = false;
@@ -1967,7 +1967,7 @@
             this.radioButton7.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton7.Location = new System.Drawing.Point(17, 375);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton7.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(267, 62);
             this.radioButton7.TabIndex = 6;
@@ -1980,7 +1980,7 @@
             this.radioButton11.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton11.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton11.Location = new System.Drawing.Point(17, 289);
-            this.radioButton11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton11.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(267, 62);
             this.radioButton11.TabIndex = 5;
@@ -1993,7 +1993,7 @@
             this.radioButton10.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton10.Location = new System.Drawing.Point(17, 208);
-            this.radioButton10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton10.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton10.Name = "radioButton10";
             this.radioButton10.Size = new System.Drawing.Size(267, 62);
             this.radioButton10.TabIndex = 4;
@@ -2006,7 +2006,7 @@
             this.radioButton9.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton9.Location = new System.Drawing.Point(17, 124);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton9.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton9.Name = "radioButton9";
             this.radioButton9.Size = new System.Drawing.Size(267, 62);
             this.radioButton9.TabIndex = 3;
@@ -2020,7 +2020,7 @@
             this.radioButton8.BackColor = System.Drawing.SystemColors.ControlLight;
             this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton8.Location = new System.Drawing.Point(17, 38);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton8.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(267, 62);
             this.radioButton8.TabIndex = 2;
@@ -2032,7 +2032,7 @@
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.Location = new System.Drawing.Point(384, 183);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(173, 49);
             this.textBox9.TabIndex = 115;
@@ -2042,7 +2042,7 @@
             // 
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.Location = new System.Drawing.Point(204, 368);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(173, 49);
             this.textBox8.TabIndex = 113;
@@ -2052,7 +2052,7 @@
             // 
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.Location = new System.Drawing.Point(21, 368);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(173, 49);
             this.textBox7.TabIndex = 109;
@@ -2062,7 +2062,7 @@
             // 
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(204, 308);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(173, 49);
             this.textBox6.TabIndex = 108;
@@ -2072,7 +2072,7 @@
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(204, 251);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(173, 49);
             this.textBox5.TabIndex = 107;
@@ -2082,7 +2082,7 @@
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(204, 183);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(173, 49);
             this.textBox4.TabIndex = 102;
@@ -2092,7 +2092,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(27, 308);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(173, 49);
             this.textBox3.TabIndex = 101;
@@ -2102,7 +2102,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(27, 251);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(173, 49);
             this.textBox2.TabIndex = 100;
@@ -2112,7 +2112,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(29, 183);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(165, 49);
             this.textBox1.TabIndex = 99;
@@ -2130,9 +2130,9 @@
             this.groupBox10.Controls.Add(this.radioButton36);
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(995, 7);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox10.Size = new System.Drawing.Size(828, 406);
             this.groupBox10.TabIndex = 140;
             this.groupBox10.TabStop = false;
@@ -2141,7 +2141,7 @@
             // button19
             // 
             this.button19.Location = new System.Drawing.Point(15, 263);
-            this.button19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button19.Margin = new System.Windows.Forms.Padding(4);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(556, 86);
             this.button19.TabIndex = 154;
@@ -2154,7 +2154,7 @@
             this.radioButton45.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton45.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton45.Location = new System.Drawing.Point(304, 156);
-            this.radioButton45.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton45.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton45.Name = "radioButton45";
             this.radioButton45.Size = new System.Drawing.Size(267, 86);
             this.radioButton45.TabIndex = 153;
@@ -2168,7 +2168,7 @@
             this.radioButton44.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton44.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton44.Location = new System.Drawing.Point(304, 41);
-            this.radioButton44.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton44.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton44.Name = "radioButton44";
             this.radioButton44.Size = new System.Drawing.Size(267, 82);
             this.radioButton44.TabIndex = 152;
@@ -2183,7 +2183,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataGridView2.Location = new System.Drawing.Point(21, 130);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.Size = new System.Drawing.Size(739, 12);
@@ -2205,7 +2205,7 @@
             // 
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.Location = new System.Drawing.Point(601, 297);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(96, 46);
             this.textBox12.TabIndex = 6;
@@ -2217,7 +2217,7 @@
             this.radioButton37.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButton37.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton37.Location = new System.Drawing.Point(16, 156);
-            this.radioButton37.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton37.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton37.Name = "radioButton37";
             this.radioButton37.Size = new System.Drawing.Size(267, 86);
             this.radioButton37.TabIndex = 1;
@@ -2234,7 +2234,7 @@
             this.radioButton36.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton36.ForeColor = System.Drawing.SystemColors.ControlText;
             this.radioButton36.Location = new System.Drawing.Point(15, 37);
-            this.radioButton36.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton36.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton36.Name = "radioButton36";
             this.radioButton36.Size = new System.Drawing.Size(267, 86);
             this.radioButton36.TabIndex = 0;
@@ -2258,9 +2258,9 @@
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(2536, 1116);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
@@ -2271,9 +2271,9 @@
             // 
             this.groupBox19.Controls.Add(this.panel1);
             this.groupBox19.Location = new System.Drawing.Point(4, 12);
-            this.groupBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox19.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox19.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox19.Size = new System.Drawing.Size(395, 222);
             this.groupBox19.TabIndex = 153;
             this.groupBox19.TabStop = false;
@@ -2283,7 +2283,7 @@
             // 
             this.panel1.Controls.Add(this.textBox10);
             this.panel1.Location = new System.Drawing.Point(4, 23);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(383, 191);
             this.panel1.TabIndex = 32;
@@ -2292,7 +2292,7 @@
             // 
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.Location = new System.Drawing.Point(11, 63);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(344, 49);
             this.textBox10.TabIndex = 0;
@@ -2302,6 +2302,7 @@
             // 
             // groupBox18
             // 
+            this.groupBox18.Controls.Add(this.ListeExportieren);
             this.groupBox18.Controls.Add(this.label67);
             this.groupBox18.Controls.Add(this.label76);
             this.groupBox18.Controls.Add(this.label18);
@@ -2309,9 +2310,9 @@
             this.groupBox18.Controls.Add(this.label34);
             this.groupBox18.Controls.Add(this.label43);
             this.groupBox18.Location = new System.Drawing.Point(403, 12);
-            this.groupBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox18.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox18.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox18.Size = new System.Drawing.Size(1432, 222);
             this.groupBox18.TabIndex = 152;
             this.groupBox18.TabStop = false;
@@ -2387,7 +2388,7 @@
             // 
             this.dataGridView12.ColumnHeadersHeight = 29;
             this.dataGridView12.Location = new System.Drawing.Point(1352, 862);
-            this.dataGridView12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView12.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.RowHeadersWidth = 51;
             this.dataGridView12.Size = new System.Drawing.Size(619, 85);
@@ -2398,7 +2399,7 @@
             // 
             this.dataGridView11.ColumnHeadersHeight = 29;
             this.dataGridView11.Location = new System.Drawing.Point(803, 862);
-            this.dataGridView11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView11.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView11.Name = "dataGridView11";
             this.dataGridView11.RowHeadersWidth = 51;
             this.dataGridView11.Size = new System.Drawing.Size(541, 85);
@@ -2420,7 +2421,7 @@
             // 
             this.dataGridView10.ColumnHeadersHeight = 29;
             this.dataGridView10.Location = new System.Drawing.Point(381, 954);
-            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView10.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.RowHeadersWidth = 51;
             this.dataGridView10.Size = new System.Drawing.Size(863, 105);
@@ -2442,7 +2443,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView8.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView8.Location = new System.Drawing.Point(1280, 324);
-            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.RowHeadersWidth = 51;
             this.dataGridView8.Size = new System.Drawing.Size(880, 758);
@@ -2452,7 +2453,7 @@
             // button15
             // 
             this.button15.Location = new System.Drawing.Point(1048, 1089);
-            this.button15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(100, 28);
             this.button15.TabIndex = 23;
@@ -2493,7 +2494,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(73, 977);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(767, 33);
@@ -2522,7 +2523,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView3.Location = new System.Drawing.Point(19, 324);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 200;
@@ -2537,7 +2538,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(381, 1084);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 5;
@@ -2565,7 +2566,7 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.Einstellungen);
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(2544, 1148);
@@ -2582,7 +2583,7 @@
             this.Einstellungen.Controls.Add(this.textBox21);
             this.Einstellungen.Controls.Add(this.groupBox20);
             this.Einstellungen.Location = new System.Drawing.Point(4, 28);
-            this.Einstellungen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Einstellungen.Margin = new System.Windows.Forms.Padding(4);
             this.Einstellungen.Name = "Einstellungen";
             this.Einstellungen.Size = new System.Drawing.Size(2536, 1116);
             this.Einstellungen.TabIndex = 3;
@@ -2593,7 +2594,7 @@
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(109, 294);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.Size = new System.Drawing.Size(320, 185);
@@ -2603,7 +2604,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(616, 130);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 68;
@@ -2624,7 +2625,7 @@
             // textBox22
             // 
             this.textBox22.Location = new System.Drawing.Point(577, 73);
-            this.textBox22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox22.Margin = new System.Windows.Forms.Padding(4);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(181, 22);
             this.textBox22.TabIndex = 66;
@@ -2643,7 +2644,7 @@
             // textBox21
             // 
             this.textBox21.Location = new System.Drawing.Point(577, 41);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox21.Margin = new System.Windows.Forms.Padding(4);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(181, 22);
             this.textBox21.TabIndex = 64;
@@ -2664,9 +2665,9 @@
             this.groupBox20.Controls.Add(this.label8);
             this.groupBox20.Controls.Add(this.label7);
             this.groupBox20.Location = new System.Drawing.Point(24, 28);
-            this.groupBox20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox20.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox20.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox20.Size = new System.Drawing.Size(441, 239);
             this.groupBox20.TabIndex = 60;
             this.groupBox20.TabStop = false;
@@ -2808,6 +2809,16 @@
             this.timer4.Interval = 500;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
+            // ListeExportieren
+            // 
+            this.ListeExportieren.Location = new System.Drawing.Point(558, 94);
+            this.ListeExportieren.Name = "ListeExportieren";
+            this.ListeExportieren.Size = new System.Drawing.Size(177, 46);
+            this.ListeExportieren.TabIndex = 158;
+            this.ListeExportieren.Text = "Liste Exportieren";
+            this.ListeExportieren.UseVisualStyleBackColor = true;
+            this.ListeExportieren.Click += new System.EventHandler(this.ListeExportieren_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2818,7 +2829,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -3107,6 +3118,7 @@
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridView dataGridView9;
         private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Button ListeExportieren;
     }
 }
 

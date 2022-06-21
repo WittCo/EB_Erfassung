@@ -14,7 +14,6 @@ using System.Diagnostics;
 using System.Xml.Linq;
 using Path = System.IO.Path;
 using Size = System.Drawing.Size;
-using AdaptiveVision;
 using AvlNet;
 using NewElectronicTechnology.SynView;
 using System.Data.Sql;

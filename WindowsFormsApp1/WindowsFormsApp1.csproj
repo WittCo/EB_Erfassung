@@ -141,6 +141,7 @@
       <DependentUpon>Bilder_AP3.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="DataTableExtensions.cs" />
     <Compile Include="DD_AP3.cs" />
     <Compile Include="DD_FrontEnd.cs" />
     <Compile Include="DD_Sql.cs" />

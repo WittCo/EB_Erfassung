@@ -11,7 +11,7 @@ namespace WittEyE.Filesmanagment
             if (AbsolutePath == null)
             {
                 FileInfo _dataRoot = new FileInfo(typeof(Program).Assembly.Location);
-                AbsolutePath = _dataRoot.Directory.FullName + @"\..\..\";
+                AbsolutePath = _dataRoot.Directory.FullName + @"\";
             }
             return Path.Combine(AbsolutePath, relativePath);
         }

@@ -55,7 +55,7 @@ namespace WittEyE
                 {
                     try
                     {
-                        excelFilePath += "_" + DateTime.Now.ToShortDateString() + ".xlsx";
+                        excelFilePath += "\\Offene Besellungen_" + DateTime.Now.ToShortDateString() + ".xlsx";
                         workSheet.SaveAs(excelFilePath);
                         excelApp.Quit();
                         MessageBox.Show("Excelliste ist gespeichert");

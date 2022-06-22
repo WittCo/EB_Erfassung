@@ -2915,7 +2915,7 @@ namespace WindowsFormsApp1
         {
             if (dataGridView3.DataSource != null)
             {
-                WittEyE.DataTableExtensions.WriteToCsvFile2(dataGridView3, @"C:\Users\AhmedNoman\source\repos\MyDataTable"); 
+                WittEyE.DataTableExtensions.WriteToCsvFile2(dataGridView3, EscelPath.Text); 
             }
             else
             {
